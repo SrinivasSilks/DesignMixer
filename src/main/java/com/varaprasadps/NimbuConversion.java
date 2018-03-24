@@ -11,16 +11,16 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class RaniConversion {
+public class NimbuConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/rani-%s-%s.bmp";
+        String out = "z-data/out/nimbu-%s-%s.bmp";
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         inputBIs.add(EmptyGenerator.get(1200, 48));
-        inputBIs.add(ImageIO.read(new File("z-data/in/BROCKET_RANI.bmp")));
-        inputBIs.add(HorizontalRepeatGenerator.get(4, ImageIO.read(new File("z-data/in/BORDER_RANI.bmp"))));
+        inputBIs.add(ImageIO.read(new File("z-data/in/BROCKET_NIMBU.bmp")));
+        inputBIs.add(HorizontalRepeatGenerator.get(4, ImageIO.read(new File("z-data/in/BORDER_NIMBU.bmp"))));
         inputBIs.add(EmptyGenerator.get(1200, 16));
 
         int repeatWidth = 0;
