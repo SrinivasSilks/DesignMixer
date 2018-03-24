@@ -1,0 +1,15 @@
+# Ignore idea generated files
+
+.idea/**
+*.iml
+*.ipr
+*.iws
+out/
+
+# Ignore gradle files
+
+.gradle/
+
+# DesignMixer Ignore files
+
+z-data/**
