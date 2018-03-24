@@ -12,11 +12,11 @@ public class PlainGenerator {
     public static void main(final String[] args) throws IOException {
         int x = 1824;
         int y = 16;
-        BufferedImage img = map(x, y);
+        BufferedImage img = get(x, y);
         saveBMP(img, String.format("z-data/out/plain-%s-%s.bmp", x, y));
     }
 
-    private static BufferedImage map(int sizeX, int sizeY) {
+    public static BufferedImage get(int sizeX, int sizeY) {
         final BufferedImage res = new BufferedImage(sizeX, sizeY, BufferedImage.TYPE_INT_RGB);
         Color start;
         Color other;

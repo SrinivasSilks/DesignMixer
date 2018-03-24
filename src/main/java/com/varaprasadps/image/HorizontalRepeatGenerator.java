@@ -28,6 +28,10 @@ public class HorizontalRepeatGenerator {
         System.out.println(String.format("Width : %s, Height : %s", fileOne.getWidth(), fileOne.getHeight()));
     }
 
+    public static BufferedImage get(int times, BufferedImage input) {
+        return map(input.getWidth() * times, input.getHeight(), input);
+    }
+
     private static BufferedImage map(int sizeX, int sizeY, BufferedImage input) {
         final BufferedImage result = new BufferedImage(sizeX, sizeY, BufferedImage.TYPE_INT_RGB);
         int inputWidth = input.getWidth();

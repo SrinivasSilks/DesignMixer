@@ -34,7 +34,7 @@ public class AddLayoutGenerator {
             repeatHeight += bi.getHeight();
         }
 
-        BufferedImage bi = map(repeatWidth, repeatHeight, inputBIs);
+        BufferedImage bi = get(repeatWidth, repeatHeight, inputBIs);
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
     }
@@ -43,7 +43,7 @@ public class AddLayoutGenerator {
         System.out.println(String.format("Width : %s, Height : %s", fileOne.getWidth(), fileOne.getHeight()));
     }
 
-    private static BufferedImage map(int sizeX, int sizeY, List<BufferedImage> inputBIs) {
+    public static BufferedImage get(int sizeX, int sizeY, List<BufferedImage> inputBIs) {
         final BufferedImage result = new BufferedImage(sizeX, sizeY, BufferedImage.TYPE_INT_RGB);
         int yRes = 0;
         int index = 0;
