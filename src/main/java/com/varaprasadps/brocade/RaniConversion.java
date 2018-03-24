@@ -1,4 +1,4 @@
-package com.varaprasadps;
+package com.varaprasadps.brocade;
 
 import com.varaprasadps.image.AddLayoutGenerator;
 import com.varaprasadps.image.EmptyGenerator;

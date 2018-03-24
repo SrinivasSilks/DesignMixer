@@ -38,6 +38,18 @@ public class ColumnRepeatGenerator {
         System.out.println(String.format("Width : %s, Height : %s", fileOne.getWidth(), fileOne.getHeight()));
     }
 
+    public static BufferedImage get(List<BufferedImage> inputBIs) {
+        int repeatWidth = 0;
+        int repeatHeight = 0;
+
+        for (BufferedImage bi : inputBIs) {
+            displayPixels(bi);
+            repeatWidth += bi.getWidth();
+            repeatHeight = bi.getHeight();
+        }
+        return map(repeatWidth, repeatHeight, inputBIs);
+    }
+
     private static BufferedImage map(int sizeX, int sizeY, List<BufferedImage> inputBIs) {
         int key = inputBIs.size();
         final BufferedImage result = new BufferedImage(sizeX, sizeY, BufferedImage.TYPE_INT_RGB);
