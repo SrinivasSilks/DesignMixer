@@ -43,14 +43,14 @@ public class RowRepeatGenerator {
         final BufferedImage result = new BufferedImage(sizeX, sizeY, BufferedImage.TYPE_INT_RGB);
         for (int colId = 0; colId < sizeY; colId++) {
             int turn = colId % key;
-            copyRow(colId, result, inputBIs.get(turn));
+            copyRow(colId, key, result, inputBIs.get(turn));
         }
         return result;
     }
 
-    private static void copyRow(int colId, BufferedImage result, BufferedImage fileOne) {
+    private static void copyRow(int colId, int key, BufferedImage result, BufferedImage fileOne) {
         for (int x = 0; x < fileOne.getWidth(); x++) {
-            result.setRGB(x, colId, fileOne.getRGB(x, colId / 2));
+            result.setRGB(x, colId, fileOne.getRGB(x, colId / key));
         }
     }
 
