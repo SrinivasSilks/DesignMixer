@@ -11,7 +11,7 @@ public class KaliGenerator {
 
 
     public static void main(final String[] args) throws IOException {
-        int x = 300;
+        int x = 1824;
         int y = 16;
         BufferedImage img = map(x, y);
         saveBMP(img, String.format("z-data/out/kali-%s-%s.bmp", x, y));
