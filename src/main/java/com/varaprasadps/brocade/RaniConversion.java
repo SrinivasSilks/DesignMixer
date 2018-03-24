@@ -3,6 +3,7 @@ package com.varaprasadps.brocade;
 import com.varaprasadps.image.AddLayoutGenerator;
 import com.varaprasadps.image.EmptyGenerator;
 import com.varaprasadps.image.HorizontalRepeatGenerator;
+import com.varaprasadps.image.ReverseGenerator;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -18,10 +19,10 @@ public class RaniConversion {
         String out = "z-data/out/rani-%s-%s.bmp";
 
         List<BufferedImage> inputBIs = new LinkedList<>();
-        inputBIs.add(EmptyGenerator.get(1200, 48));
+        inputBIs.add(EmptyGenerator.get(1200, 16));
         inputBIs.add(ImageIO.read(new File("z-data/in/BROCKET_RANI.bmp")));
         inputBIs.add(HorizontalRepeatGenerator.get(4, ImageIO.read(new File("z-data/in/BORDER_RANI.bmp"))));
-        inputBIs.add(EmptyGenerator.get(1200, 16));
+        inputBIs.add(EmptyGenerator.get(1200, 48));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -31,7 +32,7 @@ public class RaniConversion {
             repeatWidth = bi.getWidth();
             repeatHeight += bi.getHeight();
         }
-        BufferedImage bi = AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs);
+        BufferedImage bi = ReverseGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
     }

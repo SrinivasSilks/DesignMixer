@@ -13,6 +13,11 @@ public class BrocadeConversion {
 
 
     public static void main(final String[] args) throws IOException {
+
+        JariConversion.main(null);
+        NimbuConversion.main(null);
+        RaniConversion.main(null);
+
         String out = "z-data/out/brocade-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
