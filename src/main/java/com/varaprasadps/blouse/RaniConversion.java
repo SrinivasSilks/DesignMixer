@@ -19,9 +19,9 @@ public class RaniConversion {
         String out = "z-data/out/b-rani-%s-%s.bmp";
 
         List<BufferedImage> inputBIs = new LinkedList<>();
-        inputBIs.add(EmptyGenerator.get(300, 48));
+        inputBIs.add(EmptyGenerator.get(300, 848));
         inputBIs.add(ImageIO.read(new File("z-data/in/BORDER_RANI.bmp")));
-        inputBIs.add(EmptyGenerator.get(300, 816));
+        inputBIs.add(EmptyGenerator.get(300, 16));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
