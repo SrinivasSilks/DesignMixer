@@ -19,7 +19,9 @@ public class NimbuConversion {
         String out = "z-data/out/nimbu-%s-%s.bmp";
 
         List<BufferedImage> inputBIs = new LinkedList<>();
-        inputBIs.add(EmptyGenerator.get(1200, 48));
+        inputBIs.add(EmptyGenerator.get(1200, 32));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(1200, 4)));
+        inputBIs.add(EmptyGenerator.get(1200, 12));
         inputBIs.add(ImageIO.read(new File("z-data/in/BROCKET_NIMBU.bmp")));
         inputBIs.add(HorizontalRepeatGenerator.get(4, ImageIO.read(new File("z-data/in/BORDER_NIMBU.bmp"))));
         inputBIs.add(EmptyGenerator.get(1200, 16));

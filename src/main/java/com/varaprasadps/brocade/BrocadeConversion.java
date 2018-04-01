@@ -21,9 +21,9 @@ public class BrocadeConversion {
         String out = "z-data/out/brocade-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
+        inputs.add("z-data/out/rani-1200-1824.bmp");
         inputs.add("z-data/out/jari-1200-1824.bmp");
         inputs.add("z-data/out/nimbu-1200-1824.bmp");
-        inputs.add("z-data/out/rani-1200-1824.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {

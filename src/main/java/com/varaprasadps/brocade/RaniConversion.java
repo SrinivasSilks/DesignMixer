@@ -19,8 +19,10 @@ public class RaniConversion {
         String out = "z-data/out/rani-%s-%s.bmp";
 
         List<BufferedImage> inputBIs = new LinkedList<>();
-        inputBIs.add(EmptyGenerator.get(1200, 48));
-        inputBIs.add(ImageIO.read(new File("z-data/in/BROCKET_RANI.bmp")));
+        inputBIs.add(EmptyGenerator.get(1200, 32));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(1200, 2)));
+        inputBIs.add(EmptyGenerator.get(1200, 2));
+        inputBIs.add(EmptyGenerator.get(1200, 12));        inputBIs.add(ImageIO.read(new File("z-data/in/BROCKET_RANI.bmp")));
         inputBIs.add(HorizontalRepeatGenerator.get(4, ImageIO.read(new File("z-data/in/BORDER_RANI.bmp"))));
         inputBIs.add(EmptyGenerator.get(1200, 16));
 
