@@ -17,11 +17,13 @@ public class SplitGenerator {
 
         String input = "z-data/out/brocade-3600-1824.bmp";
         BufferedImage inputBI = ImageIO.read(new File(input));
-        int width = inputBI.getWidth();
-        int height = inputBI.getHeight() / 2;
+        int number = 2;
 
-        List<BufferedImage> outputs = get(inputBI);
+        List<BufferedImage> outputs = get(inputBI, number);
         displayPixels(outputs);
+
+        int width = inputBI.getWidth();
+        int height = inputBI.getHeight() / number;
         saveBMP(outputs, out, width, height);
     }
 
@@ -31,10 +33,10 @@ public class SplitGenerator {
         );
     }
 
-    public static List<BufferedImage> get(BufferedImage input) {
+    public static List<BufferedImage> get(BufferedImage input, int number) {
         List<BufferedImage> results = new LinkedList<>();
         int width = input.getWidth();
-        int height = input.getHeight() / 2;
+        int height = input.getHeight() / number;
         int y = 0;
         while (y < input.getHeight()) {
             final BufferedImage bi = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);

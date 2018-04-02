@@ -15,7 +15,8 @@ public class ArielLayoutGenerator {
         String input = "z-data/in/6/JARI.bmp";
         BufferedImage inputBI = ImageIO.read(new File(input));
         int number = 109;
-        BufferedImage result = get(inputBI, number);
+        BufferedImage ariel = ReverseGenerator.get(StepLayoutGenerator.get(inputBI.getWidth()));
+        BufferedImage result = get(inputBI, number, ariel);
         displayPixels(result);
         saveBMP(result);
     }
@@ -24,30 +25,17 @@ public class ArielLayoutGenerator {
         System.out.println(String.format("Width : %s, Height : %s", fileOne.getWidth(), fileOne.getHeight()));
     }
 
-    public static BufferedImage get(BufferedImage input, int number) {
-        int width = input.getWidth();
-        int sHeight = input.getHeight() / number;
-        List<BufferedImage> split = new LinkedList<>();
-        int y = 0;
-        while (y < input.getHeight()) {
-            final BufferedImage bi = new BufferedImage(width, sHeight, BufferedImage.TYPE_INT_RGB);
-            int yRes = 0;
-            while (yRes < bi.getHeight()) {
-                copyRow(yRes, bi, y, input);
-                y++;
-                yRes++;
-            }
-            split.add(bi);
-        }
+    public static BufferedImage get(BufferedImage input, int number, BufferedImage ariel) {
+        List<BufferedImage> split = SplitGenerator.get(input, number);
         int rHeight = 0;
         List<BufferedImage> results = new LinkedList<>();
         for (int i = 0; i < split.size(); i++) {
             BufferedImage bi = split.get(i);
             results.add(bi);
-            results.add(ReverseGenerator.get(StepLayoutGenerator.get(width)));
+            results.add(ariel);
             rHeight += bi.getHeight() + 4;
         }
-        return AddLayoutGenerator.get(width, rHeight, results);
+        return AddLayoutGenerator.get(input.getWidth(), rHeight, results);
     }
 
     private static void saveBMP(final BufferedImage output) throws IOException {
