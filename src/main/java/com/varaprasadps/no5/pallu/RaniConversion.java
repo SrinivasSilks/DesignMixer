@@ -1,6 +1,9 @@
-package com.varaprasadps.blouse;
+package com.varaprasadps.no5.pallu;
 
-import com.varaprasadps.image.*;
+import com.varaprasadps.image.AddLayoutGenerator;
+import com.varaprasadps.image.EmptyGenerator;
+import com.varaprasadps.image.HorizontalRepeatGenerator;
+import com.varaprasadps.image.ReverseGenerator;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -9,16 +12,19 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class JariConversion {
+public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/b-jari-%s-%s.bmp";
+        String out = "z-data/out/5/p-rani-%s-%s.bmp";
 
         List<BufferedImage> inputBIs = new LinkedList<>();
-        inputBIs.add(EmptyGenerator.get(300, 848));
-        inputBIs.add(ImageIO.read(new File("z-data/in/BORDER_JARI.bmp")));
-        inputBIs.add(EmptyGenerator.get(300, 16));
+        inputBIs.add(EmptyGenerator.get(1920, 32));
+        inputBIs.add(EmptyGenerator.get(1920, 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(1200, 2)));
+        inputBIs.add(EmptyGenerator.get(1920, 12));
+        inputBIs.add(ImageIO.read(new File("z-data/in/5/PALLU_RANI.bmp")));
+        inputBIs.add(EmptyGenerator.get(1920, 16));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

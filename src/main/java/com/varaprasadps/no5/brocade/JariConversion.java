@@ -1,4 +1,4 @@
-package com.varaprasadps.brocade;
+package com.varaprasadps.no5.brocade;
 
 import com.varaprasadps.image.AddLayoutGenerator;
 import com.varaprasadps.image.EmptyGenerator;
@@ -12,19 +12,18 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class NimbuConversion {
+public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/nimbu-%s-%s.bmp";
+        String out = "z-data/out/5/jari-%s-%s.bmp";
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         inputBIs.add(EmptyGenerator.get(1200, 32));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(1200, 2)));
-        inputBIs.add(EmptyGenerator.get(1200, 2));
+        inputBIs.add(EmptyGenerator.get(1200, 4));
         inputBIs.add(EmptyGenerator.get(1200, 12));
-        inputBIs.add(ImageIO.read(new File("z-data/in/BROCKET_NIMBU.bmp")));
-        inputBIs.add(HorizontalRepeatGenerator.get(4, ImageIO.read(new File("z-data/in/BORDER_NIMBU.bmp"))));
+        inputBIs.add(ImageIO.read(new File("z-data/in/5/BROCKET_JARI.bmp")));
+        inputBIs.add(HorizontalRepeatGenerator.get(4, ImageIO.read(new File("z-data/in/5/BORDER_JARI.bmp"))));
         inputBIs.add(EmptyGenerator.get(1200, 16));
 
         int repeatWidth = 0;

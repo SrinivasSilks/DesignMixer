@@ -1,4 +1,4 @@
-package com.varaprasadps.blouse;
+package com.varaprasadps.no5.anni;
 
 import com.varaprasadps.image.*;
 
@@ -9,17 +9,19 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class NimbuConversion {
+public class AnniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/b-nimbu-%s-%s.bmp";
+        String out = "z-data/out/5/anni-%s-%s.bmp";
 
         List<BufferedImage> inputBIs = new LinkedList<>();
-        inputBIs.add(EmptyGenerator.get(300, 48));
-        inputBIs.add(PlainGenerator.get(300, 800));
-        inputBIs.add(ImageIO.read(new File("z-data/in/BORDER_NIMBU.bmp")));
-        inputBIs.add(EmptyGenerator.get(300, 16));
+        inputBIs.add(EmptyGenerator.get(12, 32));
+        inputBIs.add(EmptyGenerator.get(12, 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(12, 2)));
+        inputBIs.add(EmptyGenerator.get(12, 12));
+        inputBIs.add(PlainGenerator.get(12, 1760));
+        inputBIs.add(EmptyGenerator.get(12, 16));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
