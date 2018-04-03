@@ -1,4 +1,4 @@
-package com.varaprasadps.NO6.Ariel;
+package com.varaprasadps.no6.brocade;
 
 import com.varaprasadps.image.*;
 
@@ -13,9 +13,10 @@ public class RoyalBlueConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/a-blue-%s-%s.bmp";
+        String out = "z-data/out/6/blue-%s-%s.bmp";
 
         List<BufferedImage> inputBIs = new LinkedList<>();
+
         inputBIs.add(EmptyGenerator.get(5200, 32));
 
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(5200, 8)));
@@ -30,8 +31,12 @@ public class RoyalBlueConversion {
         inputBIs.add(StepLayoutGenerator.get(5200));
         inputBIs.add(StepLayoutGenerator.get(5200));
         inputBIs.add(StepLayoutGenerator.get(5200));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(5200, 10)));
-        inputBIs.add(EmptyGenerator.get(5200, 10));
+
+        inputBIs.add(EmptyGenerator.get(5200, 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(5200, 2)));
+
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(5200, 8)));
+        inputBIs.add(EmptyGenerator.get(5200, 8));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

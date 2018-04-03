@@ -1,4 +1,4 @@
-package com.varaprasadps.NO6.Ariel;
+package com.varaprasadps.no6.brocade;
 
 import com.varaprasadps.image.*;
 
@@ -9,23 +9,26 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class JariConversion {
+public class NimbuConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/a-jari-%s-%s.bmp";
+        String out = "z-data/out/6/nimbu-%s-%s.bmp";
 
         List<BufferedImage> inputBIs = new LinkedList<>();
-
-        inputBIs.add(EmptyGenerator.get(5200, 48));
+        inputBIs.add(EmptyGenerator.get(5200, 32));
+        inputBIs.add(EmptyGenerator.get(5200, 16));
 
         int number = 109;
-        BufferedImage input = ImageIO.read(new File("z-data/in/6/JARI.bmp"));
+        BufferedImage input = ImageIO.read(new File("z-data/in/6/NIMBU.bmp"));
         BufferedImage ariel = ReverseGenerator.get(StepLayoutGenerator.get(input.getWidth()));
         ArielLayoutGenerator.get(input, number, ariel);
         inputBIs.add(ArielLayoutGenerator.get(input, number, ariel));
 
-        inputBIs.add(EmptyGenerator.get(5200, 32));
+        inputBIs.add(EmptyGenerator.get(5200, 12));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(5200, 2)));
+        inputBIs.add(EmptyGenerator.get(5200, 2));
+        inputBIs.add(EmptyGenerator.get(5200, 16));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
