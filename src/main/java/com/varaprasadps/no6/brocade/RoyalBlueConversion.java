@@ -20,8 +20,7 @@ public class RoyalBlueConversion {
         inputBIs.add(EmptyGenerator.get(5200, 32));
         inputBIs.add(EmptyGenerator.get(5200, 8));
 
-        inputBIs.add(EmptyGenerator.get(5200, 4));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(5200, 4)));
+        inputBIs.add(AchuLayoutGenerator.get(5200, 8));
 
         int number = 109;
         BufferedImage input = ImageIO.read(new File("z-data/in/6/ROYAL_BLUE.bmp"));
@@ -33,8 +32,7 @@ public class RoyalBlueConversion {
         inputBIs.add(StepLayoutGenerator.get(5200));
         inputBIs.add(StepLayoutGenerator.get(5200));
         // Achu
-        inputBIs.add(EmptyGenerator.get(5200, 2));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(5200, 2)));
+        inputBIs.add(AchuLayoutGenerator.get(5200, 4));
 
         // Box
         inputBIs.add(EmptyGenerator.get(5200, 2));
@@ -42,8 +40,7 @@ public class RoyalBlueConversion {
         // Khali
         inputBIs.add(EmptyGenerator.get(5200, 8));
         // Achu
-        inputBIs.add(EmptyGenerator.get(5200, 2));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(5200, 2)));
+        inputBIs.add(AchuLayoutGenerator.get(5200, 4));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
