@@ -18,7 +18,8 @@ public class JariConversion {
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         inputBIs.add(EmptyGenerator.get(1920, 32));
-        inputBIs.add(EmptyGenerator.get(1920, 4));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(1920, 2)));
+        inputBIs.add(EmptyGenerator.get(1920, 2));
         inputBIs.add(EmptyGenerator.get(1920, 12));
         inputBIs.add(ImageIO.read(new File("z-data/in/5/PALLU_JARI.bmp")));
         inputBIs.add(EmptyGenerator.get(1920, 16));

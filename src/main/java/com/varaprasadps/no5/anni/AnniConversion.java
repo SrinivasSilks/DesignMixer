@@ -17,8 +17,8 @@ public class AnniConversion {
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         inputBIs.add(EmptyGenerator.get(12, 32));
-        inputBIs.add(EmptyGenerator.get(12, 2));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(12, 2)));
+        inputBIs.add(EmptyGenerator.get(12, 2));
         inputBIs.add(EmptyGenerator.get(12, 12));
         inputBIs.add(PlainGenerator.get(12, 1760));
         inputBIs.add(EmptyGenerator.get(12, 16));
