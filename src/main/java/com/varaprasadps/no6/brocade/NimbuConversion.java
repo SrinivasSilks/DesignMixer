@@ -26,9 +26,17 @@ public class NimbuConversion {
         inputBIs.add(ArielLayoutGenerator.get(input, number, ariel));
 
         inputBIs.add(EmptyGenerator.get(5200, 12));
+        // Achu Khali
+        inputBIs.add(EmptyGenerator.get(5200, 4));
+
+        // Box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(5200, 2)));
         inputBIs.add(EmptyGenerator.get(5200, 2));
-        inputBIs.add(EmptyGenerator.get(5200, 16));
+
+        // Khali
+        inputBIs.add(EmptyGenerator.get(5200, 8));
+        // Box Khali
+        inputBIs.add(EmptyGenerator.get(5200, 4));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

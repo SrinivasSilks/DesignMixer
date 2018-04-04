@@ -28,8 +28,16 @@ public class JariConversion {
 
 
         inputBIs.add(EmptyGenerator.get(5200, 12));
+        // Achu Khali
         inputBIs.add(EmptyGenerator.get(5200, 4));
-        inputBIs.add(EmptyGenerator.get(5200, 16));
+
+        // Box
+        inputBIs.add(EmptyGenerator.get(5200, 4));
+
+        // Khali
+        inputBIs.add(EmptyGenerator.get(5200, 8));
+        // Achu Khali
+        inputBIs.add(EmptyGenerator.get(5200, 4));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
