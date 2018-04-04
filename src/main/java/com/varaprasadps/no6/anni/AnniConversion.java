@@ -17,26 +17,27 @@ public class AnniConversion {
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         inputBIs.add(EmptyGenerator.get(12, 32));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(12, 8)));
         inputBIs.add(EmptyGenerator.get(12, 8));
-
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(12, 8)));
 
         int number = 109;
-        BufferedImage input = PlainGenerator.get(12, 1308);
-        BufferedImage ariel = EmptyGenerator.get(input.getWidth(), 4);
+        BufferedImage input = EmptyGenerator.get(12, 1308);
+        BufferedImage ariel = PlainGenerator.get(input.getWidth(), 4);
         ArielLayoutGenerator.get(input, number, ariel);
         inputBIs.add(ArielLayoutGenerator.get(input, number, ariel));
 
-
         inputBIs.add(StepLayoutGenerator.get(12));
         inputBIs.add(StepLayoutGenerator.get(12));
         inputBIs.add(StepLayoutGenerator.get(12));
 
-        inputBIs.add(EmptyGenerator.get(12, 2));
+        inputBIs.add(EmptyGenerator.get(12, 4));
+
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(12, 2)));
+        inputBIs.add(EmptyGenerator.get(12, 2));
 
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(12, 8)));
-        inputBIs.add(EmptyGenerator.get(12, 8));
+
+        inputBIs.add(EmptyGenerator.get(12, 4));
 
 
         int repeatWidth = 0;
