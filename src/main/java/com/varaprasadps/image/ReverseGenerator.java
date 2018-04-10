@@ -12,10 +12,7 @@ import java.util.TreeSet;
 public class ReverseGenerator {
 
     public static void main(final String[] args) throws IOException {
-        int x = 1824;
-        int y = 16;
         String out = "z-data/out/reverse-%s-%s.bmp";
-        int times = 5;
 
         String path = "z-data/out/b-jari-300-1824.bmp";
         BufferedImage image = ImageIO.read(new File(path));
