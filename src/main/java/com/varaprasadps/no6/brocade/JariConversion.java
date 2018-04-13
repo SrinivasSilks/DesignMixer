@@ -21,7 +21,7 @@ public class JariConversion {
         inputBIs.add(EmptyGenerator.get(5200, 16));
 
         int number = 109;
-        BufferedImage input = ImageIO.read(new File("z-data/in/6/JARI.bmp"));
+        BufferedImage input = ReverseGenerator.get(ImageIO.read(new File("z-data/in/6/JARI.bmp")));
         BufferedImage ariel = StepLayoutGenerator.get(input.getWidth());
         inputBIs.add(ArielLayoutGenerator.get(input, number, ariel));
 
