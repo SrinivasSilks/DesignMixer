@@ -27,9 +27,10 @@ public class RoyalBlueConversion {
         BufferedImage ariel = EmptyGenerator.get(input.getWidth(), 4);
         inputBIs.add(ArielLayoutGenerator.get(input, number, ariel));
 
-        inputBIs.add(StepLayoutGenerator.get(5200));
-        inputBIs.add(StepLayoutGenerator.get(5200));
-        inputBIs.add(StepLayoutGenerator.get(5200));
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(5200)));
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(5200)));
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(5200)));
+
         // Achu
         inputBIs.add(AchuLayoutGenerator.get(5200, 4));
 
