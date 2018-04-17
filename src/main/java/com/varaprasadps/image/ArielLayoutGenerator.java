@@ -12,10 +12,12 @@ public class ArielLayoutGenerator {
 
 
     public static void main(final String[] args) throws IOException {
+
         String input = "z-data/in/6/JARI.bmp";
         BufferedImage inputBI = ImageIO.read(new File(input));
         int number = 109;
         BufferedImage ariel = ReverseGenerator.get(StepLayoutGenerator.get(inputBI.getWidth()));
+
         BufferedImage result = get(inputBI, number, ariel);
         displayPixels(result);
         saveBMP(result);

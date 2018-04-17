@@ -10,21 +10,16 @@ import java.util.List;
 public class SplitGenerator {
 
     public static void main(final String[] args) throws IOException {
-
-        List<String> out = new LinkedList<>();
-        out.add("z-data/out/split-layout-1-%s-%s.bmp");
-        out.add("z-data/out/split-layout-2-%s-%s.bmp");
-
-        String input = "z-data/out/brocade-3600-1824.bmp";
+        String input = "z-data/in/6/ROYAL_BLUE.bmp";
         BufferedImage inputBI = ImageIO.read(new File(input));
-        int number = 2;
+        int number = 109;
 
         List<BufferedImage> outputs = get(inputBI, number);
         displayPixels(outputs);
 
         int width = inputBI.getWidth();
         int height = inputBI.getHeight() / number;
-        saveBMP(outputs, out, width, height);
+        saveBMP(outputs, width, height);
     }
 
     private static void displayPixels(List<BufferedImage> files) {
@@ -52,10 +47,10 @@ public class SplitGenerator {
     }
 
 
-    private static void saveBMP(final List<BufferedImage> outputBIs, final List<String> paths, int width, int height) throws IOException {
+    private static void saveBMP(final List<BufferedImage> outputBIs, int width, int height) throws IOException {
         for (int i = 0; i < outputBIs.size(); i++) {
             BufferedImage bi = outputBIs.get(i);
-            String path = String.format(paths.get(i), width, height);
+            String path = String.format("z-data/out/6/split/split-layout-%s-%s-%s.bmp", i + 1, width, height);
             ImageIO.write(bi, "bmp", new File(path));
         }
     }
