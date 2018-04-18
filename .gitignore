@@ -13,3 +13,5 @@ out/
 # DesignMixer Ignore files
 
 z-data/**
+
+.DS_Store

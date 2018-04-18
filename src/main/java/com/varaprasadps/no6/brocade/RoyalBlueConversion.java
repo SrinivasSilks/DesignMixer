@@ -23,7 +23,7 @@ public class RoyalBlueConversion {
         inputBIs.add(AchuLayoutGenerator.get(5200, 8));
 
         int number = 109;
-        BufferedImage input = ReverseGenerator.get(ImageIO.read(new File("z-data/in/6/ROYAL_BLUE.bmp")));
+        BufferedImage input = ReverseGenerator.get(ImageIO.read(new File("z-data/in/6/new/r.blue.bmp")));
         BufferedImage ariel = StepLayoutGenerator.get(input.getWidth());
         inputBIs.add(ArielLayoutGenerator.get(input, number, ariel));
 

@@ -26,9 +26,9 @@ public class AnniConversion {
         ArielLayoutGenerator.get(input, number, ariel);
         inputBIs.add(ArielLayoutGenerator.get(input, number, ariel));
 
-        inputBIs.add(StepLayoutGenerator.get(12));
-        inputBIs.add(StepLayoutGenerator.get(12));
-        inputBIs.add(StepLayoutGenerator.get(12));
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(12)));
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(12)));
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(12)));
 
         // Achu
         inputBIs.add(AchuLayoutGenerator.get(12, 4));
