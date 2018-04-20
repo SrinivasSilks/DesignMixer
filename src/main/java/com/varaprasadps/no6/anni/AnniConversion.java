@@ -17,7 +17,10 @@ public class AnniConversion {
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         inputBIs.add(EmptyGenerator.get(12, 32));
-        inputBIs.add(EmptyGenerator.get(12, 8));
+
+        // Locking
+        inputBIs.add(PlainGenerator.get(12, 8));
+        // Achu
         inputBIs.add(AchuLayoutGenerator.get(12, 8));
 
         int number = 109;

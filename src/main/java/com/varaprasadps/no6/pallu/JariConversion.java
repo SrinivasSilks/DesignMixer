@@ -18,7 +18,13 @@ public class JariConversion {
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         inputBIs.add(EmptyGenerator.get(jari.getWidth(), 32));
-        inputBIs.add(EmptyGenerator.get(jari.getWidth(), 16));
+
+        // Locking
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(jari.getWidth())));
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(jari.getWidth())));
+
+        // Achu Khali
+        inputBIs.add(EmptyGenerator.get(jari.getWidth(), 8));
 
         int number = 109;
         BufferedImage input = ReverseGenerator.get(jari);

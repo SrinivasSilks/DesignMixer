@@ -18,7 +18,12 @@ public class JariConversion {
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         inputBIs.add(EmptyGenerator.get(5200, 32));
-        inputBIs.add(EmptyGenerator.get(5200, 16));
+        // Locking
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(5200)));
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(5200)));
+
+        //Achu Khali
+        inputBIs.add(EmptyGenerator.get(5200, 8));
 
         int number = 109;
         BufferedImage input = ReverseGenerator.get(ImageIO.read(new File("z-data/in/6/new/jari.bmp")));

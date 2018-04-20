@@ -19,8 +19,11 @@ public class RoyalBlueConversion {
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         inputBIs.add(EmptyGenerator.get(blue.getWidth(), 32));
-        inputBIs.add(EmptyGenerator.get(blue.getWidth(), 8));
 
+        //Locking
+        inputBIs.add(PlainGenerator.get(blue.getWidth(), 8));
+
+        //Achu
         inputBIs.add(AchuLayoutGenerator.get(blue.getWidth(), 8));
 
         int number = 109;

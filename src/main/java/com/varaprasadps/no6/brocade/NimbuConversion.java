@@ -17,7 +17,12 @@ public class NimbuConversion {
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         inputBIs.add(EmptyGenerator.get(5200, 32));
-        inputBIs.add(EmptyGenerator.get(5200, 16));
+
+        // Locking
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(5200, 8)));
+
+        //Achu Khali
+        inputBIs.add(EmptyGenerator.get(5200, 8));
 
         int number = 109;
         BufferedImage input = ReverseGenerator.get(ImageIO.read(new File("z-data/in/6/new/nimbu.bmp")));
