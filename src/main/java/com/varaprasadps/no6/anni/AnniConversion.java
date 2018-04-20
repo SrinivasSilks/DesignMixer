@@ -41,7 +41,7 @@ public class AnniConversion {
         inputBIs.add(EmptyGenerator.get(12, 2));
 
         // locking
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(12, 8)));
+        inputBIs.add(PlainGenerator.get(12, 8));
 
         // Achu
         inputBIs.add(AchuLayoutGenerator.get(12, 4));

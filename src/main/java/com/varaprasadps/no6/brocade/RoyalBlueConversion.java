@@ -42,7 +42,7 @@ public class RoyalBlueConversion {
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(5200, 2)));
 
         // Locking
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(5200, 8)));
+        inputBIs.add(PlainGenerator.get(5200, 8));
 
         // Achu
         inputBIs.add(AchuLayoutGenerator.get(5200, 4));

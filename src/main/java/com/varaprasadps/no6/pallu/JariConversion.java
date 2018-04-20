@@ -20,8 +20,8 @@ public class JariConversion {
         inputBIs.add(EmptyGenerator.get(jari.getWidth(), 32));
 
         // Locking
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(jari.getWidth())));
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(jari.getWidth())));
+        inputBIs.add(StepLayoutGenerator.get(jari.getWidth()));
+        inputBIs.add(StepLayoutGenerator.get(jari.getWidth()));
 
         // Achu Khali
         inputBIs.add(EmptyGenerator.get(jari.getWidth(), 8));
@@ -40,8 +40,8 @@ public class JariConversion {
         inputBIs.add(EmptyGenerator.get(jari.getWidth(), 2));
 
         // Locking
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(jari.getWidth())));
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(jari.getWidth())));
+        inputBIs.add(StepLayoutGenerator.get(jari.getWidth()));
+        inputBIs.add(StepLayoutGenerator.get(jari.getWidth()));
 
         // Achu Khali
         inputBIs.add(EmptyGenerator.get(jari.getWidth(), 4));

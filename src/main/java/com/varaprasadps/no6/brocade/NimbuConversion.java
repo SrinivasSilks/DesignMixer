@@ -38,7 +38,7 @@ public class NimbuConversion {
         inputBIs.add(EmptyGenerator.get(5200, 2));
 
         // locking
-        inputBIs.add(PlainGenerator.get(5200, 8));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(5200, 8)));
 
         // Box Khali
         inputBIs.add(EmptyGenerator.get(5200, 4));

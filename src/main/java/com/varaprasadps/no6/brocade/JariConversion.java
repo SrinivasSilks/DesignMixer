@@ -19,8 +19,8 @@ public class JariConversion {
 
         inputBIs.add(EmptyGenerator.get(5200, 32));
         // Locking
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(5200)));
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(5200)));
+        inputBIs.add(StepLayoutGenerator.get(5200));
+        inputBIs.add(StepLayoutGenerator.get(5200));
 
         //Achu Khali
         inputBIs.add(EmptyGenerator.get(5200, 8));
@@ -39,8 +39,8 @@ public class JariConversion {
         inputBIs.add(EmptyGenerator.get(5200, 4));
 
         // Locking
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(5200)));
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(5200)));
+        inputBIs.add(StepLayoutGenerator.get(5200));
+        inputBIs.add(StepLayoutGenerator.get(5200));
 
         // Achu Khali
         inputBIs.add(EmptyGenerator.get(5200, 4));
