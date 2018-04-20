@@ -38,8 +38,10 @@ public class JariConversion {
         // Box
         inputBIs.add(EmptyGenerator.get(5200, 4));
 
-        // Khali
-        inputBIs.add(EmptyGenerator.get(5200, 8));
+        // Locking
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(5200)));
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(5200)));
+
         // Achu Khali
         inputBIs.add(EmptyGenerator.get(5200, 4));
 

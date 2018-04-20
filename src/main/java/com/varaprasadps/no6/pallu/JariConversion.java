@@ -39,8 +39,10 @@ public class JariConversion {
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(jari.getWidth(), 2)));
         inputBIs.add(EmptyGenerator.get(jari.getWidth(), 2));
 
-        // Khali
-        inputBIs.add(EmptyGenerator.get(jari.getWidth(), 8));
+        // Locking
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(jari.getWidth())));
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(jari.getWidth())));
+
         // Achu Khali
         inputBIs.add(EmptyGenerator.get(jari.getWidth(), 4));
 

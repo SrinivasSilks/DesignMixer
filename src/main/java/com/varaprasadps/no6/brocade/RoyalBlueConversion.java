@@ -20,7 +20,7 @@ public class RoyalBlueConversion {
         inputBIs.add(EmptyGenerator.get(5200, 32));
 
         // Locking
-        inputBIs.add(PlainGenerator.get(5200, 8));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(5200, 8)));
 
         //Achu
         inputBIs.add(AchuLayoutGenerator.get(5200, 8));
@@ -40,8 +40,10 @@ public class RoyalBlueConversion {
         // Box
         inputBIs.add(EmptyGenerator.get(5200, 2));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(5200, 2)));
-        // Khali
-        inputBIs.add(EmptyGenerator.get(5200, 8));
+
+        // Locking
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(5200, 8)));
+
         // Achu
         inputBIs.add(AchuLayoutGenerator.get(5200, 4));
 
