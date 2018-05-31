@@ -17,8 +17,8 @@ public class PalluConversion {
         String out = "z-data/out/6/pallu-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("z-data/out/6/p-blue-2180-1824.bmp");
-        inputs.add("z-data/out/6/p-jari-2180-1824.bmp");
+        inputs.add("z-data/out/6/p-blue-2200-1824.bmp");
+        inputs.add("z-data/out/6/p-jari-2200-1824.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {

@@ -14,7 +14,7 @@ public class RoyalBlueConversion {
     public static void main(final String[] args) throws IOException {
 
         String out = "z-data/out/6/p-blue-%s-%s.bmp";
-        BufferedImage blue = ImageIO.read(new File("z-data/in/6/pallu/p-r.blue.bmp"));
+        BufferedImage blue = ImageIO.read(new File("z-data/in/6/new2/pallu/p-r.blue.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
