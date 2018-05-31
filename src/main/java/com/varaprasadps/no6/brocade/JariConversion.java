@@ -14,36 +14,37 @@ public class JariConversion {
     public static void main(final String[] args) throws IOException {
 
         String out = "z-data/out/6/jari-%s-%s.bmp";
+        final BufferedImage in = ImageIO.read(new File("z-data/in/6/new2/jari.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        inputBIs.add(EmptyGenerator.get(5200, 32));
+        inputBIs.add(EmptyGenerator.get(in.getWidth(), 32));
         // Locking
-        inputBIs.add(StepLayoutGenerator.get(5200));
-        inputBIs.add(StepLayoutGenerator.get(5200));
+        inputBIs.add(StepLayoutGenerator.get(in.getWidth()));
+        inputBIs.add(StepLayoutGenerator.get(in.getWidth()));
 
         //Achu Khali
-        inputBIs.add(EmptyGenerator.get(5200, 8));
+        inputBIs.add(EmptyGenerator.get(in.getWidth(), 8));
 
         int number = 109;
-        BufferedImage input = ReverseGenerator.get(ImageIO.read(new File("z-data/in/6/new/jari.bmp")));
+        BufferedImage input = ReverseGenerator.get(in);
         BufferedImage ariel = StepLayoutGenerator.get(input.getWidth());
         inputBIs.add(ArielLayoutGenerator.get(input, number, ariel));
 
 
-        inputBIs.add(EmptyGenerator.get(5200, 12));
+        inputBIs.add(EmptyGenerator.get(in.getWidth(), 12));
         // Achu Khali
-        inputBIs.add(EmptyGenerator.get(5200, 4));
+        inputBIs.add(EmptyGenerator.get(in.getWidth(), 4));
 
         // Box
-        inputBIs.add(EmptyGenerator.get(5200, 4));
+        inputBIs.add(EmptyGenerator.get(in.getWidth(), 4));
 
         // Locking
-        inputBIs.add(StepLayoutGenerator.get(5200));
-        inputBIs.add(StepLayoutGenerator.get(5200));
+        inputBIs.add(StepLayoutGenerator.get(in.getWidth()));
+        inputBIs.add(StepLayoutGenerator.get(in.getWidth()));
 
         // Achu Khali
-        inputBIs.add(EmptyGenerator.get(5200, 4));
+        inputBIs.add(EmptyGenerator.get(in.getWidth(), 4));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

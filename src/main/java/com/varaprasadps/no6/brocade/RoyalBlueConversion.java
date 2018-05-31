@@ -14,38 +14,39 @@ public class RoyalBlueConversion {
     public static void main(final String[] args) throws IOException {
 
         String out = "z-data/out/6/blue-%s-%s.bmp";
+        final BufferedImage in = ImageIO.read(new File("z-data/in/6/new2/r.blue.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        inputBIs.add(EmptyGenerator.get(5200, 32));
+        inputBIs.add(EmptyGenerator.get(in.getWidth(), 32));
 
         // Locking
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(5200, 8)));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(in.getWidth(), 8)));
 
         //Achu
-        inputBIs.add(AchuLayoutGenerator.get(5200, 8));
+        inputBIs.add(AchuLayoutGenerator.get(in.getWidth(), 8));
 
         int number = 109;
-        BufferedImage input = ReverseGenerator.get(ImageIO.read(new File("z-data/in/6/new/r.blue.bmp")));
+        BufferedImage input = ReverseGenerator.get(in);
         BufferedImage ariel = StepLayoutGenerator.get(input.getWidth());
         inputBIs.add(ArielLayoutGenerator.get(input, number, ariel));
 
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(5200)));
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(5200)));
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(5200)));
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(in.getWidth())));
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(in.getWidth())));
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(in.getWidth())));
 
         // Achu
-        inputBIs.add(AchuLayoutGenerator.get(5200, 4));
+        inputBIs.add(AchuLayoutGenerator.get(in.getWidth(), 4));
 
         // Box
-        inputBIs.add(EmptyGenerator.get(5200, 2));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(5200, 2)));
+        inputBIs.add(EmptyGenerator.get(in.getWidth(), 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(in.getWidth(), 2)));
 
         // Locking
-        inputBIs.add(PlainGenerator.get(5200, 8));
+        inputBIs.add(PlainGenerator.get(in.getWidth(), 8));
 
         // Achu
-        inputBIs.add(AchuLayoutGenerator.get(5200, 4));
+        inputBIs.add(AchuLayoutGenerator.get(in.getWidth(), 4));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
