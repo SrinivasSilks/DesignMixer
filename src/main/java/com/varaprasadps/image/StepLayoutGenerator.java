@@ -6,14 +6,24 @@ import java.awt.image.BufferedImage;
 import java.awt.image.RenderedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
 
 public class StepLayoutGenerator {
 
 
     public static void main(final String[] args) throws IOException {
         int x = 16;
-        BufferedImage img = get(x);
-        saveBMP(img, String.format("z-data/out/step-%s-%s.bmp", x, 4));
+        BufferedImage img = get(x,5);
+        saveBMP(img, String.format("z-giri/out/step-%s-%s.bmp", x, 20));
+    }
+
+    public static BufferedImage get(int sizeX, int times) {
+        List<BufferedImage> inputs = new LinkedList<>();
+        for (int i = 0; i < times; i++) {
+            inputs.add(get(sizeX));
+        }
+        return AddLayoutGenerator.get(sizeX, 4 * times, inputs);
     }
 
     public static BufferedImage get(int sizeX) {
