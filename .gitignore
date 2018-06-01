@@ -13,5 +13,6 @@ out/
 # DesignMixer Ignore files
 
 z-data/**
+z-giri/**
 
 .DS_Store
