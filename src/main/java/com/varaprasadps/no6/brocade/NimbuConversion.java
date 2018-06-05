@@ -14,7 +14,7 @@ public class NimbuConversion {
     public static void main(final String[] args) throws IOException {
 
         String out = "z-data/out/6/nimbu-%s-%s.bmp";
-        final BufferedImage in = ImageIO.read(new File("z-data/in/6/new2/nimbu.bmp"));
+        final BufferedImage in = ImageIO.read(new File("z-data/in/6/new2/nimbu2.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         inputBIs.add(EmptyGenerator.get(in.getWidth(), 32));
