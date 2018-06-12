@@ -22,8 +22,8 @@ public class JariConversion {
         inputBIs.add(EmptyGenerator.get(1200, 32));
         inputBIs.add(EmptyGenerator.get(1200, 4));
         inputBIs.add(EmptyGenerator.get(1200, 12));
-        inputBIs.add(ImageIO.read(new File("z-data/in/5/BROCKET_JARI.bmp")));
-        inputBIs.add(HorizontalRepeatGenerator.get(4, ImageIO.read(new File("z-data/in/5/BORDER_JARI.bmp"))));
+        inputBIs.add(ImageIO.read(new File("z-data/in/5/1/BROCKET_JARI.bmp")));
+        inputBIs.add(HorizontalRepeatGenerator.get(4, ImageIO.read(new File("z-data/in/5/1/BORDER_JARI.bmp"))));
         inputBIs.add(EmptyGenerator.get(1200, 16));
 
         int repeatWidth = 0;

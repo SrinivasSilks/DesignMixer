@@ -23,8 +23,8 @@ public class NimbuConversion {
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(1200, 2)));
         inputBIs.add(EmptyGenerator.get(1200, 2));
         inputBIs.add(EmptyGenerator.get(1200, 12));
-        inputBIs.add(ImageIO.read(new File("z-data/in/5/BROCKET_NIMBU.bmp")));
-        inputBIs.add(HorizontalRepeatGenerator.get(4, ImageIO.read(new File("z-data/in/5/BORDER_NIMBU.bmp"))));
+        inputBIs.add(ImageIO.read(new File("z-data/in/5/1/BROCKET_NIMBU.bmp")));
+        inputBIs.add(HorizontalRepeatGenerator.get(4, ImageIO.read(new File("z-data/in/5/1/BORDER_NIMBU.bmp"))));
         inputBIs.add(EmptyGenerator.get(1200, 16));
 
         int repeatWidth = 0;
