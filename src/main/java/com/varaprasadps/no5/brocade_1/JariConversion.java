@@ -1,7 +1,8 @@
-package com.varaprasadps.no5.newbrocade;
+package com.varaprasadps.no5.brocade_1;
 
 import com.varaprasadps.image.AddLayoutGenerator;
 import com.varaprasadps.image.EmptyGenerator;
+import com.varaprasadps.image.HorizontalRepeatGenerator;
 import com.varaprasadps.image.ReverseGenerator;
 
 import javax.imageio.ImageIO;
@@ -15,15 +16,15 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/5/new/jari-%s-%s.bmp";
-        final BufferedImage jari = ImageIO.read(new File("z-data/in/5/new/BROCADE_JARI.bmp"));
+        String out = "z-data/out/5/1/jari-%s-%s.bmp";
 
         List<BufferedImage> inputBIs = new LinkedList<>();
-        inputBIs.add(EmptyGenerator.get(jari.getWidth(), 32));
-        inputBIs.add(EmptyGenerator.get(jari.getWidth(), 4));
-        inputBIs.add(EmptyGenerator.get(jari.getWidth(), 12));
-        inputBIs.add(jari);
-        inputBIs.add(EmptyGenerator.get(jari.getWidth(), 16));
+        inputBIs.add(EmptyGenerator.get(1200, 32));
+        inputBIs.add(EmptyGenerator.get(1200, 4));
+        inputBIs.add(EmptyGenerator.get(1200, 12));
+        inputBIs.add(ImageIO.read(new File("z-data/in/5/1/BROCKET_JARI.bmp")));
+        inputBIs.add(HorizontalRepeatGenerator.get(4, ImageIO.read(new File("z-data/in/5/1/BORDER_JARI.bmp"))));
+        inputBIs.add(EmptyGenerator.get(1200, 16));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

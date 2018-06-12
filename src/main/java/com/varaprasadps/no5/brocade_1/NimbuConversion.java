@@ -1,7 +1,8 @@
-package com.varaprasadps.no5.newbrocade;
+package com.varaprasadps.no5.brocade_1;
 
 import com.varaprasadps.image.AddLayoutGenerator;
 import com.varaprasadps.image.EmptyGenerator;
+import com.varaprasadps.image.HorizontalRepeatGenerator;
 import com.varaprasadps.image.ReverseGenerator;
 
 import javax.imageio.ImageIO;
@@ -15,16 +16,16 @@ public class NimbuConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/5/new/nimbu-%s-%s.bmp";
-        final BufferedImage nimbu = ImageIO.read(new File("z-data/in/5/new/BROCADE_NIMBU.bmp"));
+        String out = "z-data/out/5/1/nimbu-%s-%s.bmp";
 
         List<BufferedImage> inputBIs = new LinkedList<>();
-        inputBIs.add(EmptyGenerator.get(nimbu.getWidth(), 32));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(nimbu.getWidth(), 2)));
-        inputBIs.add(EmptyGenerator.get(nimbu.getWidth(), 2));
-        inputBIs.add(EmptyGenerator.get(nimbu.getWidth(), 12));
-        inputBIs.add(nimbu);
-        inputBIs.add(EmptyGenerator.get(nimbu.getWidth(), 16));
+        inputBIs.add(EmptyGenerator.get(1200, 32));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(1200, 2)));
+        inputBIs.add(EmptyGenerator.get(1200, 2));
+        inputBIs.add(EmptyGenerator.get(1200, 12));
+        inputBIs.add(ImageIO.read(new File("z-data/in/5/1/BROCKET_NIMBU.bmp")));
+        inputBIs.add(HorizontalRepeatGenerator.get(4, ImageIO.read(new File("z-data/in/5/1/BORDER_NIMBU.bmp"))));
+        inputBIs.add(EmptyGenerator.get(1200, 16));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
