@@ -23,7 +23,7 @@ public class RaniConversion {
         inputBIs.add(EmptyGenerator.get(1920, 2));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(1200, 2)));
         inputBIs.add(EmptyGenerator.get(1920, 12));
-        inputBIs.add(ImageIO.read(new File("z-data/in/5/PALLU_RANI.bmp")));
+        inputBIs.add(ImageIO.read(new File("z-data/in/5/1/PALLU_RANI.bmp")));
         inputBIs.add(EmptyGenerator.get(1920, 16));
 
         int repeatWidth = 0;

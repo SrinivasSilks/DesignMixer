@@ -21,7 +21,7 @@ public class JariConversion {
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(1920, 2)));
         inputBIs.add(EmptyGenerator.get(1920, 2));
         inputBIs.add(EmptyGenerator.get(1920, 12));
-        inputBIs.add(ImageIO.read(new File("z-data/in/5/PALLU_JARI.bmp")));
+        inputBIs.add(ImageIO.read(new File("z-data/in/5/1/PALLU_JARI.bmp")));
         inputBIs.add(EmptyGenerator.get(1920, 16));
 
         int repeatWidth = 0;
