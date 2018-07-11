@@ -1,4 +1,4 @@
-package com.varaprasadps.no1.brocade_4;
+package com.varaprasadps.no1.brocade_1;
 
 import com.varaprasadps.image.*;
 
@@ -9,38 +9,41 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class RaniConversion {
+public class NimbuConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/1/4_rani-%s-%s.bmp";
-        final BufferedImage skirt = ImageIO.read(new File("z-data/in/1/SKIRT_RANI.bmp"));
+        String out = "z-data/out/1/1_nimbu-%s-%s.bmp";
+        final BufferedImage skirt = ImageIO.read(new File("z-data/in/1/SKIRT_NIMBU.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         // Box
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(skirt.getWidth(), 2)));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
         // Khali
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 4));
         //Achu
-        inputBIs.add(AchuLayoutGenerator.get(skirt.getWidth(), 8));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 8));
 
         // Locking
-        inputBIs.add(PlainGenerator.get(skirt.getWidth(), 20));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(skirt.getWidth(), 20)));
 
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 480));
+        inputBIs.add(HorizontalRepeatGenerator.get(12, ImageIO.read(new File("z-data/in/1/1NIMBU.bmp"))));
         inputBIs.add(skirt);
 
         // Jari
-        inputBIs.add(HorizontalRepeatGenerator.get(18, ImageIO.read(new File("z-data/in/1/SUNUNDA.bmp"))));
-        inputBIs.add(HorizontalRepeatGenerator.get(18, ImageIO.read(new File("z-data/in/1/BANARAS.bmp"))));
-        inputBIs.add(HorizontalRepeatGenerator.get(18, ImageIO.read(new File("z-data/in/1/TEEGA.bmp"))));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 60));
 
-        //Khali
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 8));
+        // Box
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(skirt.getWidth(), 2)));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
+        // Khali
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 4));
+
         // Achu
-        inputBIs.add(AchuLayoutGenerator.get(skirt.getWidth(), 8));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 8));
+
 
         int repeatWidth = 0;
         int repeatHeight = 0;

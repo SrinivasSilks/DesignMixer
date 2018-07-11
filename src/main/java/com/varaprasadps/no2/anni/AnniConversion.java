@@ -13,7 +13,7 @@ public class AnniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/2/anni-%s-%s.bmp";
+        String out = "z-data/out/2/2anni-%s-%s.bmp";
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 

@@ -13,7 +13,7 @@ public class AnniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/1/anni-%s-%s.bmp";
+        String out = "z-data/out/1/1anni-%s-%s.bmp";
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -36,8 +36,12 @@ public class AnniConversion {
         inputBIs.add(ImageIO.read(new File("z-data/in/1/BANARAS.bmp")));
         inputBIs.add(ImageIO.read(new File("z-data/in/1/TEEGA.bmp")));
 
-        //Khali
-        inputBIs.add(EmptyGenerator.get(60, 8));
+        // Box
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(60, 2)));
+        inputBIs.add(EmptyGenerator.get(60, 2));
+        // Khali
+        inputBIs.add(EmptyGenerator.get(60, 4));
+
         // Achu
         inputBIs.add(AchuLayoutGenerator.get(60, 8));
 

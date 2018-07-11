@@ -1,9 +1,6 @@
 package com.varaprasadps.no1.brocade_1;
 
-import com.varaprasadps.image.AddLayoutGenerator;
-import com.varaprasadps.image.EmptyGenerator;
-import com.varaprasadps.image.HorizontalRepeatGenerator;
-import com.varaprasadps.image.ReverseGenerator;
+import com.varaprasadps.image.*;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -17,12 +14,34 @@ public class JariConversion {
     public static void main(final String[] args) throws IOException {
 
         String out = "z-data/out/1/1_jari-%s-%s.bmp";
+        final BufferedImage skirt = ImageIO.read(new File("z-data/in/1/SKIRT_JARI.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
-        for (int i = 0; i < 8; i++) {
-            inputBIs.add(HorizontalRepeatGenerator.get(9, ImageIO.read(new File("z-data/in/1/1/1_JARI.bmp"))));
-        }
-        inputBIs.add(HorizontalRepeatGenerator.get(2, ImageIO.read(new File("z-data/in/1/SKIRT_JARI.bmp"))));
+        // Box
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
+        // Khali
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 4));
+        //Achu
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 8));
+
+        // Locking
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(skirt.getWidth(), 5)));
+
+        inputBIs.add(HorizontalRepeatGenerator.get(12, ImageIO.read(new File("z-data/in/1/1JARI.bmp"))));
+        inputBIs.add(skirt);
+
+        // Jari
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 60));
+
+        // Box
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
+        // Khali
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 4));
+
+        // Achu
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 8));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
