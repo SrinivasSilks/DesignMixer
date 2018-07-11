@@ -1,7 +1,7 @@
 package com.varaprasadps.no1.brocade_4;
 
 import com.varaprasadps.image.AddLayoutGenerator;
-import com.varaprasadps.image.HorizontalRepeatGenerator;
+import com.varaprasadps.image.EmptyGenerator;
 import com.varaprasadps.image.ReverseGenerator;
 
 import javax.imageio.ImageIO;
@@ -11,15 +11,16 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class JariConversion {
+public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/1/4_jari-%s-%s.bmp";
+        String out = "z-data/out/1/4_rani-%s-%s.bmp";
+        final BufferedImage skirt = ImageIO.read(new File("z-data/in/1/SKIRT_NIMBU.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
-        inputBIs.add(HorizontalRepeatGenerator.get(12, ImageIO.read(new File("z-data/in/1/4JARI.bmp"))));
-        inputBIs.add(ImageIO.read(new File("z-data/in/1/SKIRT_JARI.bmp")));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 480));
+        inputBIs.add(skirt);
 
         int repeatWidth = 0;
         int repeatHeight = 0;
