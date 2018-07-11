@@ -1,8 +1,6 @@
 package com.varaprasadps.no1.brocade_4;
 
-import com.varaprasadps.image.AddLayoutGenerator;
-import com.varaprasadps.image.EmptyGenerator;
-import com.varaprasadps.image.ReverseGenerator;
+import com.varaprasadps.image.*;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -19,8 +17,30 @@ public class RaniConversion {
         final BufferedImage skirt = ImageIO.read(new File("z-data/in/1/SKIRT_NIMBU.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
+
+        // Box
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(skirt.getWidth(), 2)));
+        // Khali
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 4));
+        //Achu
+        inputBIs.add(AchuLayoutGenerator.get(skirt.getWidth(), 8));
+
+        // Locking
+        inputBIs.add(PlainGenerator.get(skirt.getWidth(), 20));
+
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 480));
         inputBIs.add(skirt);
+
+        // Jari
+        inputBIs.add(HorizontalRepeatGenerator.get(18, ImageIO.read(new File("z-data/in/1/SUNUNDA.bmp"))));
+        inputBIs.add(HorizontalRepeatGenerator.get(18, ImageIO.read(new File("z-data/in/1/BANARAS.bmp"))));
+        inputBIs.add(HorizontalRepeatGenerator.get(18, ImageIO.read(new File("z-data/in/1/TEEGA.bmp"))));
+
+        //Khali
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 8));
+        // Achu
+        inputBIs.add(AchuLayoutGenerator.get(skirt.getWidth(), 8));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
