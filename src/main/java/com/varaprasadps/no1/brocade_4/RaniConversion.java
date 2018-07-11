@@ -14,7 +14,7 @@ public class RaniConversion {
     public static void main(final String[] args) throws IOException {
 
         String out = "z-data/out/1/4_rani-%s-%s.bmp";
-        final BufferedImage skirt = ImageIO.read(new File("z-data/in/1/SKIRT_NIMBU.bmp"));
+        final BufferedImage skirt = ImageIO.read(new File("z-data/in/1/SKIRT_RANI.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
