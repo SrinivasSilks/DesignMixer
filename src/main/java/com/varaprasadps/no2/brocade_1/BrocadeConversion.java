@@ -1,6 +1,7 @@
 package com.varaprasadps.no2.brocade_1;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
+import com.varaprasadps.image.HorizontalFlipGenerator;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -29,7 +30,7 @@ public class BrocadeConversion {
             inputBIs.add(ImageIO.read(new File(input)));
         }
 
-        BufferedImage bi = ColumnRepeatGenerator.get(inputBIs);
+        BufferedImage bi = HorizontalFlipGenerator.get(ColumnRepeatGenerator.get(inputBIs));
         displayPixels(bi);
         saveBMP(bi, String.format(out, bi.getWidth(), bi.getHeight()));
     }
