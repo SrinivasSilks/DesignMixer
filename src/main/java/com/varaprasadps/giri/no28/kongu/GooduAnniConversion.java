@@ -25,7 +25,7 @@ public class GooduAnniConversion {
         // Achu
         inputBIs.add(EmptyGenerator.get(2, 12));
 
-        for (int i = 0; i < 360 / 4; i++) {
+        for (int i = 0; i < 1740 / 4; i++) {
             BufferedImage plain = PlainGenerator.get(2, 1);
             BufferedImage reverse = ReverseGenerator.get(plain);
             inputBIs.add(plain);
@@ -33,12 +33,6 @@ public class GooduAnniConversion {
             inputBIs.add(reverse);
             inputBIs.add(reverse);
         }
-
-        //skirt
-        inputBIs.add(EmptyGenerator.get(2, 1360));
-
-        //locking
-        inputBIs.add(EmptyGenerator.get(2, 20));
 
         //banaras
         inputBIs.add(EmptyGenerator.get(2, 20));
