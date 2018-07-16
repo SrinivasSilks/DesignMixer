@@ -16,7 +16,7 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-giri/out/28/p-b-jari-%s-%s.bmp";
+        String out = "z-giri/out/28/p-b-l-jari-%s-%s.bmp";
         final BufferedImage centre = ImageIO.read(new File("z-giri/in/28/PALLU/BUGGUDI_JARI.bmp"));
         final BufferedImage centreOne = ImageIO.read(new File("z-giri/in/28/PALLU/BUGGUDI_JARI_1.bmp"));
         final BufferedImage centreTwo = ImageIO.read(new File("z-giri/in/28/PALLU/BUGGUDI_JARI_2.bmp"));

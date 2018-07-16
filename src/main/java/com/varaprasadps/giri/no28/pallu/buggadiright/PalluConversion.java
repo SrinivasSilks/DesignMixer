@@ -1,4 +1,4 @@
-package com.varaprasadps.giri.no28.pallu.buggadileft;
+package com.varaprasadps.giri.no28.pallu.buggadiright;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
 
@@ -14,11 +14,11 @@ public class PalluConversion {
     public static void main(final String[] args) throws IOException {
         JariConversion.main(null);
         RaniConversion.main(null);
-        String out = "z-giri/out/28/pallu-buggadi-left-%s-%s.bmp";
+        String out = "z-giri/out/28/pallu-buggadi-right-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("z-giri/out/28/p-b-l-rani-120-1824.bmp");
-        inputs.add("z-giri/out/28/p-b-l-jari-120-1824.bmp");
+        inputs.add("z-giri/out/28/p-b-r-rani-120-1824.bmp");
+        inputs.add("z-giri/out/28/p-b-r-jari-120-1824.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {

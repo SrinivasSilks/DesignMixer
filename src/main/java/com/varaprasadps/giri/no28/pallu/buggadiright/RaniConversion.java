@@ -1,4 +1,4 @@
-package com.varaprasadps.giri.no28.pallu.buggadileft;
+package com.varaprasadps.giri.no28.pallu.buggadiright;
 
 import com.varaprasadps.image.*;
 
@@ -13,10 +13,10 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-giri/out/28/p-b-l-rani-%s-%s.bmp";
-        final BufferedImage centre = ImageIO.read(new File("z-giri/in/28/PALLU/BUGGUDI_RANI.bmp"));
-        final BufferedImage centreOne = ImageIO.read(new File("z-giri/in/28/PALLU/BUGGUDI_RANI_1.bmp"));
-        final BufferedImage centreTwo = ImageIO.read(new File("z-giri/in/28/PALLU/BUGGUDI_RANI_2.bmp"));
+        String out = "z-giri/out/28/p-b-r-rani-%s-%s.bmp";
+        final BufferedImage centre = HorizontalFlipGenerator.get(ImageIO.read(new File("z-giri/in/28/PALLU/BUGGUDI_RANI.bmp")));
+        final BufferedImage centreOne = HorizontalFlipGenerator.get(ImageIO.read(new File("z-giri/in/28/PALLU/BUGGUDI_RANI_1.bmp")));
+        final BufferedImage centreTwo = HorizontalFlipGenerator.get(ImageIO.read(new File("z-giri/in/28/PALLU/BUGGUDI_RANI_2.bmp")));
         int width = centre.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
