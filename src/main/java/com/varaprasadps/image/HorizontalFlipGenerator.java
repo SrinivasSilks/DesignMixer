@@ -8,12 +8,10 @@ import java.io.IOException;
 
 public class HorizontalFlipGenerator {
     public static void main(final String[] args) throws IOException {
-        int x = 1824;
-        int y = 16;
-        String input = "z-giri/out/step-16-20.bmp";
+        String input = "z-giri/out/PALLU_B_DOWN_JARI-120-1700.bmp";
         BufferedImage inputBI = ImageIO.read(new File(input));
         BufferedImage img = get(inputBI);
-        saveBMP(img, String.format("z-data/out/flip-%s-%s.bmp", x, y));
+        saveBMP(img, String.format("z-giri/out/PALLU_B_UP_JARI-%s-%s.bmp", img.getWidth(), img.getHeight()));
     }
 
     public static BufferedImage get(BufferedImage input) {

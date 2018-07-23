@@ -10,10 +10,10 @@ public class HorizontalRepeatGenerator {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/horizontal-layout-%s-%s.bmp";
-        int times = 5;
+        String out = "z-data/out/BANARAS-%s-%s.bmp";
+        int times = 33;
 
-        String path = "z-data/out/plain-10-50.bmp";
+        String path = "z-data/in/1/BANARAS.bmp";
         BufferedImage image = ImageIO.read(new File(path));
 
         int width = image.getWidth() * times;

@@ -11,10 +11,10 @@ public class CutLayoutGenerator {
     public static void main(final String[] args) throws IOException {
         int x = 1824;
         int y = 16;
-        String input = "z-giri/in/28/PALLU/A_PALLU_JARI.bmp";
+        String input = "z-data/out/SUNUNDA-1980-10.bmp";
         BufferedImage inputBI = ImageIO.read(new File(input));
-        List<BufferedImage> bis = get(inputBI, 100);
-        saveBMP(bis, "z-data/out/split-%s-%s-%s.bmp");
+        List<BufferedImage> bis = get(inputBI, 20);
+        saveBMP(bis, "z-data/out/SUNUNDA-1980-10_%s.bmp");
     }
 
     public static List<BufferedImage> get(BufferedImage inputBI, int sizeY) {

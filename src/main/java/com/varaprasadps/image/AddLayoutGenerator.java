@@ -10,15 +10,23 @@ import java.util.List;
 public class AddLayoutGenerator {
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-data/out/layout-%s-%s.bmp";
+        String out = "z-giri/in/28/PALLU_RANI.bmp";
+
+        String centre = "z-giri/out/abc/PALLU_CENTRE_RANI-120-1700.bmp";
+        String up = "z-giri/out/abc/PALLU_B_UP_RANI-120-1700.bmp";
+        String parrot = "z-giri/out/abc/PALLU_P_RANI-360-1700.bmp";
+        String down = "z-giri/out/abc/PALLU_B_DOWN_RANI-120-1700.bmp";
 
         List<String> inputs = new LinkedList<>();
-
-        inputs.add("z-data/out/plain-50-10.bmp");
-        inputs.add("z-data/out/empty-50-10.bmp");
-        inputs.add("z-data/out/plain-50-10.bmp");
-        inputs.add("z-data/out/empty-50-10.bmp");
-        inputs.add("z-data/out/plain-50-10.bmp");
+        inputs.add(up);
+        inputs.add(parrot);
+        inputs.add(down);
+        for (int i = 0; i < 6; i++) {
+            inputs.add(centre);
+        }
+        inputs.add(up);
+        inputs.add(parrot);
+        inputs.add(down);
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {

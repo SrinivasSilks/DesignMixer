@@ -1,4 +1,4 @@
-package com.varaprasadps.giri.no28.pallu.buggadiright;
+package com.varaprasadps.giri.no28.pallu;
 
 import com.varaprasadps.image.*;
 
@@ -13,30 +13,23 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-giri/out/28/p-b-r-rani-%s-%s.bmp";
-        final BufferedImage centre = HorizontalFlipGenerator.get(ImageIO.read(new File("z-giri/in/28/PALLU/BUGGUDI_RANI.bmp")));
-        final BufferedImage centreOne = HorizontalFlipGenerator.get(ImageIO.read(new File("z-giri/in/28/PALLU/BUGGUDI_RANI_1.bmp")));
-        final BufferedImage centreTwo = HorizontalFlipGenerator.get(ImageIO.read(new File("z-giri/in/28/PALLU/BUGGUDI_RANI_2.bmp")));
-        int width = centre.getWidth();
+        String out = "z-giri/out/28/p-rani-%s-%s.bmp";
+
+        BufferedImage sub = ImageIO.read(new File("z-giri/in/28/PALLU_RANI.bmp"));
+        final int width = sub.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
+
         inputBIs.add(EmptyGenerator.get(width, 32));
 
         //Box
         inputBIs.add(EmptyGenerator.get(width, 2));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
-        // Achu
+        //Achu
         inputBIs.add(AchuLayoutGenerator.get(width, 12));
 
-        //Allover
-        inputBIs.add(centreTwo);
-        inputBIs.add(centreOne);
-
-        //Skirt
-        inputBIs.add(centreTwo);
-        inputBIs.add(centre);
-        inputBIs.add(centre);
-        inputBIs.add(centre);
+        //allover and skirt
+        inputBIs.add(sub);
         inputBIs.add(PlainGenerator.get(width, 20));
 
         //locking
@@ -45,10 +38,11 @@ public class RaniConversion {
         //banaras
         inputBIs.add(StepLayoutGenerator.get(width, 5));
 
+
         //Box
         inputBIs.add(EmptyGenerator.get(width, 2));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
-        // Achu
+        //Achu
         inputBIs.add(AchuLayoutGenerator.get(width, 12));
 
         int repeatWidth = 0;
