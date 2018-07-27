@@ -19,16 +19,16 @@ public class CutLayoutGenerator {
 
     public static List<BufferedImage> get(BufferedImage inputBI, int sizeY) {
         final List<BufferedImage> res = new LinkedList<>();
-        final List<BufferedImage> images = SplitGenerator.get(inputBI, inputBI.getHeight() / 10);
+        final List<BufferedImage> images = SplitGenerator.get(inputBI, inputBI.getHeight());
 
         List<BufferedImage> layoutsOne = new LinkedList<>();
-        final int first = sizeY / 10;
+        final int first = sizeY;
         for (int i = 0; i < first; i++) {
             layoutsOne.add(images.get(i));
         }
         res.add(AddLayoutGenerator.get(inputBI.getWidth(), sizeY, layoutsOne));
         List<BufferedImage> layoutsTwo = new LinkedList<>();
-        for (int i = first; i < inputBI.getHeight() / 10; i++) {
+        for (int i = first; i < inputBI.getHeight(); i++) {
             layoutsTwo.add(images.get(i));
         }
         res.add(AddLayoutGenerator.get(inputBI.getWidth(), inputBI.getHeight() - sizeY, layoutsTwo));
