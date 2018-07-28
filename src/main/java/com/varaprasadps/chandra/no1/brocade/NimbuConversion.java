@@ -35,7 +35,7 @@ public class NimbuConversion {
         inputBIs.add(EmptyGenerator.get(width, 360));
 
         //locking
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 4)));
+        inputBIs.add(EmptyGenerator.get(width, 4));
 
         // Box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(skirt.getWidth(), 2)));
