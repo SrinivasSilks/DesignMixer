@@ -18,6 +18,8 @@ public class NimbuConversion {
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 128));
+
         // Box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(skirt.getWidth(), 2)));
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
@@ -31,6 +33,7 @@ public class NimbuConversion {
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
         // Achu
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 12));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 128));
 
 
         int repeatWidth = 0;

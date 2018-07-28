@@ -17,6 +17,7 @@ public class JariConversion {
         final BufferedImage skirt = ImageIO.read(new File("z-chandra/in/2/B_JARI.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 128));
         // Box
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
@@ -30,6 +31,8 @@ public class JariConversion {
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
         // Achu
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 12));
+
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 128));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
