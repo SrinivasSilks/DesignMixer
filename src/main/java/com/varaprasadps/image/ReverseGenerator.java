@@ -12,19 +12,19 @@ import java.util.TreeSet;
 public class ReverseGenerator {
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-data/out/reverse-%s-%s.bmp";
+        String out = "z-chandra/out/1/brocade-compressed.bmp";
 
-        String path = "z-data/out/b-jari-300-1824.bmp";
+        String path = "z-chandra/out/1/brocade-37500-1792.bmp";
         BufferedImage image = ImageIO.read(new File(path));
 
 
-        BufferedImage img = get(image);
+        BufferedImage img = get(get(image));
         saveBMP(img, String.format(out,image.getWidth(),image.getHeight()));
     }
 
     public static BufferedImage get(BufferedImage input) {
         Set<Integer> output = new TreeSet<>();
-        final BufferedImage res = new BufferedImage(input.getWidth(), input.getHeight(), BufferedImage.TYPE_INT_RGB);
+        final BufferedImage res = new BufferedImage(input.getWidth(), input.getHeight(), BufferedImage.TYPE_BYTE_BINARY);
         for (int x = 0; x < input.getWidth(); x++) {
             for (int y = 0; y < input.getHeight(); y++) {
                 int rgb = input.getRGB(x, y);

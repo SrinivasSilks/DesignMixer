@@ -15,7 +15,7 @@ public class HorizontalFlipGenerator {
     }
 
     public static BufferedImage get(BufferedImage input) {
-        final BufferedImage res = new BufferedImage(input.getWidth(), input.getHeight(), BufferedImage.TYPE_INT_RGB);
+        final BufferedImage res = new BufferedImage(input.getWidth(), input.getHeight(), BufferedImage.TYPE_BYTE_BINARY);
         for (int row = 0; row < input.getWidth(); row++) {
             int resultRow = input.getWidth() - 1 - row;
             for (int col = 0; col < input.getHeight(); col++) {
