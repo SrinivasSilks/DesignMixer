@@ -13,32 +13,29 @@ public class AnniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-chandra/out/2/anni-%s-%s.bmp";
-
+        String out = "z-chandra/out/2/2anni-%s-%s.bmp";
         final BufferedImage border = ImageIO.read(new File("z-chandra/in/2/BORDER.bmp"));
         int width = border.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        // Box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
-        inputBIs.add(EmptyGenerator.get(width, 2));
-        //Achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 12));
+        inputBIs.add(EmptyGenerator.get(width, 128));
 
-        // All over
-        inputBIs.add(PlainGenerator.get(width, 480));
-        // Skirt
-        inputBIs.add(PlainGenerator.get(width, 800));
-        //locking
-        inputBIs.add(PlainGenerator.get(width, 14));
-
-        inputBIs.add(border);
         // Box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         inputBIs.add(EmptyGenerator.get(width, 2));
         // Achu
         inputBIs.add(AchuLayoutGenerator.get(width, 12));
+
+        inputBIs.add(PlainGenerator.get(width, 1294));
+
+        //Box khali
+        inputBIs.add(EmptyGenerator.get(width, 4));
+
+        inputBIs.add(border);
+        //Achu
+        inputBIs.add(AchuLayoutGenerator.get(width, 12));
+        inputBIs.add(EmptyGenerator.get(width, 128));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
