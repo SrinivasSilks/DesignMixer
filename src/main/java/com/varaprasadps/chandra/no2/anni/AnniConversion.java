@@ -29,10 +29,10 @@ public class AnniConversion {
 
         inputBIs.add(PlainGenerator.get(width, 1294));
 
+        inputBIs.add(border);
+
         //Box khali
         inputBIs.add(EmptyGenerator.get(width, 4));
-
-        inputBIs.add(border);
         //Achu
         inputBIs.add(AchuLayoutGenerator.get(width, 12));
         inputBIs.add(EmptyGenerator.get(width, 128));
