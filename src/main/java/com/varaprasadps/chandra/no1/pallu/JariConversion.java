@@ -15,8 +15,11 @@ public class JariConversion {
 
         String out = "z-chandra/out/1/p-jari-%s-%s.bmp";
 
-        final BufferedImage pallu = CutLayoutGenerator.get(ImageIO.read(new File("z-chandra/in/1/PALLU_JARI.bmp")), 1124).get(0);
-        int width = pallu.getWidth();
+        final BufferedImage up = ImageIO.read(new File("z-chandra/in/1/PALLU/PALLU_JARI_UP.bmp"));
+        final BufferedImage pallu = ImageIO.read(new File("z-chandra/in/1/PALLU/PALLU_JARI.bmp"));
+        final BufferedImage down = ImageIO.read(new File("z-chandra/in/1/PALLU/PALLU_JARI_DOWN.bmp"));
+        final BufferedImage skirt = CutLayoutGenerator.get(ImageIO.read(new File("z-chandra/in/1/PALLU/PALLU_JARI_SKIRT.bmp")), 584).get(0);
+        int width = skirt.getWidth();
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         inputBIs.add(EmptyGenerator.get(width, 128));
@@ -27,7 +30,10 @@ public class JariConversion {
         //Achu
         inputBIs.add(EmptyGenerator.get(width, 10));
 
+        inputBIs.add(up);
         inputBIs.add(pallu);
+        inputBIs.add(down);
+        inputBIs.add(skirt);
         // locking
         inputBIs.add(StepLayoutGenerator.get(width, 4));
 

@@ -15,7 +15,11 @@ public class RaniConversion {
 
         String out = "z-chandra/out/1/p-rani-%s-%s.bmp";
 
-        final BufferedImage pallu = CutLayoutGenerator.get(ImageIO.read(new File("z-chandra/in/1/PALLU_RANI.bmp")), 1124).get(0);
+        final BufferedImage up = ImageIO.read(new File("z-chandra/in/1/PALLU/PALLU_RANI_UP.bmp"));
+        final BufferedImage pallu = ImageIO.read(new File("z-chandra/in/1/PALLU/PALLU_RANI.bmp"));
+        final BufferedImage down = ImageIO.read(new File("z-chandra/in/1/PALLU/PALLU_RANI_DOWN.bmp"));
+        final BufferedImage skirt = CutLayoutGenerator.get(ImageIO.read(new File("z-chandra/in/1/PALLU/PALLU_RANI_SKIRT.bmp")), 584).get(0);
+
         final BufferedImage border = ImageIO.read(new File("z-chandra/in/1/BORDER_360-1980.bmp"));
 
         int width = pallu.getWidth();
@@ -31,7 +35,10 @@ public class RaniConversion {
         //Achu
         inputBIs.add(AchuLayoutGenerator.get(width, 10));
 
+        inputBIs.add(up);
         inputBIs.add(pallu);
+        inputBIs.add(down);
+        inputBIs.add(skirt);
         //locking
         inputBIs.add(PlainGenerator.get(width, 16));
 
