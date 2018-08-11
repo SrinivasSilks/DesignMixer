@@ -13,41 +13,30 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/2/p-rani-%s-%s.bmp";
+        String out = "z-chandra/out/2/p-rani-%s-%s.bmp";
 
-        final BufferedImage pallu = ImageIO.read(new File("z-data/in/2/PALLU_RANI.bmp"));
+        final BufferedImage pallu = ImageIO.read(new File("z-chandra/in/2/PALLU_RANI.bmp"));
+        final BufferedImage skirt = ImageIO.read(new File("z-chandra/in/2/PALLU_RANI_SKIRT.bmp"));
         List<BufferedImage> inputBIs = new LinkedList<>();
 
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 128));
+
         // Box
         inputBIs.add(EmptyGenerator.get(pallu.getWidth(), 2));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(pallu.getWidth(), 2)));
-
-        // Khali
-        inputBIs.add(EmptyGenerator.get(pallu.getWidth(), 4));
         //Achu
-        inputBIs.add(AchuLayoutGenerator.get(pallu.getWidth(), 8));
-
-        // Locking
-        inputBIs.add(PlainGenerator.get(pallu.getWidth(), 20));
+        inputBIs.add(AchuLayoutGenerator.get(pallu.getWidth(), 12));
 
         inputBIs.add(pallu);
-
-        // Locking
-        inputBIs.add(PlainGenerator.get(pallu.getWidth(), 20));
-
-        // Jari
-        inputBIs.add(ImageIO.read(new File("z-data/in/2/P_SUNUNDA_FINAL.bmp")));
-        inputBIs.add(ImageIO.read(new File("z-data/in/2/P_BANARAS_FINAL.bmp")));
-        inputBIs.add(ImageIO.read(new File("z-data/in/2/P_TEEGA_FINAL.bmp")));
+        inputBIs.add(skirt);
 
         // Box
         inputBIs.add(EmptyGenerator.get(pallu.getWidth(), 2));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(pallu.getWidth(), 2)));
-        // Khali
-        inputBIs.add(EmptyGenerator.get(pallu.getWidth(), 4));
-
         // Achu
-        inputBIs.add(AchuLayoutGenerator.get(pallu.getWidth(), 8));
+        inputBIs.add(AchuLayoutGenerator.get(pallu.getWidth(), 12));
+
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 128));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
