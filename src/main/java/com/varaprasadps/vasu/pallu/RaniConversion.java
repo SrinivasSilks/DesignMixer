@@ -18,6 +18,9 @@ public class RaniConversion {
         final BufferedImage pallu = HorizontalFlipGenerator.get(ImageIO.read(new File("z-vasu/in/4/PALLU_RANI.bmp")));
         List<BufferedImage> inputBIs = new LinkedList<>();
 
+        // Board Khali
+        inputBIs.add(EmptyGenerator.get(pallu.getWidth(), 128));
+
         // Box
         inputBIs.add(EmptyGenerator.get(pallu.getWidth(), 2));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(pallu.getWidth(), 2)));
@@ -38,7 +41,7 @@ public class RaniConversion {
         inputBIs.add(AchuLayoutGenerator.get(pallu.getWidth(), 12));
 
         // Board Khali
-        inputBIs.add(EmptyGenerator.get(pallu.getWidth(), 128));
+        inputBIs.add(EmptyGenerator.get(pallu.getWidth(), 256));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
