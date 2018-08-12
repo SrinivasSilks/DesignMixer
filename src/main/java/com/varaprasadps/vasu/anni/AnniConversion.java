@@ -20,6 +20,9 @@ public class AnniConversion {
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
+        // Board Khali
+        inputBIs.add(EmptyGenerator.get(width, 128));
+
         // Box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         inputBIs.add(EmptyGenerator.get(width, 2));
@@ -40,7 +43,7 @@ public class AnniConversion {
         inputBIs.add(AchuLayoutGenerator.get(width, 12));
 
         // Board Khali
-        inputBIs.add(EmptyGenerator.get(width, 128));
+        inputBIs.add(EmptyGenerator.get(width, 256));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
