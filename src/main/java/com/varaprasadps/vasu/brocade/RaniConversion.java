@@ -18,6 +18,9 @@ public class RaniConversion {
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
+        // Board Khali
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 128));
+
         // Box
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(skirt.getWidth(), 2)));
@@ -36,7 +39,7 @@ public class RaniConversion {
         inputBIs.add(AchuLayoutGenerator.get(skirt.getWidth(), 12));
 
         // Board Khali
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 128));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 256));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

@@ -17,6 +17,10 @@ public class NimbuConversion {
         final BufferedImage skirt = ImageIO.read(new File("z-vasu/in/4/B_NIMBU.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
+
+        // Board Khali
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 128));
+
         // Box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(skirt.getWidth(), 2)));
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
@@ -36,7 +40,7 @@ public class NimbuConversion {
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 12));
 
         // Board Khali
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 128));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 256));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
