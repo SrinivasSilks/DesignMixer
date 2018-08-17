@@ -1,8 +1,8 @@
-package com.varaprasadps.no6.kanni;
+package com.varaprasadps.no6.old.kanni;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
-import com.varaprasadps.no6.pallu.JariConversion;
-import com.varaprasadps.no6.pallu.RoyalBlueConversion;
+import com.varaprasadps.no6.old.pallu.JariConversion;
+import com.varaprasadps.no6.old.pallu.RoyalBlueConversion;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

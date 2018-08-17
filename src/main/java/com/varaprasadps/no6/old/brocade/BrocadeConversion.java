@@ -1,4 +1,4 @@
-package com.varaprasadps.no6.brocade;
+package com.varaprasadps.no6.old.brocade;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
 

@@ -1,4 +1,4 @@
-package com.varaprasadps.no6.pallu;
+package com.varaprasadps.no6.old.pallu;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
 

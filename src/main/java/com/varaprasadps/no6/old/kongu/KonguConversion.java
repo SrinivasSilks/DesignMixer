@@ -1,4 +1,4 @@
-package com.varaprasadps.no6.brocade;
+package com.varaprasadps.no6.old.kongu;
 
 import com.varaprasadps.image.*;
 
@@ -9,42 +9,40 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class JariConversion {
+public class KonguConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/6/jari-%s-%s.bmp";
-        final BufferedImage in = ImageIO.read(new File("z-data/in/6/new2/jari.bmp"));
+        String out = "z-data/out/6/kongu-%s-%s.bmp";
 
+        int x = 2;
         List<BufferedImage> inputBIs = new LinkedList<>();
+        inputBIs.add(EmptyGenerator.get(x, 32));
 
-        inputBIs.add(EmptyGenerator.get(in.getWidth(), 32));
         // Locking
-        inputBIs.add(StepLayoutGenerator.get(in.getWidth()));
-        inputBIs.add(StepLayoutGenerator.get(in.getWidth()));
-
-        //Achu Khali
-        inputBIs.add(EmptyGenerator.get(in.getWidth(), 8));
+        inputBIs.add(KonguLayoutGenerator.get(2));
+        // Achu
+        inputBIs.add(EmptyGenerator.get(x, 8));
 
         int number = 109;
-        BufferedImage input = ReverseGenerator.get(in);
-        BufferedImage ariel = StepLayoutGenerator.get(input.getWidth());
+        BufferedImage input = EmptyGenerator.get(x, 1308);
+        BufferedImage ariel = KonguLayoutGenerator.get();
         inputBIs.add(ArielLayoutGenerator.get(input, number, ariel));
 
+        inputBIs.add(EmptyGenerator.get(x, 12));
 
-        inputBIs.add(EmptyGenerator.get(in.getWidth(), 12));
-        // Achu Khali
-        inputBIs.add(EmptyGenerator.get(in.getWidth(), 4));
+        // Achu
+        inputBIs.add(EmptyGenerator.get(x, 4));
 
         // Box
-        inputBIs.add(EmptyGenerator.get(in.getWidth(), 4));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(x, 2)));
+        inputBIs.add(EmptyGenerator.get(x, 2));
 
-        // Locking
-        inputBIs.add(StepLayoutGenerator.get(in.getWidth()));
-        inputBIs.add(StepLayoutGenerator.get(in.getWidth()));
+        // locking
+        inputBIs.add(KonguLayoutGenerator.get(2));
 
-        // Achu Khali
-        inputBIs.add(EmptyGenerator.get(in.getWidth(), 4));
+        // Achu
+        inputBIs.add(EmptyGenerator.get(x, 4));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -66,4 +64,5 @@ public class JariConversion {
     private static void saveBMP(final BufferedImage bi, final String path) throws IOException {
         ImageIO.write(bi, "bmp", new File(path));
     }
+
 }
