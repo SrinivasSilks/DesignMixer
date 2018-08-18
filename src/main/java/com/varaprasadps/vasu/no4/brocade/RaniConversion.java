@@ -1,4 +1,4 @@
-package com.varaprasadps.vasu.emboje;
+package com.varaprasadps.vasu.no4.brocade;
 
 import com.varaprasadps.image.*;
 
@@ -9,41 +9,37 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class EmbojeeConversion {
+public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-vasu/out/4/embojee-%s-%s.bmp";
-
-        final BufferedImage border = ImageIO.read(new File("z-vasu/in/4/EMBOJEE.bmp"));
-        int width = border.getWidth();
+        String out = "z-vasu/out/4/rani-%s-%s.bmp";
+        final BufferedImage skirt = ImageIO.read(new File("z-vasu/in/4/B_RANI.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         // Board Khali
-        inputBIs.add(EmptyGenerator.get(width, 128));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 128));
 
         // Box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
-        inputBIs.add(EmptyGenerator.get(width, 2));
-
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(skirt.getWidth(), 2)));
         //Achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 12));
+        inputBIs.add(AchuLayoutGenerator.get(skirt.getWidth(), 12));
 
-        inputBIs.add(border);
-
+        inputBIs.add(skirt);
         // Locking
-        inputBIs.add(PlainGenerator.get(width, 16));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(skirt.getWidth(), 16)));
 
         // Box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
-        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(skirt.getWidth(), 2)));
 
         // Achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 12));
+        inputBIs.add(AchuLayoutGenerator.get(skirt.getWidth(), 12));
 
         // Board Khali
-        inputBIs.add(EmptyGenerator.get(width, 256));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 256));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -53,7 +49,7 @@ public class EmbojeeConversion {
             repeatWidth = bi.getWidth();
             repeatHeight += bi.getHeight();
         }
-        BufferedImage bi = HorizontalFlipGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
+        BufferedImage bi = AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs);
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
     }

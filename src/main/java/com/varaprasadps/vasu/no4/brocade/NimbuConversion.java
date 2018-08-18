@@ -1,4 +1,4 @@
-package com.varaprasadps.vasu.pallu;
+package com.varaprasadps.vasu.no4.brocade;
 
 import com.varaprasadps.image.*;
 
@@ -9,42 +9,38 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class JariConversion {
+public class NimbuConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-vasu/out/4/p-jari-%s-%s.bmp";
-
-        final BufferedImage pallu = HorizontalFlipGenerator.get(ImageIO.read(new File("z-vasu/in/4/PALLU_JARI.bmp")));
-        int width = pallu.getWidth();
-
+        String out = "z-vasu/out/4/nimbu-%s-%s.bmp";
+        final BufferedImage skirt = ImageIO.read(new File("z-vasu/in/4/B_NIMBU.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         // Board Khali
-        inputBIs.add(EmptyGenerator.get(width, 128));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 128));
 
         // Box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
-        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(skirt.getWidth(), 2)));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
+        //Achu
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 12));
 
-        //Achu Khali
-        inputBIs.add(EmptyGenerator.get(width, 12));
-
-        inputBIs.add(pallu);
+        inputBIs.add(skirt);
 
         // Locking
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 4)));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(skirt.getWidth(), 16)));
 
         // Box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
-        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(skirt.getWidth(), 2)));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
 
-        // Achu khali
-        inputBIs.add(EmptyGenerator.get(width, 12));
+        // Achu
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 12));
 
         // Board Khali
-        inputBIs.add(EmptyGenerator.get(width, 256));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 256));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

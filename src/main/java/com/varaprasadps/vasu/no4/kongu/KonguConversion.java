@@ -1,4 +1,4 @@
-package com.varaprasadps.vasu.anni;
+package com.varaprasadps.vasu.no4.kongu;
 
 import com.varaprasadps.image.*;
 
@@ -9,16 +9,15 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class AnniConversion {
+public class KonguConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-vasu/out/4/plain-%s-%s.bmp";
+        String out = "z-vasu/out/4/4kongu-%s-%s.bmp";
 
-        final BufferedImage border = ImageIO.read(new File("z-vasu/in/4/BORDER.bmp"));
-        int width = border.getWidth();
-
+        int width = 2;
         List<BufferedImage> inputBIs = new LinkedList<>();
+
 
         // Board Khali
         inputBIs.add(EmptyGenerator.get(width, 128));
@@ -28,19 +27,21 @@ public class AnniConversion {
         inputBIs.add(EmptyGenerator.get(width, 2));
 
         //Achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 12));
+        inputBIs.add(EmptyGenerator.get(width, 12));
 
-        inputBIs.add(border);
+        inputBIs.add(KonguLayoutGenerator.get(100));
+
+        inputBIs.add(EmptyGenerator.get(width, 960));
 
         // Locking
-        inputBIs.add(PlainGenerator.get(width, 16));
+        inputBIs.add(KonguLayoutGenerator.get(4));
 
         // Box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         inputBIs.add(EmptyGenerator.get(width, 2));
 
         // Achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 12));
+        inputBIs.add(EmptyGenerator.get(width, 12));
 
         // Board Khali
         inputBIs.add(EmptyGenerator.get(width, 256));

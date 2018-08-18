@@ -1,4 +1,4 @@
-package com.varaprasadps.vasu.kongu;
+package com.varaprasadps.vasu.no4.brocade;
 
 import com.varaprasadps.image.*;
 
@@ -9,42 +9,38 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class KonguConversion {
+public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-vasu/out/4/4kongu-%s-%s.bmp";
+        String out = "z-vasu/out/4/jari-%s-%s.bmp";
+        final BufferedImage skirt = ImageIO.read(new File("z-vasu/in/4/B_JARI.bmp"));
 
-        int width = 2;
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-
         // Board Khali
-        inputBIs.add(EmptyGenerator.get(width, 128));
-
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 128));
         // Box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
-        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
 
         //Achu
-        inputBIs.add(EmptyGenerator.get(width, 12));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 12));
 
-        inputBIs.add(KonguLayoutGenerator.get(100));
-
-        inputBIs.add(EmptyGenerator.get(width, 960));
+        inputBIs.add(skirt);
 
         // Locking
-        inputBIs.add(KonguLayoutGenerator.get(4));
+        inputBIs.add(HorizontalFlipGenerator.get(ReverseGenerator.get(StepLayoutGenerator.get(skirt.getWidth(), 4))));
 
         // Box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
-        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
 
         // Achu
-        inputBIs.add(EmptyGenerator.get(width, 12));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 12));
 
         // Board Khali
-        inputBIs.add(EmptyGenerator.get(width, 256));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 256));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -54,7 +50,7 @@ public class KonguConversion {
             repeatWidth = bi.getWidth();
             repeatHeight += bi.getHeight();
         }
-        BufferedImage bi = HorizontalFlipGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
+        BufferedImage bi = AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs);
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
     }
