@@ -13,33 +13,23 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/6/2rani-%s-%s.bmp";
-        final BufferedImage skirt = ImageIO.read(new File("z-data/in/6/2/SKIRT_RANI.bmp"));
+        String out = "z-data/out/3/rani-%s-%s.bmp";
+        final BufferedImage skirt = ImageIO.read(new File("z-data/in/3/B_RANI.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 32));
+
         // Box
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(skirt.getWidth(), 2)));
         //Achu
         inputBIs.add(AchuLayoutGenerator.get(skirt.getWidth(), 12));
 
-        // Locking
-        inputBIs.add(PlainGenerator.get(skirt.getWidth(), 20));
-
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 480));
         inputBIs.add(skirt);
 
-        // Jari
-        inputBIs.add(HorizontalRepeatGenerator.get(12, ImageIO.read(new File("z-data/in/6/2/SUNUNDA.bmp"))));
-        inputBIs.add(HorizontalRepeatGenerator.get(12, ImageIO.read(new File("z-data/in/6/2/BANARAS.bmp"))));
-        inputBIs.add(HorizontalRepeatGenerator.get(12, ImageIO.read(new File("z-data/in/6/2/TEEGA.bmp"))));
-
-        // Box
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(skirt.getWidth(), 2)));
-
+        // Locking
+        inputBIs.add(PlainGenerator.get(skirt.getWidth(), 4));
         // Achu
         inputBIs.add(AchuLayoutGenerator.get(skirt.getWidth(), 12));
 

@@ -1,6 +1,9 @@
 package com.varaprasadps.no3.brocade;
 
-import com.varaprasadps.image.*;
+import com.varaprasadps.image.AddLayoutGenerator;
+import com.varaprasadps.image.EmptyGenerator;
+import com.varaprasadps.image.ReverseGenerator;
+import com.varaprasadps.image.StepLayoutGenerator;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

@@ -1,9 +1,6 @@
-package com.varaprasadps.no3.brocade;
+package com.varaprasadps.no3.anni;
 
-import com.varaprasadps.image.AddLayoutGenerator;
-import com.varaprasadps.image.EmptyGenerator;
-import com.varaprasadps.image.PlainGenerator;
-import com.varaprasadps.image.ReverseGenerator;
+import com.varaprasadps.image.*;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -12,29 +9,32 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class NimbuConversion {
+public class AnniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/3/nimbu-%s-%s.bmp";
-
-        final BufferedImage skirt = ImageIO.read(new File("z-data/in/3/B_NIMBU.bmp"));
+        String out = "z-data/out/3/anni-%s-%s.bmp";
+        final BufferedImage border = ImageIO.read(new File("z-data/in/3/BORDER.bmp"));
+        final int width = border.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 32));
+
+        inputBIs.add(EmptyGenerator.get(width, 32));
 
         // Box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(skirt.getWidth(), 2)));
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
-        //Achu
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 12));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        //achu
+        inputBIs.add(AchuLayoutGenerator.get(width, 12));
 
-        inputBIs.add(skirt);
+        // Skirt and Allover
+        inputBIs.add(PlainGenerator.get(width, 1200));
+        inputBIs.add(border);
 
-        // Locking
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(skirt.getWidth(), 4)));
+        // locking
+        inputBIs.add(PlainGenerator.get(width, 4));
         // Achu
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 12));
+        inputBIs.add(AchuLayoutGenerator.get(width, 12));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -56,4 +56,5 @@ public class NimbuConversion {
     private static void saveBMP(final BufferedImage bi, final String path) throws IOException {
         ImageIO.write(bi, "bmp", new File(path));
     }
+
 }

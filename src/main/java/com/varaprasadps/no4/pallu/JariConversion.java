@@ -1,9 +1,9 @@
-package com.varaprasadps.no3.brocade;
+package com.varaprasadps.no4.pallu;
 
 import com.varaprasadps.image.AddLayoutGenerator;
 import com.varaprasadps.image.EmptyGenerator;
-import com.varaprasadps.image.PlainGenerator;
 import com.varaprasadps.image.ReverseGenerator;
+import com.varaprasadps.image.StepLayoutGenerator;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -12,29 +12,35 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class NimbuConversion {
+public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/3/nimbu-%s-%s.bmp";
-
-        final BufferedImage skirt = ImageIO.read(new File("z-data/in/3/B_NIMBU.bmp"));
+        String out = "z-data/out/4/p-jari-%s-%s.bmp";
+        final BufferedImage pallu = ImageIO.read(new File("z-data/in/4/P_JARI.bmp"));
+        int width = pallu.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 32));
-
-        // Box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(skirt.getWidth(), 2)));
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
-        //Achu
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 12));
-
-        inputBIs.add(skirt);
+        inputBIs.add(EmptyGenerator.get(width, 32));
 
         // Locking
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(skirt.getWidth(), 4)));
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 1)));
+        //Achu
+        inputBIs.add(EmptyGenerator.get(width, 12));
+
+        inputBIs.add(pallu);
+        inputBIs.add(pallu);
+        inputBIs.add(pallu);
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 3)));
+
+        // Jari
+        inputBIs.add(EmptyGenerator.get(width, 176));
+
+        // Box
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         // Achu
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 12));
+        inputBIs.add(EmptyGenerator.get(width, 12));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -47,6 +53,7 @@ public class NimbuConversion {
         BufferedImage bi = ReverseGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
+
     }
 
     private static void displayPixels(BufferedImage fileOne) {
@@ -56,4 +63,5 @@ public class NimbuConversion {
     private static void saveBMP(final BufferedImage bi, final String path) throws IOException {
         ImageIO.write(bi, "bmp", new File(path));
     }
+
 }
