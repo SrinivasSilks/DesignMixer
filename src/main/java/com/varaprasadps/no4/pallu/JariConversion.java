@@ -1,9 +1,6 @@
 package com.varaprasadps.no4.pallu;
 
-import com.varaprasadps.image.AddLayoutGenerator;
-import com.varaprasadps.image.EmptyGenerator;
-import com.varaprasadps.image.ReverseGenerator;
-import com.varaprasadps.image.StepLayoutGenerator;
+import com.varaprasadps.image.*;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -17,7 +14,7 @@ public class JariConversion {
     public static void main(final String[] args) throws IOException {
 
         String out = "z-data/out/4/p-jari-%s-%s.bmp";
-        final BufferedImage pallu = ImageIO.read(new File("z-data/in/4/P_JARI.bmp"));
+        final BufferedImage pallu = ImageIO.read(new File("z-data/in/4/PALU_JARI.bmp"));
         int width = pallu.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
@@ -30,7 +27,7 @@ public class JariConversion {
 
         inputBIs.add(pallu);
         inputBIs.add(pallu);
-        inputBIs.add(pallu);
+        inputBIs.add(CutLayoutGenerator.get(pallu, 388).get(0));
         inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 3)));
 
         // Jari

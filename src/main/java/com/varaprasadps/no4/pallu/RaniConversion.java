@@ -13,8 +13,8 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/6/p-rani-%s-%s.bmp";
-        final BufferedImage pallu = ImageIO.read(new File("z-data/in/4/P_RANI.bmp"));
+        String out = "z-data/out/4/p-rani-%s-%s.bmp";
+        final BufferedImage pallu = ImageIO.read(new File("z-data/in/4/PALU_RANI.bmp"));
         final BufferedImage border = ImageIO.read(new File("z-data/in/4/BORDER.bmp"));
         int width = pallu.getWidth();
 
@@ -29,12 +29,13 @@ public class RaniConversion {
         inputBIs.add(AchuLayoutGenerator.get(width, 12));
 
         inputBIs.add(pallu);
-
+        inputBIs.add(pallu);
+        inputBIs.add(CutLayoutGenerator.get(pallu, 388).get(0));
         // Locking
-        inputBIs.add(PlainGenerator.get(width, 20));
+        inputBIs.add(PlainGenerator.get(width, 12));
 
         // Jari
-        inputBIs.add(border);
+        inputBIs.add(HorizontalRepeatGenerator.get(pallu.getWidth() / border.getWidth(), border));
 
         // Box
         inputBIs.add(EmptyGenerator.get(width, 2));
