@@ -10,28 +10,23 @@ import java.util.List;
 public class AddLayoutGenerator {
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-giri/in/28/PALLU_RANI.bmp";
+        String out = "z-data/out/BROCADE_RANI.bmp";
+        BufferedImage body = HorizontalRepeatGenerator.get(9, ImageIO.read(new File("z-data/in/6/2/BODY_NIMBU.bmp")));
+        BufferedImage skirt = ImageIO.read(new File("z-data/in/6/2/SKIRT_RANI.bmp"));
 
-        String centre = "z-giri/out/abc/PALLU_CENTRE_RANI-120-1700.bmp";
-        String up = "z-giri/out/abc/PALLU_B_UP_RANI-120-1700.bmp";
-        String parrot = "z-giri/out/abc/PALLU_P_RANI-360-1700.bmp";
-        String down = "z-giri/out/abc/PALLU_B_DOWN_RANI-120-1700.bmp";
+        BufferedImage emptyJari = EmptyGenerator.get(skirt.getWidth(), 60);
 
-        List<String> inputs = new LinkedList<>();
-        inputs.add(up);
-        inputs.add(parrot);
-        inputs.add(down);
-        for (int i = 0; i < 6; i++) {
-            inputs.add(centre);
-        }
-        inputs.add(up);
-        inputs.add(parrot);
-        inputs.add(down);
+        BufferedImage sununda = HorizontalRepeatGenerator.get(12, ImageIO.read(new File("z-data/in/6/2/SUNUNDA.bmp")));
+        BufferedImage banaras = HorizontalRepeatGenerator.get(12, ImageIO.read(new File("z-data/in/6/2/BANARAS.bmp")));
+        BufferedImage teega = HorizontalRepeatGenerator.get(12, ImageIO.read(new File("z-data/in/6/2/TEEGA.bmp")));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
-        for (String input : inputs) {
-            inputBIs.add(ImageIO.read(new File(input)));
-        }
+
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 480));
+        inputBIs.add(skirt);
+        inputBIs.add(sununda);
+        inputBIs.add(banaras);
+        inputBIs.add(teega);
 
         int repeatWidth = 0;
         int repeatHeight = 0;
