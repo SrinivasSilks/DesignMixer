@@ -14,7 +14,8 @@ public class RaniConversion {
     public static void main(final String[] args) throws IOException {
 
         String out = "z-data/out/4/rani-%s-%s.bmp";
-        final BufferedImage skirt = ImageIO.read(new File("z-data/in/4/B_RANI.bmp"));
+
+        final BufferedImage skirt = CutLayoutGenerator.get(ImageIO.read(new File("z-data/in/4/B_RANI.bmp")), 1188).get(0);
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -26,6 +27,9 @@ public class RaniConversion {
         inputBIs.add(AchuLayoutGenerator.get(skirt.getWidth(), 12));
 
         inputBIs.add(skirt);
+        // Locking
+        inputBIs.add(PlainGenerator.get(skirt.getWidth(), 12));
+        inputBIs.add(HorizontalRepeatGenerator.get(33, ImageIO.read(new File("z-data/in/4/BORDER.bmp"))));
 
         // Box
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));

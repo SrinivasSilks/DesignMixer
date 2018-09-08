@@ -14,7 +14,7 @@ public class JariConversion {
     public static void main(final String[] args) throws IOException {
 
         String out = "z-data/out/4/jari-%s-%s.bmp";
-        final BufferedImage skirt = ImageIO.read(new File("z-data/in/4/B_JARI.bmp"));
+        final BufferedImage skirt = CutLayoutGenerator.get(ImageIO.read(new File("z-data/in/4/B_JARI.bmp")), 1188).get(0);
 
         int width = skirt.getWidth();
 
@@ -28,6 +28,10 @@ public class JariConversion {
         inputBIs.add(EmptyGenerator.get(width, 12));
 
         inputBIs.add(skirt);
+        // Locking
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(skirt.getWidth(), 3)));
+
+        inputBIs.add(EmptyGenerator.get(width, 176));
 
         // Box
         inputBIs.add(EmptyGenerator.get(width, 4));

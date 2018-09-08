@@ -15,7 +15,7 @@ public class NimbuConversion {
 
         String out = "z-data/out/4/nimbu-%s-%s.bmp";
 
-        final BufferedImage skirt = ImageIO.read(new File("z-data/in/4/B_NIMBU.bmp"));
+        final BufferedImage skirt = CutLayoutGenerator.get(ImageIO.read(new File("z-data/in/4/B_NIMBU.bmp")), 1188).get(0);
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 32));
@@ -26,6 +26,9 @@ public class NimbuConversion {
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 12));
 
         inputBIs.add(skirt);
+        // Locking
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(skirt.getWidth(), 12)));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 176));
 
         // Box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(skirt.getWidth(), 2)));
