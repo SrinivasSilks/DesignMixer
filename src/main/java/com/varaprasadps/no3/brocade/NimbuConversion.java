@@ -1,9 +1,6 @@
 package com.varaprasadps.no3.brocade;
 
-import com.varaprasadps.image.AddLayoutGenerator;
-import com.varaprasadps.image.EmptyGenerator;
-import com.varaprasadps.image.PlainGenerator;
-import com.varaprasadps.image.ReverseGenerator;
+import com.varaprasadps.image.*;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -18,7 +15,7 @@ public class NimbuConversion {
 
         String out = "z-data/out/3/nimbu-%s-%s.bmp";
 
-        final BufferedImage skirt = ImageIO.read(new File("z-data/in/3/B_NIMBU.bmp"));
+        final BufferedImage skirt = CutLayoutGenerator.get(ImageIO.read(new File("z-data/in/3/B_NIMBU.bmp")), 1188).get(0);
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 32));
@@ -30,6 +27,9 @@ public class NimbuConversion {
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 12));
 
         inputBIs.add(skirt);
+        // Locking
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(skirt.getWidth(), 12)));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 176));
 
         // Locking
         inputBIs.add(ReverseGenerator.get(PlainGenerator.get(skirt.getWidth(), 4)));
