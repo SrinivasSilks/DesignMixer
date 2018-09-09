@@ -13,9 +13,9 @@ public class AnniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-vasu/out/2/plain-%s-%s.bmp";
+        String out = "z-vasu/out/2/2plain-%s-%s.bmp";
 
-        final BufferedImage border = HorizontalFlipGenerator.get(ImageIO.read(new File("z-vasu/in/2/PLAIN.bmp")));
+        final BufferedImage border = HorizontalFlipGenerator.get(ImageIO.read(new File("z-vasu/in/2/BORDER.bmp")));
         int width = border.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
@@ -30,6 +30,7 @@ public class AnniConversion {
         //Achu
         inputBIs.add(AchuLayoutGenerator.get(width, 12));
 
+        inputBIs.add(PlainGenerator.get(width, 400));
         inputBIs.add(border);
 
         // Locking
