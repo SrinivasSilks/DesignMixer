@@ -13,7 +13,7 @@ public class NimbuConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/6/2nimbu-%s-%s.bmp";
+        String out = "z-data/out/6/2/nimbu-%s-%s.bmp";
 
         final BufferedImage skirt = ImageIO.read(new File("z-data/in/6/2/SKIRT_NIMBU.bmp"));
         final BufferedImage body = ImageIO.read(new File("z-data/in/6/2/BODY_NIMBU.bmp"));

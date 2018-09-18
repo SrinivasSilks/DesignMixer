@@ -13,7 +13,7 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/6/2jari-%s-%s.bmp";
+        String out = "z-data/out/6/2/jari-%s-%s.bmp";
         final BufferedImage skirt = ImageIO.read(new File("z-data/in/6/2/SKIRT_JARI.bmp"));
         final BufferedImage body = ImageIO.read(new File("z-data/in/6/2/BODY_JARI.bmp"));
 
