@@ -70,7 +70,7 @@ public class AddLayoutGenerator {
         }
     }
 
-    private static void saveBMP(final BufferedImage bi, final String path) throws IOException {
+     static void saveBMP(final BufferedImage bi, final String path) throws IOException {
         ImageIO.write(bi, "bmp", new File(path));
     }
 

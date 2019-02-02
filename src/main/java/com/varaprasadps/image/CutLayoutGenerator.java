@@ -9,12 +9,33 @@ import java.util.List;
 
 public class CutLayoutGenerator {
     public static void main(final String[] args) throws IOException {
-        int x = 1824;
-        int y = 16;
-        String input = "z-vasu/in/2/EMBOJEE.bmp";
+        String input = "z-sr/PALLU_RANI.bmp";
         BufferedImage inputBI = ImageIO.read(new File(input));
-        List<BufferedImage> bis = get(inputBI, 400);
-        saveBMP(bis, "z-vasu/in/2/EMBOJEE_%s.bmp");
+
+        List<BufferedImage> result = new LinkedList<>();
+
+        List<BufferedImage> bis = get(inputBI, 126);
+        result.add(bis.get(0));
+        List<BufferedImage> intermediate = get(bis.get(1), 4);
+        for (int i = 0; i < 19; i++) {
+            result.add(intermediate.get(0));
+        }
+        List<BufferedImage> middle = get(bis.get(1), 1424);
+        result.add(middle.get(0));
+
+        intermediate = get(middle.get(1), 4);
+        for (int i = 0; i < 19; i++) {
+            result.add(intermediate.get(0));
+        }
+        result.add(middle.get(1));
+        int x = 0;
+        int y = 0;
+        for (BufferedImage bi : result) {
+            x = bi.getWidth();
+            y += bi.getHeight();
+        }
+        BufferedImage output = AddLayoutGenerator.get(x, y, result);
+        AddLayoutGenerator.saveBMP(output, "z-sr/in/1/pallu-edited/PALLU_RANI.bmp");
     }
 
     public static List<BufferedImage> get(BufferedImage inputBI, int sizeY) {
@@ -36,7 +57,7 @@ public class CutLayoutGenerator {
     }
 
 
-    private static void saveBMP(List<BufferedImage> outputBIs, final String path) throws IOException {
+    static void saveBMP(List<BufferedImage> outputBIs, final String path) throws IOException {
         for (int i = 0; i < outputBIs.size(); i++) {
             BufferedImage bi = outputBIs.get(i);
             String pathSave = String.format(path, i + 1, bi.getWidth(), bi.getHeight());
