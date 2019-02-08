@@ -1,4 +1,4 @@
-package com.varaprasadps.no11.anni;
+package com.varaprasadps.no11.kanni;
 
 import com.varaprasadps.image.*;
 
@@ -9,38 +9,34 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class AnniConversion {
+public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/11/anni-%s-%s.bmp";
+        String out = "z-data/out/11/k-rani-%s-%s.bmp";
 
         BufferedImage teega = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/TEEGA.bmp")));
         BufferedImage figure = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/FIGURE.bmp")));
         BufferedImage banaras = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/BANARAS.bmp")));
         BufferedImage bugada = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/BUGADA.bmp")));
 
-        int width = teega.getWidth();
 
+        final int width = teega.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         inputBIs.add(EmptyGenerator.get(width, 32));
 
         // Box
-        inputBIs.add(EmptyGenerator.get(width, 2));
-        inputBIs.add(EmptyGenerator.get(width, 2));
-
-        // Achu
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 4)));
+        //Achu
         inputBIs.add(AchuLayoutGenerator.get(width, 8));
 
         // Locking
         inputBIs.add(PlainGenerator.get(width, 4));
-
-        // All over
+        //Allover
         inputBIs.add(PlainGenerator.get(width, 480));
-
-        // Skirt
+        //Skirt
         inputBIs.add(PlainGenerator.get(width, 1000));
 
         inputBIs.add(bugada);

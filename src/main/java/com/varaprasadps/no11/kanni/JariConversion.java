@@ -1,6 +1,9 @@
-package com.varaprasadps.no11.anni;
+package com.varaprasadps.no11.kanni;
 
-import com.varaprasadps.image.*;
+import com.varaprasadps.image.AddLayoutGenerator;
+import com.varaprasadps.image.EmptyGenerator;
+import com.varaprasadps.image.PlainGenerator;
+import com.varaprasadps.image.ReverseGenerator;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -9,47 +12,34 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class AnniConversion {
+public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/11/anni-%s-%s.bmp";
+        String out = "z-data/out/11/k-jari-%s-%s.bmp";
 
-        BufferedImage teega = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/TEEGA.bmp")));
-        BufferedImage figure = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/FIGURE.bmp")));
-        BufferedImage banaras = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/BANARAS.bmp")));
-        BufferedImage bugada = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/BUGADA.bmp")));
-
-        int width = teega.getWidth();
-
-
+        int width = 600;
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         inputBIs.add(EmptyGenerator.get(width, 32));
 
         // Box
-        inputBIs.add(EmptyGenerator.get(width, 2));
-        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 4)));
 
-        // Achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 8));
+        //Achu
+        inputBIs.add(EmptyGenerator.get(width, 8));
 
         // Locking
         inputBIs.add(PlainGenerator.get(width, 4));
 
-        // All over
         inputBIs.add(PlainGenerator.get(width, 480));
-
-        // Skirt
         inputBIs.add(PlainGenerator.get(width, 1000));
 
-        inputBIs.add(bugada);
-        inputBIs.add(banaras);
-        inputBIs.add(figure);
-        inputBIs.add(teega);
+        // Jari
+        inputBIs.add(EmptyGenerator.get(width, 280));
 
         // Achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 16));
+        inputBIs.add(EmptyGenerator.get(width, 16));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -62,6 +52,7 @@ public class AnniConversion {
         BufferedImage bi = ReverseGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
+
     }
 
     private static void displayPixels(BufferedImage fileOne) {

@@ -1,4 +1,4 @@
-package com.varaprasadps.no11.anni;
+package com.varaprasadps.no11.brocade2;
 
 import com.varaprasadps.image.*;
 
@@ -9,39 +9,33 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class AnniConversion {
+public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/11/anni-%s-%s.bmp";
+        String out = "z-data/out/11/2/rani-%s-%s.bmp";
 
         BufferedImage teega = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/TEEGA.bmp")));
         BufferedImage figure = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/FIGURE.bmp")));
         BufferedImage banaras = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/BANARAS.bmp")));
         BufferedImage bugada = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/BUGADA.bmp")));
 
-        int width = teega.getWidth();
-
+        final BufferedImage skirt = CutLayoutGenerator.get(HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/brocade2/RANI.bmp"))), 1480).get(0);
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        inputBIs.add(EmptyGenerator.get(width, 32));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 32));
 
         // Box
-        inputBIs.add(EmptyGenerator.get(width, 2));
-        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(skirt.getWidth(), 4)));
 
-        // Achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 8));
+        //Achu
+        inputBIs.add(AchuLayoutGenerator.get(skirt.getWidth(), 8));
 
         // Locking
-        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(PlainGenerator.get(skirt.getWidth(), 4));
 
-        // All over
-        inputBIs.add(PlainGenerator.get(width, 480));
-
-        // Skirt
-        inputBIs.add(PlainGenerator.get(width, 1000));
+        inputBIs.add(skirt);
 
         inputBIs.add(bugada);
         inputBIs.add(banaras);
@@ -49,7 +43,7 @@ public class AnniConversion {
         inputBIs.add(teega);
 
         // Achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 16));
+        inputBIs.add(AchuLayoutGenerator.get(skirt.getWidth(), 16));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -71,5 +65,4 @@ public class AnniConversion {
     private static void saveBMP(final BufferedImage bi, final String path) throws IOException {
         ImageIO.write(bi, "bmp", new File(path));
     }
-
 }
