@@ -1,4 +1,4 @@
-package com.varaprasadps.sr.no1.anni;
+package com.varaprasadps.sr.no2.anni;
 
 import com.varaprasadps.image.*;
 
@@ -13,38 +13,38 @@ public class AnniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/2/2anni-%s-%s.bmp";
+        String out = "z-sr/out/2/anni-%s-%s.bmp";
+
+        final BufferedImage border = ImageIO.read(new File("z-sr/in/2/BORDER.bmp"));
+        final BufferedImage banaras = ImageIO.read(new File("z-sr/in/2/BANARAS.bmp"));
+        final BufferedImage bugada = ImageIO.read(new File("z-sr/in/2/BUGADA.bmp"));
+        final BufferedImage teega = ImageIO.read(new File("z-sr/in/2/TEEGA.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        // Box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(60, 2)));
-        inputBIs.add(EmptyGenerator.get(60, 2));
-        //Khali
-        inputBIs.add(EmptyGenerator.get(60, 4));
-
-        //Achu
-        inputBIs.add(AchuLayoutGenerator.get(60, 8));
-
-        // Locking
-        inputBIs.add(PlainGenerator.get(60, 20));
-        // All over
-        inputBIs.add(PlainGenerator.get(60, 480));
-        // Skirt
-        inputBIs.add(PlainGenerator.get(60, 1200));
-
-        inputBIs.add(ImageIO.read(new File("z-data/in/2/SUNUNDA.bmp")));
-        inputBIs.add(ImageIO.read(new File("z-data/in/2/BANARAS.bmp")));
-        inputBIs.add(ImageIO.read(new File("z-data/in/2/TEEGA.bmp")));
+        int width = border.getWidth();
+        inputBIs.add(EmptyGenerator.get(width, 192));
 
         // Box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(60, 2)));
-        inputBIs.add(EmptyGenerator.get(60, 2));
-        //Khali
-        inputBIs.add(EmptyGenerator.get(60, 4));
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(EmptyGenerator.get(width, 2));
 
         // Achu
-        inputBIs.add(AchuLayoutGenerator.get(60, 8));
+        inputBIs.add(AchuLayoutGenerator.get(width, 8));
+
+        // Jari
+        inputBIs.add(banaras);
+        inputBIs.add(teega);
+        inputBIs.add(bugada);
+
+        inputBIs.add(PlainGenerator.get(width, 480));
+        inputBIs.add(border);
+
+        // Achu
+        inputBIs.add(AchuLayoutGenerator.get(width, 12));
+
+        inputBIs.add(EmptyGenerator.get(width, 192));
+
 
         int repeatWidth = 0;
         int repeatHeight = 0;

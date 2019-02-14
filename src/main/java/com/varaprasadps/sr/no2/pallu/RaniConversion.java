@@ -1,4 +1,4 @@
-package com.varaprasadps.sr.no1.brocade_1;
+package com.varaprasadps.sr.no2.pallu;
 
 import com.varaprasadps.image.*;
 
@@ -13,19 +13,24 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-sr/out/1/rani-%s-%s.bmp";
+        String out = "z-sr/out/2/p-rani-%s-%s.bmp";
 
-        final BufferedImage brocade = HorizontalRepeatGenerator.get(10, ImageIO.read(new File("z-sr/in/1/brocade/RANI.bmp")));
-        final BufferedImage border = HorizontalRepeatGenerator.get(11, ImageIO.read(new File("z-sr/in/1/BORDER.bmp")));
-        final BufferedImage banaras = HorizontalRepeatGenerator.get(11, ImageIO.read(new File("z-sr/in/1/BANARAS.bmp")));
-        final BufferedImage bugada = HorizontalRepeatGenerator.get(11, ImageIO.read(new File("z-sr/in/1/BUGADA.bmp")));
-        final BufferedImage teega = HorizontalRepeatGenerator.get(11, ImageIO.read(new File("z-sr/in/1/TEEGA.bmp")));
+        final BufferedImage brocade = ImageIO.read(new File("z-sr/in/2/pallu-edited/1/PALLU_RANI.bmp"));
+        final BufferedImage border = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("z-sr/in/2/BORDER.bmp")));
+        final BufferedImage banaras = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("z-sr/in/2/BANARAS.bmp")));
+        final BufferedImage bugada = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("z-sr/in/2/BUGADA.bmp")));
+        final BufferedImage teega = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("z-sr/in/2/TEEGA.bmp")));
+        int width = brocade.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        inputBIs.add(EmptyGenerator.get(brocade.getWidth(), 192));
+        inputBIs.add(EmptyGenerator.get(width, 192));
+
+        // Box
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 4)));
+
         // Achu
-        inputBIs.add(AchuLayoutGenerator.get(brocade.getWidth(), 12));
+        inputBIs.add(AchuLayoutGenerator.get(width, 8));
 
         // Jari
         inputBIs.add(banaras);
@@ -35,14 +40,10 @@ public class RaniConversion {
         inputBIs.add(brocade);
         inputBIs.add(border);
 
-        // Box
-        inputBIs.add(EmptyGenerator.get(brocade.getWidth(), 2));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(brocade.getWidth(), 2)));
-
         // Achu
-        inputBIs.add(AchuLayoutGenerator.get(brocade.getWidth(), 8));
+        inputBIs.add(AchuLayoutGenerator.get(width, 12));
 
-        inputBIs.add(EmptyGenerator.get(brocade.getWidth(), 192));
+        inputBIs.add(EmptyGenerator.get(width, 192));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

@@ -1,4 +1,4 @@
-package com.varaprasadps.sr.no1.pallu;
+package com.varaprasadps.sr.no2.brocade_1;
 
 import com.varaprasadps.image.AddLayoutGenerator;
 import com.varaprasadps.image.EmptyGenerator;
@@ -16,17 +16,20 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-sr/out/1/p-jari-%s-%s.bmp";
+        String out = "z-sr/out/2/jari-%s-%s.bmp";
 
-        final BufferedImage brocade =  ImageIO.read(new File("z-sr/in/1/pallu-edited/1/PALLU_JARI.bmp"));
+        final BufferedImage brocade = HorizontalRepeatGenerator.get(10, ImageIO.read(new File("z-sr/in/2/brocade/JARI.bmp")));
         int width = brocade.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         inputBIs.add(EmptyGenerator.get(width, 192));
 
+        // Box
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 4)));
+
         //Achu
-        inputBIs.add(EmptyGenerator.get(width, 12));
+        inputBIs.add(EmptyGenerator.get(width, 8));
 
         inputBIs.add(EmptyGenerator.get(width, 30));
         inputBIs.add(EmptyGenerator.get(width, 40));
@@ -37,12 +40,8 @@ public class JariConversion {
         // Jari
         inputBIs.add(EmptyGenerator.get(width, 800));
 
-        // Box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
-        inputBIs.add(EmptyGenerator.get(width, 2));
-
         // Achu
-        inputBIs.add(EmptyGenerator.get(width, 8));
+        inputBIs.add(EmptyGenerator.get(width, 12));
 
         inputBIs.add(EmptyGenerator.get(width, 192));
 

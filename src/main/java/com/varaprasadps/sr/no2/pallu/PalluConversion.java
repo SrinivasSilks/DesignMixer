@@ -1,4 +1,4 @@
-package com.varaprasadps.sr.no1.pallu;
+package com.varaprasadps.sr.no2.pallu;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
 import com.varaprasadps.image.HorizontalFlipGenerator;
@@ -15,11 +15,11 @@ public class PalluConversion {
     public static void main(final String[] args) throws IOException {
         JariConversion.main(null);
         RaniConversion.main(null);
-        String out = "z-sr/out/1/pallu-%s-%s.bmp";
+        String out = "z-sr/out/2/pallu-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("z-sr/out/1/p-rani-2000-1792.bmp");
-        inputs.add("z-sr/out/1/p-jari-2000-1792.bmp");
+        inputs.add("z-sr/out/2/p-rani-2000-1792.bmp");
+        inputs.add("z-sr/out/2/p-jari-2000-1792.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {

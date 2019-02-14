@@ -1,9 +1,6 @@
-package com.varaprasadps.sr.no1.brocade_1;
+package com.varaprasadps.sr.no2.brocade_1;
 
-import com.varaprasadps.image.AddLayoutGenerator;
-import com.varaprasadps.image.EmptyGenerator;
-import com.varaprasadps.image.HorizontalRepeatGenerator;
-import com.varaprasadps.image.ReverseGenerator;
+import com.varaprasadps.image.*;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -12,37 +9,40 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class JariConversion {
+public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-sr/out/1/jari-%s-%s.bmp";
+        String out = "z-sr/out/2/rani-%s-%s.bmp";
 
-        final BufferedImage brocade = HorizontalRepeatGenerator.get(10, ImageIO.read(new File("z-sr/in/1/brocade/JARI.bmp")));
+        final BufferedImage brocade = HorizontalRepeatGenerator.get(10, ImageIO.read(new File("z-sr/in/2/brocade/RANI.bmp")));
+        final BufferedImage border = HorizontalRepeatGenerator.get(11, ImageIO.read(new File("z-sr/in/2/BORDER.bmp")));
+        final BufferedImage banaras = HorizontalRepeatGenerator.get(11, ImageIO.read(new File("z-sr/in/2/BANARAS.bmp")));
+        final BufferedImage bugada = HorizontalRepeatGenerator.get(11, ImageIO.read(new File("z-sr/in/2/BUGADA.bmp")));
+        final BufferedImage teega = HorizontalRepeatGenerator.get(11, ImageIO.read(new File("z-sr/in/2/TEEGA.bmp")));
+
         int width = brocade.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         inputBIs.add(EmptyGenerator.get(width, 192));
 
-        //Achu
-        inputBIs.add(EmptyGenerator.get(width, 12));
-
-        inputBIs.add(EmptyGenerator.get(width, 30));
-        inputBIs.add(EmptyGenerator.get(width, 40));
-        inputBIs.add(EmptyGenerator.get(width, 34));
-
-        inputBIs.add(brocade);
-
-        // Jari
-        inputBIs.add(EmptyGenerator.get(width, 800));
-
         // Box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
-        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 4)));
 
         // Achu
-        inputBIs.add(EmptyGenerator.get(width, 8));
+        inputBIs.add(AchuLayoutGenerator.get(width, 8));
+
+        // Jari
+        inputBIs.add(banaras);
+        inputBIs.add(teega);
+        inputBIs.add(bugada);
+
+        inputBIs.add(brocade);
+        inputBIs.add(border);
+
+        // Achu
+        inputBIs.add(AchuLayoutGenerator.get(width, 12));
 
         inputBIs.add(EmptyGenerator.get(width, 192));
 

@@ -1,4 +1,4 @@
-package com.varaprasadps.sr.no1.brocade_1;
+package com.varaprasadps.sr.no2.brocade_1;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
 import com.varaprasadps.image.HorizontalFlipGenerator;
@@ -15,11 +15,11 @@ public class BrocadeConversion {
     public static void main(final String[] args) throws IOException {
         JariConversion.main(null);
         RaniConversion.main(null);
-        String out = "z-sr/out/1/brocade-%s-%s.bmp";
+        String out = "z-sr/out/2/brocade-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("z-sr/out/1/rani-4400-1792.bmp");
-        inputs.add("z-sr/out/1/jari-4400-1792.bmp");
+        inputs.add("z-sr/out/2/rani-4400-1792.bmp");
+        inputs.add("z-sr/out/2/jari-4400-1792.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {
