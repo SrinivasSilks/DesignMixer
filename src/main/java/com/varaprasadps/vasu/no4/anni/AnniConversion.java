@@ -23,10 +23,10 @@ public class AnniConversion {
         // Board Khali
         inputBIs.add(EmptyGenerator.get(width, 128));
 
-        // Box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        // Khali
         inputBIs.add(EmptyGenerator.get(width, 2));
-
+        // mispick
+        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //Achu
         inputBIs.add(AchuLayoutGenerator.get(width, 12));
 
@@ -39,8 +39,11 @@ public class AnniConversion {
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         inputBIs.add(EmptyGenerator.get(width, 2));
 
+        // mispick
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
+
         // Achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 12));
+        inputBIs.add(AchuLayoutGenerator.get(width, 10));
 
         // Board Khali
         inputBIs.add(EmptyGenerator.get(width, 256));
