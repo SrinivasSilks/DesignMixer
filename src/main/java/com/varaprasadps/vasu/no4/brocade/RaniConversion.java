@@ -21,7 +21,7 @@ public class RaniConversion {
         // Board Khali
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 128));
 
-        // Box
+        // khali
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
         // mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(skirt.getWidth(), 4), 2).get(0));
@@ -33,9 +33,9 @@ public class RaniConversion {
         // Locking
         inputBIs.add(ReverseGenerator.get(PlainGenerator.get(skirt.getWidth(), 16)));
 
-        // Box
+        // Box Nimbu
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(skirt.getWidth(), 2)));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
 
         // mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(skirt.getWidth(), 4), 2).get(0)));

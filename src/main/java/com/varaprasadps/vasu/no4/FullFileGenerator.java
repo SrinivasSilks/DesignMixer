@@ -14,33 +14,44 @@ public class FullFileGenerator {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-vasu/in/4/4DESIGN4.bmp";
+        String out = "z-vasu/in/4/new/4DESIGN4_NEW.bmp";
 
-        BufferedImage blouse = ImageIO.read(new File("z-vasu/in/4/output/blouse.bmp"));
-        BufferedImage pallu = ImageIO.read(new File("z-vasu/in/4/output/pallu-cut.bmp"));
+        BufferedImage blouse = ImageIO.read(new File("z-vasu/in/4/output2/blouse.bmp"));
+        BufferedImage pallu = ImageIO.read(new File("z-vasu/in/4/output2/pallu.bmp"));
         BufferedImage kongu = ImageIO.read(new File("z-vasu/in/4/output/kongu.bmp"));
-        BufferedImage plain = ImageIO.read(new File("z-vasu/in/4/output/plain.bmp"));
-        BufferedImage brocade = ImageIO.read(new File("z-vasu/in/4/output/broc.bmp"));
+        BufferedImage brocade = ImageIO.read(new File("z-vasu/in/4/output2/brocade.bmp"));
+        BufferedImage plain = ImageIO.read(new File("z-vasu/in/4/output2/plain.bmp"));
 
         List<BufferedImage> inputs = new LinkedList<>();
+
+//        // blouse
 //        inputs.add(blouse);
 //        inputs.add(CutLayoutGenerator.get(blouse, 340).get(0));
+
+//        // pallu
 //        inputs.add(pallu);
+
+//        // bondu
 //        inputs.add(kongu);
-//        final List<BufferedImage> abcs = CutLayoutGenerator.get(CutLayoutGenerator.get(plain, 340).get(1), 90);
-//        inputs.add(abcs.get(0));
+//        inputs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(plain, 340).get(1), 90).get(0));
 //        inputs.add(kongu);
-//        inputs.add(CutLayoutGenerator.get(abcs.get(1), 10).get(0));
-        inputs.add(CutLayoutGenerator.get(brocade, 1320).get(1));
+//        inputs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(CutLayoutGenerator.get(plain, 340).get(1), 90).get(1), 10).get(0));
+
+//
+        // brocade
+        inputs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(brocade, 1020).get(1), 300).get(1));
         inputs.add(brocade);
         inputs.add(brocade);
         inputs.add(brocade);
         inputs.add(brocade);
         inputs.add(CutLayoutGenerator.get(brocade, 2040).get(0));
 
-//        for (int i = 0; i < 3; i++) {
-//            inputs.add(plain);
-//        }
+//
+//        // plain
+//        inputs.add(plain);
+//        inputs.add(plain);
+//        inputs.add(plain);
+
         int repeatWidth = 0;
         int repeatHeight = 0;
 

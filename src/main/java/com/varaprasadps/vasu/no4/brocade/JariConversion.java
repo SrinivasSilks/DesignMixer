@@ -32,8 +32,8 @@ public class JariConversion {
         // Locking
         inputBIs.add(HorizontalFlipGenerator.get(ReverseGenerator.get(StepLayoutGenerator.get(skirt.getWidth(), 4))));
 
-        // Box
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
+        //box
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(skirt.getWidth(), 2)));
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
 
         // mispick
