@@ -29,8 +29,9 @@ public class NimbuConversion {
         // Locking
         inputBIs.add(ReverseGenerator.get(PlainGenerator.get(skirt.getWidth(), 20)));
 
-        inputBIs.add(skirt);
+        inputBIs.add(CutLayoutGenerator.get(skirt, 1656).get(0));
 
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(skirt.getWidth(), 24)));
         // Jari
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 60));
 
