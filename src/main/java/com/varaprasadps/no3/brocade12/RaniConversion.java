@@ -23,8 +23,12 @@ public class RaniConversion {
         // Box
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(skirt.getWidth(), 2)));
+
+        // mispick
+        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(skirt.getWidth(), 4), 2).get(0));
+
         //Achu
-        inputBIs.add(AchuLayoutGenerator.get(skirt.getWidth(), 12));
+        inputBIs.add(AchuLayoutGenerator.get(skirt.getWidth(), 10));
 
         inputBIs.add(skirt);
         // Locking
@@ -32,8 +36,12 @@ public class RaniConversion {
 
         // Locking
         inputBIs.add(PlainGenerator.get(skirt.getWidth(), 4));
+
+        // mispick
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(skirt.getWidth(), 4), 2).get(0)));
+
         // Achu
-        inputBIs.add(AchuLayoutGenerator.get(skirt.getWidth(), 12));
+        inputBIs.add(AchuLayoutGenerator.get(skirt.getWidth(), 10));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

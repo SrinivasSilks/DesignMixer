@@ -23,16 +23,24 @@ public class NimbuConversion {
         // Box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(skirt.getWidth(), 2)));
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
+
+        // mispick
+        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(skirt.getWidth(), 4), 2).get(0));
+
         //Achu
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 12));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 10));
 
         inputBIs.add(skirt);
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 176));
 
         // Locking
         inputBIs.add(ReverseGenerator.get(PlainGenerator.get(skirt.getWidth(), 4)));
+
+        // mispick
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(skirt.getWidth(), 4), 2).get(0)));
+
         // Achu
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 12));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 10));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

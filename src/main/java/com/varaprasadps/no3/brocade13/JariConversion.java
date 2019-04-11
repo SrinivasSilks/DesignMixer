@@ -24,16 +24,20 @@ public class JariConversion {
 
         // Box
         inputBIs.add(EmptyGenerator.get(width, 4));
+        // mispick
+        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(skirt.getWidth(), 4), 2).get(0));
         //Achu Khali
-        inputBIs.add(EmptyGenerator.get(width, 12));
+        inputBIs.add(EmptyGenerator.get(width, 10));
 
         inputBIs.add(skirt);
         inputBIs.add(EmptyGenerator.get(width, 176));
 
         // Locking
         inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(skirt.getWidth(), 1)));
+        // mispick
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(skirt.getWidth(), 4), 2).get(0)));
         //Achu Khali
-        inputBIs.add(EmptyGenerator.get(width, 12));
+        inputBIs.add(EmptyGenerator.get(width, 10));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
