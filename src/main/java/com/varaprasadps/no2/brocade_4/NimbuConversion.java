@@ -1,4 +1,4 @@
-package com.varaprasadps.no2.brocade_1;
+package com.varaprasadps.no2.brocade_4;
 
 import com.varaprasadps.image.*;
 
@@ -9,18 +9,18 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class RaniConversion {
+public class NimbuConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/2/1_rani-%s-%s.bmp";
-        final BufferedImage skirt = ImageIO.read(new File("z-data/in/2/SKIRT_RANI.bmp"));
+        String out = "z-data/out/2/4_nimbu-%s-%s.bmp";
+        final BufferedImage skirt = ImageIO.read(new File("z-data/in/2/4/B_NIMBU.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         // Box
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(skirt.getWidth(), 2)));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
 
         // mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(skirt.getWidth(), 4), 2).get(0));
@@ -28,22 +28,20 @@ public class RaniConversion {
         // Khali
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
         //Achu
-        inputBIs.add(AchuLayoutGenerator.get(skirt.getWidth(), 8));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 8));
 
         // Locking
-        inputBIs.add(PlainGenerator.get(skirt.getWidth(), 20));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(skirt.getWidth(), 20)));
 
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 480));
-        inputBIs.add(skirt);
+        inputBIs.add(CutLayoutGenerator.get(skirt, 1668).get(0));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(skirt.getWidth(), 12)));
 
         // Jari
-        inputBIs.add(HorizontalRepeatGenerator.get(18, ImageIO.read(new File("z-data/in/2/SUNUNDA.bmp"))));
-        inputBIs.add(HorizontalRepeatGenerator.get(18, ImageIO.read(new File("z-data/in/2/BANARAS.bmp"))));
-        inputBIs.add(HorizontalRepeatGenerator.get(18, ImageIO.read(new File("z-data/in/2/TEEGA.bmp"))));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 60));
 
         // Box
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(skirt.getWidth(), 2)));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
 
         // mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(skirt.getWidth(), 4), 2).get(0)));
@@ -52,7 +50,8 @@ public class RaniConversion {
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
 
         // Achu
-        inputBIs.add(AchuLayoutGenerator.get(skirt.getWidth(), 8));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 8));
+
 
         int repeatWidth = 0;
         int repeatHeight = 0;

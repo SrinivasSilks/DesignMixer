@@ -1,4 +1,4 @@
-package com.varaprasadps.no2.brocade_1;
+package com.varaprasadps.no2.brocade_9;
 
 import com.varaprasadps.image.*;
 
@@ -13,8 +13,8 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/2/1_rani-%s-%s.bmp";
-        final BufferedImage skirt = ImageIO.read(new File("z-data/in/2/SKIRT_RANI.bmp"));
+        String out = "z-data/out/2/9_rani-%s-%s.bmp";
+        final BufferedImage skirt = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/2/9/RANI.bmp")));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -31,15 +31,15 @@ public class RaniConversion {
         inputBIs.add(AchuLayoutGenerator.get(skirt.getWidth(), 8));
 
         // Locking
-        inputBIs.add(PlainGenerator.get(skirt.getWidth(), 20));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(skirt.getWidth(), 20)));
 
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 480));
-        inputBIs.add(skirt);
+        inputBIs.add(CutLayoutGenerator.get(skirt, 1664).get(0));
+        inputBIs.add(PlainGenerator.get(skirt.getWidth(), 16));
 
         // Jari
-        inputBIs.add(HorizontalRepeatGenerator.get(18, ImageIO.read(new File("z-data/in/2/SUNUNDA.bmp"))));
-        inputBIs.add(HorizontalRepeatGenerator.get(18, ImageIO.read(new File("z-data/in/2/BANARAS.bmp"))));
-        inputBIs.add(HorizontalRepeatGenerator.get(18, ImageIO.read(new File("z-data/in/2/TEEGA.bmp"))));
+        inputBIs.add(HorizontalRepeatGenerator.get(10, ImageIO.read(new File("z-data/in/1/SUNUNDA.bmp"))));
+        inputBIs.add(HorizontalRepeatGenerator.get(10, ImageIO.read(new File("z-data/in/1/BANARAS.bmp"))));
+        inputBIs.add(HorizontalRepeatGenerator.get(10, ImageIO.read(new File("z-data/in/1/TEEGA.bmp"))));
 
         // Box
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));

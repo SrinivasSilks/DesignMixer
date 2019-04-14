@@ -1,4 +1,4 @@
-package com.varaprasadps.no2.pallu;
+package com.varaprasadps.no2.kanni;
 
 import com.varaprasadps.image.*;
 
@@ -13,28 +13,29 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/2/p-jari-%s-%s.bmp";
+        String out = "z-data/out/2/k-jari-%s-%s.bmp";
 
-        final BufferedImage pallu = ImageIO.read(new File("z-data/in/2/PALLU_JARI.bmp"));
-        int width = pallu.getWidth();
+        int width = 60;
         List<BufferedImage> inputBIs = new LinkedList<>();
         // Box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         inputBIs.add(EmptyGenerator.get(width, 2));
 
         // mispick
-        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(pallu.getWidth(), 4), 2).get(0));
+        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
 
         // Khali
         inputBIs.add(EmptyGenerator.get(width, 2));
+
         //Achu
         inputBIs.add(EmptyGenerator.get(width, 8));
 
         // Locking
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 5)));
-
-        inputBIs.add(pallu);
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 5)));
+        inputBIs.add(PlainGenerator.get(60, 20));
+        // All over
+        inputBIs.add(PlainGenerator.get(60, 480));
+        // Skirt
+        inputBIs.add(PlainGenerator.get(60, 1200));
 
         // Jari
         inputBIs.add(EmptyGenerator.get(width, 60));
@@ -44,7 +45,7 @@ public class JariConversion {
         inputBIs.add(EmptyGenerator.get(width, 2));
 
         // mispick
-        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(pallu.getWidth(), 4), 2).get(0)));
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
 
         // Khali
         inputBIs.add(EmptyGenerator.get(width, 2));

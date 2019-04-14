@@ -20,8 +20,12 @@ public class AnniConversion {
         // Box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(60, 2)));
         inputBIs.add(EmptyGenerator.get(60, 2));
+
+        // mispick
+        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(60, 4), 2).get(0));
+
         //Khali
-        inputBIs.add(EmptyGenerator.get(60, 4));
+        inputBIs.add(EmptyGenerator.get(60, 2));
 
         //Achu
         inputBIs.add(AchuLayoutGenerator.get(60, 8));
@@ -40,8 +44,12 @@ public class AnniConversion {
         // Box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(60, 2)));
         inputBIs.add(EmptyGenerator.get(60, 2));
+
+        // mispick
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(60, 4), 2).get(0)));
+
         //Khali
-        inputBIs.add(EmptyGenerator.get(60, 4));
+        inputBIs.add(EmptyGenerator.get(60, 2));
 
         // Achu
         inputBIs.add(AchuLayoutGenerator.get(60, 8));
