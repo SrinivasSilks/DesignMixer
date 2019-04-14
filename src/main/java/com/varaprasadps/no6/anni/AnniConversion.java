@@ -21,9 +21,12 @@ public class AnniConversion {
         // Box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(60, 2)));
         inputBIs.add(EmptyGenerator.get(60, 2));
-        // Achu
-        inputBIs.add(AchuLayoutGenerator.get(60, 12));
 
+        // mispick
+        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(60, 4), 2).get(0));
+
+        // Achu
+        inputBIs.add(AchuLayoutGenerator.get(60, 10));
 
         // Locking
         inputBIs.add(PlainGenerator.get(60, 20));
@@ -36,12 +39,15 @@ public class AnniConversion {
         inputBIs.add(ImageIO.read(new File("z-data/in/1/BANARAS.bmp")));
         inputBIs.add(ImageIO.read(new File("z-data/in/1/TEEGA.bmp")));
 
-
         // Box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(60, 2)));
         inputBIs.add(EmptyGenerator.get(60, 2));
+
+        // mispick
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(60, 4), 2).get(0)));
+
         // Achu
-        inputBIs.add(AchuLayoutGenerator.get(60, 12));
+        inputBIs.add(AchuLayoutGenerator.get(60, 10));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
