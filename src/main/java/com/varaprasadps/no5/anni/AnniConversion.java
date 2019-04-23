@@ -28,10 +28,8 @@ public class AnniConversion {
 
         inputBIs.add(PlainGenerator.get(12, 1760));
 
-        // Khali
-        inputBIs.add(EmptyGenerator.get(12, 4));
         // mispick
-        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(12, 4), 2).get(0)));
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(12, 12), 6).get(0)));
         // Khali
         inputBIs.add(EmptyGenerator.get(12, 10));
 

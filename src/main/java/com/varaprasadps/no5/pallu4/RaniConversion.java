@@ -32,10 +32,8 @@ public class RaniConversion {
 
         inputBIs.add(pallu);
 
-        inputBIs.add(EmptyGenerator.get(1920, 4));
-
         // mispick
-        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 12), 6).get(0)));
 
         inputBIs.add(EmptyGenerator.get(1920, 10));
 

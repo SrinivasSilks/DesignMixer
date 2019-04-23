@@ -31,10 +31,8 @@ public class WhiteConversion {
         inputBIs.add(StepLayoutGenerator.get(width, 4));
         inputBIs.add(EmptyGenerator.get(width, 42));
 
-        // Khali
-        inputBIs.add(EmptyGenerator.get(width, 4));
         // mispick
-        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
+        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 12), 6).get(0));
         // Khali
         inputBIs.add(EmptyGenerator.get(width, 10));
 

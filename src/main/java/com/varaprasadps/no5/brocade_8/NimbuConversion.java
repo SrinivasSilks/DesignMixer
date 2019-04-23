@@ -30,10 +30,8 @@ public class NimbuConversion {
 
         inputBIs.add(nimbu);
 
-        // Khali
-        inputBIs.add(EmptyGenerator.get(width, 4));
         // mispick
-        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 12), 6).get(0)));
         // Khali
         inputBIs.add(EmptyGenerator.get(width, 10));
 
