@@ -1,8 +1,6 @@
 package com.varaprasadps.no5.pallu4;
 
-import com.varaprasadps.image.AddLayoutGenerator;
-import com.varaprasadps.image.EmptyGenerator;
-import com.varaprasadps.image.ReverseGenerator;
+import com.varaprasadps.image.*;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -18,12 +16,28 @@ public class RaniConversion {
         String out = "z-data/out/5/4p-rani-%s-%s.bmp";
 
         List<BufferedImage> inputBIs = new LinkedList<>();
-        inputBIs.add(EmptyGenerator.get(1920, 32));
-        inputBIs.add(EmptyGenerator.get(1920, 2));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(1200, 2)));
-        inputBIs.add(EmptyGenerator.get(1920, 12));
-        inputBIs.add(ImageIO.read(new File("z-data/in/5/variety/PALLU_RANI.bmp")));
-        inputBIs.add(EmptyGenerator.get(1920, 16));
+
+        BufferedImage pallu = ImageIO.read(new File("z-data/in/5/variety/PALLU_RANI.bmp"));
+        int width = pallu.getWidth();
+
+        inputBIs.add(EmptyGenerator.get(width, 32));
+
+        //Box
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        // mispick
+        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
+        //Khali
+        inputBIs.add(EmptyGenerator.get(width, 10));
+
+        inputBIs.add(pallu);
+
+        inputBIs.add(EmptyGenerator.get(1920, 4));
+
+        // mispick
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
+
+        inputBIs.add(EmptyGenerator.get(1920, 10));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

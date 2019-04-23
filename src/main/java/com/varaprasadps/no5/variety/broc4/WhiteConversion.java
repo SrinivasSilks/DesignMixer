@@ -19,13 +19,26 @@ public class WhiteConversion {
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         inputBIs.add(EmptyGenerator.get(width, 32));
+        //box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         inputBIs.add(EmptyGenerator.get(width, 2));
-        inputBIs.add(EmptyGenerator.get(width, 12));
+
+        // mispick
+        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
+        // Khali
+        inputBIs.add(EmptyGenerator.get(width, 10));
+
+
         inputBIs.add(CutLayoutGenerator.get(subject,1702).get(0));
         inputBIs.add(StepLayoutGenerator.get(width,4));
         inputBIs.add(EmptyGenerator.get(width,42));
-        inputBIs.add(EmptyGenerator.get(width, 16));
+
+        // Khali
+        inputBIs.add(EmptyGenerator.get(width, 4));
+        // mispick
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
+        // Khali
+        inputBIs.add(EmptyGenerator.get(width, 10));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

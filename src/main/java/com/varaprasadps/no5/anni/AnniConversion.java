@@ -16,12 +16,24 @@ public class AnniConversion {
         String out = "z-data/out/5/anni-%s-%s.bmp";
 
         List<BufferedImage> inputBIs = new LinkedList<>();
+
         inputBIs.add(EmptyGenerator.get(12, 32));
+        //Box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(12, 2)));
         inputBIs.add(EmptyGenerator.get(12, 2));
-        inputBIs.add(EmptyGenerator.get(12, 12));
+        // mispick
+        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(12, 4), 2).get(0));
+        // Khali
+        inputBIs.add(EmptyGenerator.get(12, 10));
+
         inputBIs.add(PlainGenerator.get(12, 1760));
-        inputBIs.add(EmptyGenerator.get(12, 16));
+
+        // Khali
+        inputBIs.add(EmptyGenerator.get(12, 4));
+        // mispick
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(12, 4), 2).get(0)));
+        // Khali
+        inputBIs.add(EmptyGenerator.get(12, 10));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
