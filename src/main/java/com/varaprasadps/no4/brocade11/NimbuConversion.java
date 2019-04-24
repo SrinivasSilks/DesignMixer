@@ -18,22 +18,31 @@ public class NimbuConversion {
         final BufferedImage skirt = ImageIO.read(new File("z-data/in/4/11/NIMBU.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 32));
+        int width = skirt.getWidth();
+        inputBIs.add(EmptyGenerator.get(width, 32));
 
         // Locking
-        inputBIs.add(PlainGenerator.get(skirt.getWidth(), 4));
+        inputBIs.add(PlainGenerator.get(width, 4));
+
+        // mispick
+        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
+
         //Achu
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 12));
+        inputBIs.add(EmptyGenerator.get(width, 10));
 
         inputBIs.add(skirt);
 
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 176));
+        inputBIs.add(EmptyGenerator.get(width, 176));
 
         // Box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(skirt.getWidth(), 2)));
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
+
+        // mispick
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
+
         // Achu
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 12));
+        inputBIs.add(EmptyGenerator.get(width, 10));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

@@ -1,9 +1,6 @@
 package com.varaprasadps.no4.brocade;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
-import com.varaprasadps.no3.brocade.JariConversion;
-import com.varaprasadps.no3.brocade.NimbuConversion;
-import com.varaprasadps.no3.brocade.RaniConversion;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
