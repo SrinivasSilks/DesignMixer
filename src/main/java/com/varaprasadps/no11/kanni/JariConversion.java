@@ -1,9 +1,6 @@
 package com.varaprasadps.no11.kanni;
 
-import com.varaprasadps.image.AddLayoutGenerator;
-import com.varaprasadps.image.EmptyGenerator;
-import com.varaprasadps.image.PlainGenerator;
-import com.varaprasadps.image.ReverseGenerator;
+import com.varaprasadps.image.*;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -26,8 +23,11 @@ public class JariConversion {
         // Box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 4)));
 
+        // mispick
+        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
+
         //Achu
-        inputBIs.add(EmptyGenerator.get(width, 8));
+        inputBIs.add(EmptyGenerator.get(width, 6));
 
         // Locking
         inputBIs.add(PlainGenerator.get(width, 4));
@@ -38,8 +38,11 @@ public class JariConversion {
         // Jari
         inputBIs.add(EmptyGenerator.get(width, 280));
 
+        // mispick
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
+
         // Achu
-        inputBIs.add(EmptyGenerator.get(width, 16));
+        inputBIs.add(EmptyGenerator.get(width, 14));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

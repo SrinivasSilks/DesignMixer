@@ -1,4 +1,4 @@
-package com.varaprasadps.no11.kanni;
+package com.varaprasadps.no11.brocade_2;
 
 import com.varaprasadps.image.*;
 
@@ -13,18 +13,18 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/11/k-rani-%s-%s.bmp";
+        String out = "z-data/out/11/L2/rani-%s-%s.bmp";
 
         BufferedImage teega = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/border3/TEEGA.bmp")));
         BufferedImage figure = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/border3/FIGURE.bmp")));
         BufferedImage banaras = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/border3/BANARAS.bmp")));
         BufferedImage bugada = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/border3/BUGADA.bmp")));
 
-
-        final int width = teega.getWidth();
+        final BufferedImage skirt = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/brocade_2/RANI.bmp")));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
+        int width = skirt.getWidth();
         inputBIs.add(EmptyGenerator.get(width, 32));
 
         // Box
@@ -38,10 +38,8 @@ public class RaniConversion {
 
         // Locking
         inputBIs.add(PlainGenerator.get(width, 4));
-        //Allover
-        inputBIs.add(PlainGenerator.get(width, 480));
-        //Skirt
-        inputBIs.add(PlainGenerator.get(width, 1000));
+
+        inputBIs.add(skirt);
 
         inputBIs.add(bugada);
         inputBIs.add(banaras);
@@ -74,5 +72,4 @@ public class RaniConversion {
     private static void saveBMP(final BufferedImage bi, final String path) throws IOException {
         ImageIO.write(bi, "bmp", new File(path));
     }
-
 }
