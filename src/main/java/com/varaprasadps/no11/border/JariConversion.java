@@ -15,7 +15,7 @@ public class JariConversion {
 
         String out = "z-data/out/11/new/jari-%s-%s.bmp";
 
-        final BufferedImage skirt = CutLayoutGenerator.get(HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/brocade1/JARI.bmp"))), 1480).get(0);
+        final BufferedImage skirt = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/brocade1/JARI.bmp")));
 
         int width = skirt.getWidth();
 
@@ -29,8 +29,11 @@ public class JariConversion {
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         inputBIs.add(EmptyGenerator.get(width, 2));
 
+        // mispick
+        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
+
         //Achu Khali
-        inputBIs.add(EmptyGenerator.get(width, 8));
+        inputBIs.add(EmptyGenerator.get(width, 6));
 
         // Locking
         inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(skirt.getWidth(), 1)));
@@ -40,8 +43,11 @@ public class JariConversion {
         // Jari
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 280));
 
+        // mispick
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
+
         //Achu Khali
-        inputBIs.add(EmptyGenerator.get(width, 16));
+        inputBIs.add(EmptyGenerator.get(width, 14));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

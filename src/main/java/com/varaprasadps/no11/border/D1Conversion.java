@@ -15,10 +15,10 @@ public class D1Conversion {
 
         String out = "z-data/out/11/new/D1-%s-%s.bmp";
 
-        BufferedImage teega = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/TEEGA.bmp")));
-        BufferedImage figure = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/FIGURE.bmp")));
-        BufferedImage banaras = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/BANARAS.bmp")));
-        BufferedImage bugada = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/BUGADA.bmp")));
+        BufferedImage teega = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/border3/TEEGA.bmp")));
+        BufferedImage figure = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/border3/FIGURE.bmp")));
+        BufferedImage banaras = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/border3/BANARAS.bmp")));
+        BufferedImage bugada = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/border3/BUGADA.bmp")));
 
         int width = teega.getWidth();
 

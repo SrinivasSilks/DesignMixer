@@ -15,31 +15,38 @@ public class NimbuConversion {
 
         String out = "z-data/out/11/new/nimbu-%s-%s.bmp";
 
-        final BufferedImage skirt = CutLayoutGenerator.get(HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/brocade1/NIMBU.bmp"))), 1480).get(0);
+        final BufferedImage skirt = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/brocade1/NIMBU.bmp")));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 31));
+        int width = skirt.getWidth();
 
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(skirt.getWidth(), 1)));
+        inputBIs.add(EmptyGenerator.get(width, 31));
+
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
 
         // Box
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(skirt.getWidth(), 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        // mispick
+        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
 
         //Achu
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 8));
+        inputBIs.add(EmptyGenerator.get(width, 6));
 
         // Locking
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(skirt.getWidth(), 4)));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 4)));
 
         inputBIs.add(skirt);
 
         // Jari
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 280));
+        inputBIs.add(EmptyGenerator.get(width, 280));
+
+        // mispick
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
 
         // Achu
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 16));
+        inputBIs.add(EmptyGenerator.get(width, 14));
 
 
         int repeatWidth = 0;

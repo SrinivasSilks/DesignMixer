@@ -15,27 +15,34 @@ public class RaniConversion {
 
         String out = "z-data/out/11/new/rani-%s-%s.bmp";
 
-        final BufferedImage skirt = CutLayoutGenerator.get(HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/brocade1/RANI.bmp"))), 1480).get(0);
+        final BufferedImage skirt = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/brocade1/RANI.bmp")));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 32));
+        int width = skirt.getWidth();
 
+        inputBIs.add(EmptyGenerator.get(width, 32));
         // Box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(skirt.getWidth(), 4)));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 4)));
+
+        // mispick
+        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
 
         //Achu
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 8));
+        inputBIs.add(EmptyGenerator.get(width, 6));
 
         // Locking
-        inputBIs.add(PlainGenerator.get(skirt.getWidth(), 4));
+        inputBIs.add(PlainGenerator.get(width, 4));
 
         inputBIs.add(skirt);
 
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 280));
+        inputBIs.add(EmptyGenerator.get(width, 280));
+
+        // mispick
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
 
         // Achu
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 16));
+        inputBIs.add(EmptyGenerator.get(width, 14));
 
 
         int repeatWidth = 0;
