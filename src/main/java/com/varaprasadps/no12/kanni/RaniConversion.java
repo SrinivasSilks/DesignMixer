@@ -15,10 +15,10 @@ public class RaniConversion {
 
         String out = "z-data/out/12/k-rani-%s-%s.bmp";
 
-        BufferedImage teega = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/12/TEEGA.bmp")));
-        BufferedImage figure = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/12/FIGURE.bmp")));
-        BufferedImage banaras = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/12/BANARAS.bmp")));
-        BufferedImage bugada = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/12/BUGADA.bmp")));
+        BufferedImage teega = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/12/border2/TEEGA.bmp")));
+        BufferedImage figure = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/12/border2/FIGURE.bmp")));
+        BufferedImage banaras = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/12/border2/BANARAS.bmp")));
+        BufferedImage bugada = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/12/border2/BUGADA.bmp")));
 
 
         final int width = teega.getWidth();
