@@ -9,25 +9,14 @@ import java.util.List;
 
 public class CutLayoutGenerator {
     public static void main(final String[] args) throws IOException {
-        String input = "z-sr/PALLU_RANI.bmp";
+        String input = "z-data/in/11/PALLU_RANI.bmp";
         BufferedImage inputBI = ImageIO.read(new File(input));
 
         List<BufferedImage> result = new LinkedList<>();
 
-        List<BufferedImage> bis = get(inputBI, 126);
+        List<BufferedImage> bis = get(inputBI, 1480);
         result.add(bis.get(0));
-        List<BufferedImage> intermediate = get(bis.get(1), 4);
-        for (int i = 0; i < 19; i++) {
-            result.add(intermediate.get(0));
-        }
-        List<BufferedImage> middle = get(bis.get(1), 1424);
-        result.add(middle.get(0));
 
-        intermediate = get(middle.get(1), 4);
-        for (int i = 0; i < 19; i++) {
-            result.add(intermediate.get(0));
-        }
-        result.add(middle.get(1));
         int x = 0;
         int y = 0;
         for (BufferedImage bi : result) {
@@ -35,7 +24,7 @@ public class CutLayoutGenerator {
             y += bi.getHeight();
         }
         BufferedImage output = AddLayoutGenerator.get(x, y, result);
-        AddLayoutGenerator.saveBMP(output, "z-sr/in/1/pallu-edited/PALLU_RANI.bmp");
+        AddLayoutGenerator.saveBMP(output, "z-data/in/11/pallu1/PALLU_RANI.bmp");
     }
 
     public static List<BufferedImage> get(BufferedImage inputBI, int sizeY) {

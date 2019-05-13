@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class JariConversion {
+public class D2JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
@@ -25,29 +25,17 @@ public class JariConversion {
 
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
 
-        // Box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
-        inputBIs.add(EmptyGenerator.get(width, 2));
+        //D1 kali
+        inputBIs.add(EmptyGenerator.get(width, 12));
 
-        // mispick
-        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
-
-        //Achu Khali
-        inputBIs.add(EmptyGenerator.get(width, 6));
-
-        // Locking
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(skirt.getWidth(), 1)));
+        // D3 kali
+        inputBIs.add(EmptyGenerator.get(width, 4));
 
         inputBIs.add(skirt);
 
-        // Jari
+        //D1 kali
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 280));
-
-        // mispick
-        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
-
-        //Achu Khali
-        inputBIs.add(EmptyGenerator.get(width, 14));
+        inputBIs.add(EmptyGenerator.get(width, 16));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

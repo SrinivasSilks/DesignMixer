@@ -1,4 +1,4 @@
-package com.varaprasadps.no11.border;
+package com.varaprasadps.no7.brocade_2;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
 
@@ -16,12 +16,12 @@ public class BrocadeConversion {
         NimbuConversion.main(null);
         RaniConversion.main(null);
 
-        String out = "z-data/out/11/new/brocade-%s-%s.bmp";
+        String out = "z-data/out/7/2brocade-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("z-data/out/11/new/rani-600-1824.bmp");
-        inputs.add("z-data/out/11/new/jari-600-1824.bmp");
-        inputs.add("z-data/out/11/new/nimbu-600-1824.bmp");
+        inputs.add("z-data/out/7/2rani-600-1824.bmp");
+        inputs.add("z-data/out/7/2jari-600-1824.bmp");
+        inputs.add("z-data/out/7/2nimbu-600-1824.bmp");
 
 
         List<BufferedImage> inputBIs = new LinkedList<>();

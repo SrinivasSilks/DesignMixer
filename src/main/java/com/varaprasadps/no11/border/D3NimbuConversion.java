@@ -9,11 +9,11 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class NimbuConversion {
+public class D3NimbuConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/11/new/nimbu-%s-%s.bmp";
+        String out = "z-data/out/11/new/d3nimbu-%s-%s.bmp";
 
         final BufferedImage skirt = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/brocade1/NIMBU.bmp")));
 
@@ -21,32 +21,20 @@ public class NimbuConversion {
 
         int width = skirt.getWidth();
 
-        inputBIs.add(EmptyGenerator.get(width, 31));
+        inputBIs.add(EmptyGenerator.get(width, 32));
 
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
-
-        // Box
-        inputBIs.add(EmptyGenerator.get(width, 2));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
-        // mispick
-        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
-
-        //Achu
-        inputBIs.add(EmptyGenerator.get(width, 6));
+        //D1 kali
+        inputBIs.add(EmptyGenerator.get(width, 12));
 
         // Locking
         inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 4)));
 
-        inputBIs.add(skirt);
+        //D2 kali
+        inputBIs.add(EmptyGenerator.get(width, 1480));
 
-        // Jari
+        //D1 kali
         inputBIs.add(EmptyGenerator.get(width, 280));
-
-        // mispick
-        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
-
-        // Achu
-        inputBIs.add(EmptyGenerator.get(width, 14));
+        inputBIs.add(EmptyGenerator.get(width, 16));
 
 
         int repeatWidth = 0;
