@@ -21,9 +21,8 @@ public class NimbuConversion {
 
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 32));
 
-
-        // Khali
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 4));
+        // mispick
+        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(skirt.getWidth(), 8), 4).get(0));
 
         //Achu
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 8));
@@ -40,8 +39,8 @@ public class NimbuConversion {
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(skirt.getWidth(), 2)));
 
-        // Khali
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 4));
+        // mispick
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(skirt.getWidth(), 8), 4).get(0)));
 
         // Achu
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 8));
