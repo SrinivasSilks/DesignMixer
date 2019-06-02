@@ -14,12 +14,12 @@ public class FullFileGenerator {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-vasu/in/4/new/4DESIGN4_NEW.bmp";
+        String out = "z-vasu/in/4/new/4DESIGN_25_05.bmp";
 
         BufferedImage blouse = ImageIO.read(new File("z-vasu/in/4/output2/blouse.bmp"));
         BufferedImage pallu = ImageIO.read(new File("z-vasu/in/4/output2/pallu.bmp"));
         BufferedImage kongu = ImageIO.read(new File("z-vasu/in/4/output/kongu.bmp"));
-        BufferedImage brocade = ImageIO.read(new File("z-vasu/in/4/output2/brocade.bmp"));
+        BufferedImage brocade = ImageIO.read(new File("z-vasu/in/4/25_05/brocade_25_05.bmp"));
         BufferedImage plain = ImageIO.read(new File("z-vasu/in/4/output2/plain.bmp"));
 
         List<BufferedImage> inputs = new LinkedList<>();
