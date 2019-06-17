@@ -13,8 +13,8 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/3/2rani-%s-%s.bmp";
-        final BufferedImage skirt = CutLayoutGenerator.get(HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/3/B_RANI.bmp"))),1188).get(0);
+        String out = "z-data/out/3/14rani-%s-%s.bmp";
+        final BufferedImage skirt = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/3/K_14/RANI.bmp")));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -32,10 +32,7 @@ public class RaniConversion {
 
         inputBIs.add(skirt);
 
-        // Locking
-        inputBIs.add(PlainGenerator.get(skirt.getWidth(), 12));
-
-        inputBIs.add(HorizontalRepeatGenerator.get(50, ImageIO.read(new File("z-data/in/3/BORDER.bmp"))));
+        inputBIs.add(HorizontalRepeatGenerator.get(24, ImageIO.read(new File("z-data/in/3/BORDER.bmp"))));
 
         // Locking
         inputBIs.add(PlainGenerator.get(skirt.getWidth(), 4));

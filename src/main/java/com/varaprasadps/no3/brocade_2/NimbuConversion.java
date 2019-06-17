@@ -13,9 +13,9 @@ public class NimbuConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/3/2nimbu-%s-%s.bmp";
+        String out = "z-data/out/3/14nimbu-%s-%s.bmp";
 
-        final BufferedImage skirt =  CutLayoutGenerator.get(HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/3/B_NIMBU.bmp"))), 1188).get(0);
+        final BufferedImage skirt =  HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/3/K_14/NIMBU.bmp")));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 32));
@@ -31,9 +31,6 @@ public class NimbuConversion {
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 10));
 
         inputBIs.add(skirt);
-
-        // Locking
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(skirt.getWidth(), 12)));
 
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 176));
 
