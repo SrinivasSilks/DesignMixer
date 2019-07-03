@@ -1,4 +1,4 @@
-package com.varaprasadps.no5.brocade_8;
+package com.varaprasadps.no6.brocade8_1;
 
 import com.varaprasadps.image.*;
 
@@ -9,29 +9,43 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class RaniConversion {
+public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/5/8/rani-%s-%s.bmp";
-        final BufferedImage rani = ImageIO.read(new File("z-data/in/5/8/2/RANI.bmp"));
+        String out = "z-data/out/6/8_1jari-%s-%s.bmp";
+        final BufferedImage skirt = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("z-data/in/6/8.1/JARI.bmp")));
+
+        int width = skirt.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
-        int width = rani.getWidth();
+
         inputBIs.add(EmptyGenerator.get(width, 32));
-        //box
-        inputBIs.add(EmptyGenerator.get(width, 2));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        // Box
+        inputBIs.add(EmptyGenerator.get(width, 4));
+
         // mispick
-        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
-        // Khali
+        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(skirt.getWidth(), 4), 2).get(0));
+
+        //Achu Khali
         inputBIs.add(EmptyGenerator.get(width, 10));
 
-        inputBIs.add(rani);
+        // Locking
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(skirt.getWidth(), 5)));
+
+        inputBIs.add(CutLayoutGenerator.get(skirt, 1668).get(0));
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(skirt.getWidth(), 3)));
+
+        // Jari
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 60));
+
+        // Box
+        inputBIs.add(EmptyGenerator.get(width, 4));
 
         // mispick
-        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 12), 6).get(0)));
-        // Khali
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(skirt.getWidth(), 4), 2).get(0)));
+
+        //Achu Khali
         inputBIs.add(EmptyGenerator.get(width, 10));
 
         int repeatWidth = 0;
@@ -54,5 +68,4 @@ public class RaniConversion {
     private static void saveBMP(final BufferedImage bi, final String path) throws IOException {
         ImageIO.write(bi, "bmp", new File(path));
     }
-
 }
