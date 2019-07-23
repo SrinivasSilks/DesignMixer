@@ -20,7 +20,7 @@ public class JariConversion {
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        inputBIs.add(EmptyGenerator.get(1920, 32));
+        inputBIs.add(EmptyGenerator.get(width, 32));
         //box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         inputBIs.add(EmptyGenerator.get(width, 2));
