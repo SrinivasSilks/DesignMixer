@@ -1,4 +1,4 @@
-package com.varaprasadps.no5.brocade_3;
+package com.varaprasadps.no5.palluold;
 
 import com.varaprasadps.image.*;
 
@@ -13,23 +13,30 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/5/3/jari-%s-%s.bmp";
-        final BufferedImage jari = ImageIO.read(new File("z-data/in/5/3/BROCADE_JARI.bmp"));
+        String out = "z-data/out/5/p-jari-%s-%s.bmp";
+
+        BufferedImage pallu = ImageIO.read(new File("z-data/in/5/1/PALLU_JARI.bmp"));
+        int width = pallu.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
-        int width = jari.getWidth();
 
         inputBIs.add(EmptyGenerator.get(width, 32));
         //box
-        inputBIs.add(EmptyGenerator.get(width, 4));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
+
         // mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
-        // Khali
+
+        //Khali
         inputBIs.add(EmptyGenerator.get(width, 10));
-        inputBIs.add(jari);
+
+        inputBIs.add(pallu);
+
         // mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 12), 6).get(0)));
-        // Khali
+
+        //Khali
         inputBIs.add(EmptyGenerator.get(width, 10));
 
         int repeatWidth = 0;
