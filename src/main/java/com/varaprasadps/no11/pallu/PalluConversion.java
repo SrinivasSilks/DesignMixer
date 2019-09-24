@@ -14,11 +14,11 @@ public class PalluConversion {
     public static void main(final String[] args) throws IOException {
         JariConversion.main(null);
         RaniConversion.main(null);
-        String out = "z-data/out/11/pallu-%s-%s.bmp";
+        String out = "z-data/out/11/2pallu-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("z-data/out/11/p-rani-1800-1824.bmp");
-        inputs.add("z-data/out/11/p-jari-1800-1824.bmp");
+        inputs.add("z-data/out/11/2p-rani-1800-1824.bmp");
+        inputs.add("z-data/out/11/2p-jari-1800-1824.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {

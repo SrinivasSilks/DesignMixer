@@ -13,14 +13,15 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/11/p-rani-%s-%s.bmp";
+        String out = "z-data/out/11/2p-rani-%s-%s.bmp";
 
         BufferedImage teega = HorizontalFlipGenerator.get(HorizontalRepeatGenerator.get(3, ImageIO.read(new File("z-data/in/11/border3/TEEGA.bmp"))));
         BufferedImage figure = HorizontalFlipGenerator.get(HorizontalRepeatGenerator.get(3, ImageIO.read(new File("z-data/in/11/border3/FIGURE.bmp"))));
         BufferedImage banaras = HorizontalFlipGenerator.get(HorizontalRepeatGenerator.get(3, ImageIO.read(new File("z-data/in/11/border3/BANARAS.bmp"))));
         BufferedImage bugada = HorizontalFlipGenerator.get(HorizontalRepeatGenerator.get(3, ImageIO.read(new File("z-data/in/11/border3/BUGADA.bmp"))));
 
-        final BufferedImage pallu = CutLayoutGenerator.get(HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/PALLU_RANI.bmp"))), 1460).get(0);
+        final BufferedImage pallu = ImageIO.read(new File("z-data/in/11/pallu-big/pallu-rani.bmp"));
+
         int width = pallu.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
@@ -40,9 +41,6 @@ public class RaniConversion {
         inputBIs.add(PlainGenerator.get(width, 4));
 
         inputBIs.add(pallu);
-
-        // Locking
-        inputBIs.add(PlainGenerator.get(width, 20));
 
         inputBIs.add(bugada);
         inputBIs.add(banaras);

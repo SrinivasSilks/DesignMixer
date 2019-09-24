@@ -13,10 +13,9 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/11/p-jari-%s-%s.bmp";
+        String out = "z-data/out/11/2p-jari-%s-%s.bmp";
 
-        final BufferedImage pallu = CutLayoutGenerator.get(HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/PALLU_JARI.bmp"))), 1460).get(0);
-
+        final BufferedImage pallu = ImageIO.read(new File("z-data/in/11/pallu-big/pallu-jari.bmp"));
 
         int width = pallu.getWidth();
         List<BufferedImage> inputBIs = new LinkedList<>();
@@ -36,8 +35,6 @@ public class JariConversion {
         inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 1)));
 
         inputBIs.add(pallu);
-
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 5)));
 
         // Jari
         inputBIs.add(EmptyGenerator.get(width, 280));
