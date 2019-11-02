@@ -33,7 +33,9 @@ public class RaniConversion {
         // Locking
         inputBIs.add(ReverseGenerator.get(PlainGenerator.get(skirt.getWidth(), 20)));
 
-        inputBIs.add(CutLayoutGenerator.get(skirt, 1664).get(0));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 480));
+        inputBIs.add(PlainGenerator.get(skirt.getWidth(), 16));
+        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(CutLayoutGenerator.get(skirt, 480).get(1), 16).get(1), 1168).get(0));
         inputBIs.add(PlainGenerator.get(skirt.getWidth(), 16));
 
         // Jari
