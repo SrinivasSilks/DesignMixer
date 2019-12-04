@@ -36,7 +36,7 @@ public class JariConversion {
         inputBIs.add(EmptyGenerator.get(width, 70));
 
         //locking
-        inputBIs.add(StepLayoutGenerator.get(width, 1));
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 1)));
 
         //kali
         inputBIs.add(EmptyGenerator.get(width, 2));
