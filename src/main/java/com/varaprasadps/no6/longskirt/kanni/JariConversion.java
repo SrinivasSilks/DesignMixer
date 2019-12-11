@@ -13,9 +13,9 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/6/k-jari-%s-%s.bmp";
+        String out = "z-data/out/6/2-k-jari-%s-%s.bmp";
 
-        int width = 540;
+        int width = 360;
         List<BufferedImage> inputBIs = new LinkedList<>();
         inputBIs.add(EmptyGenerator.get(width, 32));
 

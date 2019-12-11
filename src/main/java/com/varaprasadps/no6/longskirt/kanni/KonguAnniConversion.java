@@ -14,11 +14,11 @@ public class KonguAnniConversion {
     public static void main(final String[] args) throws IOException {
         JariConversion.main(null);
         RaniConversion.main(null);
-        String out = "z-data/out/6/kanni-%s-%s.bmp";
+        String out = "z-data/out/6/2-kanni-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("z-data/out/6/k-rani-540-1824.bmp");
-        inputs.add("z-data/out/6/k-jari-540-1824.bmp");
+        inputs.add("z-data/out/6/2-k-rani-360-1824.bmp");
+        inputs.add("z-data/out/6/2-k-jari-360-1824.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {

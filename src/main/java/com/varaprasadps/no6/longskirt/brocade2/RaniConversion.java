@@ -13,13 +13,13 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/6/2rani-%s-%s.bmp";
+        String out = "z-data/out/6/2-2rani-%s-%s.bmp";
 
 
-        BufferedImage border = ImageIO.read(new File("z-data/in/6/longskirt/border.bmp"));
-        BufferedImage banaras = HorizontalRepeatGenerator.get(9, ImageIO.read(new File("z-data/in/6/longskirt/BANARAS.bmp")));
-        BufferedImage sununda = HorizontalRepeatGenerator.get(9, ImageIO.read(new File("z-data/in/6/longskirt/SUNUNDA.bmp")));
-        BufferedImage teega = HorizontalRepeatGenerator.get(9, ImageIO.read(new File("z-data/in/6/longskirt/TEEGA.bmp")));
+        BufferedImage border = ImageIO.read(new File("z-data/in/6/longskirt/new/border.bmp"));
+        BufferedImage banaras = HorizontalRepeatGenerator.get(6, ImageIO.read(new File("z-data/in/6/longskirt/BANARAS.bmp")));
+        BufferedImage sununda = HorizontalRepeatGenerator.get(6, ImageIO.read(new File("z-data/in/6/longskirt/SUNUNDA.bmp")));
+        BufferedImage teega = HorizontalRepeatGenerator.get(6, ImageIO.read(new File("z-data/in/6/longskirt/TEEGA.bmp")));
         int width = border.getWidth();
 
 

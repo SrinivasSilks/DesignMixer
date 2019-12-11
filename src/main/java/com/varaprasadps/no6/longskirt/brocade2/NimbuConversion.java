@@ -13,9 +13,9 @@ public class NimbuConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/6/2nimbu-%s-%s.bmp";
+        String out = "z-data/out/6/2-2nimbu-%s-%s.bmp";
 
-        final BufferedImage body = ImageIO.read(new File("z-data/in/6/longskirt/1/JARI.bmp"));
+        final BufferedImage body = ImageIO.read(new File("z-data/in/6/longskirt/new/brocade1/JARI.bmp"));
         int width = body.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();

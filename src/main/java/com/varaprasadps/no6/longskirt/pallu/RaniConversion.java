@@ -13,9 +13,10 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/6/p-rani-%s-%s.bmp";
+        String out = "z-data/out/6/2-p-rani-%s-%s.bmp";
 
         final BufferedImage pallu = ImageIO.read(new File("z-data/in/6/PALLU_RANI.bmp"));
+        final BufferedImage border = ImageIO.read(new File("z-data/in/6/PALLU_BORDER.bmp"));
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         inputBIs.add(EmptyGenerator.get(pallu.getWidth(), 32));
@@ -29,7 +30,9 @@ public class RaniConversion {
 
         // Locking
         inputBIs.add(PlainGenerator.get(pallu.getWidth(), 20));
-        inputBIs.add(pallu);
+        inputBIs.add(CutLayoutGenerator.get(pallu, 480).get(0));
+        inputBIs.add(border);
+
 
         // Jari
         inputBIs.add(ImageIO.read(new File("z-data/in/2/P_SUNUNDA_FINAL.bmp")));
