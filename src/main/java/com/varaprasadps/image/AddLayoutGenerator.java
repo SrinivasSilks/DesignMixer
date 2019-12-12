@@ -10,23 +10,15 @@ import java.util.List;
 public class AddLayoutGenerator {
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-data/out/BROCADE_RANI.bmp";
-        BufferedImage body = HorizontalRepeatGenerator.get(9, ImageIO.read(new File("z-data/in/6/2/BODY_NIMBU.bmp")));
-        BufferedImage skirt = ImageIO.read(new File("z-data/in/6/2/SKIRT_RANI.bmp"));
+        String out = "z-data/in/2/1recent/kinda/1RIGHT.bmp";
 
-        BufferedImage emptyJari = EmptyGenerator.get(skirt.getWidth(), 60);
-
-        BufferedImage sununda = HorizontalRepeatGenerator.get(12, ImageIO.read(new File("z-data/in/6/2/SUNUNDA.bmp")));
-        BufferedImage banaras = HorizontalRepeatGenerator.get(12, ImageIO.read(new File("z-data/in/6/2/BANARAS.bmp")));
-        BufferedImage teega = HorizontalRepeatGenerator.get(12, ImageIO.read(new File("z-data/in/6/2/TEEGA.bmp")));
-
+        BufferedImage center = ImageIO.read(new File("z-data/in/2/1recent/kinda/RIGHT.bmp"));
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 480));
-        inputBIs.add(skirt);
-        inputBIs.add(sununda);
-        inputBIs.add(banaras);
-        inputBIs.add(teega);
+        List<BufferedImage> images = CutLayoutGenerator.get(center, 1);
+
+        inputBIs.add(images.get(1));
+        inputBIs.add(images.get(0));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -37,7 +29,7 @@ public class AddLayoutGenerator {
             repeatHeight += bi.getHeight();
         }
 
-        BufferedImage bi = get(repeatWidth, repeatHeight, inputBIs);
+        BufferedImage bi = ReverseGenerator.get(get(repeatWidth, repeatHeight, inputBIs));
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
     }
@@ -70,7 +62,7 @@ public class AddLayoutGenerator {
         }
     }
 
-     static void saveBMP(final BufferedImage bi, final String path) throws IOException {
+    static void saveBMP(final BufferedImage bi, final String path) throws IOException {
         ImageIO.write(bi, "bmp", new File(path));
     }
 
