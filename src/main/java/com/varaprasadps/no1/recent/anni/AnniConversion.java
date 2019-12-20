@@ -17,36 +17,42 @@ public class AnniConversion {
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
+        final BufferedImage left = ImageIO.read(new File("z-data/in/1/recent/left.bmp"));
+        final BufferedImage right = ImageIO.read(new File("z-data/in/1/recent/right.bmp"));
+
+        int width = right.getWidth();
+
+
         //box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(60, 2)));
-        inputBIs.add(EmptyGenerator.get(60, 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
-        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(60, 4), 2).get(0));
+        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //khali
-        inputBIs.add(EmptyGenerator.get(60, 2));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(60, 8));
+        inputBIs.add(AchuLayoutGenerator.get(width, 8));
 
         //left
-        inputBIs.add(PlainGenerator.get(60, 368));
+        inputBIs.add(left);
         //skirt
-        inputBIs.add(PlainGenerator.get(60, 660));
+        inputBIs.add(PlainGenerator.get(width, 660));
         //body
-        inputBIs.add(PlainGenerator.get(60, 600));
+        inputBIs.add(PlainGenerator.get(width, 600));
         //skirt
-        inputBIs.add(PlainGenerator.get(60, 660));
-        //left
-        inputBIs.add(PlainGenerator.get(60, 368));
+        inputBIs.add(PlainGenerator.get(width, 660));
+        //right
+        inputBIs.add(right);
 
         //box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(60, 2)));
-        inputBIs.add(EmptyGenerator.get(60, 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
-        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(60, 4), 2).get(0)));
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //khali
-        inputBIs.add(EmptyGenerator.get(60, 2));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(60, 8));
+        inputBIs.add(AchuLayoutGenerator.get(width, 8));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
