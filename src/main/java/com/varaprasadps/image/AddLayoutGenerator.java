@@ -29,7 +29,7 @@ public class AddLayoutGenerator {
             repeatHeight += bi.getHeight();
         }
 
-        BufferedImage bi = ReverseGenerator.get(get(repeatWidth, repeatHeight, inputBIs));
+        BufferedImage bi = get(repeatWidth, repeatHeight, inputBIs);
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
     }
