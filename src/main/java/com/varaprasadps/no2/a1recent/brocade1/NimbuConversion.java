@@ -42,10 +42,8 @@ public class NimbuConversion {
         inputBIs.add(body);
         inputBIs.add(body);
         inputBIs.add(body);
-        inputBIs.add(body);
-        inputBIs.add(body);
-        inputBIs.add(EmptyGenerator.get(width, 8));
         inputBIs.add(StepLayoutGenerator.get(width, 2));
+        inputBIs.add(EmptyGenerator.get(width, 8));
         inputBIs.add(right);
 
         //box

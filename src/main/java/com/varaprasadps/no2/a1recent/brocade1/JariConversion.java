@@ -16,8 +16,8 @@ public class JariConversion {
         String out = "z-data/out/2/1recent/1jari-%s-%s.bmp";
 
 
-        final BufferedImage left = HorizontalRepeatGenerator.get(6, ImageIO.read(new File("z-data/in/2/1recent/border2/LEFT.bmp")));
-        final BufferedImage right = HorizontalRepeatGenerator.get(6, ImageIO.read(new File("z-data/in/2/1recent/border2/RIGHT.bmp")));
+        final BufferedImage left = HorizontalRepeatGenerator.get(2, ImageIO.read(new File("z-data/in/2/1recent/border2/LEFT.bmp")));
+        final BufferedImage right = HorizontalRepeatGenerator.get(2, ImageIO.read(new File("z-data/in/2/1recent/border2/RIGHT.bmp")));
         final BufferedImage body = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("z-data/in/2/1recent/brocade1/NIMBU.bmp")));
 
         int width = body.getWidth();
@@ -42,9 +42,8 @@ public class JariConversion {
         inputBIs.add(body);
         inputBIs.add(body);
         inputBIs.add(body);
-        inputBIs.add(body);
-        inputBIs.add(body);
-        inputBIs.add(PlainGenerator.get(width, 16));
+        inputBIs.add(PlainGenerator.get(width, 8));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 8)));
         inputBIs.add(right);
 
         //box
