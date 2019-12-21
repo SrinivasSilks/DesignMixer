@@ -13,9 +13,11 @@ public class StepLayoutGenerator {
 
 
     public static void main(final String[] args) throws IOException {
-        int x = 16;
-        BufferedImage img = get(x,5);
-        saveBMP(img, String.format("z-giri/out/step-%s-%s.bmp", x, 20));
+        int x = 25;
+        int times = 10;
+        int box = 6;
+        BufferedImage img = get(x, times, box);
+        saveBMP(img, String.format("z-data/out/step-%s-%s.bmp", x, times * box));
     }
 
     public static BufferedImage get(int sizeX, int times) {
@@ -41,6 +43,34 @@ public class StepLayoutGenerator {
             position--;
             if (position == -1) {
                 position = 3;
+            }
+        }
+        return res;
+    }
+
+    public static BufferedImage get(int sizeX, int times, int box) {
+        List<BufferedImage> inputs = new LinkedList<>();
+        for (int i = 0; i < times; i++) {
+            inputs.add(getBox(sizeX, box));
+        }
+        return AddLayoutGenerator.get(sizeX, box * times, inputs);
+    }
+
+    public static BufferedImage getBox(int sizeX, int box) {
+        final BufferedImage res = new BufferedImage(sizeX, box, BufferedImage.TYPE_INT_RGB);
+        int position = box - 1;
+
+        for (int x = 0; x < sizeX; x++) {
+            for (int y = 0; y < box; y++) {
+                if (y == position) {
+                    res.setRGB(x, y, Color.BLACK.getRGB());
+                } else {
+                    res.setRGB(x, y, Color.WHITE.getRGB());
+                }
+            }
+            position--;
+            if (position == -1) {
+                position = box - 1;
             }
         }
         return res;
