@@ -1,4 +1,4 @@
-package com.varaprasadps.no1.recent.anni;
+package com.varaprasadps.no1.recent.brocade1;
 
 import com.varaprasadps.image.*;
 
@@ -9,19 +9,19 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class AnniConversion {
+public class NimbuConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/1/recent/1anni-%s-%s.bmp";
+        String out = "z-data/out/1/recent/1nimbu-%s-%s.bmp";
+
+        final BufferedImage body = HorizontalRepeatGenerator.get(2, ImageIO.read(new File("z-data/in/1/recent/brocade1/JARI.bmp")));
+
+        int width = body.getWidth();
+        final BufferedImage right = EmptyGenerator.get(width, 368);
+        final BufferedImage left = EmptyGenerator.get(width, 368);
 
         List<BufferedImage> inputBIs = new LinkedList<>();
-
-        final BufferedImage left = ImageIO.read(new File("z-data/in/1/recent/1left.bmp"));
-        final BufferedImage right = ImageIO.read(new File("z-data/in/1/recent/1right.bmp"));
-
-        int width = right.getWidth();
-
 
         //box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
@@ -31,17 +31,20 @@ public class AnniConversion {
         //khali
         inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 8));
+        inputBIs.add(EmptyGenerator.get(width, 8));
 
-        //left
+
         inputBIs.add(left);
-        //skirt
-        inputBIs.add(PlainGenerator.get(width, 660));
-        //body
-        inputBIs.add(PlainGenerator.get(width, 600));
-        //skirt
-        inputBIs.add(PlainGenerator.get(width, 660));
-        //right
+        inputBIs.add(StepLayoutGenerator.get(width, 2));
+
+        inputBIs.add(CutLayoutGenerator.get(body, 548).get(1));
+        inputBIs.add(body);
+        inputBIs.add(body);
+        inputBIs.add(body);
+        inputBIs.add(CutLayoutGenerator.get(body, 52).get(0));
+
+
+        inputBIs.add(StepLayoutGenerator.get(width, 2));
         inputBIs.add(right);
 
         //box
@@ -52,7 +55,7 @@ public class AnniConversion {
         //khali
         inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 8));
+        inputBIs.add(EmptyGenerator.get(width, 8));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -62,7 +65,7 @@ public class AnniConversion {
             repeatWidth = bi.getWidth();
             repeatHeight += bi.getHeight();
         }
-        BufferedImage bi = HorizontalFlipGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
+        BufferedImage bi = AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs);
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
     }

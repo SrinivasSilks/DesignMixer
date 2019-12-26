@@ -1,4 +1,4 @@
-package com.varaprasadps.no1.recent.anni;
+package com.varaprasadps.no1.recent.kanni;
 
 import com.varaprasadps.image.*;
 
@@ -9,19 +9,15 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class AnniConversion {
+public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/1/recent/1anni-%s-%s.bmp";
+        String out = "z-data/out/1/recent/k-jari-%s-%s.bmp";
+
+        int width = 200;
 
         List<BufferedImage> inputBIs = new LinkedList<>();
-
-        final BufferedImage left = ImageIO.read(new File("z-data/in/1/recent/1left.bmp"));
-        final BufferedImage right = ImageIO.read(new File("z-data/in/1/recent/1right.bmp"));
-
-        int width = right.getWidth();
-
 
         //box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
@@ -31,18 +27,16 @@ public class AnniConversion {
         //khali
         inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 8));
+        inputBIs.add(EmptyGenerator.get(width, 8));
 
-        //left
-        inputBIs.add(left);
-        //skirt
+
+        inputBIs.add(EmptyGenerator.get(width, 368));
+
         inputBIs.add(PlainGenerator.get(width, 660));
-        //body
         inputBIs.add(PlainGenerator.get(width, 600));
-        //skirt
         inputBIs.add(PlainGenerator.get(width, 660));
-        //right
-        inputBIs.add(right);
+
+        inputBIs.add(EmptyGenerator.get(width, 368));
 
         //box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
@@ -52,7 +46,7 @@ public class AnniConversion {
         //khali
         inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 8));
+        inputBIs.add(EmptyGenerator.get(width, 8));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -62,7 +56,7 @@ public class AnniConversion {
             repeatWidth = bi.getWidth();
             repeatHeight += bi.getHeight();
         }
-        BufferedImage bi = HorizontalFlipGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
+        BufferedImage bi = AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs);
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
     }
