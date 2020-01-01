@@ -1,4 +1,4 @@
-package com.varaprasadps.no1.recent.brocade2;
+package com.varaprasadps.no2.a2recent.brocade1;
 
 import com.varaprasadps.image.*;
 
@@ -13,16 +13,17 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/1/recent/2rani-%s-%s.bmp";
+        String out = "z-data/out/2/2recent/1rani-%s-%s.bmp";
 
-        final BufferedImage left = HorizontalRepeatGenerator.get(9, ImageIO.read(new File("z-data/in/1/recent/kinda/1left.bmp")));
-        final BufferedImage right = HorizontalRepeatGenerator.get(9, ImageIO.read(new File("z-data/in/1/recent/kinda/a1right.bmp")));
-        final BufferedImage body = HorizontalRepeatGenerator.get(10,
-                CutLayoutGenerator.get(ImageIO.read(new File("z-data/in/1/recent/brocade2/NIMBU.bmp")), 600).get(0));
+        final BufferedImage left = HorizontalRepeatGenerator.get(15, ImageIO.read(new File("z-data/in/2/2recent/kinda/left.bmp")));
+        final BufferedImage right = HorizontalRepeatGenerator.get(15, ImageIO.read(new File("z-data/in/2/2recent/kinda/right-kinda.bmp")));
+        final BufferedImage body = HorizontalRepeatGenerator.get(32, ImageIO.read(new File("z-data/in/2/2recent/brocade1/NIMBU.bmp")));
 
         int width = left.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
+
+        inputBIs.add(EmptyGenerator.get(width, 256));
 
         //box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
@@ -37,17 +38,12 @@ public class RaniConversion {
         //left border
         inputBIs.add(left);
         //locking
-        inputBIs.add(PlainGenerator.get(width, 8));
+        inputBIs.add(PlainGenerator.get(width, 16));
 
-        inputBIs.add(CutLayoutGenerator.get(body, 548).get(1));
         inputBIs.add(body);
-        inputBIs.add(body);
-        inputBIs.add(body);
-        inputBIs.add(CutLayoutGenerator.get(body, 52).get(0));
-
         //locking
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 6)));
-        inputBIs.add(PlainGenerator.get(width, 2));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 8)));
+        inputBIs.add(PlainGenerator.get(width, 8));
 
         //right border
         inputBIs.add(right);
@@ -61,6 +57,9 @@ public class RaniConversion {
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //achu
         inputBIs.add(ReverseGenerator.get(AchuLayoutGenerator.get(width, 8)));
+
+
+        inputBIs.add(EmptyGenerator.get(width, 128));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

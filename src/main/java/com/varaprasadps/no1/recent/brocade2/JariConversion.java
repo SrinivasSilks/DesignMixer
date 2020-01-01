@@ -44,7 +44,8 @@ public class JariConversion {
         inputBIs.add(body);
         inputBIs.add(CutLayoutGenerator.get(body, 52).get(0));
 
-        inputBIs.add(PlainGenerator.get(width, 8));
+        inputBIs.add(PlainGenerator.get(width, 6));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 2)));
         inputBIs.add(right);
 
         //box
