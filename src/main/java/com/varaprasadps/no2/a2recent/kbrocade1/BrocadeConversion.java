@@ -1,4 +1,4 @@
-package com.varaprasadps.no2.a2recent.brocade1;
+package com.varaprasadps.no2.a2recent.kbrocade1;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
 import com.varaprasadps.image.HorizontalFlipGenerator;
