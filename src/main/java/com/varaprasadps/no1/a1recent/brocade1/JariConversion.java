@@ -16,7 +16,7 @@ public class JariConversion {
         String out = "z-data/out/1/a1recent/1jari-%s-%s.bmp";
 
 
-        final BufferedImage body = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("z-data/in/1/recent/brocade3/JARI.bmp")));
+        final BufferedImage body = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("z-data/in/1/recent/brocade3/NIMBU.bmp")));
         int width = body.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
@@ -34,7 +34,7 @@ public class JariConversion {
         //left border
         inputBIs.add(EmptyGenerator.get(width, 368));
         //locking
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 4)));
+        inputBIs.add(PlainGenerator.get(width, 16));
 
         inputBIs.add(CutLayoutGenerator.get(body, 556).get(1));
         inputBIs.add(body);
@@ -43,7 +43,7 @@ public class JariConversion {
         inputBIs.add(CutLayoutGenerator.get(body, 44).get(0));
 
         //locking
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 4)));
+        inputBIs.add(PlainGenerator.get(width, 16));
         //right border
         inputBIs.add(EmptyGenerator.get(width, 368));
 
