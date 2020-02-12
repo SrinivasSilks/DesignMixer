@@ -1,4 +1,4 @@
-package com.varaprasadps.no5.kanni;
+package com.varaprasadps.no5.brocade10;
 
 import com.varaprasadps.image.*;
 
@@ -13,27 +13,26 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/5/9/10k-rani-%s-%s.bmp";
+        String out = "z-data/out/5/10/rani-%s-%s.bmp";
+        final BufferedImage raniBorder = ImageIO.read(new File("z-data/in/5/10/RANI1.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
-
-        int width = 2;
-
+        int width = raniBorder.getWidth();
         inputBIs.add(EmptyGenerator.get(width, 32));
-
-        //Box
+        //box
         inputBIs.add(EmptyGenerator.get(width, 2));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         // mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
-        //Khali
+        // Khali
         inputBIs.add(EmptyGenerator.get(width, 10));
 
-        inputBIs.add(PlainGenerator.get(width, 1760));
+        inputBIs.add(EmptyGenerator.get(width, 800));
+        inputBIs.add(raniBorder);
 
         // mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 12), 6).get(0)));
-
+        // Khali
         inputBIs.add(EmptyGenerator.get(width, 10));
 
         int repeatWidth = 0;

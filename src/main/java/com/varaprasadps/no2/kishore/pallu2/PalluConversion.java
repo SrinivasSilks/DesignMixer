@@ -1,6 +1,7 @@
-package com.varaprasadps.no5.kanni;
+package com.varaprasadps.no2.kishore.pallu2;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
+import com.varaprasadps.image.HorizontalFlipGenerator;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -9,23 +10,23 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class KAnniConversion {
+public class PalluConversion {
 
     public static void main(final String[] args) throws IOException {
         JariConversion.main(null);
         RaniConversion.main(null);
-        String out = "z-data/out/5/9/10kanni-%s-%s.bmp";
+        String out = "z-data/out/2/kishore/2-pallu-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("z-data/out/5/9/10k-rani-2-1824.bmp");
-        inputs.add("z-data/out/5/9/10k-jari-2-1824.bmp");
+        inputs.add("z-data/out/2/kishore/2-p-rani-2000-2688.bmp");
+        inputs.add("z-data/out/2/kishore/2-p-jari-2000-2688.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {
             inputBIs.add(ImageIO.read(new File(input)));
         }
 
-        BufferedImage bi = ColumnRepeatGenerator.get(inputBIs);
+        BufferedImage bi = HorizontalFlipGenerator.get(ColumnRepeatGenerator.get(inputBIs));
         displayPixels(bi);
         saveBMP(bi, String.format(out, bi.getWidth(), bi.getHeight()));
     }

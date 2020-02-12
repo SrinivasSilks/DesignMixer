@@ -13,7 +13,7 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/5/9/k-jari-%s-%s.bmp";
+        String out = "z-data/out/5/9/10k-jari-%s-%s.bmp";
 
         int width = 2;
 
@@ -30,8 +30,8 @@ public class JariConversion {
         //Khali
         inputBIs.add(EmptyGenerator.get(width, 10));
 
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 1100)));
-        inputBIs.add(EmptyGenerator.get(width, 660));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 800)));
+        inputBIs.add(EmptyGenerator.get(width, 960));
 
         // mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 12), 6).get(0)));
