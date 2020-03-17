@@ -15,7 +15,7 @@ public class NimbuConversion {
 
         String out = "z-data/out/4/a2recent/3nimbu-%s-%s.bmp";
 
-        final BufferedImage body = HorizontalRepeatGenerator.get(25, ImageIO.read(new File("z-data/in/4/a2recent/brocade3/NIMBU.bmp")));
+        final BufferedImage body = HorizontalRepeatGenerator.get(25, ImageIO.read(new File("z-data/in/4/a2recent/brocade3/JARI.bmp")));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -24,7 +24,7 @@ public class NimbuConversion {
         inputBIs.add(EmptyGenerator.get(width, 32));
 
         //locking
-        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(body.getWidth(), 1)));
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //achu
@@ -35,7 +35,7 @@ public class NimbuConversion {
         inputBIs.add(EmptyGenerator.get(width, 900));
         inputBIs.add(EmptyGenerator.get(width, 70));
         //locking
-        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(body.getWidth(), 1)));
         //kali
         inputBIs.add(EmptyGenerator.get(width, 2));
 
