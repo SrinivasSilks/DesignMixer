@@ -33,22 +33,22 @@ public class AnniConversion {
         //achu
         inputBIs.add(AchuLayoutGenerator.get(width, 8));
 
-        //anni
-        inputBIs.add(PlainGenerator.get(width, 8));
-        //locking
-        inputBIs.add(PlainGenerator.get(width, 8));
-
         //left
         inputBIs.add(VerticalFlipGenerator.get(border));
+
+        //anni
+        inputBIs.add(PlainGenerator.get(width, 8));
+        //locking
+        inputBIs.add(PlainGenerator.get(width, 8));
         //all over
         inputBIs.add(PlainGenerator.get(width, 480));
-        //right
-        inputBIs.add(border);
-
         //locking
         inputBIs.add(PlainGenerator.get(width, 8));
         //anni
         inputBIs.add(PlainGenerator.get(width, 8));
+
+        //right
+        inputBIs.add(border);
 
         //box
         inputBIs.add(EmptyGenerator.get(width, 2));
