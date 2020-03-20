@@ -28,7 +28,7 @@ public class RaniConversion {
         //box
         inputBIs.add(EmptyGenerator.get(width, 4));
         //mispick
-        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
@@ -53,7 +53,7 @@ public class RaniConversion {
         //box
         inputBIs.add(EmptyGenerator.get(width, 4));
         //mispick
-        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //kadiyalu
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //achu
