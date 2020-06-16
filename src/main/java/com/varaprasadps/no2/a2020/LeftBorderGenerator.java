@@ -30,9 +30,9 @@ public class LeftBorderGenerator {
 
         inputBIs.add(bugada);
         inputBIs.add(teega);
-        inputBIs.add(CutLayoutGenerator.get(StepLayoutGenerator.get(right.getWidth(), 44, 5), 40).get(0));
-//        inputBIs.add(teega);
+        inputBIs.add(CutLayoutGenerator.get(StepLayoutGenerator.get(right.getWidth(), 44, 5), 20).get(0));
         inputBIs.add(figure);
+        inputBIs.add(CutLayoutGenerator.get(StepLayoutGenerator.get(right.getWidth(), 44, 5), 20).get(0));
         inputBIs.add(teega);
 
         int repeatWidth = 0;
