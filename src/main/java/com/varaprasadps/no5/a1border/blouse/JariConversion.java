@@ -13,9 +13,9 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/5/a1recent/b-jari-%s-%s.bmp";
+        String out = "z-data/out/5/a1recent/design1/b-jari-%s-%s.bmp";
 
-        BufferedImage border = ReverseGenerator.get(HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/5/border/border-jari1.bmp"))));
+        BufferedImage border = ReverseGenerator.get(HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/5/design1/border/border-jari.bmp"))));
 
         int width = border.getWidth();
 

@@ -14,11 +14,11 @@ public class BrocadeConversion {
     public static void main(final String[] args) throws IOException {
         JariConversion.main(null);
         RaniConversion.main(null);
-        String out = "z-data/out/5/a1recent/broc-%s-%s.bmp";
+        String out = "z-data/out/5/a1recent/design1/broc-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("z-data/out/5/a1recent/broc-rani-600-1824.bmp");
-        inputs.add("z-data/out/5/a1recent/broc-jari-600-1824.bmp");
+        inputs.add("z-data/out/5/a1recent/design1/broc-rani-600-1824.bmp");
+        inputs.add("z-data/out/5/a1recent/design1/broc-jari-600-1824.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {

@@ -13,9 +13,9 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/5/a1recent/b-rani-%s-%s.bmp";
+        String out = "z-data/out/5/a1recent/design1/b-rani-%s-%s.bmp";
 
-        BufferedImage border = ReverseGenerator.get(HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/5/border/border-meena1.bmp"))));
+        BufferedImage border = ReverseGenerator.get(HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/5/design1/border/border-meena.bmp"))));
 
         int width = border.getWidth();
         List<BufferedImage> inputBIs = new LinkedList<>();

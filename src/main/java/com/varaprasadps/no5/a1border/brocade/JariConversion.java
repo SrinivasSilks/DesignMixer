@@ -13,10 +13,10 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/5/a1recent/broc-jari-%s-%s.bmp";
+        String out = "z-data/out/5/a1recent/design1/broc-jari-%s-%s.bmp";
 
-        BufferedImage border = ReverseGenerator.get(HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/5/border/border-jari1.bmp"))));
-        BufferedImage body = ReverseGenerator.get(VerticalFlipGenerator.get(ImageIO.read(new File("z-data/in/5/brocade1/jari.bmp"))));
+        BufferedImage border = ReverseGenerator.get(HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/5/design1/border/border-jari.bmp"))));
+        BufferedImage body = ReverseGenerator.get(VerticalFlipGenerator.get(ImageIO.read(new File("z-data/in/5/design1/brocade1/jari.bmp"))));
 
         int width = border.getWidth();
 
