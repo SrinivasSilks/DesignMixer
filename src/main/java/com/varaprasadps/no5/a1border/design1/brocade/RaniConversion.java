@@ -1,4 +1,4 @@
-package com.varaprasadps.no5.a1border.anni;
+package com.varaprasadps.no5.a1border.design1.brocade;
 
 import com.varaprasadps.image.*;
 
@@ -9,29 +9,34 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class AnniConversion {
+public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/5/a1recent/design1/anni-%s-%s.bmp";
+        String out = "z-data/out/5/a1recent/design1/broc-rani-%s-%s.bmp";
 
+        BufferedImage border = ReverseGenerator.get(HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/5/design1/border/border-meena.bmp"))));
+
+        int width = border.getWidth();
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        inputBIs.add(EmptyGenerator.get(12, 32));
-        //Box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(12, 2)));
-        inputBIs.add(EmptyGenerator.get(12, 2));
-        // mispick
-        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(12, 4), 2).get(0));
-        // Khali
-        inputBIs.add(EmptyGenerator.get(12, 10));
+        inputBIs.add(EmptyGenerator.get(width, 32));
 
-        inputBIs.add(PlainGenerator.get(12, 1760));
+        //box
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        //mispick
+        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
+        //khali
+        inputBIs.add(EmptyGenerator.get(width, 10));
 
-        // mispick
-        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(12, 12), 6).get(0)));
-        // Khali
-        inputBIs.add(EmptyGenerator.get(12, 10));
+        inputBIs.add(PlainGenerator.get(width, 800));
+        inputBIs.add(border);
+
+        //mispick
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 12), 6).get(0)));
+        inputBIs.add(EmptyGenerator.get(width, 10));
+
 
         int repeatWidth = 0;
         int repeatHeight = 0;

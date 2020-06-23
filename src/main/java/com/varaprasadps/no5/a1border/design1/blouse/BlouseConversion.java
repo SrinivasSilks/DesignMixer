@@ -1,4 +1,4 @@
-package com.varaprasadps.no5.a1border.blouse;
+package com.varaprasadps.no5.a1border.design1.blouse;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
 

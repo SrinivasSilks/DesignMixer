@@ -1,4 +1,4 @@
-package com.varaprasadps.no5.a1border.brocade;
+package com.varaprasadps.no5.a1border.design1.brocade;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
 
