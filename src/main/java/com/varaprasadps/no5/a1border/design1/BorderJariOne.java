@@ -1,4 +1,4 @@
-package com.varaprasadps.no5.a1border;
+package com.varaprasadps.no5.a1border.design1;
 
 import com.varaprasadps.image.*;
 
