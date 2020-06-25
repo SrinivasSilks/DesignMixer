@@ -2,6 +2,7 @@ package com.varaprasadps.no12.a1recent.design1;
 
 import com.varaprasadps.image.CutLayoutGenerator;
 import com.varaprasadps.image.HorizontalFlipGenerator;
+import com.varaprasadps.image.ReverseGenerator;
 import com.varaprasadps.image.VerticalFlipGenerator;
 
 import javax.imageio.ImageIO;
@@ -65,7 +66,7 @@ public class BorderLayoutGenerator {
             repeatHeight += bi.getHeight();
         }
 
-        BufferedImage bi = get(repeatWidth, repeatHeight, inputBIs);
+        BufferedImage bi = ReverseGenerator.get(get(repeatWidth, repeatHeight, inputBIs));
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
     }
