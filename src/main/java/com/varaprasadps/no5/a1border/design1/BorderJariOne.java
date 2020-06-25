@@ -12,7 +12,7 @@ import java.util.List;
 public class BorderJariOne {
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-data/in/5/border/border-jari1.bmp";
+        String out = "z-data/in/5/design1/border-jari1.bmp";
 
         //40 X 40
         BufferedImage bugada = HorizontalRepeatGenerator.get(15, ImageIO.read(new File("z-data/in/5/test/bugada-jari.bmp")));
@@ -98,7 +98,7 @@ public class BorderJariOne {
         inputBIs.add(empty);
         inputBIs.add(angle);
         inputBIs.add(empty);
-        inputBIs.add(EmptyGenerator.get(600, 40));
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(600, 8, 5 )));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
