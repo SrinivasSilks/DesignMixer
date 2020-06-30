@@ -18,7 +18,7 @@ public class RaniConversion {
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         final BufferedImage pallu = ImageIO.read(new File("z-data/in/5/design1/pallu/rani.bmp"));
-        final BufferedImage rani = HorizontalRepeatGenerator.get(3 , ImageIO.read(new File("z-data/in/5/design1/border/border-meena.bmp")));
+        final BufferedImage rani = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("z-data/in/5/design1/border/border-meena.bmp")));
 
         int width = pallu.getWidth();
 
