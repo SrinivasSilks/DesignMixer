@@ -15,6 +15,7 @@ public class JariConversion {
 
         String out = "z-data/out/5/a1recent/korvai/design1/jari-%s-%s.bmp";
         final BufferedImage jari = ImageIO.read(new File("z-data/in/5/design1/border/border-jari1.bmp"));
+        final BufferedImage brocade = ImageIO.read(new File("z-data/in/5/design1/brocade1/jari.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         int width = jari.getWidth();
@@ -28,7 +29,8 @@ public class JariConversion {
         // Khali
         inputBIs.add(EmptyGenerator.get(width, 10));
 
-        inputBIs.add(EmptyGenerator.get(width, 800));
+        inputBIs.add(brocade);
+        inputBIs.add(brocade);
         inputBIs.add(jari);
 
         //mispick
