@@ -14,11 +14,11 @@ public class JariConversion {
     public static void main(final String[] args) throws IOException {
 
         String out = "z-data/out/5/a1recent/korvai/design1/jari-%s-%s.bmp";
-
-        final BufferedImage brocade = PlainGenerator.get(600, 400);
+        final BufferedImage jari = ImageIO.read(new File("z-data/in/5/design1/border/border-jari1.bmp"));
+        final BufferedImage brocade = ImageIO.read(new File("z-data/in/5/design1/brocade1/jari.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
-        int width = brocade.getWidth();
+        int width = jari.getWidth();
 
         inputBIs.add(EmptyGenerator.get(width, 32));
 
@@ -31,8 +31,7 @@ public class JariConversion {
 
         inputBIs.add(brocade);
         inputBIs.add(brocade);
-        inputBIs.add(PlainGenerator.get(width, 16));
-        inputBIs.add(EmptyGenerator.get(width, 960 - 16));
+        inputBIs.add(jari);
 
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 12), 6).get(0)));
