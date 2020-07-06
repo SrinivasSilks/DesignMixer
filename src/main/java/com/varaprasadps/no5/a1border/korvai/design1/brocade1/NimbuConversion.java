@@ -14,7 +14,7 @@ public class NimbuConversion {
     public static void main(final String[] args) throws IOException {
 
         String out = "z-data/out/5/a1recent/korvai/design1/nimbu-%s-%s.bmp";
-        final BufferedImage brocade = PlainGenerator.get(280, 400);
+        final BufferedImage brocade = PlainGenerator.get(600, 400);
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         int width = brocade.getWidth();
