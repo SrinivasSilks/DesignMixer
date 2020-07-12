@@ -1,6 +1,8 @@
 package com.varaprasadps.no8.a2020;
 
-import com.varaprasadps.image.*;
+import com.varaprasadps.image.CutLayoutGenerator;
+import com.varaprasadps.image.HorizontalRepeatGenerator;
+import com.varaprasadps.image.StepLayoutGenerator;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -9,22 +11,23 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class BorderLayoutGenerator {
+public class RightBorderLayoutGenerator {
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-data/in/8/a2020/border/border.bmp";
+        String out = "z-data/in/8/a2020/border/right-border.bmp";
 
         BufferedImage bugada = HorizontalRepeatGenerator.get(15, ImageIO.read(new File("z-data/in/8/a2020/bor-edi/bugada.bmp")));
         BufferedImage teega = HorizontalRepeatGenerator.get(10, ImageIO.read(new File("z-data/in/8/a2020/bor-edi/teega.bmp")));
         BufferedImage mango = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/8/a2020/bor-edi/mango.bmp")));
         BufferedImage border220 = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/8/a2020/bor-edi/220.bmp")));
+        BufferedImage roundmango = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("z-data/in/8/a2020/bor-edi/round-mango.bmp")));
+        BufferedImage flower = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("z-data/in/8/a2020/bor-edi/flower.bmp")));
 
         int width = bugada.getWidth();
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        inputBIs.add(StepLayoutGenerator.get(width, 5, 6));
         inputBIs.add(bugada);
-
+        inputBIs.add(mango);
         inputBIs.add(teega);
         inputBIs.add(CutLayoutGenerator.get(StepLayoutGenerator.get(width, 2, 6), 8).get(0));
         inputBIs.add(border220);
@@ -32,10 +35,11 @@ public class BorderLayoutGenerator {
 
         inputBIs.add(CutLayoutGenerator.get(StepLayoutGenerator.get(width, 135, 6), 288).get(1));
         inputBIs.add(mango);
-
         inputBIs.add(teega);
         inputBIs.add(CutLayoutGenerator.get(StepLayoutGenerator.get(width, 2, 6), 8).get(0));
         inputBIs.add(border220);
+
+
         inputBIs.add(mango);
 
         int repeatWidth = 0;
