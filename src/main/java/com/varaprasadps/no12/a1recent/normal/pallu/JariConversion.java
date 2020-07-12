@@ -15,7 +15,7 @@ public class JariConversion {
 
         String out = "z-data/out/12/a1recent/normal/p-jari-%s-%s.bmp";
 
-        BufferedImage body = ImageIO.read(new File("z-data/in/12/a1recent/normal/pallu/pallu_jari.bmp"));
+        BufferedImage body = ImageIO.read(new File("z-data/in/12/a1recent/normal/pallu/1pallu_jari.bmp"));
         BufferedImage border = EmptyGenerator.get(body.getWidth(), 624);
 
         int width = body.getWidth();
