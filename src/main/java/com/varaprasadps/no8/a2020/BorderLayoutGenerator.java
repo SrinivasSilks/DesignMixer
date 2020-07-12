@@ -14,22 +14,20 @@ public class BorderLayoutGenerator {
     public static void main(final String[] args) throws IOException {
         String out = "z-data/in/8/a2020/border/border.bmp";
 
-        BufferedImage bugada = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("z-data/in/8/a2020/bor-edi/bugada.bmp")));
-        BufferedImage teega = HorizontalRepeatGenerator.get(2, ImageIO.read(new File("z-data/in/8/a2020/bor-edi/teega.bmp")));
+        BufferedImage bugada = HorizontalRepeatGenerator.get(15, ImageIO.read(new File("z-data/in/8/a2020/bor-edi/bugada.bmp")));
+        BufferedImage teega = ImageIO.read(new File("z-data/in/8/a2020/bor-edi/mango.bmp"));
 
+        int width = bugada.getWidth();
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        inputBIs.add(StepLayoutGenerator.get(60, 5, 6));
+        inputBIs.add(StepLayoutGenerator.get(width, 5, 6));
         inputBIs.add(bugada);
 
-        inputBIs.add(CutLayoutGenerator.get(StepLayoutGenerator.get(60, 135, 6), 4).get(1));
+        inputBIs.add(CutLayoutGenerator.get(StepLayoutGenerator.get(width, 135, 6), 4).get(1));
 
-        inputBIs.add(CutLayoutGenerator.get(StepLayoutGenerator.get(60, 37, 6), 220).get(0));
+        inputBIs.add(CutLayoutGenerator.get(StepLayoutGenerator.get(width, 37, 6), 220).get(0));
 
-        inputBIs.add(StepLayoutGenerator.get(60, 1, 6));
         inputBIs.add(teega);
-        inputBIs.add(HorizontalFlipGenerator.get(StepLayoutGenerator.get(60, 1, 6)));
-
 
         int repeatWidth = 0;
         int repeatHeight = 0;
