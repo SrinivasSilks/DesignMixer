@@ -15,8 +15,8 @@ public class AnniConversion {
 
         String out = "z-data/out/8/a2020/anni-%s-%s.bmp";
 
-        BufferedImage border = ReverseGenerator.get(ImageIO.read(new File("z-data/in/8/a2020/border/border.bmp")));
-        BufferedImage chucks = ReverseGenerator.get(StepLayoutGenerator.get(border.getWidth(), 15));
+        BufferedImage border = ImageIO.read(new File("z-data/in/8/a2020/border/border.bmp"));
+        BufferedImage chucks = ReverseGenerator.get(EmptyGenerator.get(border.getWidth(), 60));
         int width = border.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
