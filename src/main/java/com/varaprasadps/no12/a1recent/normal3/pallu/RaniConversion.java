@@ -15,8 +15,8 @@ public class RaniConversion {
 
         String out = "z-data/out/12/a1recent/normal3/p-rani-%s-%s.bmp";
 
-        BufferedImage body = PlainGenerator.get(2100, 480);
-        BufferedImage border = ImageIO.read(new File("z-data/in/12/a1recent/normal3/pallu/pallu-border.bmp"));
+        BufferedImage body = PlainGenerator.get(1920, 480);
+        BufferedImage border = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("z-data/in/12/a1recent/normal3/border/border.bmp")));
 
         int width = body.getWidth();
 
