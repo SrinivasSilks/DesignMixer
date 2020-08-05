@@ -1,4 +1,4 @@
-package com.varaprasadps.no8.a2020.sample.pallu;
+package com.varaprasadps.no8.a2020.design1.brocade1;
 
 import com.varaprasadps.image.*;
 
@@ -13,13 +13,10 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/8/a2020/p-rani-%s-%s.bmp";
-
-        BufferedImage border = HorizontalRepeatGenerator.get(7,ImageIO.read(new File("z-data/in/8/a2020/border/border.bmp")));
-        BufferedImage chucks = ReverseGenerator.get(EmptyGenerator.get(border.getWidth(), 60));
-        final BufferedImage pallu = ImageIO.read(new File("z-data/in/8/a2020/pallu/pallu-rani.bmp"));
-
-        int width = pallu.getWidth();
+        String out = "z-data/out/8/a2020/1rani-%s-%s.bmp";
+        BufferedImage border = ImageIO.read(new File("z-data/in/8/a2020/border/border.bmp"));
+        BufferedImage chucks = EmptyGenerator.get(300, 60);
+        int width = border.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -33,9 +30,12 @@ public class RaniConversion {
         inputBIs.add(PlainGenerator.get(width, 4));
 
         //brocade
-        inputBIs.add(pallu);
+        inputBIs.add(EmptyGenerator.get(width, 480));
         //mango
-        inputBIs.add(CutLayoutGenerator.get(pallu, 96).get(0));
+        inputBIs.add(EmptyGenerator.get(width, 62));
+        //locking
+        inputBIs.add(PlainGenerator.get(width, 18));
+        inputBIs.add(PlainGenerator.get(width, 16));
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));
         //chucks
@@ -70,5 +70,4 @@ public class RaniConversion {
     private static void saveBMP(final BufferedImage bi, final String path) throws IOException {
         ImageIO.write(bi, "bmp", new File(path));
     }
-
 }

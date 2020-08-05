@@ -1,4 +1,4 @@
-package com.varaprasadps.no8.a2020.sample.kongu;
+package com.varaprasadps.no8.a2020.design1.pallu;
 
 import com.varaprasadps.image.*;
 
@@ -9,36 +9,45 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class KonguConversion {
+public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/8/a2020/kongu-%s-%s.bmp";
+        String out = "z-data/out/8/a2020/p-jari-%s-%s.bmp";
+
+        final BufferedImage pallu = ImageIO.read(new File("z-data/in/8/a2020/pallu/pallu-jari.bmp"));
+        int width = pallu.getWidth();
+        BufferedImage border = EmptyGenerator.get(width, 1120);
+        BufferedImage chucks = ReverseGenerator.get(EmptyGenerator.get(width, 60));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        inputBIs.add(EmptyGenerator.get(2, 32));
+        inputBIs.add(EmptyGenerator.get(width, 32));
 
+        //mispick
+        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 8), 4).get(0));
         //achu
-        inputBIs.add(EmptyGenerator.get(2, 12));
+        inputBIs.add(EmptyGenerator.get(width, 8));
         //locking
-        inputBIs.add(KonguLayoutGenerator.get(1));
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 1)));
 
-        //all over
-        inputBIs.add(KonguLayoutGenerator.get(120));
+        //brocade
+        inputBIs.add(pallu);
         //mango
-        inputBIs.add(KonguLayoutGenerator.get(24));
+        inputBIs.add(CutLayoutGenerator.get(pallu, 96).get(0));
         //locking
-        inputBIs.add(KonguLayoutGenerator.get(1));
+        inputBIs.add(PlainGenerator.get(width, 4));
         //chucks
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(2, 60)));
+        inputBIs.add(chucks);
         //border
-        inputBIs.add(EmptyGenerator.get(2, 1120));
+        inputBIs.add(border);
 
         //box
-        inputBIs.add(EmptyGenerator.get(2, 4));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 4)));
+        //mispick
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 8), 4).get(0)));
         //achu
-        inputBIs.add(EmptyGenerator.get(2, 12));
+        inputBIs.add(EmptyGenerator.get(width, 8));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -51,6 +60,7 @@ public class KonguConversion {
         BufferedImage bi = ReverseGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
+
     }
 
     private static void displayPixels(BufferedImage fileOne) {

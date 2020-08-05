@@ -1,4 +1,4 @@
-package com.varaprasadps.no8.a2020.sample.pallu;
+package com.varaprasadps.no8.a2020.design1.kanni;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
 
@@ -14,11 +14,11 @@ public class PalluConversion {
     public static void main(final String[] args) throws IOException {
         JariConversion.main(null);
         RaniConversion.main(null);
-        String out = "z-data/out/8/a2020/pallu-%s-%s.bmp";
+        String out = "z-data/out/8/a2020/kanni-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("z-data/out/8/a2020/p-rani-2100-1824.bmp");
-        inputs.add("z-data/out/8/a2020/p-jari-2100-1824.bmp");
+        inputs.add("z-data/out/8/a2020/k-rani-300-1824.bmp");
+        inputs.add("z-data/out/8/a2020/k-jari-300-1824.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {
