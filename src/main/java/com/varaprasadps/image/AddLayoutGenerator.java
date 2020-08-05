@@ -10,20 +10,30 @@ import java.util.List;
 public class AddLayoutGenerator {
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-data/in/12/a1recent/normal/pallu/1pallu_rani.bmp";
+        String out = "z-data/in/1/a2020/edit/pallu-rani.bmp";
 
-        BufferedImage right = ImageIO.read(new File("z-data/in/12/a1recent/normal/pallu/pallu_rani.bmp"));
+        BufferedImage middle = ImageIO.read(new File("z-data/in/1/a2020/edit/middle-rani.bmp"));
+        BufferedImage side = ImageIO.read(new File("z-data/in/1/a2020/edit/side-rani.bmp"));
+        BufferedImage step = ReverseGenerator.get(StepLayoutGenerator.get(600, 45, 5));
+
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        List<BufferedImage> images = CutLayoutGenerator.get(right, 300);
-        inputBIs.add(images.get(0));
+        List<BufferedImage> sideImages = CutLayoutGenerator.get(side, 85);
 
-        images = CutLayoutGenerator.get(images.get(1), 150);
-        inputBIs.add(images.get(0));
-        inputBIs.add(images.get(0));
-        inputBIs.add(images.get(0));
-        inputBIs.add(images.get(1));
+        inputBIs.add(sideImages.get(0));
+        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(sideImages.get(1), 100).get(1), 312).get(0));
+        inputBIs.add(sideImages.get(0));
+
+        inputBIs.add(VerticalFlipGenerator.get(PlainGenerator.get(600, 220)));
+        inputBIs.add(middle);
+        inputBIs.add(VerticalFlipGenerator.get(PlainGenerator.get(600, 216)));
+//        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(CutLayoutGenerator.get(HorizontalFlipGenerator.get(step), 223).get(0), 6).get(1), 216).get(0));
+
+        inputBIs.add(sideImages.get(0));
+        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(sideImages.get(1), 100).get(1), 312).get(0));
+        inputBIs.add(sideImages.get(0));
+
         int repeatWidth = 0;
         int repeatHeight = 0;
 

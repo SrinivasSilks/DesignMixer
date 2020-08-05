@@ -15,7 +15,7 @@ public class RaniConversion {
 
         String out = "z-data/out/1/a2020/p-rani-%s-%s.bmp";
 
-        final BufferedImage pallu = ImageIO.read(new File("z-data/in/1/a2020/pallu/pallu-rani.bmp"));
+        final BufferedImage pallu = ImageIO.read(new File("z-data/in/1/a2020/pallu2/pallu-rani.bmp"));
 
         final BufferedImage left = HorizontalRepeatGenerator.get(5, VerticalFlipGenerator.get(ImageIO.read(new File("z-data/in/1/a2020/border/border.bmp"))));
         final BufferedImage right = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("z-data/in/1/a2020/border/border.bmp")));
