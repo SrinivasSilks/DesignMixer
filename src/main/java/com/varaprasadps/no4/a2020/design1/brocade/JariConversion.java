@@ -1,4 +1,4 @@
-package com.varaprasadps.no4.a2020.brocade2;
+package com.varaprasadps.no4.a2020.design1.brocade;
 
 import com.varaprasadps.image.*;
 
@@ -13,9 +13,9 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/4/a2020/2jari-%s-%s.bmp";
+        String out = "z-data/out/4/a2020/1jari-%s-%s.bmp";
 
-        final BufferedImage body = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("z-data/in/4/a2020/brocade2/nimbu.bmp")));
+        final BufferedImage body = PlainGenerator.get(200, 400);
 
         int width = body.getWidth();
 
@@ -30,10 +30,6 @@ public class JariConversion {
         //achu
         inputBIs.add(EmptyGenerator.get(width, 10));
 
-        inputBIs.add(body);
-        inputBIs.add(body);
-        inputBIs.add(body);
-        inputBIs.add(body);
         inputBIs.add(body);
 
         //right border

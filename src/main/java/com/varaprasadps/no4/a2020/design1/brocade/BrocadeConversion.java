@@ -1,4 +1,4 @@
-package com.varaprasadps.no4.a2020.kanni;
+package com.varaprasadps.no4.a2020.design1.brocade;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
 
@@ -9,16 +9,19 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class KonguAnniConversion {
+public class BrocadeConversion {
 
     public static void main(final String[] args) throws IOException {
         JariConversion.main(null);
+        NimbuConversion.main(null);
         RaniConversion.main(null);
-        String out = "z-data/out/4/a2020/kanni-%s-%s.bmp";
+
+        String out = "z-data/out/4/a2020/1brocade-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("z-data/out/4/a2020/k-rani-200-1440.bmp");
-        inputs.add("z-data/out/4/a2020/k-jari-200-1440.bmp");
+        inputs.add("z-data/out/4/a2020/1rani-200-1440.bmp");
+        inputs.add("z-data/out/4/a2020/1jari-200-1440.bmp");
+        inputs.add("z-data/out/4/a2020/1nimbu-200-1440.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {
@@ -29,6 +32,7 @@ public class KonguAnniConversion {
         displayPixels(bi);
         saveBMP(bi, String.format(out, bi.getWidth(), bi.getHeight()));
     }
+
 
     private static void displayPixels(BufferedImage fileOne) {
         System.out.println(String.format("Width : %s, Height : %s", fileOne.getWidth(), fileOne.getHeight()));

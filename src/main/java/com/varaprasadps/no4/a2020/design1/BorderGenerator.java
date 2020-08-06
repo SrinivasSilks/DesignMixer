@@ -1,4 +1,4 @@
-package com.varaprasadps.no4.a2020;
+package com.varaprasadps.no4.a2020.design1;
 
 import com.varaprasadps.image.*;
 

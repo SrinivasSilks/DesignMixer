@@ -1,4 +1,4 @@
-package com.varaprasadps.no4.a2020.kanni;
+package com.varaprasadps.no4.a2020.design1.brocade2;
 
 import com.varaprasadps.image.*;
 
@@ -13,11 +13,14 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/4/a2020/k-jari-%s-%s.bmp";
+        String out = "z-data/out/4/a2020/2jari-%s-%s.bmp";
 
-        int width = 200;
+        final BufferedImage body = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("z-data/in/4/a2020/brocade2/nimbu.bmp")));
+
+        int width = body.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
+
         inputBIs.add(EmptyGenerator.get(width, 32));
 
         //locking
@@ -27,13 +30,14 @@ public class JariConversion {
         //achu
         inputBIs.add(EmptyGenerator.get(width, 10));
 
-
-        //body
-        inputBIs.add(PlainGenerator.get(width, 400));
+        inputBIs.add(body);
+        inputBIs.add(body);
+        inputBIs.add(body);
+        inputBIs.add(body);
+        inputBIs.add(body);
 
         //right border
         inputBIs.add(EmptyGenerator.get(width, 900));
-        //left border
         inputBIs.add(EmptyGenerator.get(width, 70));
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));
@@ -41,11 +45,10 @@ public class JariConversion {
         inputBIs.add(EmptyGenerator.get(width, 2));
 
         //box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
-        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(EmptyGenerator.get(width, 4));
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
-        //achu
+        //achu khali
         inputBIs.add(EmptyGenerator.get(width, 10));
 
         int repeatWidth = 0;
@@ -59,7 +62,6 @@ public class JariConversion {
         BufferedImage bi = ReverseGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
-
     }
 
     private static void displayPixels(BufferedImage fileOne) {
@@ -69,5 +71,4 @@ public class JariConversion {
     private static void saveBMP(final BufferedImage bi, final String path) throws IOException {
         ImageIO.write(bi, "bmp", new File(path));
     }
-
 }
