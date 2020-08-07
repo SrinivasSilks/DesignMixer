@@ -1,4 +1,4 @@
-package com.varaprasadps.no1.a2020.kanni;
+package com.varaprasadps.no1.a2020.design1.brocade2;
 
 import com.varaprasadps.image.*;
 
@@ -13,13 +13,13 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/1/a2020/k-rani-%s-%s.bmp";
+        String out = "z-data/out/1/a2020/2rani-%s-%s.bmp";
 
-        final BufferedImage left = VerticalFlipGenerator.get(ImageIO.read(new File("z-data/in/1/a2020/border/border.bmp")));
-        final BufferedImage right = ImageIO.read(new File("z-data/in/1/a2020/border/border.bmp"));
+        final BufferedImage left = HorizontalRepeatGenerator.get(3, VerticalFlipGenerator.get(ImageIO.read(new File("z-data/in/1/a2020/border/border.bmp"))));
+        final BufferedImage right = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("z-data/in/1/a2020/border/border.bmp")));
 
         int width = left.getWidth();
-
+        
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         //box
@@ -32,19 +32,27 @@ public class RaniConversion {
         //achu
         inputBIs.add(AchuLayoutGenerator.get(width, 8));
 
+        //left border
         inputBIs.add(left);
+        //locking
+        inputBIs.add(PlainGenerator.get(width, 16));
 
-        inputBIs.add(PlainGenerator.get(width, 660));
-        inputBIs.add(PlainGenerator.get(width, 600));
-        inputBIs.add(PlainGenerator.get(width, 660));
+        inputBIs.add(EmptyGenerator.get(width, 644));
+        inputBIs.add(EmptyGenerator.get(width, 600));
+        inputBIs.add(EmptyGenerator.get(width, 644));
 
+        //locking
+        inputBIs.add(PlainGenerator.get(width, 16));
+        //right border
         inputBIs.add(right);
+
 
         //box
         inputBIs.add(EmptyGenerator.get(width, 2));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
+
         //khali
         inputBIs.add(EmptyGenerator.get(width, 2));
         //achu

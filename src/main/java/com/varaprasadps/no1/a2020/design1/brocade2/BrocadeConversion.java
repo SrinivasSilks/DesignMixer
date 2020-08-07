@@ -1,4 +1,4 @@
-package com.varaprasadps.no1.a2020.kanni;
+package com.varaprasadps.no1.a2020.design1.brocade2;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
 import com.varaprasadps.image.HorizontalFlipGenerator;
@@ -10,16 +10,20 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class KanniConversion {
+public class BrocadeConversion {
 
     public static void main(final String[] args) throws IOException {
+
         JariConversion.main(null);
+        NimbuConversion.main(null);
         RaniConversion.main(null);
-        String out = "z-data/out/1/a2020/kanni-%s-%s.bmp";
+
+        String out = "z-data/out/1/a2020/2brocade-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("z-data/out/1/a2020/k-rani-400-2688.bmp");
-        inputs.add("z-data/out/1/a2020/k-jari-400-2688.bmp");
+        inputs.add("z-data/out/1/a2020/2rani-1200-2688.bmp");
+        inputs.add("z-data/out/1/a2020/2jari-1200-2688.bmp");
+        inputs.add("z-data/out/1/a2020/2nimbu-1200-2688.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {
