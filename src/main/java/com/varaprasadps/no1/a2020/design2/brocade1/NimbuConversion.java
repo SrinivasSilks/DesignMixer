@@ -15,7 +15,9 @@ public class NimbuConversion {
 
         String out = "z-data/out/1/a2020/design2/1nimbu-%s-%s.bmp";
 
-        final BufferedImage body = HorizontalRepeatGenerator.get(4, ImageIO.read(new File("z-data/in/1/a2020/brocade/JARI.bmp")));
+        final BufferedImage test = HorizontalRepeatGenerator.get(4, ImageIO.read(new File("z-data/in/1/a2020/brocade3/jari.bmp")));
+        final BufferedImage test2 = RightLayoutGenerator.get(CutLayoutGenerator.get(LeftLayoutGenerator.get(test), 600).get(0));
+        final BufferedImage body = CutLayoutGenerator.get(test2, 600).get(0);
 
         int width = body.getWidth();
         
@@ -36,19 +38,8 @@ public class NimbuConversion {
         //locking
         inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 4)));
 
-        inputBIs.add(CutLayoutGenerator.get(body, 106).get(1));
+        inputBIs.add(CutLayoutGenerator.get(body, 556).get(1));
 
-        inputBIs.add(body);
-        inputBIs.add(body);
-        inputBIs.add(body);
-        inputBIs.add(body);
-
-        inputBIs.add(body);
-        inputBIs.add(body);
-        inputBIs.add(body);
-        inputBIs.add(body);
-
-        inputBIs.add(body);
         inputBIs.add(body);
         inputBIs.add(body);
         inputBIs.add(body);
