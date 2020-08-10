@@ -13,7 +13,7 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/2/a2020/dash1/k-jari-%s-%s.bmp";
+        String out = "z-data/out/2/a2020/design1/k-jari-%s-%s.bmp";
 
         int width = 400;
 

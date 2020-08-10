@@ -13,9 +13,9 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/2/a2020/dash1/p-jari-%s-%s.bmp";
+        String out = "z-data/out/2/a2020/design1/p-jari-%s-%s.bmp";
 
-        final BufferedImage pallu = ImageIO.read(new File("z-data/in/2/a2020/pallu/pallu-jari.bmp"));
+        final BufferedImage pallu = ImageIO.read(new File("z-data/in/2/a2020/design1/pallu/pallu-jari.bmp"));
         int width = pallu.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();

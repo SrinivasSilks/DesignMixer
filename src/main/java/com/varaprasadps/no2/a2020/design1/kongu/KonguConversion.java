@@ -13,7 +13,7 @@ public class KonguConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/2/a2020/dash1/kongu-%s-%s.bmp";
+        String out = "z-data/out/2/a2020/design1/kongu-%s-%s.bmp";
 
         int width = 2;
         List<BufferedImage> inputBIs = new LinkedList<>();
@@ -52,13 +52,12 @@ public class KonguConversion {
 
         int repeatWidth = 0;
         int repeatHeight = 0;
-
         for (BufferedImage bi : inputBIs) {
             displayPixels(bi);
             repeatWidth = bi.getWidth();
             repeatHeight += bi.getHeight();
         }
-        BufferedImage bi = HorizontalFlipGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
+        BufferedImage bi = LeftLayoutGenerator.get(HorizontalFlipGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs)));
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
     }

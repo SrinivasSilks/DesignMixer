@@ -13,12 +13,12 @@ public class AnniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/2/a2020/dash1/anni-%s-%s.bmp";
+        String out = "z-data/out/2/a2020/design1/anni-%s-%s.bmp";
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        final BufferedImage left = VerticalFlipGenerator.get(ImageIO.read(new File("z-data/in/2/a2020/border/border-left.bmp")));
-        final BufferedImage right = ImageIO.read(new File("z-data/in/2/a2020/border/border.bmp"));
+        final BufferedImage left = VerticalFlipGenerator.get(ImageIO.read(new File("z-data/in/2/a2020/design1/border/border-left.bmp")));
+        final BufferedImage right = ImageIO.read(new File("z-data/in/2/a2020/design1//border/border.bmp"));
 
         int width = right.getWidth();
 
@@ -67,7 +67,7 @@ public class AnniConversion {
             repeatWidth = bi.getWidth();
             repeatHeight += bi.getHeight();
         }
-        BufferedImage bi = HorizontalFlipGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
+        BufferedImage bi = LeftLayoutGenerator.get(HorizontalFlipGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs)));
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
     }

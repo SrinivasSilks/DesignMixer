@@ -13,13 +13,13 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/2/a2020/dash1/p-rani-%s-%s.bmp";
+        String out = "z-data/out/2/a2020/design1/p-rani-%s-%s.bmp";
 
-        final BufferedImage pallu = ImageIO.read(new File("z-data/in/2/a2020/pallu/pallu-rani.bmp"));
+        final BufferedImage pallu = ImageIO.read(new File("z-data/in/2/a2020/design1/pallu/pallu-rani.bmp"));
         int width = pallu.getWidth();
 
-        final BufferedImage left = HorizontalRepeatGenerator.get(5, VerticalFlipGenerator.get(ImageIO.read(new File("z-data/in/2/a2020/border/border-left.bmp"))));
-        final BufferedImage right = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("z-data/in/2/a2020/border/border.bmp")));
+        final BufferedImage left = HorizontalRepeatGenerator.get(5, VerticalFlipGenerator.get(ImageIO.read(new File("z-data/in/2/a2020/design1/border/border-left.bmp"))));
+        final BufferedImage right = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("z-data/in/2/a2020/design1/border/border.bmp")));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 

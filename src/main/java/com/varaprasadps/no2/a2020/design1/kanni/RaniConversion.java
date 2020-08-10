@@ -13,10 +13,10 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/2/a2020/dash1/k-rani-%s-%s.bmp";
+        String out = "z-data/out/2/a2020/design1/k-rani-%s-%s.bmp";
 
-        final BufferedImage left = ImageIO.read(new File("z-data/in/2/a2020/border/border-left.bmp"));
-        final BufferedImage right = ImageIO.read(new File("z-data/in/2/a2020/border/border.bmp"));
+        final BufferedImage left = ImageIO.read(new File("z-data/in/2/a2020/design1/border/border-left.bmp"));
+        final BufferedImage right = ImageIO.read(new File("z-data/in/2/a2020/design1/border/border.bmp"));
 
         int width = left.getWidth();
 
