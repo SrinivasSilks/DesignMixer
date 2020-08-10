@@ -74,7 +74,9 @@ public class GoldJariBrocade {
         //box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 4)));
         //mispick
-        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 1).get(0)));
+        //chakram
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
         //achu
         inputBIs.add(EmptyGenerator.get(width, 10));
 
@@ -122,7 +124,9 @@ public class GoldJariBrocade {
         inputBIs.add(EmptyGenerator.get(width, 2));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //mispick
-        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 1).get(0)));
+        //chakram
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
         //achu
         inputBIs.add(EmptyGenerator.get(width, 10));
 
@@ -169,7 +173,10 @@ public class GoldJariBrocade {
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
-        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 1).get(0)));
+        //chakram
+        inputBIs.add(EmptyGenerator.get(width, 1));
+
         //achu
         inputBIs.add(AchuLayoutGenerator.get(width, 10));
 
