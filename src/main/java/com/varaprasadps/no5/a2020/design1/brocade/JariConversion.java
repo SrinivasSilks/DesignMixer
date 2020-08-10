@@ -34,7 +34,7 @@ public class JariConversion {
 
         inputBIs.add(body);
         inputBIs.add(CutLayoutGenerator.get(border,934).get(0));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 26)));
+        inputBIs.add(EmptyGenerator.get(width, 26));
 
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 12), 6).get(0)));
