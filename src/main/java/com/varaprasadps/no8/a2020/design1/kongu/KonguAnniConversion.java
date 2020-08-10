@@ -9,36 +9,46 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class KonguConversion {
+public class KonguAnniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/8/a2020/kongu-%s-%s.bmp";
+        String out = "z-data/out/8/a2020/canni-%s-%s.bmp";
+
+        BufferedImage border = ImageIO.read(new File("z-data/in/8/a2020/border/border.bmp"));
+        BufferedImage chucks = StepLayoutGenerator.get(border.getWidth(), 15);
+
+        int width = border.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        inputBIs.add(EmptyGenerator.get(2, 32));
+        inputBIs.add(EmptyGenerator.get(width, 32));
 
+        //mispick
+        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 8), 4).get(0));
         //achu
-        inputBIs.add(EmptyGenerator.get(2, 12));
+        inputBIs.add(AchuLayoutGenerator.get(width, 8));
         //locking
-        inputBIs.add(KonguLayoutGenerator.get(1));
+        inputBIs.add(PlainGenerator.get(width, 4));
 
-        //all over
-        inputBIs.add(KonguLayoutGenerator.get(120));
+        //brocade
+        inputBIs.add(PlainGenerator.get(width, 480));
         //mango
-        inputBIs.add(KonguLayoutGenerator.get(24));
+        inputBIs.add(PlainGenerator.get(width, 96));
         //locking
-        inputBIs.add(KonguLayoutGenerator.get(1));
+        inputBIs.add(PlainGenerator.get(width, 4));
         //chucks
-        inputBIs.add(EmptyGenerator.get(2, 60));
+        inputBIs.add(chucks);
         //border
-        inputBIs.add(EmptyGenerator.get(2, 1120));
+        inputBIs.add(border);
 
         //box
-        inputBIs.add(EmptyGenerator.get(2, 4));
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        //mispick
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //achu
-        inputBIs.add(EmptyGenerator.get(2, 12));
+        inputBIs.add(AchuLayoutGenerator.get(width, 10));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

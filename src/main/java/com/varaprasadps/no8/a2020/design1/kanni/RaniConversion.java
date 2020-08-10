@@ -18,7 +18,7 @@ public class RaniConversion {
         BufferedImage border = ImageIO.read(new File("z-data/in/8/a2020/border/border.bmp"));
         int width = border.getWidth();
 
-        BufferedImage chucks = ReverseGenerator.get(EmptyGenerator.get(width, 60));
+        final BufferedImage chucks = StepLayoutGenerator.get(border.getWidth(), 15);
         final BufferedImage body = PlainGenerator.get(width, 480);
 
         List<BufferedImage> inputBIs = new LinkedList<>();

@@ -18,7 +18,7 @@ public class JariConversion {
         int width = 300;
         final BufferedImage border = EmptyGenerator.get(width, 1120);
         final BufferedImage pallu =PlainGenerator.get(width, 480);
-        final BufferedImage chucks = ReverseGenerator.get(EmptyGenerator.get(width, 60));
+        final BufferedImage chucks = StepLayoutGenerator.get(border.getWidth(), 15);
 
         final List<BufferedImage> inputBIs = new LinkedList<>();
 

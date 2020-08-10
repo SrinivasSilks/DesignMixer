@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class PalluConversion {
+public class KanniConversion {
 
     public static void main(final String[] args) throws IOException {
         JariConversion.main(null);
