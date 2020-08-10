@@ -13,10 +13,11 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/5/a2020/design1/p-jari-%s-%s.bmp";
+        String out = "z-data/out/5/a2020/design2/p-jari-%s-%s.bmp";
 
-        BufferedImage border = ReverseGenerator.get(ImageIO.read(new File("z-data/in/5/a2020/design1/pallu/p-border-jari.bmp")));
-        BufferedImage body = ReverseGenerator.get(ImageIO.read(new File("z-data/in/5/a2020/design1/pallu/jari.bmp")));
+        BufferedImage border = ReverseGenerator.get(HorizontalRepeatGenerator.get(16, ImageIO.read(new File("z-data/in/5/a2020/design2/border/jari.bmp"))));
+        BufferedImage remaining = VerticalFlipGenerator.get(ReverseGenerator.get(ImageIO.read(new File("z-data/in/5/a2020/design2/pallu/pallu-side-jari.bmp"))));
+        BufferedImage body = ReverseGenerator.get(ImageIO.read(new File("z-data/in/5/a2020/design2/pallu/pallu-jari.bmp")));
 
         int width = border.getWidth();
 
@@ -33,8 +34,8 @@ public class JariConversion {
         inputBIs.add(EmptyGenerator.get(width, 10));
 
         inputBIs.add(body);
-        inputBIs.add(CutLayoutGenerator.get(border,934).get(0));
-        inputBIs.add(EmptyGenerator.get(width, 26));
+        inputBIs.add(CutLayoutGenerator.get(remaining, 240).get(0));
+        inputBIs.add(border);
 
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 12), 6).get(0)));

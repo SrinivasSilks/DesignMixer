@@ -16,6 +16,7 @@ public class RaniConversion {
         String out = "z-data/out/5/a2020/design2/p-rani-%s-%s.bmp";
 
         BufferedImage border = ReverseGenerator.get(HorizontalRepeatGenerator.get(16, ImageIO.read(new File("z-data/in/5/a2020/design2/border/rani.bmp"))));
+        BufferedImage remaining = VerticalFlipGenerator.get(ReverseGenerator.get(ImageIO.read(new File("z-data/in/5/a2020/design2/pallu/pallu-side-rani.bmp"))));
         BufferedImage body = ReverseGenerator.get(ImageIO.read(new File("z-data/in/5/a2020/design2/pallu/pallu-rani.bmp")));
 
         int width = border.getWidth();
@@ -32,7 +33,7 @@ public class RaniConversion {
         inputBIs.add(EmptyGenerator.get(width, 10));
 
         inputBIs.add(body);
-        inputBIs.add(CutLayoutGenerator.get(body, 560).get(1));
+        inputBIs.add(CutLayoutGenerator.get(remaining, 240).get(0));
         inputBIs.add(border);
 
         //mispick
