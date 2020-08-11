@@ -2,6 +2,7 @@ package com.varaprasadps.no2.a2020.design1.brocade1;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
 import com.varaprasadps.image.HorizontalFlipGenerator;
+import com.varaprasadps.image.LeftLayoutGenerator;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -18,19 +19,19 @@ public class BrocadeConversion {
         NimbuConversion.main(null);
         RaniConversion.main(null);
 
-        String out = "z-data/out/2/a2020/dash1/1brocade-%s-%s.bmp";
+        String out = "z-data/out/2/a2020/design1/1brocade-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("z-data/out/2/a2020/dash1/1rani-3600-2688.bmp");
-        inputs.add("z-data/out/2/a2020/dash1/1jari-3600-2688.bmp");
-        inputs.add("z-data/out/2/a2020/dash1/1nimbu-3600-2688.bmp");
+        inputs.add("z-data/out/2/a2020/design1/1rani-1200-2688.bmp");
+        inputs.add("z-data/out/2/a2020/design1/1jari-1200-2688.bmp");
+        inputs.add("z-data/out/2/a2020/design1/1nimbu-1200-2688.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {
             inputBIs.add(ImageIO.read(new File(input)));
         }
 
-        BufferedImage bi = HorizontalFlipGenerator.get(ColumnRepeatGenerator.get(inputBIs));
+        BufferedImage bi = LeftLayoutGenerator.get(HorizontalFlipGenerator.get(ColumnRepeatGenerator.get(inputBIs)));
         displayPixels(bi);
         saveBMP(bi, String.format(out, bi.getWidth(), bi.getHeight()));
     }

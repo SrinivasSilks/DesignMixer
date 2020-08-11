@@ -13,12 +13,12 @@ public class NimbuConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/2/a2020/dash1/1nimbu-%s-%s.bmp";
+        String out = "z-data/out/2/a2020/design1/1nimbu-%s-%s.bmp";
 
-        final BufferedImage brocade = HorizontalRepeatGenerator.get(10, ImageIO.read(new File("z-data/in/2/a2020/brocade1/RANI.bmp")));
+        final BufferedImage brocade = HorizontalRepeatGenerator.get(10, ImageIO.read(new File("z-data/in/2/a2020/design1/brocade/jari.bmp")));
 
         int width = brocade.getWidth();
-        
+
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         inputBIs.add(EmptyGenerator.get(width, 256));
@@ -33,18 +33,17 @@ public class NimbuConversion {
         //Achu
         inputBIs.add(EmptyGenerator.get(width, 8));
 
-
         //left border
         inputBIs.add(EmptyGenerator.get(width, 416));
         //locking
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 16)));
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 4)));
 
-        for (int i = 0; i < 5; i++) {
-            inputBIs.add(brocade);
-        }
+        inputBIs.add(brocade);
+        inputBIs.add(brocade);
+        inputBIs.add(brocade);
 
         //locking
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 16)));
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 4)));
         //right border
         inputBIs.add(EmptyGenerator.get(width, 624));
 

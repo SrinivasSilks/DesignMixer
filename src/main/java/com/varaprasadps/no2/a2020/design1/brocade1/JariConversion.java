@@ -13,9 +13,9 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/2/a2020/dash1/1jari-%s-%s.bmp";
+        String out = "z-data/out/2/a2020/design1/1jari-%s-%s.bmp";
 
-        final BufferedImage brocade = HorizontalRepeatGenerator.get(10, ImageIO.read(new File("z-data/in/2/a2020/brocade1/JARI.bmp")));
+        final BufferedImage brocade = HorizontalRepeatGenerator.get(10, ImageIO.read(new File("z-data/in/2/a2020/design1/brocade/nimbu.bmp")));
 
         int width = brocade.getWidth();
 
@@ -36,13 +36,14 @@ public class JariConversion {
         //left border
         inputBIs.add(EmptyGenerator.get(width, 416));
         //locking
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 4)));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 16)));
 
-        for (int i = 0; i < 5; i++) {
-            inputBIs.add(brocade);
-        }
+        inputBIs.add(brocade);
+        inputBIs.add(brocade);
+        inputBIs.add(brocade);
+
         //locking
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 4)));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 16)));
         //right border
         inputBIs.add(EmptyGenerator.get(width, 624));
 
