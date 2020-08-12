@@ -10,29 +10,14 @@ import java.util.List;
 public class AddLayoutGenerator {
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-data/in/1/a2020/edit/pallu-rani.bmp";
+        String out = "z-data/in/8/a2020/square/brocade/nimbu.bmp";
 
-        BufferedImage middle = ImageIO.read(new File("z-data/in/1/a2020/edit/middle-rani.bmp"));
-        BufferedImage side = ImageIO.read(new File("z-data/in/1/a2020/edit/side-rani.bmp"));
-        BufferedImage step = ReverseGenerator.get(StepLayoutGenerator.get(600, 45, 5));
-
+        BufferedImage middle = ImageIO.read(new File("z-data/in/8/a2020/square/nimbu.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        List<BufferedImage> sideImages = CutLayoutGenerator.get(side, 85);
-
-        inputBIs.add(sideImages.get(0));
-        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(sideImages.get(1), 100).get(1), 312).get(0));
-        inputBIs.add(sideImages.get(0));
-
-        inputBIs.add(VerticalFlipGenerator.get(PlainGenerator.get(600, 220)));
         inputBIs.add(middle);
-        inputBIs.add(VerticalFlipGenerator.get(PlainGenerator.get(600, 216)));
-//        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(CutLayoutGenerator.get(HorizontalFlipGenerator.get(step), 223).get(0), 6).get(1), 216).get(0));
-
-        inputBIs.add(sideImages.get(0));
-        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(sideImages.get(1), 100).get(1), 312).get(0));
-        inputBIs.add(sideImages.get(0));
+        inputBIs.add(middle);
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -43,7 +28,7 @@ public class AddLayoutGenerator {
             repeatHeight += bi.getHeight();
         }
 
-        BufferedImage bi = get(repeatWidth, repeatHeight, inputBIs);
+        BufferedImage bi = CutLayoutGenerator.get(CutLayoutGenerator.get(get(repeatWidth, repeatHeight, inputBIs), 478).get(1), 480).get(0);
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
     }
