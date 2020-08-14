@@ -1,4 +1,4 @@
-package com.varaprasadps.vasu.no4.brocade;
+package com.varaprasadps.vasu.no4.brocade2;
 
 import com.varaprasadps.image.*;
 
@@ -9,23 +9,26 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class JariConversion {
+public class NimbuConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-vasu/out/4/test/2jari-%s-%s.bmp";
-        final BufferedImage skirt = HorizontalRepeatGenerator.get(4, ImageIO.read(new File("z-vasu/in/4/B_NIMBU.bmp")));
-        final BufferedImage body = HorizontalRepeatGenerator.get(17, ImageIO.read(new File("z-vasu/in/4/brocade2/12.bmp")));
+        String out = "z-vasu/out/4/test/2nimbu-%s-%s.bmp";
+        final BufferedImage skirt = HorizontalRepeatGenerator.get(4, ImageIO.read(new File("z-vasu/in/4/B_JARI.bmp")));
+        final BufferedImage body = HorizontalRepeatGenerator.get(17, ImageIO.read(new File("z-vasu/in/4/brocade2/13.bmp")));
 
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         // Board Khali
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 128));
-        // Box
+
+        // Khali
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
+
         // mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(skirt.getWidth(), 4), 2).get(0));
+
         //Achu
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 12));
 
@@ -33,10 +36,10 @@ public class JariConversion {
         inputBIs.add(CutLayoutGenerator.get(skirt,400 ).get(1));
 
         // Locking
-        inputBIs.add(HorizontalFlipGenerator.get(ReverseGenerator.get(StepLayoutGenerator.get(skirt.getWidth(), 4))));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(skirt.getWidth(), 16)));
 
-        //box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(skirt.getWidth(), 2)));
+        // Box Nimbu
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
 
         // mispick

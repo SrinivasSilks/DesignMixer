@@ -1,4 +1,4 @@
-package com.varaprasadps.vasu.no4.brocade;
+package com.varaprasadps.vasu.no4.brocade2;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
 import com.varaprasadps.image.HorizontalFlipGenerator;
