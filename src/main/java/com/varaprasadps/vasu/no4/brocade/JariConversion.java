@@ -13,8 +13,10 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-vasu/out/4/jari-%s-%s.bmp";
-        final BufferedImage skirt = ImageIO.read(new File("z-vasu/in/4/B_JARI.bmp"));
+        String out = "z-vasu/out/4/test/2jari-%s-%s.bmp";
+        final BufferedImage skirt = HorizontalRepeatGenerator.get(4, ImageIO.read(new File("z-vasu/in/4/B_NIMBU.bmp")));
+        final BufferedImage body = HorizontalRepeatGenerator.get(17, ImageIO.read(new File("z-vasu/in/4/brocade2/12.bmp")));
+
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -27,7 +29,8 @@ public class JariConversion {
         //Achu
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 12));
 
-        inputBIs.add(skirt);
+        inputBIs.add(body);
+        inputBIs.add(CutLayoutGenerator.get(skirt,400 ).get(1));
 
         // Locking
         inputBIs.add(HorizontalFlipGenerator.get(ReverseGenerator.get(StepLayoutGenerator.get(skirt.getWidth(), 4))));

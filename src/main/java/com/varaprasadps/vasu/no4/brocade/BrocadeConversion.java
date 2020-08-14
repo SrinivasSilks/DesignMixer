@@ -2,6 +2,7 @@ package com.varaprasadps.vasu.no4.brocade;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
 import com.varaprasadps.image.HorizontalFlipGenerator;
+import com.varaprasadps.image.LeftLayoutGenerator;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -18,19 +19,19 @@ public class BrocadeConversion {
         NimbuConversion.main(null);
         RaniConversion.main(null);
 
-        String out = "z-vasu/out/4/brocade-%s-%s.bmp";
+        String out = "z-vasu/out/4/test/2brocade-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("z-vasu/out/4/rani-2040-1792.bmp");
-        inputs.add("z-vasu/out/4/nimbu-2040-1792.bmp");
-        inputs.add("z-vasu/out/4/jari-2040-1792.bmp");
+        inputs.add("z-vasu/out/4/test/2rani-8160-1792.bmp");
+        inputs.add("z-vasu/out/4/test/2nimbu-8160-1792.bmp");
+        inputs.add("z-vasu/out/4/test/2jari-8160-1792.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {
             inputBIs.add(ImageIO.read(new File(input)));
         }
 
-        BufferedImage bi = HorizontalFlipGenerator.get(ColumnRepeatGenerator.get(inputBIs));
+        BufferedImage bi = LeftLayoutGenerator.get(HorizontalFlipGenerator.get(ColumnRepeatGenerator.get(inputBIs)));
         displayPixels(bi);
         saveBMP(bi, String.format(out, bi.getWidth(), bi.getHeight()));
     }
