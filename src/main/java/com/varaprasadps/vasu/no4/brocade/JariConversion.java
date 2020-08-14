@@ -1,4 +1,4 @@
-package com.varaprasadps.vasu.no4.brocade2;
+package com.varaprasadps.vasu.no4.brocade;
 
 import com.varaprasadps.image.*;
 
@@ -9,38 +9,41 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class RaniConversion {
+public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-vasu/out/4/test/2rani-%s-%s.bmp";
-        final BufferedImage skirt = HorizontalRepeatGenerator.get(4 , ImageIO.read(new File("z-vasu/in/4/B_RANI.bmp")));
+        String out = "z-vasu/out/4/test/jari-%s-%s.bmp";
+        final BufferedImage skirt = HorizontalRepeatGenerator.get(4, ImageIO.read(new File("z-vasu/in/4/B_NIMBU.bmp")));
+        final BufferedImage body = HorizontalRepeatGenerator.get(17, ImageIO.read(new File("z-vasu/in/4/brocade/1.bmp")));
+
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         // Board Khali
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 128));
-
-        // khali
+        // Box
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
         // mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(skirt.getWidth(), 4), 2).get(0));
-
         //Achu
-        inputBIs.add(AchuLayoutGenerator.get(skirt.getWidth(), 12));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 12));
 
-        inputBIs.add(skirt);
+        inputBIs.add(body);
+        inputBIs.add(CutLayoutGenerator.get(skirt,400 ).get(1));
+
         // Locking
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(skirt.getWidth(), 16)));
+        inputBIs.add(HorizontalFlipGenerator.get(ReverseGenerator.get(StepLayoutGenerator.get(skirt.getWidth(), 4))));
 
-        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
+        //box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(skirt.getWidth(), 2)));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 2));
 
         // mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(skirt.getWidth(), 4), 2).get(0)));
 
         // Achu
-        inputBIs.add(AchuLayoutGenerator.get(skirt.getWidth(), 10));
+        inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 10));
 
         // Board Khali
         inputBIs.add(EmptyGenerator.get(skirt.getWidth(), 256));

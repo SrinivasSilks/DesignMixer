@@ -1,4 +1,4 @@
-package com.varaprasadps.vasu.no4.brocade2;
+package com.varaprasadps.vasu.no4.brocade;
 
 import com.varaprasadps.image.*;
 
@@ -13,7 +13,7 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-vasu/out/4/test/2rani-%s-%s.bmp";
+        String out = "z-vasu/out/4/test/rani-%s-%s.bmp";
         final BufferedImage skirt = HorizontalRepeatGenerator.get(4 , ImageIO.read(new File("z-vasu/in/4/B_RANI.bmp")));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
