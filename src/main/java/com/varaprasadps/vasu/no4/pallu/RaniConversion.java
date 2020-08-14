@@ -29,7 +29,7 @@ public class RaniConversion {
         inputBIs.add(AchuLayoutGenerator.get(pallu.getWidth(), 12));
 
         inputBIs.add(CutLayoutGenerator.get(pallu, 400).get(0));
-        inputBIs.add(ImageIO.read(new File("z-vasu/in/4/BORDER_PALLU.bmp")));
+        inputBIs.add(CutLayoutGenerator.get(ImageIO.read(new File("z-vasu/in/4/B_RANI.bmp")), 400).get(1));
 
         // Locking
         inputBIs.add(PlainGenerator.get(pallu.getWidth(), 16));
