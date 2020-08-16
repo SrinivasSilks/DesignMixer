@@ -13,9 +13,9 @@ import java.util.List;
 public class BorderGenerator {
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-data/in/1/a2recent/border.bmp";
+        String out = "z-data/in/1/a2020/design3/border.bmp";
 
-        BufferedImage right = ImageIO.read(new File("z-data/in/1/a2recent/41.bmp"));
+        BufferedImage right = ImageIO.read(new File("z-data/in/1/a2020/design3/43.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
