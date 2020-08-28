@@ -36,7 +36,7 @@ public class JariConversion {
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //jamudu
-        inputBIs.add(EmptyGenerator.get(width, 10));
+        inputBIs.add(StepLayoutGenerator.get(width, 2, 5));
 
         inputBIs.add(VerticalFlipGenerator.get(left));
         inputBIs.add(VerticalFlipGenerator.get(a180));
@@ -53,7 +53,7 @@ public class JariConversion {
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //jamudu
-        inputBIs.add(EmptyGenerator.get(width, 10));
+        inputBIs.add(StepLayoutGenerator.get(width, 2, 5));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

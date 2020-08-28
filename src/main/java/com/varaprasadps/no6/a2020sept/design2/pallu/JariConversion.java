@@ -1,4 +1,4 @@
-package com.varaprasadps.no6.a2020sept.design1.brocade;
+package com.varaprasadps.no6.a2020sept.design2.pallu;
 
 import com.varaprasadps.image.*;
 
@@ -13,11 +13,13 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/6/a2020sept/design1/jari-%s-%s.bmp";
+        String out = "z-data/out/6/a2020sept/design2/p-jari-%s-%s.bmp";
 
-        final BufferedImage border = HorizontalRepeatGenerator.get(5, ReverseGenerator.get(ImageIO.read(new File("z-data/in/6/a2020sept/border2/border-jari.bmp"))));
-        BufferedImage raw = VerticalFlipGenerator.get(ImageIO.read(new File("z-data/in/6/a2020sept/brocade2/jari.bmp")));
-        final BufferedImage brocade = HorizontalRepeatGenerator.get(4, ReverseGenerator.get(raw));
+        BufferedImage v = HorizontalRepeatGenerator.get(17, ReverseGenerator.get(ImageIO.read(new File("z-data/in/6/a2020sept/border2/border-jari.bmp"))));
+        final BufferedImage border = RightLayoutGenerator.get(CutLayoutGenerator.get(LeftLayoutGenerator.get(v), 2000).get(0));
+        BufferedImage raw = VerticalFlipGenerator.get(ImageIO.read(new File("z-data/in/6/a2020sept/pallu2/pallu-jari.bmp")));
+        final BufferedImage brocade = ReverseGenerator.get(raw);
+
 
         List<BufferedImage> images = CutLayoutGenerator.get(border, 400);
         BufferedImage right = images.get(1);
@@ -36,11 +38,10 @@ public class JariConversion {
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //jamudu
-        inputBIs.add(StepLayoutGenerator.get(width, 2, 5));
+        inputBIs.add(EmptyGenerator.get(width, 10));
 
         inputBIs.add(VerticalFlipGenerator.get(left));
         inputBIs.add(VerticalFlipGenerator.get(a180));
-        inputBIs.add(brocade);
         inputBIs.add(brocade);
         inputBIs.add(brocade);
         inputBIs.add(a180);
@@ -52,7 +53,7 @@ public class JariConversion {
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //jamudu
-        inputBIs.add(StepLayoutGenerator.get(width, 2, 5));
+        inputBIs.add(EmptyGenerator.get(width, 10));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

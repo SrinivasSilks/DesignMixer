@@ -1,4 +1,4 @@
-package com.varaprasadps.no6.a2020sept.design1.brocade;
+package com.varaprasadps.no6.a2020sept.design2.pallu;
 
 import com.varaprasadps.image.*;
 
@@ -9,15 +9,16 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class JariConversion {
+public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/6/a2020sept/design1/jari-%s-%s.bmp";
+        String out = "z-data/out/6/a2020sept/design2/p-rani-%s-%s.bmp";
 
-        final BufferedImage border = HorizontalRepeatGenerator.get(5, ReverseGenerator.get(ImageIO.read(new File("z-data/in/6/a2020sept/border2/border-jari.bmp"))));
-        BufferedImage raw = VerticalFlipGenerator.get(ImageIO.read(new File("z-data/in/6/a2020sept/brocade2/jari.bmp")));
-        final BufferedImage brocade = HorizontalRepeatGenerator.get(4, ReverseGenerator.get(raw));
+        BufferedImage v = HorizontalRepeatGenerator.get(17, ReverseGenerator.get(ImageIO.read(new File("z-data/in/6/a2020sept/border2/border-meena.bmp"))));
+        final BufferedImage border = RightLayoutGenerator.get(CutLayoutGenerator.get(LeftLayoutGenerator.get(v), 2000).get(0));
+        BufferedImage raw = VerticalFlipGenerator.get(ImageIO.read(new File("z-data/in/6/a2020sept/pallu2/pallu-rani.bmp")));
+        final BufferedImage brocade = ReverseGenerator.get(raw);
 
         List<BufferedImage> images = CutLayoutGenerator.get(border, 400);
         BufferedImage right = images.get(1);
@@ -25,34 +26,33 @@ public class JariConversion {
         BufferedImage a180 = images.get(0);
         BufferedImage left = images.get(1);
 
-        int width = border.getWidth();
-
+        final int width = border.getWidth();
         List<BufferedImage> inputBIs = new LinkedList<>();
-        inputBIs.add(EmptyGenerator.get(width, 32));
+
+        inputBIs.add(EmptyGenerator.get(border.getWidth(), 32));
 
         //box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
-        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(EmptyGenerator.get(border.getWidth(), 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(border.getWidth(), 2)));
         //mispick
-        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
+        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(border.getWidth(), 4), 2).get(0));
         //jamudu
-        inputBIs.add(StepLayoutGenerator.get(width, 2, 5));
+        inputBIs.add(PlainGenerator.get(width, 10));
 
         inputBIs.add(VerticalFlipGenerator.get(left));
         inputBIs.add(VerticalFlipGenerator.get(a180));
-        inputBIs.add(brocade);
         inputBIs.add(brocade);
         inputBIs.add(brocade);
         inputBIs.add(a180);
         inputBIs.add(right);
 
         //box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
-        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(EmptyGenerator.get(border.getWidth(), 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(border.getWidth(), 2)));
         //mispick
-        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(border.getWidth(), 4), 2).get(0)));
         //jamudu
-        inputBIs.add(StepLayoutGenerator.get(width, 2, 5));
+        inputBIs.add(PlainGenerator.get(width, 10));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -65,7 +65,6 @@ public class JariConversion {
         BufferedImage bi = ReverseGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
-
     }
 
     private static void displayPixels(BufferedImage fileOne) {
