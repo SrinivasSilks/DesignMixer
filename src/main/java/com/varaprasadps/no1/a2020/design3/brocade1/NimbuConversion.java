@@ -15,9 +15,8 @@ public class NimbuConversion {
 
         String out = "z-data/out/1/a2020/design3/1nimbu-%s-%s.bmp";
 
-        final BufferedImage test = HorizontalRepeatGenerator.get(4, ImageIO.read(new File("z-data/in/1/a2020/brocade3/jari.bmp")));
-        final BufferedImage test2 = RightLayoutGenerator.get(CutLayoutGenerator.get(LeftLayoutGenerator.get(test), 600).get(0));
-        final BufferedImage body = CutLayoutGenerator.get(test2, 600).get(0);
+        final BufferedImage test = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("z-data/in/1/a2020/brocade4/jari.bmp")));
+        final BufferedImage body = CutLayoutGenerator.get(RightLayoutGenerator.get(HorizontalRepeatGenerator.get(2, LeftLayoutGenerator.get(test))), 600).get(0);
 
         int width = body.getWidth();
         

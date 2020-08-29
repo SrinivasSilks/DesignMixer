@@ -15,8 +15,9 @@ public class JariConversion {
 
         String out = "z-data/out/1/a2020/design3/1jari-%s-%s.bmp";
 
+        final BufferedImage test = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("z-data/in/1/a2020/brocade4/nimbu.bmp")));
+        final BufferedImage body = CutLayoutGenerator.get(RightLayoutGenerator.get(HorizontalRepeatGenerator.get(2, LeftLayoutGenerator.get(test))), 600).get(0);
 
-        final BufferedImage body = PlainGenerator.get(600, 600);
         int width = body.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
