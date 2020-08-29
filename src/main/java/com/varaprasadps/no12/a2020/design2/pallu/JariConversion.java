@@ -15,7 +15,7 @@ public class JariConversion {
 
         String out = "z-data/out/12/a2020/design1/p-jari-%s-%s.bmp";
 
-        BufferedImage body = VerticalFlipGenerator.get(ImageIO.read(new File("z-data/in/12/a2020/pallu2/pallu-jari.bmp")));
+        BufferedImage body = ImageIO.read(new File("z-data/in/12/a2020/pallu2/pallu-jari.bmp"));
         BufferedImage border = EmptyGenerator.get(body.getWidth(), 624);
 
         int width = body.getWidth();
