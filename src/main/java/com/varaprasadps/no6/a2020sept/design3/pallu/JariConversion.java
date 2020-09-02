@@ -21,7 +21,8 @@ public class JariConversion {
         BufferedImage raw = ImageIO.read(new File("z-data/in/6/a2020sept/design3/pallu/pallu-jari.bmp"));
         final BufferedImage brocade = ReverseGenerator.get(raw);
 
-        BufferedImage mispick = HorizontalRepeatGenerator.get(border.getWidth() / 4, ImageIO.read(new File("z-data/in/6/a2020sept/config/jari-mispick.bmp")));
+//        BufferedImage mispick = HorizontalRepeatGenerator.get(border.getWidth() / 4, ImageIO.read(new File("z-data/in/6/a2020sept/config/jari-mispick.bmp")));
+        BufferedImage mispick = CutLayoutGenerator.get(AchuLayoutGenerator.get(border.getWidth(), 4), 2).get(0);        //jamudu
         BufferedImage box = HorizontalRepeatGenerator.get(border.getWidth() / 4, ImageIO.read(new File("z-data/in/6/a2020sept/config/jari-box.bmp")));
 
 
@@ -37,7 +38,8 @@ public class JariConversion {
         inputBIs.add(EmptyGenerator.get(width, 32));
 
         //box
-        inputBIs.add(box);
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
         inputBIs.add(mispick);
         //jamudu
@@ -50,7 +52,8 @@ public class JariConversion {
         inputBIs.add(right);
 
         //box
-        inputBIs.add(box);
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
         inputBIs.add(ReverseGenerator.get(mispick));
         //jamudu
