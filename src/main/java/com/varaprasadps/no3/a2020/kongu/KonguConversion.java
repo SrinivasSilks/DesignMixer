@@ -1,4 +1,4 @@
-package com.varaprasadps.no3.a2020;
+package com.varaprasadps.no3.a2020.kongu;
 
 import com.varaprasadps.image.*;
 
@@ -9,16 +9,13 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class CAnniConversion {
+public class KonguConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/3/a2020/design1/canni-%s-%s.bmp";
+        String out = "z-data/out/3/a2020/design1/kongu-%s-%s.bmp";
 
-        final BufferedImage left = VerticalFlipGenerator.get(ImageIO.read(new File("z-data/in/3/excel2/border1.bmp")));
-        final BufferedImage right = ImageIO.read(new File("z-data/in/3/excel2/border1.bmp"));
-
-        final int width = left.getWidth();
+        int width = 2;
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -28,38 +25,41 @@ public class CAnniConversion {
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
-        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //kali
         inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 8));
+        inputBIs.add(EmptyGenerator.get(width, 8));
 
         //border
-        inputBIs.add(left);
+        inputBIs.add(EmptyGenerator.get(width, 368));
         // locking
-        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(KonguLayoutGenerator.get(1));
         //chucks
-        inputBIs.add(StepLayoutGenerator.get(width, 3));
+        inputBIs.add(EmptyGenerator.get(width, 12));
         // locking
-        inputBIs.add(PlainGenerator.get(width, 8));
-        //body
-        inputBIs.add(PlainGenerator.get(width, 600));
+        inputBIs.add(KonguLayoutGenerator.get(2));
+
+        //allover
+        inputBIs.add(KonguLayoutGenerator.get(150));
+
         //chucks
-        inputBIs.add(StepLayoutGenerator.get(width, 3));
-        //locking
-        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(EmptyGenerator.get(width, 12));
+        // locking
+        inputBIs.add(KonguLayoutGenerator.get(1));
         //border
-        inputBIs.add(right);
+        inputBIs.add(EmptyGenerator.get(width, 368));
 
         //box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
-        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //kali
         inputBIs.add(EmptyGenerator.get(width, 2));
-        // Achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 8));
+        //achu
+        inputBIs.add(EmptyGenerator.get(width, 8));
+
 
         int repeatWidth = 0;
         int repeatHeight = 0;
