@@ -1,4 +1,4 @@
-package com.varaprasadps.no3.a2020.brocade1;
+package com.varaprasadps.no3.a2020;
 
 import com.varaprasadps.image.*;
 
@@ -9,41 +9,9 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class GoldJariBrocade {
+public class ThreePlay {
 
-    static int i = 0;
-
-    public static BufferedImage get(BufferedImage border, BufferedImage jari, BufferedImage nimbu, BufferedImage chucks) throws IOException {
-        List<BufferedImage> brocades = new LinkedList<>();
-        brocades.add(rani(border, empty(border.getWidth())));
-        brocades.add(jari(getBorder(border), nimbu, chucks));
-        brocades.add(nimbu(getBorder(border), jari, chucks));
-        BufferedImage brocade = LeftLayoutGenerator.get(getBrocade(brocades));
-        saveBMP(brocade, String.format("z-data/out/3/a2020/test/%s-brocade.bmp", i++));
-        return brocade;
-    }
-
-    private static BufferedImage empty(int width) {
-        return EmptyGenerator.get(width, 12);
-    }
-
-    private static BufferedImage getBorder(BufferedImage border) {
-        return EmptyGenerator.get(border.getWidth(), border.getHeight());
-    }
-
-    private static BufferedImage getBrocade(List<BufferedImage> inputs) {
-        for (int i = 0; i < inputs.size(); i++) {
-            System.out.println(String.format("Brocade => Width : %s, Height : %s", inputs.get(0).getWidth(), inputs.get(0).getHeight()));
-        }
-        return ColumnRepeatGenerator.get(inputs);
-    }
-
-    static void saveBMP(final BufferedImage bi, final String path) throws IOException {
-        ImageIO.write(bi, "bmp", new File(path));
-    }
-
-
-    private static BufferedImage nimbu(BufferedImage border, BufferedImage jari, BufferedImage chucks) {
+    public static BufferedImage nimbu(BufferedImage border, BufferedImage jari, BufferedImage chucks) {
         int width = border.getWidth();
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -68,8 +36,6 @@ public class GoldJariBrocade {
         // locking
         inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 2)));
         //body
-        inputBIs.add(jari);
-        inputBIs.add(jari);
         inputBIs.add(jari);
         //chucks
         inputBIs.add(chucks);
@@ -100,7 +66,7 @@ public class GoldJariBrocade {
     }
 
 
-    private static BufferedImage jari(BufferedImage border, BufferedImage nimbu, BufferedImage chucks) {
+    public static BufferedImage jari(BufferedImage border, BufferedImage nimbu, BufferedImage chucks) {
 
         int width = border.getWidth();
 
@@ -127,8 +93,6 @@ public class GoldJariBrocade {
         inputBIs.add(PlainGenerator.get(width, 8));
         //body
         inputBIs.add(nimbu);
-        inputBIs.add(nimbu);
-        inputBIs.add(nimbu);
         //chucks
         inputBIs.add(chucks);
         //locking
@@ -156,7 +120,7 @@ public class GoldJariBrocade {
         return ReverseGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
     }
 
-    private static BufferedImage rani(BufferedImage border, BufferedImage chucks) {
+    public static BufferedImage rani(BufferedImage border, BufferedImage chucks) {
 
         int width = border.getWidth();
         List<BufferedImage> inputBIs = new LinkedList<>();
@@ -212,8 +176,28 @@ public class GoldJariBrocade {
         return ReverseGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
     }
 
-    private static void displayPixels(BufferedImage fileOne) {
+    public static void displayPixels(BufferedImage fileOne) {
         System.out.println(String.format("Width : %s, Height : %s", fileOne.getWidth(), fileOne.getHeight()));
+    }
+
+
+    public static BufferedImage empty(int width) {
+        return EmptyGenerator.get(width, 12);
+    }
+
+    public static BufferedImage getBorder(BufferedImage border) {
+        return EmptyGenerator.get(border.getWidth(), border.getHeight());
+    }
+
+    public static BufferedImage getBrocade(List<BufferedImage> inputs) {
+        for (int i = 0; i < inputs.size(); i++) {
+            System.out.println(String.format("Brocade => Width : %s, Height : %s", inputs.get(0).getWidth(), inputs.get(0).getHeight()));
+        }
+        return ColumnRepeatGenerator.get(inputs);
+    }
+
+    public static void saveBMP(final BufferedImage bi, final String path) throws IOException {
+        ImageIO.write(bi, "bmp", new File(path));
     }
 
 }

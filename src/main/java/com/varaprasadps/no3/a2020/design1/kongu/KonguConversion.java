@@ -1,4 +1,4 @@
-package com.varaprasadps.no3.a2020.kongu;
+package com.varaprasadps.no3.a2020.design1.kongu;
 
 import com.varaprasadps.image.*;
 

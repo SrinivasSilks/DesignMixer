@@ -1,4 +1,4 @@
-package com.varaprasadps.no3.a2020.anni;
+package com.varaprasadps.no3.a2020.design2.anni;
 
 import com.varaprasadps.image.*;
 
@@ -13,10 +13,10 @@ public class AnniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/3/a2020/design1/anni-%s-%s.bmp";
+        String out = "z-data/out/3/a2020/design2/anni-%s-%s.bmp";
 
-        final BufferedImage left = VerticalFlipGenerator.get(ImageIO.read(new File("z-data/in/3/excel2/border1.bmp")));
-        final BufferedImage right = ImageIO.read(new File("z-data/in/3/excel2/border1.bmp"));
+        final BufferedImage left = VerticalFlipGenerator.get(ImageIO.read(new File("z-data/in/3/a2020/design2/border/border.bmp")));
+        final BufferedImage right = ImageIO.read(new File("z-data/in/3/a2020/design2/border/border.bmp"));
 
         final int width = left.getWidth();
 

@@ -1,4 +1,4 @@
-package com.varaprasadps.no3.a2020.brocade1;
+package com.varaprasadps.no3.a2020.design1.brocade1;
 
 import com.varaprasadps.image.*;
 

@@ -1,4 +1,4 @@
-package com.varaprasadps.no3.a2020.kongu;
+package com.varaprasadps.no3.a2020.design1.anni;
 
 import com.varaprasadps.image.*;
 
@@ -9,11 +9,11 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class CAnniConversion {
+public class AnniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/3/a2020/design1/canni-%s-%s.bmp";
+        String out = "z-data/out/3/a2020/design1/anni-%s-%s.bmp";
 
         final BufferedImage left = VerticalFlipGenerator.get(ImageIO.read(new File("z-data/in/3/excel2/border1.bmp")));
         final BufferedImage right = ImageIO.read(new File("z-data/in/3/excel2/border1.bmp"));
@@ -34,18 +34,19 @@ public class CAnniConversion {
         //achu
         inputBIs.add(AchuLayoutGenerator.get(width, 8));
 
+
         //border
         inputBIs.add(left);
         // locking
         inputBIs.add(PlainGenerator.get(width, 4));
         //chucks
-        inputBIs.add(StepLayoutGenerator.get(width, 3));
+        inputBIs.add(EmptyGenerator.get(width, 12));
         // locking
         inputBIs.add(PlainGenerator.get(width, 8));
         //body
         inputBIs.add(PlainGenerator.get(width, 600));
         //chucks
-        inputBIs.add(StepLayoutGenerator.get(width, 3));
+        inputBIs.add(EmptyGenerator.get(width, 12));
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));
         //border
