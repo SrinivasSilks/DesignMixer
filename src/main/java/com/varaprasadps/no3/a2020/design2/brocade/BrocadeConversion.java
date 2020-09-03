@@ -3,6 +3,7 @@ package com.varaprasadps.no3.a2020.design2.brocade;
 import com.varaprasadps.image.EmptyGenerator;
 import com.varaprasadps.image.HorizontalRepeatGenerator;
 import com.varaprasadps.image.LeftLayoutGenerator;
+import com.varaprasadps.image.ReverseGenerator;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -29,7 +30,7 @@ public class BrocadeConversion {
         BufferedImage border = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("z-data/in/3/a2020/design2/border/border.bmp")));
         BufferedImage jari = ImageIO.read(new File("z-data/in/3/a2020/design2/brocade/jari.bmp"));
         BufferedImage nimbu = ImageIO.read(new File("z-data/in/3/a2020/design2/brocade/nimbu.bmp"));
-        BufferedImage chucks = EmptyGenerator.get(border.getWidth(), 12);
+        BufferedImage chucks = ReverseGenerator.get(EmptyGenerator.get(border.getWidth(), 12));
         get(border, nimbu, jari, chucks);
     }
 }

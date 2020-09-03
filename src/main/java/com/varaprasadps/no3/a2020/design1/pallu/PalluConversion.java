@@ -31,10 +31,9 @@ public class PalluConversion {
         BufferedImage border = RightLayoutGenerator.get(CutLayoutGenerator.get(LeftLayoutGenerator.get(bab), 2000).get(0));
         BufferedImage rani = CutLayoutGenerator.get(ImageIO.read(new File("z-data/in/3/a2020/design1/pallu/pallu-rani.bmp")), 600).get(0);
         BufferedImage jari = CutLayoutGenerator.get(ImageIO.read(new File("z-data/in/3/a2020/design1/pallu/pallu-jari.bmp")), 600).get(0);
-        BufferedImage chucks = EmptyGenerator.get(border.getWidth(), 12);
+        BufferedImage chucks = ReverseGenerator.get(EmptyGenerator.get(border.getWidth(), 12));
         get(border, rani, jari, chucks);
     }
-
 
     private static void displayPixels(BufferedImage fileOne) {
         System.out.println(format("Width : %s, Height : %s", fileOne.getWidth(), fileOne.getHeight()));
@@ -43,6 +42,5 @@ public class PalluConversion {
     private static void saveBMP(final BufferedImage bi, final String path) throws IOException {
         ImageIO.write(bi, "bmp", new File(path));
     }
-
 
 }

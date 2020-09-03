@@ -40,13 +40,13 @@ public class AnniConversion {
         // locking
         inputBIs.add(PlainGenerator.get(width, 4));
         //chucks
-        inputBIs.add(EmptyGenerator.get(width, 12));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 12)));
         // locking
         inputBIs.add(PlainGenerator.get(width, 8));
         //body
         inputBIs.add(PlainGenerator.get(width, 600));
         //chucks
-        inputBIs.add(EmptyGenerator.get(width, 12));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 12)));
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));
         //border

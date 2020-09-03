@@ -30,7 +30,7 @@ public class PalluConversion {
         BufferedImage border = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("z-data/in/3/a2020/design2/border/border.bmp")));
         BufferedImage rani = ImageIO.read(new File("z-data/in/3/a2020/design2/pallu/pallu-rani.bmp"));
         BufferedImage jari = ImageIO.read(new File("z-data/in/3/a2020/design2/pallu/pallu-jari.bmp"));
-        BufferedImage chucks = EmptyGenerator.get(border.getWidth(), 12);
+        BufferedImage chucks = ReverseGenerator.get(EmptyGenerator.get(border.getWidth(), 12));
         get(border, rani, jari, chucks);
     }
 
