@@ -15,7 +15,7 @@ public class JariConversion {
 
         String out = "z-data/out/2/a2020/design2/1jari-%s-%s.bmp";
 
-        final BufferedImage brocade = ImageIO.read(new File("z-data/in/2/a2020/design2/brocade/nimbu.bmp"));
+        final BufferedImage brocade = HorizontalRepeatGenerator.get(2, ImageIO.read(new File("z-data/in/2/a2020/design2/brocade2/nimbu.bmp")));
 
         int width = brocade.getWidth();
 
@@ -38,6 +38,7 @@ public class JariConversion {
         //locking
         inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 16)));
 
+        inputBIs.add(brocade);
         inputBIs.add(brocade);
 
         //locking

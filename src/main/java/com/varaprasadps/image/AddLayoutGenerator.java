@@ -10,15 +10,40 @@ import java.util.List;
 public class AddLayoutGenerator {
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-data/in/12/a2020/border/1right.bmp";
+        String out = "z-data/in/test/left/left.bmp";
 
-        BufferedImage center = LeftLayoutGenerator.get(ImageIO.read(new File("z-data/in/12/a2020/border/right.bmp")));
+        BufferedImage peacock = ImageIO.read(new File("z-data/in/test/peacock.bmp"));
+
+        BufferedImage lbugada = HorizontalRepeatGenerator.get(peacock.getWidth() / 20, ImageIO.read(new File("z-data/in/test/left/bugada.bmp")));
+        BufferedImage lteega = HorizontalRepeatGenerator.get(peacock.getWidth() / 30, ImageIO.read(new File("z-data/in/test/left/teega.bmp")));
+        BufferedImage bugada = ImageIO.read(new File("z-data/in/test/bugada.bmp"));
+        BufferedImage rudra = ImageIO.read(new File("z-data/in/test/rudra.bmp"));
+        BufferedImage line = ImageIO.read(new File("z-data/in/test/line.bmp"));
+        BufferedImage esig = ImageIO.read(new File("z-data/in/test/esig.bmp"));
+
+        BufferedImage repeat = StepLayoutGenerator.get(bugada.getWidth(), 4, 6);
+
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        List<BufferedImage> images = CutLayoutGenerator.get(center, 1);
+        inputBIs.add(lbugada);
 
-        inputBIs.add(images.get(1));
-        inputBIs.add(images.get(0));
+        inputBIs.add(line);
+        inputBIs.add(StepLayoutGenerator.get(bugada.getWidth(), 1, 5));
+        inputBIs.add(lteega);
+        inputBIs.add(VerticalFlipGenerator.get(StepLayoutGenerator.get(bugada.getWidth(), 1, 5)));
+        inputBIs.add(line);
+
+        inputBIs.add(repeat);
+
+        inputBIs.add(CutLayoutGenerator.get(repeat, 15).get(0));
+
+        inputBIs.add(line);
+        inputBIs.add(StepLayoutGenerator.get(bugada.getWidth(), 1, 5));
+        inputBIs.add(lteega);
+        inputBIs.add(VerticalFlipGenerator.get(StepLayoutGenerator.get(bugada.getWidth(), 1, 5)));
+        inputBIs.add(line);
+
+        inputBIs.add(peacock);
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -29,7 +54,7 @@ public class AddLayoutGenerator {
             repeatHeight += bi.getHeight();
         }
 
-        BufferedImage bi = RightLayoutGenerator.get(get(repeatWidth, repeatHeight, inputBIs));
+        BufferedImage bi = get(repeatWidth, repeatHeight, inputBIs);
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
     }

@@ -1,9 +1,6 @@
-package com.varaprasadps.no3.a2020.design2.brocade;
+package com.varaprasadps.no3.a2020.design1.brocade2;
 
-import com.varaprasadps.image.EmptyGenerator;
-import com.varaprasadps.image.HorizontalRepeatGenerator;
-import com.varaprasadps.image.LeftLayoutGenerator;
-import com.varaprasadps.image.ReverseGenerator;
+import com.varaprasadps.image.*;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -22,15 +19,21 @@ public class BrocadeConversion {
         brocades.add(jari(getBorder(border), nimbu, chucks));
         brocades.add(nimbu(getBorder(border), jari, chucks));
         BufferedImage brocade = LeftLayoutGenerator.get(getBrocade(brocades));
-        saveBMP(brocade, String.format("z-data/out/3/a2020/design2/brocade-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
+        saveBMP(brocade, String.format("z-data/out/3/a2020/design1/2brocade-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
         return brocade;
     }
 
     public static void main(String[] args) throws IOException {
-        BufferedImage border = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("z-data/in/3/a2020/design2/border/border.bmp")));
-        BufferedImage jari = ImageIO.read(new File("z-data/in/3/a2020/design2/brocade/jari.bmp"));
-        BufferedImage nimbu = ImageIO.read(new File("z-data/in/3/a2020/design2/brocade/nimbu.bmp"));
+        BufferedImage border = HorizontalRepeatGenerator.get(2, ImageIO.read(new File("z-data/in/3/a2020/design3/border/border.bmp")));
+        BufferedImage jari = get(ImageIO.read(new File("z-data/in/3/a2020/design3/brocade/jari.bmp")));
+        BufferedImage nimbu = get(ImageIO.read(new File("z-data/in/3/a2020/design3/brocade/nimbu.bmp")));
         BufferedImage chucks = ReverseGenerator.get(EmptyGenerator.get(border.getWidth(), 12));
         get(border, nimbu, jari, chucks);
+    }
+
+
+    private static BufferedImage get(BufferedImage input) {
+        BufferedImage six = CutLayoutGenerator.get(input, 600).get(0);
+        return RightLayoutGenerator.get(CutLayoutGenerator.get(LeftLayoutGenerator.get(HorizontalRepeatGenerator.get(3, six)), 600).get(0));
     }
 }
