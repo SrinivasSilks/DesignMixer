@@ -93,7 +93,7 @@ public class AddLayoutButtaConversion {
         }
         int i = 0;
         for (BufferedImage input : result) {
-            saveBMP(input, String.format("z-data/out/8/a2020/8design2/brocade-%s.bmp", i++));
+            saveBMP(input, String.format("z-data/out/8/a2020/8design2/test/brocade-%s.bmp", i++));
 
         }
         BufferedImage bufferedImage = AddLayoutGenerator.get(result);

@@ -33,7 +33,7 @@ public class PalluMeenaConversion {
         //achu
         inputBIs.add(EmptyGenerator.get(width, 8));
         //locking
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 1)));
+        inputBIs.add(PlainGenerator.get(width, 4));
 
         //brocade
         inputBIs.add(body);

@@ -59,13 +59,13 @@ public class WhiteGoldJariBrocade {
         //achu
         inputBIs.add(EmptyGenerator.get(width, 8));
         //locking
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 1)));
+        inputBIs.add(StepLayoutGenerator.get(width, 1));
 
         //jari
         inputBIs.add(jari);
         //mango
         inputBIs.add(CutLayoutGenerator.get(jari, 62).get(0));
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 3, 6)));
+        inputBIs.add(StepLayoutGenerator.get(width, 3, 6));
         inputBIs.add(EmptyGenerator.get(width, 16));
 
         //locking
@@ -108,13 +108,13 @@ public class WhiteGoldJariBrocade {
         //achu
         inputBIs.add(EmptyGenerator.get(width, 8));
         //locking
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 1)));
+        inputBIs.add(StepLayoutGenerator.get(width, 1));
 
         //jari
         inputBIs.add(jari);
         //mango
         inputBIs.add(CutLayoutGenerator.get(jari, 62).get(0));
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 3, 6)));
+        inputBIs.add(StepLayoutGenerator.get(width, 3, 6));
         inputBIs.add(EmptyGenerator.get(width, 16));
 
         //locking
