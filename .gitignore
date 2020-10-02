@@ -12,6 +12,7 @@ out/
 
 # DesignMixer Ignore files
 
+z-bala/**
 z-data/**
 z-dinesh/**
 z-giri/**
@@ -22,3 +23,5 @@ z-harish/**
 .DS_Store
 
 build/**
+
+*.bmp
