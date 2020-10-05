@@ -29,8 +29,8 @@ public class PalluConversion {
     public static void main(final String[] args) throws IOException {
         BufferedImage test = HorizontalRepeatGenerator.get(4, ImageIO.read(new File("z-data/in/3/a2020k/design1/border/border.bmp")));
         BufferedImage border = RightLayoutGenerator.get(CutLayoutGenerator.get(LeftLayoutGenerator.get(test), 2000).get(0));
-        BufferedImage rani = ImageIO.read(new File("z-data/in/3/a2020k/design1/pallu/pallu-rani.bmp"));
-        BufferedImage jari = ImageIO.read(new File("z-data/in/3/a2020k/design1/pallu/pallu-jari.bmp"));
+        BufferedImage rani = CutLayoutGenerator.get(ImageIO.read(new File("z-data/in/3/a2020k/design1/pallu/pallu-rani.bmp")),600).get(0);
+        BufferedImage jari =  CutLayoutGenerator.get(ImageIO.read(new File("z-data/in/3/a2020k/design1/pallu/pallu-jari.bmp")), 600).get(0);
         BufferedImage chucks = ReverseGenerator.get(EmptyGenerator.get(border.getWidth(), 12));
         get(border, rani, jari, chucks);
     }
