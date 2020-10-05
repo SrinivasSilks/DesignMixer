@@ -15,7 +15,7 @@ public class RaniConversion {
 
         String out = "z-data/out/5/a2020/design2/broc-rani-%s-%s.bmp";
 
-        BufferedImage border = ReverseGenerator.get(HorizontalRepeatGenerator.get(2, ImageIO.read(new File("z-data/in/5/a2020/design2/border/rani.bmp"))));
+        BufferedImage border = HorizontalRepeatGenerator.get(2, ImageIO.read(new File("z-data/in/5/a2020/design2/border/rani.bmp")));
 
         int width = border.getWidth();
         List<BufferedImage> inputBIs = new LinkedList<>();

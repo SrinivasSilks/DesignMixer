@@ -1,4 +1,4 @@
-package com.varaprasadps.no5.a2020.design4.brocade;
+package com.varaprasadps.no5.a2020.design4.blouse;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
 import com.varaprasadps.image.LeftLayoutGenerator;
@@ -10,16 +10,16 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class BrocadeConversion {
+public class BlouseConversion {
 
     public static void main(final String[] args) throws IOException {
         JariConversion.main(null);
         RaniConversion.main(null);
-        String out = "z-data/out/5/a2020/design4/broc-%s-%s.bmp";
+        String out = "z-data/out/5/a2020/design4/blouse-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("z-data/out/5/a2020/design4/broc-rani-600-1824.bmp");
-        inputs.add("z-data/out/5/a2020/design4/broc-jari-600-1824.bmp");
+        inputs.add("z-data/out/5/a2020/design4/blouse-rani-120-1824.bmp");
+        inputs.add("z-data/out/5/a2020/design4/blouse-jari-120-1824.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {

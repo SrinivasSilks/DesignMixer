@@ -1,4 +1,4 @@
-package com.varaprasadps.no5.a2020.design2.pallu;
+package com.varaprasadps.no5.a2020.design1.blouse;
 
 import com.varaprasadps.image.*;
 
@@ -9,38 +9,36 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class RaniConversion {
+public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/5/a2020/design2/p-rani-%s-%s.bmp";
+        String out = "z-data/out/5/a2020/design1/blouse-jari-%s-%s.bmp";
 
-        BufferedImage border = HorizontalRepeatGenerator.get(16, ImageIO.read(new File("z-data/in/5/a2020/design2/border/rani.bmp")));
-        BufferedImage remaining = VerticalFlipGenerator.get(ImageIO.read(new File("z-data/in/5/a2020/design2/pallu/pallu-side-rani.bmp")));
-        BufferedImage body = VerticalFlipGenerator.get(ImageIO.read(new File("z-data/in/5/a2020/design2/pallu/pallu-rani.bmp")));
+        BufferedImage border = ImageIO.read(new File("z-data/in/5/a2020/design1/border/border-jari.bmp"));
 
         int width = border.getWidth();
+
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         inputBIs.add(EmptyGenerator.get(width, 32));
 
         //box
-        inputBIs.add(EmptyGenerator.get(width, 2));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //khali
         inputBIs.add(EmptyGenerator.get(width, 10));
 
-        inputBIs.add(body);
-        inputBIs.add(CutLayoutGenerator.get(remaining, 240).get(0));
-        inputBIs.add(border);
+        inputBIs.add(EmptyGenerator.get(width, 800));
+        inputBIs.add(CutLayoutGenerator.get(border,934).get(0));
+        inputBIs.add(EmptyGenerator.get(width, 26));
 
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 12), 6).get(0)));
+        //khali
         inputBIs.add(EmptyGenerator.get(width, 10));
-
-
         int repeatWidth = 0;
         int repeatHeight = 0;
 

@@ -15,7 +15,8 @@ public class RaniConversion {
 
         String out = "z-data/out/5/a2020/design4/broc-rani-%s-%s.bmp";
 
-        BufferedImage border = ReverseGenerator.get(ImageIO.read(new File("z-data/in/5/a2020/design4/border-rani.bmp")));
+        BufferedImage border = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("z-data/in/5/a2020/design4/border-rani.bmp")));
+        BufferedImage body = HorizontalRepeatGenerator.get(4, ImageIO.read(new File("z-data/in/5/a2020/design4/brocade2/56.bmp")));
 
         int width = border.getWidth();
         List<BufferedImage> inputBIs = new LinkedList<>();
@@ -30,7 +31,8 @@ public class RaniConversion {
         //khali
         inputBIs.add(EmptyGenerator.get(width, 10));
 
-        inputBIs.add(PlainGenerator.get(width, 800));
+        inputBIs.add(body);
+        inputBIs.add(body);
         inputBIs.add(border);
 
         //mispick

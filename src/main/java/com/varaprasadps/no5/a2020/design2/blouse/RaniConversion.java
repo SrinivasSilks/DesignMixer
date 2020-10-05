@@ -1,4 +1,4 @@
-package com.varaprasadps.no5.a2020.design2.pallu;
+package com.varaprasadps.no5.a2020.design2.blouse;
 
 import com.varaprasadps.image.*;
 
@@ -13,11 +13,9 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/5/a2020/design2/p-rani-%s-%s.bmp";
+        String out = "z-data/out/5/a2020/design2/blouse-rani-%s-%s.bmp";
 
-        BufferedImage border = HorizontalRepeatGenerator.get(16, ImageIO.read(new File("z-data/in/5/a2020/design2/border/rani.bmp")));
-        BufferedImage remaining = VerticalFlipGenerator.get(ImageIO.read(new File("z-data/in/5/a2020/design2/pallu/pallu-side-rani.bmp")));
-        BufferedImage body = VerticalFlipGenerator.get(ImageIO.read(new File("z-data/in/5/a2020/design2/pallu/pallu-rani.bmp")));
+        BufferedImage border = ImageIO.read(new File("z-data/in/5/a2020/design2/border/rani.bmp"));
 
         int width = border.getWidth();
         List<BufferedImage> inputBIs = new LinkedList<>();
@@ -32,8 +30,8 @@ public class RaniConversion {
         //khali
         inputBIs.add(EmptyGenerator.get(width, 10));
 
-        inputBIs.add(body);
-        inputBIs.add(CutLayoutGenerator.get(remaining, 240).get(0));
+        inputBIs.add(PlainGenerator.get(width, 800));
+        inputBIs.add(PlainGenerator.get(width, 240));
         inputBIs.add(border);
 
         //mispick

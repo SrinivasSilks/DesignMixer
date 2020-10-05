@@ -15,9 +15,9 @@ public class JariConversion {
 
         String out = "z-data/out/5/a2020/design2/p-jari-%s-%s.bmp";
 
-        BufferedImage border = ReverseGenerator.get(HorizontalRepeatGenerator.get(16, ImageIO.read(new File("z-data/in/5/a2020/design2/border/jari.bmp"))));
-        BufferedImage remaining = VerticalFlipGenerator.get(ReverseGenerator.get(ImageIO.read(new File("z-data/in/5/a2020/design2/pallu/pallu-side-jari.bmp"))));
-        BufferedImage body = ReverseGenerator.get(ImageIO.read(new File("z-data/in/5/a2020/design2/pallu/pallu-jari.bmp")));
+        BufferedImage border = HorizontalRepeatGenerator.get(16, ImageIO.read(new File("z-data/in/5/a2020/design2/border/jari.bmp")));
+        BufferedImage remaining = VerticalFlipGenerator.get(ImageIO.read(new File("z-data/in/5/a2020/design2/pallu/pallu-side-jari.bmp")));
+        BufferedImage body =  VerticalFlipGenerator.get(ImageIO.read(new File("z-data/in/5/a2020/design2/pallu/pallu-jari.bmp")));
 
         int width = border.getWidth();
 
