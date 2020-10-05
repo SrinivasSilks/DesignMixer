@@ -1,6 +1,5 @@
 package com.varaprasadps.bala.no7.brocade;
 
-import com.varaprasadps.bala.no7.brocade.butta.FirstBoxConversion;
 import com.varaprasadps.bala.no7.brocade.butta.SecondBoxConversion;
 import com.varaprasadps.image.*;
 
@@ -18,7 +17,7 @@ public class PlainPatternWithButta {
         BufferedImage butta = RightLayoutGenerator.get(CutLayoutGenerator.get(abc, 280).get(0));
         BufferedImage border = RightLayoutGenerator.get(CutLayoutGenerator.get(LeftLayoutGenerator.get(ImageIO.read(new File("z-bala/in/7/a2020/border/border.bmp"))), 280).get(0));
 
-        BufferedImage buttta = LeftLayoutGenerator.get(HorizontalFlipGenerator.get(get(border, butta)));
+        BufferedImage buttta = get(border, butta);
         saveBMP(buttta, "z-bala/out/7/a2020/sample-butta.bmp");
     }
 
@@ -76,6 +75,6 @@ public class PlainPatternWithButta {
                 result.add(getBrocade(border, gold, i));
             }
         }
-        return AddLayoutGenerator.get(result);
+        return VerticalFlipGenerator.get(AddLayoutGenerator.get(result));
     }
 }
