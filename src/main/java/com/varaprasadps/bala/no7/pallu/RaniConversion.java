@@ -25,10 +25,11 @@ public class RaniConversion {
 
         //achu
         inputBIs.add(AchuLayoutGenerator.get(width, 16));
-        //box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 8)));
 
         inputBIs.add(EmptyGenerator.get(width, 20));
+
+        //box
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 8)));
 
         //left
         inputBIs.add(left);
@@ -38,10 +39,11 @@ public class RaniConversion {
         //right
         inputBIs.add(EmptyGenerator.get(width, 4));
         inputBIs.add(right);
-
-        inputBIs.add(EmptyGenerator.get(width, 20));
         //box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 8)));
+
+        inputBIs.add(EmptyGenerator.get(width, 20));
+
         //achu
         inputBIs.add(AchuLayoutGenerator.get(width, 16));
 

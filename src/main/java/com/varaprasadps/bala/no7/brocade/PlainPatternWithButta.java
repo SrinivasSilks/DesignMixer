@@ -1,5 +1,6 @@
 package com.varaprasadps.bala.no7.brocade;
 
+import com.varaprasadps.bala.no7.brocade.butta.FirstBoxConversion;
 import com.varaprasadps.bala.no7.brocade.butta.SecondBoxConversion;
 import com.varaprasadps.image.*;
 
@@ -12,18 +13,10 @@ import java.util.List;
 
 public class PlainPatternWithButta {
 
-    public static void main(String[] args) throws IOException {
-        BufferedImage abc = CutLayoutGenerator.get(LeftLayoutGenerator.get(ImageIO.read(new File("z-bala/in/7/a2020/brocade/butta.bmp"))), 483).get(1);
-        BufferedImage butta = RightLayoutGenerator.get(CutLayoutGenerator.get(abc, 280).get(0));
-        BufferedImage border = RightLayoutGenerator.get(CutLayoutGenerator.get(LeftLayoutGenerator.get(ImageIO.read(new File("z-bala/in/7/a2020/border/border.bmp"))), 280).get(0));
-
-        BufferedImage buttta = get(border, butta);
-        saveBMP(buttta, "z-bala/out/7/a2020/sample-butta.bmp");
-    }
-
     private static void saveBMP(final BufferedImage bi, final String path) throws IOException {
         ImageIO.write(bi, "bmp", new File(path));
     }
+
     private static BufferedImage getBrocade(BufferedImage border, BufferedImage gold, int index) {
         if (border.getWidth() == 4) {
             return FirstBoxConversion.get(border, gold);
@@ -75,6 +68,6 @@ public class PlainPatternWithButta {
                 result.add(getBrocade(border, gold, i));
             }
         }
-        return VerticalFlipGenerator.get(AddLayoutGenerator.get(result));
+        return AddLayoutGenerator.get(result);
     }
 }

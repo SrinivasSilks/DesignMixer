@@ -23,11 +23,10 @@ public class JariConversion {
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 16));
+        inputBIs.add(EmptyGenerator.get(width, 16));
+        inputBIs.add(EmptyGenerator.get(width, 20));
         //box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 8)));
-
-        inputBIs.add(EmptyGenerator.get(width, 20));
 
         //left
         inputBIs.add(VerticalFlipGenerator.get(border));
@@ -36,11 +35,11 @@ public class JariConversion {
         //right
         inputBIs.add(border);
 
-        inputBIs.add(EmptyGenerator.get(width, 20));
         //box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 8)));
+        inputBIs.add(EmptyGenerator.get(width, 20));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 16));
+        inputBIs.add(EmptyGenerator.get(width, 16));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
