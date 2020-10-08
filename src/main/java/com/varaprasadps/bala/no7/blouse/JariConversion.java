@@ -15,7 +15,7 @@ public class JariConversion {
 
         String out = "z-bala/out/7/a2020/b-jari-%s-%s.bmp";
 
-        final BufferedImage body = HorizontalRepeatGenerator.get(12, ImageIO.read(new File("z-bala/in/7/a2020/blouse/blouse-jari.bmp")));
+        final BufferedImage body = HorizontalRepeatGenerator.get(15, ImageIO.read(new File("z-bala/in/7/a2020/blouse/blouse-jari.bmp")));
         final BufferedImage border = EmptyGenerator.get(body.getWidth(), 500);
 
         int width = border.getWidth();
@@ -23,11 +23,12 @@ public class JariConversion {
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 16));
-        //box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 8)));
+        inputBIs.add(EmptyGenerator.get(width, 16));
 
         inputBIs.add(EmptyGenerator.get(width, 20));
+
+        //box
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 8)));
 
         //left
         inputBIs.add(VerticalFlipGenerator.get(border));
@@ -36,11 +37,13 @@ public class JariConversion {
         //right
         inputBIs.add(border);
 
-        inputBIs.add(EmptyGenerator.get(width, 20));
         //box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 8)));
+
+        inputBIs.add(EmptyGenerator.get(width, 20));
+
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 16));
+        inputBIs.add(EmptyGenerator.get(width, 16));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

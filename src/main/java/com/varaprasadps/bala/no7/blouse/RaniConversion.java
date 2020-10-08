@@ -15,9 +15,9 @@ public class RaniConversion {
 
         String out = "z-bala/out/7/a2020/b-rani-%s-%s.bmp";
 
-        final BufferedImage body = HorizontalRepeatGenerator.get(12, ImageIO.read(new File("z-bala/in/7/a2020/blouse/blouse-rani.bmp")));
+        final BufferedImage body = HorizontalRepeatGenerator.get(15 , ImageIO.read(new File("z-bala/in/7/a2020/blouse/blouse-rani.bmp")));
         BufferedImage border = ImageIO.read(new File("z-bala/in/7/a2020/border/border.bmp"));
-        final BufferedImage right = RightLayoutGenerator.get(CutLayoutGenerator.get(LeftLayoutGenerator.get(HorizontalRepeatGenerator.get(2, border)), body.getWidth()).get(0));
+        final BufferedImage right = RightLayoutGenerator.get(CutLayoutGenerator.get(LeftLayoutGenerator.get(HorizontalRepeatGenerator.get(5, border)), body.getWidth()).get(0));
         final BufferedImage left = VerticalFlipGenerator.get(right);
         int width = right.getWidth();
 
@@ -25,10 +25,11 @@ public class RaniConversion {
 
         //achu
         inputBIs.add(AchuLayoutGenerator.get(width, 16));
-        //box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 8)));
 
         inputBIs.add(EmptyGenerator.get(width, 20));
+
+        //box
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 8)));
 
         //left
         inputBIs.add(left);
@@ -39,9 +40,9 @@ public class RaniConversion {
         inputBIs.add(EmptyGenerator.get(width, 4));
         inputBIs.add(right);
 
-        inputBIs.add(EmptyGenerator.get(width, 20));
         //box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 8)));
+        inputBIs.add(EmptyGenerator.get(width, 20));
         //achu
         inputBIs.add(AchuLayoutGenerator.get(width, 16));
 

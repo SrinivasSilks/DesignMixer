@@ -19,8 +19,8 @@ public class BlouseConversion {
         String out = "z-bala/out/7/a2020/blouse-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("z-bala/out/7/a2020/b-rani-2040-2048.bmp");
-        inputs.add("z-bala/out/7/a2020/b-jari-2040-2048.bmp");
+        inputs.add("z-bala/out/7/a2020/b-rani-2550-2048.bmp");
+        inputs.add("z-bala/out/7/a2020/b-jari-2550-2048.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {
