@@ -4,11 +4,24 @@ import com.varaprasadps.bala.no7.brocade.chucks.FirstBoxConversion;
 import com.varaprasadps.bala.no7.brocade.chucks.SecondBoxConversion;
 import com.varaprasadps.image.*;
 
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
 public class PlainPattern {
+
+    public static void main(String[] args) throws IOException {
+        BufferedImage border = ImageIO.read(new File("z-bala/in/7/a2020/border/border.bmp"));
+        BufferedImage plainBrocade = get(border);
+        saveBMP(plainBrocade, "z-bala/out/7/a2020/plain-chucks.bmp");
+    }
+
+    private static void saveBMP(final BufferedImage bi, final String path) throws IOException {
+        ImageIO.write(bi, "bmp", new File(path));
+    }
 
     private static BufferedImage getBrocade(BufferedImage border, int index) {
         if (border.getWidth() == 4) {

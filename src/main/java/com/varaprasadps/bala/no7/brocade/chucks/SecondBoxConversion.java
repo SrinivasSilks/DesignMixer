@@ -41,17 +41,18 @@ public class SecondBoxConversion {
 
         //left
         inputBIs.add(VerticalFlipGenerator.get(border));
-        inputBIs.add(EmptyGenerator.get(width, 4));
         //body
         inputBIs.add(PlainGenerator.get(width, 960));
         //right
-        inputBIs.add(EmptyGenerator.get(width, 4));
         inputBIs.add(border);
 
         //box
         inputBIs.add(box2nimbu);
 
-        inputBIs.add(EmptyGenerator.get(width, 20));
+        inputBIs.add(EmptyGenerator.get(width, 4));
+        inputBIs.add(box2nimbu);
+        inputBIs.add(box2nimbu);
+
         //achu
         inputBIs.add(AchuLayoutGenerator.get(width, 16));
 

@@ -16,15 +16,15 @@ public class FullFile {
 
     public static void main(String[] args) throws IOException {
 
-        String out = "z-bala/out/7/a2020/fullfile.bmp";
+        String out = "z-bala/out/7/a2020/fullfile2.bmp";
 
-        BufferedImage plain = ImageIO.read(new File("z-bala/in/7/a2020/fullfile/plain.bmp"));
-        BufferedImage pallu = ImageIO.read(new File("z-bala/in/7/a2020/fullfile/pallu.bmp"));
+        BufferedImage plain = ImageIO.read(new File("z-bala/in/7/a2020/fullfile/2/plain-chucks.bmp"));
+        BufferedImage pallu = ImageIO.read(new File("z-bala/in/7/a2020/fullfile/2/pallu.bmp"));
 
-        BufferedImage butta = ImageIO.read(new File("z-bala/in/7/a2020/fullfile/brocade-butta.bmp"));
-        BufferedImage butta2 = ImageIO.read(new File("z-bala/in/7/a2020/fullfile/brocade-butta2.bmp"));
+        BufferedImage butta = ImageIO.read(new File("z-bala/in/7/a2020/fullfile/2/brocade-butta.bmp"));
+        BufferedImage butta2 = ImageIO.read(new File("z-bala/in/7/a2020/fullfile/2/brocade-butta2.bmp"));
 
-        BufferedImage blouse = ImageIO.read(new File("z-bala/in/7/a2020/fullfile/blouse.bmp"));
+        BufferedImage blouse = ImageIO.read(new File("z-bala/in/7/a2020/fullfile/2/blouse.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 

@@ -40,7 +40,12 @@ public class JariConversion {
         //box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 8)));
 
-        inputBIs.add(EmptyGenerator.get(width, 20));
+        inputBIs.add(EmptyGenerator.get(width, 4));
+
+        //box
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 8)));
+        //box
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 8)));
 
         //achu
         inputBIs.add(EmptyGenerator.get(width, 16));

@@ -65,8 +65,21 @@ public class FirstBoxConversion {
             inputBIs.add(box4jari);
         }
 
+        inputBIs.add(EmptyGenerator.get(width, 4));
 
-        inputBIs.add(EmptyGenerator.get(width, 20));
+        //box
+        if(width == 2) {
+            inputBIs.add(box2jari);
+        } else {
+            inputBIs.add(box4jari);
+        }
+
+        //box
+        if(width == 2) {
+            inputBIs.add(box2jari);
+        } else {
+            inputBIs.add(box4jari);
+        }
 
         //achu
         inputBIs.add(EmptyGenerator.get(width, 16));
@@ -101,11 +114,9 @@ public class FirstBoxConversion {
 
         //left
         inputBIs.add(VerticalFlipGenerator.get(border));
-        inputBIs.add(EmptyGenerator.get(width, 4));
         //body
         inputBIs.add(PlainGenerator.get(width, 960));
         //right
-        inputBIs.add(EmptyGenerator.get(width, 4));
         inputBIs.add(border);
 
         //box
@@ -115,7 +126,21 @@ public class FirstBoxConversion {
             inputBIs.add(box4rani);
         }
 
-        inputBIs.add(EmptyGenerator.get(width, 20));
+        inputBIs.add(EmptyGenerator.get(width, 4));
+
+        //box
+        if(width == 2) {
+            inputBIs.add(box2rani);
+        } else {
+            inputBIs.add(box4rani);
+        }
+
+        //box
+        if(width == 2) {
+            inputBIs.add(box2rani);
+        } else {
+            inputBIs.add(box4rani);
+        }
 
         //achu
         inputBIs.add(AchuLayoutGenerator.get(width, 16));
