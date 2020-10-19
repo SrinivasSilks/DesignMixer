@@ -20,7 +20,7 @@ public class RaniConversion {
         BufferedImage banaras = HorizontalFlipGenerator.get(HorizontalRepeatGenerator.get(3, ImageIO.read(new File("z-data/in/11/border2/BANARAS.bmp"))));
         BufferedImage bugada = HorizontalFlipGenerator.get(HorizontalRepeatGenerator.get(3, ImageIO.read(new File("z-data/in/11/border2/BUGADA.bmp"))));
 
-        final BufferedImage pallu = ImageIO.read(new File("z-data/in/11/PALLU_RANI.bmp"));
+        final BufferedImage pallu = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/PALLU_RANI.bmp")));
 
         int width = pallu.getWidth();
 

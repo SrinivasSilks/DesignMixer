@@ -10,40 +10,53 @@ import java.util.List;
 public class AddLayoutGenerator {
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-data/in/test/left/left.bmp";
+        String out = "z-data/in/8/2020-oct-new/border.bmp";
 
-        BufferedImage peacock = ImageIO.read(new File("z-data/in/test/peacock.bmp"));
-
-        BufferedImage lbugada = HorizontalRepeatGenerator.get(peacock.getWidth() / 20, ImageIO.read(new File("z-data/in/test/left/bugada.bmp")));
-        BufferedImage lteega = HorizontalRepeatGenerator.get(peacock.getWidth() / 30, ImageIO.read(new File("z-data/in/test/left/teega.bmp")));
-        BufferedImage bugada = ImageIO.read(new File("z-data/in/test/bugada.bmp"));
-        BufferedImage rudra = ImageIO.read(new File("z-data/in/test/rudra.bmp"));
-        BufferedImage line = ImageIO.read(new File("z-data/in/test/line.bmp"));
-        BufferedImage esig = ImageIO.read(new File("z-data/in/test/esig.bmp"));
-
-        BufferedImage repeat = StepLayoutGenerator.get(bugada.getWidth(), 4, 6);
+        BufferedImage peacock = ImageIO.read(new File("z-data/in/8/2020-oct-new/thcxfth.bmp"));
+        BufferedImage b220 = ImageIO.read(new File("z-data/in/8/2020-oct-new/220.bmp"));
+        BufferedImage middle = ImageIO.read(new File("z-data/in/8/2020-oct-new/middle.bmp"));
+        BufferedImage teega = ImageIO.read(new File("z-data/in/8/2020-oct-new/teega-full.bmp"));
+        BufferedImage bugada = ImageIO.read(new File("z-data/in/8/2020-oct-new/bugada-full.bmp"));
+        int width = b220.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        inputBIs.add(lbugada);
+        //border
+        inputBIs.add(StepLayoutGenerator.get(width, 6, 5));
+        inputBIs.add(bugada);
 
-        inputBIs.add(line);
-        inputBIs.add(StepLayoutGenerator.get(bugada.getWidth(), 1, 5));
-        inputBIs.add(lteega);
-        inputBIs.add(VerticalFlipGenerator.get(StepLayoutGenerator.get(bugada.getWidth(), 1, 5)));
-        inputBIs.add(line);
+        inputBIs.add(b220);
+        inputBIs.add(CutLayoutGenerator.get(peacock, 1199).get(1));
+        inputBIs.add(StepLayoutGenerator.get(width, 21, 5));
+        inputBIs.add(middle);
+        inputBIs.add(StepLayoutGenerator.get(width, 21, 5));
+        inputBIs.add(CutLayoutGenerator.get(peacock, 1199).get(1));
+        inputBIs.add(b220);
+        inputBIs.add(teega);
 
-        inputBIs.add(repeat);
 
-        inputBIs.add(CutLayoutGenerator.get(repeat, 15).get(0));
+//        // right
+//        inputBIs.add(bugada);
+//        inputBIs.add(teega);
+//        inputBIs.add(b220);
+//        inputBIs.add(CutLayoutGenerator.get(peacock, 1199).get(1));
+//        inputBIs.add(StepLayoutGenerator.get(width, 21, 5));
+//        inputBIs.add(middle);
+//        inputBIs.add(StepLayoutGenerator.get(width, 21, 5));
+//        inputBIs.add(CutLayoutGenerator.get(peacock, 1199).get(1));
+//        inputBIs.add(teega);
+//        inputBIs.add(b220);
 
-        inputBIs.add(line);
-        inputBIs.add(StepLayoutGenerator.get(bugada.getWidth(), 1, 5));
-        inputBIs.add(lteega);
-        inputBIs.add(VerticalFlipGenerator.get(StepLayoutGenerator.get(bugada.getWidth(), 1, 5)));
-        inputBIs.add(line);
 
-        inputBIs.add(peacock);
+        // left
+//        inputBIs.add(bugada);
+//        inputBIs.add(teega);
+//        inputBIs.add(StepLayoutGenerator.get(width, 6, 5));
+//        inputBIs.add(StepLayoutGenerator.get(width, 6, 5));
+//        inputBIs.add(StepLayoutGenerator.get(width, 6, 5));
+//        inputBIs.add(teega);
+//        inputBIs.add(b220);
+//        inputBIs.add(teega);
 
         int repeatWidth = 0;
         int repeatHeight = 0;

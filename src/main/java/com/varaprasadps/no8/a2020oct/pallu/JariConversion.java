@@ -1,4 +1,4 @@
-package com.varaprasadps.no11.design2.pallu;
+package com.varaprasadps.no8.a2020oct.pallu;
 
 import com.varaprasadps.image.*;
 
@@ -13,37 +13,43 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/11/design2/p-jari-%s-%s.bmp";
+        String out = "z-data/out/8/a2020oct/design1/p-jari-%s-%s.bmp";
 
-        final BufferedImage pallu = HorizontalFlipGenerator.get(ImageIO.read(new File("z-data/in/11/PALLU_JARI.bmp")));
-
+        final BufferedImage pallu = ImageIO.read(new File("z-data/in/8/a2020/8design2/pallu/pallu-jari.bmp"));
         int width = pallu.getWidth();
+        BufferedImage border = EmptyGenerator.get(width, 1120);
+        BufferedImage chucks = ReverseGenerator.get(EmptyGenerator.get(width, 60));
+
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         inputBIs.add(EmptyGenerator.get(width, 32));
 
-        // Box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 4)));
-
-        // mispick
-        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
-
-        //Achu
-        inputBIs.add(EmptyGenerator.get(width, 6));
-
-        // Locking
+        //mispick
+        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 8), 4).get(0));
+        //achu
+        inputBIs.add(EmptyGenerator.get(width, 8));
+        //locking
         inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 1)));
 
-        inputBIs.add(CutLayoutGenerator.get(pallu, 1480).get(0));
+        //brocade
+        inputBIs.add(pallu);
+        //mango
+        inputBIs.add(CutLayoutGenerator.get(pallu, 96).get(0));
+        //locking
+        inputBIs.add(PlainGenerator.get(width, 4));
+        //chucks
+        inputBIs.add(chucks);
+        //border
+        inputBIs.add(border);
 
-        // Jari
-        inputBIs.add(EmptyGenerator.get(width, 280));
-
-        // mispick
-        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
-
-        // Achu
-        inputBIs.add(EmptyGenerator.get(width, 14));
+        //box
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 4)));
+        //mispick
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 1).get(0)));
+        //chakram
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
+        //achu
+        inputBIs.add(EmptyGenerator.get(width, 10));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
