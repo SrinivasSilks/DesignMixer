@@ -13,9 +13,13 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/5/march-2020/k-jari-%s-%s.bmp";
+        String out = "z-data/out/5/a2020nov/design1/k-jari-%s-%s.bmp";
 
-        int width = 240;
+        final BufferedImage right = EmptyGenerator.get(200, 720);
+        final BufferedImage left = EmptyGenerator.get(200, 320);
+
+        int width = right.getWidth();
+        final BufferedImage body = PlainGenerator.get(width, 720);
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -23,19 +27,22 @@ public class JariConversion {
         //box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         inputBIs.add(EmptyGenerator.get(width, 2));
-
-        // mispick
+        //locking
+        inputBIs.add(StepLayoutGenerator.get(width, 1));
+        //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
+        //achu
+        inputBIs.add(EmptyGenerator.get(width, 6));
 
-        //Khali
-        inputBIs.add(EmptyGenerator.get(width, 10));
+        inputBIs.add(VerticalFlipGenerator.get(left));
+        inputBIs.add(body);
+        inputBIs.add(right);
 
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 800)));
-        inputBIs.add(EmptyGenerator.get(width, 960));
-
-        // mispick
-        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 12), 6).get(0)));
-        //Khali
+        //locking
+        inputBIs.add(StepLayoutGenerator.get(width, 1));
+        //mispick
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
+        //achu
         inputBIs.add(EmptyGenerator.get(width, 10));
 
         int repeatWidth = 0;
