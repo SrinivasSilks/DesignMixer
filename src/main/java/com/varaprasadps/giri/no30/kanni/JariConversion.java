@@ -1,4 +1,4 @@
-package com.varaprasadps.giri.no30.pallu;
+package com.varaprasadps.giri.no30.kanni;
 
 import com.varaprasadps.image.*;
 
@@ -9,15 +9,14 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class RaniConversion {
+public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-giri/out/30/p-rani-%s-%s.bmp";
+        String out = "z-giri/out/30/k-jari-%s-%s.bmp";
 
-        BufferedImage test = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("z-giri/in/30/border.bmp")));
-        BufferedImage border = RightLayoutGenerator.get(CutLayoutGenerator.get(CutLayoutGenerator.get(LeftLayoutGenerator.get(test), 100).get(1), 1800).get(0));
-        BufferedImage body = RightLayoutGenerator.get(ImageIO.read(new File("z-giri/in/30/pallu-rani.bmp")));
+        BufferedImage border = EmptyGenerator.get(900, 600);
+        BufferedImage body = PlainGenerator.get(900, 240);
 
         int width = body.getWidth();
 
@@ -26,12 +25,12 @@ public class RaniConversion {
         inputBIs.add(EmptyGenerator.get(width, 32));
 
         //box
-        inputBIs.add(EmptyGenerator.get(width, 2));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 10));
+        inputBIs.add(EmptyGenerator.get(width, 10));
 
         inputBIs.add(body);
         inputBIs.add(body);
@@ -45,7 +44,7 @@ public class RaniConversion {
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 14));
+        inputBIs.add(EmptyGenerator.get(width, 14));
 
         inputBIs.add(PlainGenerator.get(width, 176));
 
@@ -60,6 +59,7 @@ public class RaniConversion {
         BufferedImage bi = ReverseGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
+
     }
 
     private static void displayPixels(BufferedImage fileOne) {

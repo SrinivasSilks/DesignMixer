@@ -16,8 +16,7 @@ public class JariConversion {
         String out = "z-giri/out/30/p-jari-%s-%s.bmp";
 
         BufferedImage border = EmptyGenerator.get(1800, 600);
-        BufferedImage body = PlainGenerator.get(border.getWidth(), 480);
-        BufferedImage skirt = PlainGenerator.get(border.getWidth(), 480);
+        BufferedImage body = RightLayoutGenerator.get(ImageIO.read(new File("z-giri/in/30/pallu-jari.bmp")));
 
         int width = body.getWidth();
 
@@ -34,7 +33,9 @@ public class JariConversion {
         inputBIs.add(EmptyGenerator.get(width, 10));
 
         inputBIs.add(body);
-        inputBIs.add(skirt);
+        inputBIs.add(body);
+        inputBIs.add(body);
+        inputBIs.add(body);
         //locking
         inputBIs.add(PlainGenerator.get(width, 16));
         inputBIs.add(border);

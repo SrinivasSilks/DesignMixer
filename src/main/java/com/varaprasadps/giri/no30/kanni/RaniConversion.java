@@ -1,4 +1,4 @@
-package com.varaprasadps.giri.no30.pallu;
+package com.varaprasadps.giri.no30.kanni;
 
 import com.varaprasadps.image.*;
 
@@ -13,11 +13,10 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-giri/out/30/p-rani-%s-%s.bmp";
+        String out = "z-giri/out/30/k-rani-%s-%s.bmp";
 
-        BufferedImage test = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("z-giri/in/30/border.bmp")));
-        BufferedImage border = RightLayoutGenerator.get(CutLayoutGenerator.get(CutLayoutGenerator.get(LeftLayoutGenerator.get(test), 100).get(1), 1800).get(0));
-        BufferedImage body = RightLayoutGenerator.get(ImageIO.read(new File("z-giri/in/30/pallu-rani.bmp")));
+        BufferedImage border = ImageIO.read(new File("z-giri/in/30/border.bmp"));
+        BufferedImage body = PlainGenerator.get(900, 240);
 
         int width = body.getWidth();
 
