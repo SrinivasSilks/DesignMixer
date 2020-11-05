@@ -32,10 +32,7 @@ public class RaniConversion {
         //brocade
         inputBIs.add(EmptyGenerator.get(width, 480));
         //mango
-        inputBIs.add(EmptyGenerator.get(width, 62));
-        //locking
-        inputBIs.add(PlainGenerator.get(width, 18));
-        inputBIs.add(PlainGenerator.get(width, 16));
+        inputBIs.add(EmptyGenerator.get(width, 96));
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));
         //chucks

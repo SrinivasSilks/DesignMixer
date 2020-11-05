@@ -33,16 +33,13 @@ public class NimbuConversion {
         inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width)));
 
         //mango
-        inputBIs.add(CutLayoutGenerator.get(brocade, brocade.getHeight() - 62).get(1));
+        inputBIs.add(CutLayoutGenerator.get(brocade, brocade.getHeight() - 96).get(1));
         //brocade
         inputBIs.add(brocade);
         inputBIs.add(brocade);
 
         //locking
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 3, 6)));
-        inputBIs.add(EmptyGenerator.get(width, 16));
-        //locking
-        inputBIs.add(EmptyGenerator.get(width, 4));
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width)));
         //chucks
         inputBIs.add(chucks);
         //border

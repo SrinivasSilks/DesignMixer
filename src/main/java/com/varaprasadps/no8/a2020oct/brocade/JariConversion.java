@@ -33,15 +33,12 @@ public class JariConversion {
         inputBIs.add(PlainGenerator.get(width, 4));
 
         //mango
-        inputBIs.add(CutLayoutGenerator.get(brocade, brocade.getHeight() - 62).get(1));
+        inputBIs.add(CutLayoutGenerator.get(brocade, brocade.getHeight() - 96).get(1));
         //brocade
         inputBIs.add(brocade);
         inputBIs.add(brocade);
         //locking
-        inputBIs.add(PlainGenerator.get(width, 18));
-        inputBIs.add(EmptyGenerator.get(width, 16));
-        //locking
-        inputBIs.add(EmptyGenerator.get(width, 4));
+        inputBIs.add(PlainGenerator.get(width, 4));
         //chucks
         inputBIs.add(chucks);
         //border
