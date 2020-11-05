@@ -19,10 +19,8 @@ public class JariConversion {
         final BufferedImage right = EmptyGenerator.get(body.getWidth(), 720);
         final BufferedImage left = EmptyGenerator.get(body.getWidth(), 320);
 
-        final BufferedImage jari = ImageIO.read(new File("z-data/in/5/10/JARI1.bmp"));
-
         List<BufferedImage> inputBIs = new LinkedList<>();
-        int width = jari.getWidth();
+        int width = body.getWidth();
 
         inputBIs.add(EmptyGenerator.get(width, 32));
 

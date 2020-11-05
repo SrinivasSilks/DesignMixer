@@ -13,7 +13,7 @@ public class NimbuConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "zz-data/out/5/a2020nov/design1/1nimbu-%s-%s.bmp";
+        String out = "z-data/out/5/a2020nov/design1/1nimbu-%s-%s.bmp";
         final BufferedImage body = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/5/a2020nov/design1/brocade/jari.bmp")));
         final BufferedImage right = EmptyGenerator.get(body.getWidth(), 720);
         final BufferedImage left = EmptyGenerator.get(body.getWidth(), 320);
@@ -30,7 +30,7 @@ public class NimbuConversion {
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 6));
+        inputBIs.add(EmptyGenerator.get(width, 6));
 
         inputBIs.add(VerticalFlipGenerator.get(left));
         inputBIs.add(body);
@@ -41,7 +41,7 @@ public class NimbuConversion {
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 10));
+        inputBIs.add(EmptyGenerator.get(width, 10));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

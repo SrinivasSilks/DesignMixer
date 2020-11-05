@@ -1,6 +1,7 @@
 package com.varaprasadps.no5.a2020nov.design1.brocade;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
+import com.varaprasadps.image.LeftLayoutGenerator;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -21,16 +22,16 @@ public class BrocadeConversion {
         String out = "z-data/out/5/a2020nov/design1/1brocade-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("z-data/out/5/a2020nov/design1/1rani-200-1824.bmp");
-        inputs.add("z-data/out/5/a2020nov/design1/1jari-200-1824.bmp");
-        inputs.add("z-data/out/5/a2020nov/design1/1nimbu-200-1824.bmp");
+        inputs.add("z-data/out/5/a2020nov/design1/1rani-600-1824.bmp");
+        inputs.add("z-data/out/5/a2020nov/design1/1jari-600-1824.bmp");
+        inputs.add("z-data/out/5/a2020nov/design1/1nimbu-600-1824.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {
             inputBIs.add(ImageIO.read(new File(input)));
         }
 
-        BufferedImage bi = ColumnRepeatGenerator.get(inputBIs);
+        BufferedImage bi = LeftLayoutGenerator.get(ColumnRepeatGenerator.get(inputBIs));
         displayPixels(bi);
         saveBMP(bi, String.format(out, bi.getWidth(), bi.getHeight()));
     }
