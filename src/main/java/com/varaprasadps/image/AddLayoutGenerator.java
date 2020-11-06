@@ -10,53 +10,15 @@ import java.util.List;
 public class AddLayoutGenerator {
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-data/in/8/2020-oct-new/border.bmp";
+        String out = "z-data/in/5/a2020nov/design2/left.bmp";
 
-        BufferedImage peacock = ImageIO.read(new File("z-data/in/8/2020-oct-new/thcxfth.bmp"));
-        BufferedImage b220 = ImageIO.read(new File("z-data/in/8/2020-oct-new/220.bmp"));
-        BufferedImage middle = ImageIO.read(new File("z-data/in/8/2020-oct-new/middle.bmp"));
-        BufferedImage teega = ImageIO.read(new File("z-data/in/8/2020-oct-new/teega-full.bmp"));
-        BufferedImage bugada = ImageIO.read(new File("z-data/in/8/2020-oct-new/bugada-full.bmp"));
-        int width = b220.getWidth();
+        BufferedImage right = ImageIO.read(new File("z-data/in/5/a2020nov/design2/righ.bmp"));
+        BufferedImage lef = ImageIO.read(new File("z-data/in/5/a2020nov/design2/lef.bmp"));
+        BufferedImage cut = ImageIO.read(new File("z-data/in/5/a2020nov/design2/cut.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        //border
-        inputBIs.add(StepLayoutGenerator.get(width, 6, 5));
-        inputBIs.add(bugada);
-
-        inputBIs.add(b220);
-        inputBIs.add(CutLayoutGenerator.get(peacock, 1199).get(1));
-        inputBIs.add(StepLayoutGenerator.get(width, 21, 5));
-        inputBIs.add(middle);
-        inputBIs.add(StepLayoutGenerator.get(width, 21, 5));
-        inputBIs.add(CutLayoutGenerator.get(peacock, 1199).get(1));
-        inputBIs.add(b220);
-        inputBIs.add(teega);
-
-
-//        // right
-//        inputBIs.add(bugada);
-//        inputBIs.add(teega);
-//        inputBIs.add(b220);
-//        inputBIs.add(CutLayoutGenerator.get(peacock, 1199).get(1));
-//        inputBIs.add(StepLayoutGenerator.get(width, 21, 5));
-//        inputBIs.add(middle);
-//        inputBIs.add(StepLayoutGenerator.get(width, 21, 5));
-//        inputBIs.add(CutLayoutGenerator.get(peacock, 1199).get(1));
-//        inputBIs.add(teega);
-//        inputBIs.add(b220);
-
-
-        // left
-//        inputBIs.add(bugada);
-//        inputBIs.add(teega);
-//        inputBIs.add(StepLayoutGenerator.get(width, 6, 5));
-//        inputBIs.add(StepLayoutGenerator.get(width, 6, 5));
-//        inputBIs.add(StepLayoutGenerator.get(width, 6, 5));
-//        inputBIs.add(teega);
-//        inputBIs.add(b220);
-//        inputBIs.add(teega);
+        inputBIs.add(CutLayoutGenerator.get(right, 320).get(0));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -67,7 +29,7 @@ public class AddLayoutGenerator {
             repeatHeight += bi.getHeight();
         }
 
-        BufferedImage bi = get(repeatWidth, repeatHeight, inputBIs);
+        BufferedImage bi = ReverseGenerator.get(get(repeatWidth, repeatHeight, inputBIs));
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
     }
