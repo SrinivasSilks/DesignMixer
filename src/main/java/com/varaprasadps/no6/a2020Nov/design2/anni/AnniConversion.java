@@ -1,4 +1,4 @@
-package com.varaprasadps.no6.a2020Nov.design1.anni;
+package com.varaprasadps.no6.a2020Nov.design2.anni;
 
 import com.varaprasadps.image.*;
 
@@ -13,9 +13,9 @@ public class AnniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/6/a2020nov/design1/anni-%s-%s.bmp";
+        String out = "z-data/out/6/a2020nov/design2/anni-%s-%s.bmp";
 
-        BufferedImage jari = ImageIO.read(new File("z-data/in/6/a2020nov/design1/border/border.bmp"));
+        BufferedImage jari = ImageIO.read(new File("z-data/in/6/a2020nov/design2/border/border.bmp"));
 
         int width = jari.getWidth();
 

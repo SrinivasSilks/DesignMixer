@@ -1,4 +1,4 @@
-package com.varaprasadps.no6.a2020Nov.design1.anni;
+package com.varaprasadps.no6.a2020Nov.design2.kanni;
 
 import com.varaprasadps.image.*;
 
@@ -13,11 +13,11 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/6/a2020nov/design1/a-jari-%s-%s.bmp";
+        String out = "z-data/out/6/a2020nov/design2/k-jari-%s-%s.bmp";
 
-        final BufferedImage body = EmptyGenerator.get(480, 480);
-        BufferedImage meena = ImageIO.read(new File("z-data/in/6/a2020nov/design1/border/jari/meena.bmp"));
-        BufferedImage jari = ImageIO.read(new File("z-data/in/6/a2020nov/design1/border/jari/jari.bmp"));
+        final BufferedImage body = PlainGenerator.get(840, 480);
+        BufferedImage meena = EmptyGenerator.get(840, 400);
+        BufferedImage jari = EmptyGenerator.get(840, 400);
 
         int width = jari.getWidth();
 
