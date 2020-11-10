@@ -16,7 +16,7 @@ public class RaniConversion {
         String out = "z-giri/out/30/p-rani-%s-%s.bmp";
 
         BufferedImage test = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("z-giri/in/30/border.bmp")));
-        BufferedImage border = RightLayoutGenerator.get(CutLayoutGenerator.get(CutLayoutGenerator.get(LeftLayoutGenerator.get(test), 100).get(1), 1800).get(0));
+        BufferedImage border = RightLayoutGenerator.get(CutLayoutGenerator.get(CutLayoutGenerator.get(LeftLayoutGenerator.get(test), 140).get(1), 1800).get(0));
         BufferedImage body = RightLayoutGenerator.get(ImageIO.read(new File("z-giri/in/30/pallu-rani.bmp")));
 
         int width = body.getWidth();

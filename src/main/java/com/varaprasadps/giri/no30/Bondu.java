@@ -28,13 +28,13 @@ public class Bondu {
         inputBIs.add(kongu);
         inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(kanni, 16).get(1), 16).get(0));
 
-        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(anni, 16).get(1), 68).get(0));
+        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(anni, 16).get(1), 108).get(0));
 
-        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(kanni, 168).get(1), 16).get(0));
+        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(kanni, 248).get(1), 16).get(0));
         inputBIs.add(kongu);
-        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(kanni, 184).get(1), 16).get(0));
+        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(kanni, 264).get(1), 16).get(0));
         inputBIs.add(pallu);
-        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(anni, 100).get(1), 100).get(0));
+        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(anni, 140).get(1), 100).get(0));
 
 
         int repeatWidth = 0;

@@ -37,7 +37,7 @@ public class NimbuConversion {
         inputBIs.add(body);
         inputBIs.add(skirt);
         //locking
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 4)));
+        inputBIs.add(CutLayoutGenerator.get(ReverseGenerator.get(StepLayoutGenerator.get(width, 4, 6)), 16).get(0));
         //border
         inputBIs.add(border);
 
