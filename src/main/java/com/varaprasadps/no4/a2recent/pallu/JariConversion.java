@@ -15,7 +15,7 @@ public class JariConversion {
 
         String out = "z-data/out/4/a2recent/p-jari-%s-%s.bmp";
 
-        final BufferedImage pallu = ImageIO.read(new File("z-data/in/4/a2recent/PALLU_JARI.bmp"));
+        final BufferedImage pallu = ImageIO.read(new File("z-data/in/4/a1recent/pallu/pallu_jari.bmp"));
         int width = pallu.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();

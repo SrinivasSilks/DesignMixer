@@ -15,7 +15,7 @@ public class RaniConversion {
 
         String out = "z-data/out/4/a1recent/p-rani-%s-%s.bmp";
 
-        final BufferedImage pallu = ImageIO.read(new File("z-data/in/4/a1recent/PALLU_RANI.bmp"));
+        final BufferedImage pallu = ImageIO.read(new File("z-data/in/4/a1recent/pallu/pallu_rani.bmp"));
         int width = pallu.getWidth();
 
 

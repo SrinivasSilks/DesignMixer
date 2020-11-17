@@ -15,11 +15,11 @@ public class RaniConversion {
 
         String out = "z-data/out/4/a2recent/p-rani-%s-%s.bmp";
 
-        final BufferedImage pallu = ImageIO.read(new File("z-data/in/4/a2recent/PALLU_RANI.bmp"));
+        final BufferedImage pallu = ImageIO.read(new File("z-data/in/4/a1recent/pallu/pallu_rani.bmp"));
         int width = pallu.getWidth();
 
 
-        final BufferedImage border = HorizontalRepeatGenerator.get(width / 300, ImageIO.read(new File("z-data/in/4/a2recent/border.bmp")));
+        final BufferedImage border = cut(HorizontalRepeatGenerator.get(7, ImageIO.read(new File("z-data/in/4/a2recent/border.bmp"))), 2000);
         final BufferedImage bugada = HorizontalRepeatGenerator.get(width / 10, ImageIO.read(new File("z-data/in/4/recent/bugada.bmp")));
         final BufferedImage sunanda = HorizontalRepeatGenerator.get(width / 10, ImageIO.read(new File("z-data/in/4/recent/sunanda.bmp")));
         final BufferedImage teega = HorizontalRepeatGenerator.get(width / 40, ImageIO.read(new File("z-data/in/4/recent/teega.bmp")));
@@ -70,6 +70,10 @@ public class RaniConversion {
         BufferedImage bi = ReverseGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
+    }
+
+    private static BufferedImage cut(BufferedImage image, int size) {
+        return RightLayoutGenerator.get(CutLayoutGenerator.get(LeftLayoutGenerator.get(image), 2000).get(0));
     }
 
     private static void displayPixels(BufferedImage fileOne) {

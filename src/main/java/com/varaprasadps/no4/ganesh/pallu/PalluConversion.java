@@ -1,6 +1,7 @@
 package com.varaprasadps.no4.ganesh.pallu;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
+import com.varaprasadps.image.LeftLayoutGenerator;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -17,15 +18,15 @@ public class PalluConversion {
         String out = "z-data/out/4/ganesh/pallu-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("z-data/out/4/ganesh/p-rani-1800-1440.bmp");
-        inputs.add("z-data/out/4/ganesh/p-jari-1800-1440.bmp");
+        inputs.add("z-data/out/4/ganesh/p-rani-2000-1440.bmp");
+        inputs.add("z-data/out/4/ganesh/p-jari-2000-1440.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {
             inputBIs.add(ImageIO.read(new File(input)));
         }
 
-        BufferedImage bi = ColumnRepeatGenerator.get(inputBIs);
+        BufferedImage bi = LeftLayoutGenerator.get(ColumnRepeatGenerator.get(inputBIs));
         displayPixels(bi);
         saveBMP(bi, String.format(out, bi.getWidth(), bi.getHeight()));
     }

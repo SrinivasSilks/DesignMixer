@@ -15,10 +15,9 @@ public class RaniConversion {
 
         String out = "z-data/out/4/ganesh/p-rani-%s-%s.bmp";
 
-
-        final BufferedImage left = VerticalFlipGenerator.get(ImageIO.read(new File("z-data/in/4/ganesh/left.bmp")));
-        final BufferedImage right = ImageIO.read(new File("z-data/in/4/ganesh/right.bmp"));
-        final BufferedImage pallu = ImageIO.read(new File("z-data/in/4/a2recent/PALLU_RANI.bmp"));
+        final BufferedImage left = cut(HorizontalRepeatGenerator.get(2, VerticalFlipGenerator.get(ImageIO.read(new File("z-data/in/4/ganesh/left.bmp")))), 2000);
+        final BufferedImage right = cut(HorizontalRepeatGenerator.get(2, ImageIO.read(new File("z-data/in/4/ganesh/right.bmp"))), 2000);
+        final BufferedImage pallu = ImageIO.read(new File("z-data/in/4/ganesh/pallu/pallu_rani.bmp"));
         int width = pallu.getWidth();
 
 
@@ -63,6 +62,11 @@ public class RaniConversion {
         BufferedImage bi = ReverseGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
+    }
+
+    private static BufferedImage cut(BufferedImage image, int size) {
+
+        return RightLayoutGenerator.get(CutLayoutGenerator.get(LeftLayoutGenerator.get(image), 2000).get(0));
     }
 
     private static void displayPixels(BufferedImage fileOne) {
