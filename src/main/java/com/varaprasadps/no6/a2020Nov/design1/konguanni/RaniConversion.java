@@ -16,8 +16,8 @@ public class RaniConversion {
         String out = "z-data/out/6/a2020nov/design1/2k-rani-%s-%s.bmp";
 
         final BufferedImage body = PlainGenerator.get(480, 480);
-        BufferedImage meena = ImageIO.read(new File("z-data/in/6/a2020nov/design1/border/rani/meena.bmp"));
-        BufferedImage jari = ReverseGenerator.get(ImageIO.read(new File("z-data/in/6/a2020nov/design1/border/rani/jari.bmp")));
+        BufferedImage meena = ReverseGenerator.get(ImageIO.read(new File("z-data/in/6/a2020nov/design1/border2/rani/meena.bmp")));
+        BufferedImage jari = ReverseGenerator.get(ImageIO.read(new File("z-data/in/6/a2020nov/design1/border2/rani/jari.bmp")));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
