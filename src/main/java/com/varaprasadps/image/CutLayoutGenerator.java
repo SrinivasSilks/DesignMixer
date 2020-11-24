@@ -27,6 +27,10 @@ public class CutLayoutGenerator {
         AddLayoutGenerator.saveBMP(output, "z-data/in/11/pallu1/PALLU_RANI.bmp");
     }
 
+    public static BufferedImage get(BufferedImage input, int sizeX, int index) {
+        return RightLayoutGenerator.get(get(LeftLayoutGenerator.get(input), sizeX).get(index));
+    }
+
     public static List<BufferedImage> get(BufferedImage inputBI, int sizeY) {
         final List<BufferedImage> res = new LinkedList<>();
         final List<BufferedImage> images = SplitGenerator.get(inputBI, inputBI.getHeight());

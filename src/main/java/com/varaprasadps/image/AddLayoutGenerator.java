@@ -37,7 +37,7 @@ public class AddLayoutGenerator {
     }
 
     public static BufferedImage get(int sizeX, int sizeY, List<BufferedImage> inputBIs) {
-        final BufferedImage result = new BufferedImage(sizeX, sizeY, BufferedImage.TYPE_INT_RGB);
+        final BufferedImage result = new BufferedImage(sizeX,sizeY, BufferedImage.TYPE_BYTE_BINARY);
         int yRes = 0;
         int index = 0;
         while (yRes < result.getHeight()) {
