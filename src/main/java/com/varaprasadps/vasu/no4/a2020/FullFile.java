@@ -16,11 +16,11 @@ public class FullFile {
 
     public static void main(String[] args) throws IOException {
 
-        String out = "z-vasu/in/4/a2020/fullfile/fullfile.bmp";
+        String out = "z-vasu/in/4/a2020/fullfile/22fullfile.bmp";
 
         BufferedImage plain = ImageIO.read(new File("z-vasu/in/4/a2020/fullfile/plain.bmp"));
         BufferedImage pallu = ImageIO.read(new File("z-vasu/in/4/a2020/fullfile/pallu.bmp"));
-        BufferedImage broc = ImageIO.read(new File("z-vasu/in/4/a2020/fullfile/broc.bmp"));
+        BufferedImage broc = ImageIO.read(new File("z-vasu/in/4/a2020/fullfile/2broc.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -29,7 +29,7 @@ public class FullFile {
         inputBIs.add(plain);
         inputBIs.add(CutLayoutGenerator.get(plain, 600).get(0));
         inputBIs.add(pallu);
-        inputBIs.add(CutLayoutGenerator.get(broc, 19500).get(0));
+        inputBIs.add(CutLayoutGenerator.get(broc, 29250).get(0));
         inputBIs.add(CutLayoutGenerator.get(plain, 510).get(1));
         inputBIs.add(plain);
         inputBIs.add(plain);
