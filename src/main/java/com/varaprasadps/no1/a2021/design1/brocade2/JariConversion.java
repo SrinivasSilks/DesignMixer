@@ -1,4 +1,4 @@
-package com.varaprasadps.no1.a2021.design1;
+package com.varaprasadps.no1.a2021.design1.brocade2;
 
 import com.varaprasadps.image.*;
 
@@ -9,32 +9,39 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class KonguConversion {
+public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/1/a2021/design1/1kongu-%s-%s.bmp";
+        String out = "z-data/out/1/a2021/design1/2jari-%s-%s.bmp";
 
-        int width = 2;
+        BufferedImage body = HorizontalRepeatGenerator.get(2, ImageIO.read(new File("z-data/in/1/a2021/design1/brocade2/nimbu.bmp")));
+
+        int width = body.getWidth();
+
         List<BufferedImage> inputBIs = new LinkedList<>();
-
         //box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
-        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //achu
         inputBIs.add(EmptyGenerator.get(width, 10));
 
+
+        //left border
         inputBIs.add(EmptyGenerator.get(width, 384));
-        inputBIs.add(KonguLayoutGenerator.get(4));
-        //all over
-        inputBIs.add(KonguLayoutGenerator.get(240));
-        inputBIs.add(KonguLayoutGenerator.get(4));
+        //locking
+        inputBIs.add(PlainGenerator.get(width, 16));
+            inputBIs.add(body);
+            inputBIs.add(body);
+        //locking
+        inputBIs.add(PlainGenerator.get(width, 16));
+        //right border
         inputBIs.add(EmptyGenerator.get(width, 1280));
 
-        //khali
-        inputBIs.add(EmptyGenerator.get(width, 2));
+        //mispick
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //achu
         inputBIs.add(EmptyGenerator.get(width, 14));
 
@@ -46,7 +53,7 @@ public class KonguConversion {
             repeatWidth = bi.getWidth();
             repeatHeight += bi.getHeight();
         }
-        BufferedImage bi = LeftLayoutGenerator.get(HorizontalFlipGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs)));
+        BufferedImage bi = AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs);
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
     }
