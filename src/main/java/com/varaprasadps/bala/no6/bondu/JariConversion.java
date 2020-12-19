@@ -1,4 +1,4 @@
-package com.varaprasadps.bala.no3.design1.bondu;
+package com.varaprasadps.bala.no6.bondu;
 
 import com.varaprasadps.image.*;
 
@@ -9,36 +9,37 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class RaniConversion {
+public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-bala/out/6/design1/b-rani-%s-%s.bmp";
+        String out = "z-bala/out/6/design1/b-jari-%s-%s.bmp";
 
-        final BufferedImage body = PlainGenerator.get(20, 960);
-        final BufferedImage right = EmptyGenerator.get(body.getWidth(), 496);
-        final BufferedImage left = EmptyGenerator.get(body.getWidth(), 496);
+        final BufferedImage body = ImageIO.read(new File("z-bala/in/7/a2020/design2/bondu/bondu.bmp"));
+        final BufferedImage right = EmptyGenerator.get(body.getWidth(), 500);
+        final BufferedImage left = EmptyGenerator.get(body.getWidth(), 500);
+
         int width = body.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 16));
-        inputBIs.add(AchuLayoutGenerator.get(width, 20));
-        inputBIs.add(AchuLayoutGenerator.get(width, 12));
+        inputBIs.add(EmptyGenerator.get(width, 128));
 
-        //left
-        inputBIs.add(left);
+        //achu
+        inputBIs.add(EmptyGenerator.get(width, 16));
+        inputBIs.add(EmptyGenerator.get(width, 32));
+
         //body
         inputBIs.add(body);
         //right
         inputBIs.add(right);
-        inputBIs.add(AchuLayoutGenerator.get(width, 20));
-        inputBIs.add(AchuLayoutGenerator.get(width, 2));
+
         //box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 10)));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 12)));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 16));
+        inputBIs.add(EmptyGenerator.get(width, 16));
+
+        inputBIs.add(EmptyGenerator.get(width, 128));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

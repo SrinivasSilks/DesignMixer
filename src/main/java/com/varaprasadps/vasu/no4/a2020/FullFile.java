@@ -20,7 +20,7 @@ public class FullFile {
 
         BufferedImage plain = ImageIO.read(new File("z-vasu/in/4/a2020/fullfile/plain.bmp"));
         BufferedImage pallu = ImageIO.read(new File("z-vasu/in/4/a2020/fullfile/pallu.bmp"));
-        BufferedImage broc = ImageIO.read(new File("z-vasu/in/4/a2020/fullfile/2broc.bmp"));
+        BufferedImage broc = ImageIO.read(new File("z-vasu/out/4/a2020/2brocade-1792-39600.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -29,8 +29,8 @@ public class FullFile {
         inputBIs.add(plain);
         inputBIs.add(CutLayoutGenerator.get(plain, 600).get(0));
         inputBIs.add(pallu);
-        inputBIs.add(CutLayoutGenerator.get(broc, 29250).get(0));
-        inputBIs.add(CutLayoutGenerator.get(plain, 510).get(1));
+        inputBIs.add(CutLayoutGenerator.get(broc, 26730).get(0));
+        inputBIs.add(CutLayoutGenerator.get(plain, 330).get(1));
         inputBIs.add(plain);
         inputBIs.add(plain);
 

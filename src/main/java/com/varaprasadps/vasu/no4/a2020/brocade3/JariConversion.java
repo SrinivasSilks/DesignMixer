@@ -15,7 +15,7 @@ public class JariConversion {
 
         String out = "z-vasu/out/4/a2020/2jari-%s-%s.bmp";
 
-        final BufferedImage body = HorizontalRepeatGenerator.get(33, ImageIO.read(new File("z-vasu/in/4/a2020/rani.bmp")));
+        final BufferedImage body = HorizontalRepeatGenerator.get(33, ImageIO.read(new File("z-vasu/in/4/a2020/jari.bmp")));
         final BufferedImage border = EmptyGenerator.get(body.getWidth(), 960);
         int width = body.getWidth();
 
@@ -34,7 +34,7 @@ public class JariConversion {
         inputBIs.add(border);
 
         // Locking
-        inputBIs.add(HorizontalFlipGenerator.get(ReverseGenerator.get(StepLayoutGenerator.get(width, 4))));
+        inputBIs.add(PlainGenerator.get(width, 16));
 
         //box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));

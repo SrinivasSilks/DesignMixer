@@ -1,8 +1,7 @@
-package com.varaprasadps.bala.no3.design1.bondu;
+package com.varaprasadps.bala.no3.design1.bondu2;
 
 import com.varaprasadps.image.AddLayoutGenerator;
 import com.varaprasadps.image.CutLayoutGenerator;
-import com.varaprasadps.image.EmptyGenerator;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -15,10 +14,10 @@ public class BonduRaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-bala/out/6/bondu-rani-%s-%s.bmp";
+        String out = "z-bala/out/3/bondu-rani-%s-%s.bmp";
 
-        final BufferedImage bondu = ImageIO.read(new File("z-bala/out/6/design1/b-rani-20-2048.bmp"));
-        final BufferedImage anni = ImageIO.read(new File("z-bala/out/6/design1/anni-12-2048.bmp"));
+        final BufferedImage bondu = ImageIO.read(new File("z-bala/out/3/design1/b-rani-20-1792.bmp"));
+        final BufferedImage anni = ImageIO.read(new File("z-bala/out/3/design1/anni-12-1792.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 

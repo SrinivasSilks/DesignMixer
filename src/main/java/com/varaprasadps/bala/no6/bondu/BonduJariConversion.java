@@ -1,4 +1,4 @@
-package com.varaprasadps.bala.no3.design1.bondu;
+package com.varaprasadps.bala.no6.bondu;
 
 import com.varaprasadps.image.AddLayoutGenerator;
 import com.varaprasadps.image.EmptyGenerator;
@@ -16,10 +16,10 @@ public class BonduJariConversion {
 
         String out = "z-bala/out/6/bondu-jari-%s-%s.bmp";
 
-        final BufferedImage bondu = ImageIO.read(new File("z-bala/out/6/design1/b-jari-20-2048.bmp"));
-        final BufferedImage first = EmptyGenerator.get(2048, 50);
-        final BufferedImage second = EmptyGenerator.get(2048, 110);
-        final BufferedImage third = EmptyGenerator.get(2048, 20);
+        final BufferedImage bondu = ImageIO.read(new File("z-bala/out/6/design1/b-jari-20-1792.bmp"));
+        final BufferedImage first = EmptyGenerator.get(1792, 50);
+        final BufferedImage second = EmptyGenerator.get(1792, 110);
+        final BufferedImage third = EmptyGenerator.get(1792, 20);
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
