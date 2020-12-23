@@ -65,7 +65,7 @@ public class AddLayoutGenerator {
             repeatHeight += bi.getHeight();
         }
 
-        final BufferedImage result = new BufferedImage(repeatWidth, repeatHeight, BufferedImage.TYPE_INT_RGB);
+        final BufferedImage result = new BufferedImage(repeatWidth, repeatHeight, BufferedImage.TYPE_BYTE_BINARY);
         int yRes = 0;
         int index = 0;
         while (yRes < result.getHeight()) {

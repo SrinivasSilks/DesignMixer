@@ -29,7 +29,7 @@ public class StepLayoutGenerator {
     }
 
     public static BufferedImage get(int sizeX) {
-        final BufferedImage res = new BufferedImage(sizeX, 4, BufferedImage.TYPE_INT_RGB);
+        final BufferedImage res = new BufferedImage(sizeX, 4, BufferedImage.TYPE_BYTE_BINARY);
         int position = 3;
 
         for (int x = 0; x < sizeX; x++) {
@@ -57,7 +57,7 @@ public class StepLayoutGenerator {
     }
 
     public static BufferedImage getBox(int sizeX, int box) {
-        final BufferedImage res = new BufferedImage(sizeX, box, BufferedImage.TYPE_INT_RGB);
+        final BufferedImage res = new BufferedImage(sizeX, box, BufferedImage.TYPE_BYTE_BINARY);
         int position = box - 1;
 
         for (int x = 0; x < sizeX; x++) {

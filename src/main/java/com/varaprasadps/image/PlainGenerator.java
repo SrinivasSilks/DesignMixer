@@ -17,7 +17,7 @@ public class PlainGenerator {
     }
 
     public static BufferedImage get(int sizeX, int sizeY) {
-        final BufferedImage res = new BufferedImage(sizeX, sizeY, BufferedImage.TYPE_INT_RGB);
+        final BufferedImage res = new BufferedImage(sizeX, sizeY, BufferedImage.TYPE_BYTE_BINARY);
         Color start;
         Color other;
         for (int x = 0; x < sizeY; x++) {

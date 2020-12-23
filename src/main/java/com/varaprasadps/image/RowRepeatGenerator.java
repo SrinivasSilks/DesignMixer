@@ -40,7 +40,7 @@ public class RowRepeatGenerator {
 
     private static BufferedImage map(int sizeX, int sizeY, List<BufferedImage> inputBIs) {
         int key = inputBIs.size();
-        final BufferedImage result = new BufferedImage(sizeX, sizeY, BufferedImage.TYPE_INT_RGB);
+        final BufferedImage result = new BufferedImage(sizeX, sizeY, BufferedImage.TYPE_BYTE_BINARY);
         for (int colId = 0; colId < sizeY; colId++) {
             int turn = colId % key;
             copyRow(colId, key, result, inputBIs.get(turn));

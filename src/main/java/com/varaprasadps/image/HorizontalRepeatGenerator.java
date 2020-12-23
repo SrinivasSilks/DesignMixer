@@ -33,7 +33,7 @@ public class HorizontalRepeatGenerator {
     }
 
     private static BufferedImage map(int sizeX, int sizeY, BufferedImage input) {
-        final BufferedImage result = new BufferedImage(sizeX, sizeY, BufferedImage.TYPE_INT_RGB);
+        final BufferedImage result = new BufferedImage(sizeX, sizeY, BufferedImage.TYPE_BYTE_BINARY);
         int inputWidth = input.getWidth();
 
         for (int x = 0; x < sizeX; x++) {

@@ -34,7 +34,7 @@ public class SplitGenerator {
         int height = input.getHeight() / number;
         int y = 0;
         while (y < input.getHeight()) {
-            final BufferedImage bi = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+            final BufferedImage bi = new BufferedImage(width, height, BufferedImage.TYPE_BYTE_BINARY);
             int yRes = 0;
             while (yRes < bi.getHeight()) {
                 copyRow(yRes, bi, y, input);

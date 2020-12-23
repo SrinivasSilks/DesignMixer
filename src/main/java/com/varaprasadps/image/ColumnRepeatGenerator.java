@@ -52,7 +52,7 @@ public class ColumnRepeatGenerator {
 
     private static BufferedImage map(int sizeX, int sizeY, List<BufferedImage> inputBIs) {
         int key = inputBIs.size();
-        final BufferedImage result = new BufferedImage(sizeX, sizeY, BufferedImage.TYPE_INT_RGB);
+        final BufferedImage result = new BufferedImage(sizeX, sizeY, BufferedImage.TYPE_BYTE_BINARY);
         for (int rowId = 0; rowId < sizeX; rowId++) {
             int turn = rowId % key;
             copyCol(rowId, key, result, inputBIs.get(turn));

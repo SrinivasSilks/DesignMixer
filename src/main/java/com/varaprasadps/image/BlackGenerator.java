@@ -17,7 +17,7 @@ public class BlackGenerator {
     }
 
     public static BufferedImage get(int sizeX, int sizeY) {
-        final BufferedImage res = new BufferedImage(sizeX, sizeY, BufferedImage.TYPE_INT_RGB);
+        final BufferedImage res = new BufferedImage(sizeX, sizeY, BufferedImage.TYPE_BYTE_BINARY);
         for (int x = 0; x < sizeY; x++) {
             for (int y = 0; y < sizeX; y++) {
                 res.setRGB(y, x, Color.BLACK.getRGB());
