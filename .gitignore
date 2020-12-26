@@ -12,6 +12,7 @@ out/
 
 # DesignMixer Ignore files
 
+z-chala/**
 z-bala/**
 z-data/**
 z-dinesh/**
