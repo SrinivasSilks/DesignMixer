@@ -15,8 +15,7 @@ public class JariConversion {
 
         String out = "z-data/out/8/a2020oct/design1/1jari-%s-%s.bmp";
 
-        BufferedImage abc = HorizontalRepeatGenerator.get(2, ImageIO.read(new File("z-data/in/8/a2020oct/design1/nimbu.bmp")));
-        final BufferedImage brocade = RightLayoutGenerator.get(CutLayoutGenerator.get(LeftLayoutGenerator.get(abc), 540).get(0));
+        BufferedImage brocade = HorizontalRepeatGenerator.get(27, PlainGenerator.get(40, 240));
         final BufferedImage chucks = ReverseGenerator.get(EmptyGenerator.get(brocade.getWidth(), 60));
 
         int width = brocade.getWidth();

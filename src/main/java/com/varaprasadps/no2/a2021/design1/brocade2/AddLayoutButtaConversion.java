@@ -72,7 +72,7 @@ public class AddLayoutButtaConversion {
             saveBMP(input, String.format(basePath + "test-%s.bmp", i++));
 
         }
-        BufferedImage bufferedImage = AddLayoutGenerator.get(result);
+        BufferedImage bufferedImage = VerticalFlipGenerator.get(AddLayoutGenerator.get(result));
         saveBMP(bufferedImage, basePath + "brocade2.bmp");
     }
 

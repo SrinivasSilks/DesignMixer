@@ -15,8 +15,7 @@ public class NimbuConversion {
 
         String out = "z-data/out/8/a2020oct/design1/1nimbu-%s-%s.bmp";
 
-        BufferedImage abc = HorizontalRepeatGenerator.get(2, ImageIO.read(new File("z-data/in/8/a2020oct/design1/jari.bmp")));
-        final BufferedImage brocade = RightLayoutGenerator.get(CutLayoutGenerator.get(LeftLayoutGenerator.get(abc), 540).get(0));
+        BufferedImage brocade = HorizontalRepeatGenerator.get(27, ImageIO.read(new File("z-data/in/8/a2020oct/brocade3/jari.bmp")));
 
         final BufferedImage chucks = ReverseGenerator.get(EmptyGenerator.get(brocade.getWidth(), 60));
         int width = brocade.getWidth();
