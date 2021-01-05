@@ -1,8 +1,6 @@
 package com.varaprasadps.no8.a2020.design2.brocade5;
 
 import com.varaprasadps.image.*;
-import com.varaprasadps.no8.a2020.design2.brocade3.GoldJariBrocade;
-import com.varaprasadps.no8.a2020.design2.brocade3.WhiteJariBrocade;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

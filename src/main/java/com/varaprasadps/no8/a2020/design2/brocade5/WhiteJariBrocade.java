@@ -55,17 +55,14 @@ public class WhiteJariBrocade {
         //achu
         inputBIs.add(EmptyGenerator.get(width, 8));
         //locking
-        inputBIs.add(StepLayoutGenerator.get(width, 1));
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 1)));
 
         //jari
         inputBIs.add(jari);
         //mango
-        inputBIs.add(CutLayoutGenerator.get(jari, 62).get(0));
-        inputBIs.add(StepLayoutGenerator.get(width, 3, 6));
-        inputBIs.add(EmptyGenerator.get(width, 16));
-
+        inputBIs.add(CutLayoutGenerator.get(jari, 96).get(0));
         //locking
-        inputBIs.add(EmptyGenerator.get(width, 4));
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 1)));
         //chucks
         inputBIs.add(chucks);
         //border
@@ -111,11 +108,9 @@ public class WhiteJariBrocade {
         //brocade
         inputBIs.add(nimbu);
         //mango
-        inputBIs.add(CutLayoutGenerator.get(nimbu, 62).get(0));
-        inputBIs.add(PlainGenerator.get(width, 18));
-        inputBIs.add(EmptyGenerator.get(width, 16));
+        inputBIs.add(CutLayoutGenerator.get(nimbu, 96).get(0));
         //locking
-        inputBIs.add(EmptyGenerator.get(width, 4));
+        inputBIs.add(PlainGenerator.get(width, 4));
         //chucks
         inputBIs.add(chucks);
         //border
@@ -158,10 +153,7 @@ public class WhiteJariBrocade {
         //brocade
         inputBIs.add(EmptyGenerator.get(width, 480));
         //mango
-        inputBIs.add(EmptyGenerator.get(width, 62));
-        //locking
-        inputBIs.add(PlainGenerator.get(width, 18));
-        inputBIs.add(PlainGenerator.get(width, 16));
+        inputBIs.add(EmptyGenerator.get(width, 96));
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));
         //chucks

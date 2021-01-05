@@ -90,10 +90,7 @@ public class PalluMeenaConversion {
         //brocade
         inputBIs.add(body);
         //mango
-        inputBIs.add(EmptyGenerator.get(width, 62));
-        //locking
-        inputBIs.add(PlainGenerator.get(width, 18));
-        inputBIs.add(PlainGenerator.get(width, 16));
+        inputBIs.add(CutLayoutGenerator.get(body, 96).get(0));
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));
         //chucks

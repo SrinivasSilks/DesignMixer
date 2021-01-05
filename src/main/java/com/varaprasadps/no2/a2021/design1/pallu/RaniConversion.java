@@ -20,7 +20,7 @@ public class RaniConversion {
 
         BufferedImage leftImage = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("z-data/in/2/a2021/design1/border/left.bmp")));
         BufferedImage rightImage = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("z-data/in/2/a2021/design1/border/right.bmp")));
-        final BufferedImage left = CutLayoutGenerator.get(leftImage, 2000, 0);
+        final BufferedImage left = VerticalFlipGenerator.get(CutLayoutGenerator.get(leftImage, 2000, 0));
         final BufferedImage right = CutLayoutGenerator.get(rightImage, 2000, 0);
 
         List<BufferedImage> inputBIs = new LinkedList<>();
