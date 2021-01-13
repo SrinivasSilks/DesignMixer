@@ -10,13 +10,19 @@ import java.util.List;
 public class AddLayoutGenerator {
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-data/in/6/a2020nov/design2/border/border.bmp";
+        String out = "z-bala/in/5/left.bmp";
 
-        BufferedImage border = ImageIO.read(new File("z-data/in/12/a2020oct/design1/border/border.bmp"));
+        BufferedImage b = ReverseGenerator.get(CutLayoutGenerator.get(ImageIO.read(new File("z-bala/in/5/b.bmp")), 40, 0));
+        BufferedImage repeat = CutLayoutGenerator.get(ImageIO.read(new File("z-bala/in/5/repeat.bmp")), 40, 0);
+        BufferedImage teega = HorizontalRepeatGenerator.get(2, ImageIO.read(new File("z-bala/in/5/teega.bmp")));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        inputBIs.add(CutLayoutGenerator.get(border, 624 - 400).get(1));
+        inputBIs.add(b);
+        inputBIs.add(StepLayoutGenerator.get(40, 12, 5));
+        inputBIs.add(repeat);
+        inputBIs.add(teega);
+        inputBIs.add(repeat);
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -37,7 +43,7 @@ public class AddLayoutGenerator {
     }
 
     public static BufferedImage get(int sizeX, int sizeY, List<BufferedImage> inputBIs) {
-        final BufferedImage result = new BufferedImage(sizeX,sizeY, BufferedImage.TYPE_BYTE_BINARY);
+        final BufferedImage result = new BufferedImage(sizeX, sizeY, BufferedImage.TYPE_BYTE_BINARY);
         int yRes = 0;
         int index = 0;
         while (yRes < result.getHeight()) {
