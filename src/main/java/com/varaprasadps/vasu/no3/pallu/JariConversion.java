@@ -1,4 +1,4 @@
-package com.varaprasadps.vasu.no5.brocade;
+package com.varaprasadps.vasu.no3.pallu;
 
 import com.varaprasadps.image.*;
 
@@ -9,38 +9,38 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class NimbuConversion {
+public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-vasu/out/5/1nimbu-%s-%s.bmp";
+        String out = "z-vasu/out/3/p-jari-%s-%s.bmp";
 
+        final BufferedImage pallu = ImageIO.read(new File("z-vasu/in/3/pallu/pallu-jari.bmp"));
 
-        final BufferedImage brocade = ImageIO.read(new File("z-vasu/in/5/brocade/jari.bmp"));
-
-        int width = brocade.getWidth();
+        int width = pallu.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
+        //box
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //achu
-        inputBIs.add(EmptyGenerator.get(width, 14));
+        inputBIs.add(EmptyGenerator.get(width, 10));
 
-        inputBIs.add(brocade);
-        inputBIs.add(brocade);
         //locking
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 6)));
-        inputBIs.add(EmptyGenerator.get(width, 520));
-        inputBIs.add(EmptyGenerator.get(width, 352));
+        inputBIs.add(StepLayoutGenerator.get(width, 2));
+        inputBIs.add(pallu);
+        //locking
+        inputBIs.add(StepLayoutGenerator.get(width, 2));
 
-        //box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
-        inputBIs.add(EmptyGenerator.get(width, 1));
+        inputBIs.add(EmptyGenerator.get(width, 400));
+
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //achu
-        inputBIs.add(EmptyGenerator.get(width, 12));
+        inputBIs.add(EmptyGenerator.get(width, 14));
 
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
         int repeatWidth = 0;
