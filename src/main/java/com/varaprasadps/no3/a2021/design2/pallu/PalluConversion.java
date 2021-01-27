@@ -1,7 +1,7 @@
-package com.varaprasadps.no3.a2021.design1.kanni;
+package com.varaprasadps.no3.a2021.design2.pallu;
 
+import com.varaprasadps.image.HorizontalRepeatGenerator;
 import com.varaprasadps.image.LeftLayoutGenerator;
-import com.varaprasadps.image.PlainGenerator;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -14,7 +14,7 @@ import static com.varaprasadps.no3.a2021.TwoPlay.*;
 import static java.lang.String.format;
 
 
-public class KanniConversion {
+public class PalluConversion {
 
     public static BufferedImage get(BufferedImage border, BufferedImage rani, BufferedImage jari) throws IOException {
         List<BufferedImage> brocades = new LinkedList<>();
@@ -23,14 +23,14 @@ public class KanniConversion {
         BufferedImage brocade = LeftLayoutGenerator.get(getBrocade(brocades));
         displayPixels(brocade);
 
-        saveBMP(brocade, format("z-data/out/3/a2021/design1/kanni-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
+        saveBMP(brocade, format("z-data/out/3/a2021/design2/pallu-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
         return brocade;
     }
 
     public static void main(final String[] args) throws IOException {
-        BufferedImage border = ImageIO.read(new File("z-data/in/3/a2021/design1/border/border.bmp"));
-        BufferedImage rani = PlainGenerator.get(border.getWidth(), 720);
-        BufferedImage jari = PlainGenerator.get(border.getWidth(), 720);
+        BufferedImage border = HorizontalRepeatGenerator.get(4, ImageIO.read(new File("z-data/in/3/a2021/design2/border/border.bmp")));
+        BufferedImage rani = ImageIO.read(new File("z-data/in/3/a2021/design2/pallu/p-rani.bmp"));
+        BufferedImage jari = ImageIO.read(new File("z-data/in/3/a2021/design2/pallu/p-jari.bmp"));
         get(border, rani, jari);
     }
 

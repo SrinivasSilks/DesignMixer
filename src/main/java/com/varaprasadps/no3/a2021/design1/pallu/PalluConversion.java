@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-import static com.varaprasadps.no3.a2021.design1.TwoPlay.*;
+import static com.varaprasadps.no3.a2021.TwoPlay.*;
 import static java.lang.String.format;
 
 

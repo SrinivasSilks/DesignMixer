@@ -1,4 +1,4 @@
-package com.varaprasadps.no3.a2021.design1;
+package com.varaprasadps.no3.a2021;
 
 import com.varaprasadps.image.*;
 
@@ -9,10 +9,12 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ThreePlay {
+public class TwoPlay {
 
-    public static BufferedImage nimbu(BufferedImage border, BufferedImage jari) {
+    public static BufferedImage jari(BufferedImage border, BufferedImage body) {
+
         int width = border.getWidth();
+
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         inputBIs.add(EmptyGenerator.get(width, 32));
@@ -26,14 +28,16 @@ public class ThreePlay {
         inputBIs.add(EmptyGenerator.get(width, 10));
 
         // locking
-        inputBIs.add(StepLayoutGenerator.get(width, 4));
+        inputBIs.add(EmptyGenerator.get(width, 16));
+
         // body
-        inputBIs.add(jari);
+        inputBIs.add(body);
+
         // locking
-        inputBIs.add(StepLayoutGenerator.get(width, 4));
-        // border
-        inputBIs.add(CutLayoutGenerator.get(border, 16).get(0));
-        inputBIs.add(EmptyGenerator.get(border.getWidth(), border.getHeight() - 16));
+        inputBIs.add(EmptyGenerator.get(width, 16));
+
+        //border
+        inputBIs.add(border);
 
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
@@ -51,49 +55,7 @@ public class ThreePlay {
         return ReverseGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
     }
 
-
-    public static BufferedImage jari(BufferedImage border, BufferedImage nimbu) {
-
-        int width = border.getWidth();
-
-        List<BufferedImage> inputBIs = new LinkedList<>();
-
-        inputBIs.add(EmptyGenerator.get(width, 32));
-
-        //box
-        inputBIs.add(EmptyGenerator.get(width, 4));
-        //mispick
-        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
-        //achu
-        inputBIs.add(EmptyGenerator.get(width, 10));
-
-        // locking
-        inputBIs.add(PlainGenerator.get(width, 16));
-        // body
-        inputBIs.add(nimbu);
-        // locking
-        inputBIs.add(PlainGenerator.get(width, 16));
-        // border
-        inputBIs.add(CutLayoutGenerator.get(border, 16).get(0));
-        inputBIs.add(EmptyGenerator.get(border.getWidth(), border.getHeight() - 16));
-
-        //mispick
-        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
-        //achu
-        inputBIs.add(EmptyGenerator.get(width, 14));
-
-        int repeatWidth = 0;
-        int repeatHeight = 0;
-
-        for (BufferedImage bi : inputBIs) {
-            displayPixels(bi);
-            repeatWidth = bi.getWidth();
-            repeatHeight += bi.getHeight();
-        }
-        return ReverseGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
-    }
-
-    public static BufferedImage rani(BufferedImage border) {
+    public static BufferedImage rani(BufferedImage border, BufferedImage body) {
 
         int width = border.getWidth();
         List<BufferedImage> inputBIs = new LinkedList<>();
@@ -110,11 +72,11 @@ public class ThreePlay {
 
         // locking
         inputBIs.add(PlainGenerator.get(width, 16));
-        // body
-        inputBIs.add(EmptyGenerator.get(width, 720));
+        //body
+        inputBIs.add(body);
         // locking
         inputBIs.add(PlainGenerator.get(width, 16));
-        // border
+        //border
         inputBIs.add(border);
 
         //mispick
@@ -157,5 +119,6 @@ public class ThreePlay {
     public static void saveBMP(final BufferedImage bi, final String path) throws IOException {
         ImageIO.write(bi, "bmp", new File(path));
     }
+
 
 }

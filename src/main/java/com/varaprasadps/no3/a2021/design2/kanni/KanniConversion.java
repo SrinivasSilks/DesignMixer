@@ -1,4 +1,4 @@
-package com.varaprasadps.no3.a2021.design1.kanni;
+package com.varaprasadps.no3.a2021.design2.kanni;
 
 import com.varaprasadps.image.LeftLayoutGenerator;
 import com.varaprasadps.image.PlainGenerator;
@@ -23,12 +23,12 @@ public class KanniConversion {
         BufferedImage brocade = LeftLayoutGenerator.get(getBrocade(brocades));
         displayPixels(brocade);
 
-        saveBMP(brocade, format("z-data/out/3/a2021/design1/kanni-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
+        saveBMP(brocade, format("z-data/out/3/a2021/design2/kanni-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
         return brocade;
     }
 
     public static void main(final String[] args) throws IOException {
-        BufferedImage border = ImageIO.read(new File("z-data/in/3/a2021/design1/border/border.bmp"));
+        BufferedImage border = ImageIO.read(new File("z-data/in/3/a2021/design2/border/border.bmp"));
         BufferedImage rani = PlainGenerator.get(border.getWidth(), 720);
         BufferedImage jari = PlainGenerator.get(border.getWidth(), 720);
         get(border, rani, jari);

@@ -31,14 +31,15 @@ public class Border {
         result.add(asgfgfdg);
 
         result.add(CutLayoutGenerator.get(test, 3).get(1));
-        result.add(test);
-        result.add(test);
-        result.add(test);
-        result.add(test);
+        result.add(VerticalFlipGenerator.get(CutLayoutGenerator.get(images.get(1), images.get(1).getHeight() - 37).get(0)));
+        result.add(images.get(0));
 
         result.add(images.get(1));
-        result.add(images.get(0));
-        result.add(images.get(1));
+        for (int i = 0; i < 11; i++) {
+            result.add(test);
+        }
+        result.add(CutLayoutGenerator.get(test, 2).get(0));
+
 
         int x = 0;
         int y = 0;
