@@ -28,13 +28,13 @@ public class TwoPlay {
         inputBIs.add(EmptyGenerator.get(width, 10));
 
         // locking
-        inputBIs.add(EmptyGenerator.get(width, 16));
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 4)));
 
         // body
         inputBIs.add(body);
 
         // locking
-        inputBIs.add(EmptyGenerator.get(width, 16));
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 4)));
 
         //border
         inputBIs.add(border);

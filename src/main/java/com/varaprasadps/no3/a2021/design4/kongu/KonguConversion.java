@@ -1,4 +1,4 @@
-package com.varaprasadps.no3.a2021.design3.kongu;
+package com.varaprasadps.no3.a2021.design4.kongu;
 
 import com.varaprasadps.image.*;
 
@@ -13,7 +13,7 @@ public class KonguConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/3/a2021/design3/kongu-%s-%s.bmp";
+        String out = "z-data/out/3/a2021/design4/kongu-%s-%s.bmp";
 
         int width = 2;
 

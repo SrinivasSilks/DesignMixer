@@ -26,11 +26,11 @@ public class ThreePlay {
         inputBIs.add(EmptyGenerator.get(width, 10));
 
         // locking
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 16)));
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 4)));
         // body
         inputBIs.add(jari);
         // locking
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 16)));
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 4)));
         // border
         inputBIs.add(CutLayoutGenerator.get(border, 16).get(0));
         inputBIs.add(EmptyGenerator.get(border.getWidth(), border.getHeight() - 16));
@@ -68,11 +68,11 @@ public class ThreePlay {
         inputBIs.add(EmptyGenerator.get(width, 10));
 
         // locking
-        inputBIs.add(HorizontalFlipGenerator.get(StepLayoutGenerator.get(width, 4)));
+        inputBIs.add(PlainGenerator.get(width, 16));
         // body
         inputBIs.add(nimbu);
         // locking
-        inputBIs.add(HorizontalFlipGenerator.get(StepLayoutGenerator.get(width, 4)));
+        inputBIs.add(PlainGenerator.get(width, 16));
         // border
         inputBIs.add(CutLayoutGenerator.get(border, 16).get(0));
         inputBIs.add(EmptyGenerator.get(border.getWidth(), border.getHeight() - 16));

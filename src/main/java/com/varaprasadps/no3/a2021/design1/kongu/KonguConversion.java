@@ -30,11 +30,11 @@ public class KonguConversion {
         inputBIs.add(EmptyGenerator.get(width, 10));
 
         // locking
-        inputBIs.add(EmptyGenerator.get(width, 16));
+        inputBIs.add(KonguLayoutGenerator.get(4));
         //allover
         inputBIs.add(KonguLayoutGenerator.get(180));
         // locking
-        inputBIs.add(EmptyGenerator.get(width, 16));
+        inputBIs.add(KonguLayoutGenerator.get(4));
 
         //border
         inputBIs.add(EmptyGenerator.get(width, 624));
