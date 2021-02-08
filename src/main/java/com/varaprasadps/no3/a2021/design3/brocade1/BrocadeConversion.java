@@ -27,7 +27,7 @@ public class BrocadeConversion {
 
     public static void main(String[] args) throws IOException {
         BufferedImage abc = HorizontalRepeatGenerator.get(2, ImageIO.read(new File("z-data/in/3/a2021/design3/border/border.bmp")));
-        BufferedImage border2 = CutLayoutGenerator.get(CutLayoutGenerator.get(abc, 300, 1), 480, 0);
+        BufferedImage border2 = CutLayoutGenerator.get(CutLayoutGenerator.get(abc, 350, 1), 480, 0);
         BufferedImage border = HorizontalRepeatGenerator.get(1, border2);
         BufferedImage jari = HorizontalRepeatGenerator.get(2, ImageIO.read(new File("z-data/in/3/a2021/design3/brocade/jari.bmp")));
         BufferedImage nimbu = HorizontalRepeatGenerator.get(2, ImageIO.read(new File("z-data/in/3/a2021/design3/brocade/nimbu.bmp")));

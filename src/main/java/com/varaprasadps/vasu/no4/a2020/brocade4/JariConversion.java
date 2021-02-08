@@ -15,7 +15,7 @@ public class JariConversion {
 
         String out = "z-vasu/out/4/a2020/4jari-%s-%s.bmp";
 
-        final BufferedImage body = HorizontalRepeatGenerator.get(11, ImageIO.read(new File("z-vasu/in/4/a2020/brocade4/nimbu.bmp")));
+        final BufferedImage body = HorizontalRepeatGenerator.get(11, ImageIO.read(new File("z-vasu/in/4/a2020/brocade4/jari.bmp")));
         final BufferedImage border = EmptyGenerator.get(body.getWidth(), 960);
         int width = body.getWidth();
 
