@@ -1,7 +1,9 @@
 package com.varaprasadps.no12.a2021.design1.brocade;
 
-import com.varaprasadps.image.ColumnRepeatGenerator;
+import com.varaprasadps.image.CutLayoutGenerator;
+import com.varaprasadps.image.HorizontalRepeatGenerator;
 import com.varaprasadps.image.LeftLayoutGenerator;
+import com.varaprasadps.image.VerticalFlipGenerator;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -10,37 +12,27 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
+import static com.varaprasadps.no12.a2021.ThreePlay.*;
+
 public class BrocadeConversion {
 
-    public static void main(final String[] args) throws IOException {
-        JariConversion.main(null);
-        NimbuConversion.main(null);
-        RaniConversion.main(null);
-
-        String out = "z-data/out/12/a2020oct/design1/1brocade-%s-%s.bmp";
-
-        List<String> inputs = new LinkedList<>();
-        inputs.add("z-data/out/12/a2020oct/design1/1rani-3360-1824.bmp");
-        inputs.add("z-data/out/12/a2020oct/design1/1jari-3360-1824.bmp");
-        inputs.add("z-data/out/12/a2020oct/design1/1nimbu-3360-1824.bmp");
-
-        List<BufferedImage> inputBIs = new LinkedList<>();
-        for (String input : inputs) {
-            inputBIs.add(ImageIO.read(new File(input)));
-        }
-
-        BufferedImage bi = LeftLayoutGenerator.get(ColumnRepeatGenerator.get(inputBIs));
-        displayPixels(bi);
-        saveBMP(bi, String.format(out, bi.getWidth(), bi.getHeight()));
+    public static BufferedImage get(BufferedImage border, BufferedImage nimbu, BufferedImage jari) throws IOException {
+        List<BufferedImage> brocades = new LinkedList<>();
+        brocades.add(rani(border, VerticalFlipGenerator.get(border)));
+        brocades.add(jari(border, nimbu));
+        brocades.add(nimbu(border, jari));
+        BufferedImage brocade = LeftLayoutGenerator.get(getBrocade(brocades));
+        saveBMP(brocade, String.format("z-data/out/12/a2021/design1/brocade-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
+        return brocade;
     }
 
-
-    private static void displayPixels(BufferedImage fileOne) {
-        System.out.println(String.format("Width : %s, Height : %s", fileOne.getWidth(), fileOne.getHeight()));
-    }
-
-    private static void saveBMP(final BufferedImage bi, final String path) throws IOException {
-        ImageIO.write(bi, "bmp", new File(path));
+    public static void main(String[] args) throws IOException {
+        BufferedImage borderdf = ImageIO.read(new File("z-data/in/12/a2021/design1/border/border.bmp"));
+        BufferedImage abc = HorizontalRepeatGenerator.get(2, borderdf);
+        BufferedImage border = CutLayoutGenerator.get(CutLayoutGenerator.get(abc, 360, 1), 480, 0);
+        BufferedImage jari = HorizontalRepeatGenerator.get(2, ImageIO.read(new File("z-data/in/12/a2021/design1/brocade/jari.bmp")));
+        BufferedImage nimbu = HorizontalRepeatGenerator.get(2, ImageIO.read(new File("z-data/in/12/a2021/design1/brocade/nimbu.bmp")));
+        get(border, nimbu, jari);
     }
 
 }

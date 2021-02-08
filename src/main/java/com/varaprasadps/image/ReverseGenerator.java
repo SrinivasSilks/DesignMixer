@@ -32,7 +32,6 @@ public class ReverseGenerator {
                 res.setRGB(x, y, opp(rgb));
             }
         }
-        System.out.println(output.toString());
         return res;
     }
 

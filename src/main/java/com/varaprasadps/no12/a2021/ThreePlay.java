@@ -1,4 +1,4 @@
-package com.varaprasadps.no3.a2021;
+package com.varaprasadps.no12.a2021;
 
 import com.varaprasadps.image.*;
 
@@ -18,26 +18,34 @@ public class ThreePlay {
         inputBIs.add(EmptyGenerator.get(width, 32));
 
         //box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
+        //kali
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
-        inputBIs.add(EmptyGenerator.get(width, 10));
+        inputBIs.add(EmptyGenerator.get(width, 8));
 
-        // locking
+        //border
+        inputBIs.add(EmptyGenerator.get(border.getWidth(), border.getHeight()));
+        //locking
         inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 4)));
-        // body
         inputBIs.add(jari);
-        // locking
+        //locking
         inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 4)));
-        // border
+        //border
         inputBIs.add(EmptyGenerator.get(border.getWidth(), border.getHeight()));
 
+        //box
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
+        //kali
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
-        inputBIs.add(EmptyGenerator.get(width, 14));
+        inputBIs.add(EmptyGenerator.get(width, 8));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -60,25 +68,34 @@ public class ThreePlay {
         inputBIs.add(EmptyGenerator.get(width, 32));
 
         //box
-        inputBIs.add(EmptyGenerator.get(width, 4));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
+        //khali
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
-        inputBIs.add(EmptyGenerator.get(width, 10));
+        inputBIs.add(EmptyGenerator.get(width, 8));
 
-        // locking
+        //border
+        inputBIs.add(EmptyGenerator.get(border.getWidth(), border.getHeight()));
+        //locking
         inputBIs.add(PlainGenerator.get(width, 16));
-        // body
         inputBIs.add(nimbu);
-        // locking
+        //locking
         inputBIs.add(PlainGenerator.get(width, 16));
-        // border
+        //border
         inputBIs.add(EmptyGenerator.get(border.getWidth(), border.getHeight()));
 
+        //box
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
+        //kali
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
-        inputBIs.add(EmptyGenerator.get(width, 14));
+        inputBIs.add(EmptyGenerator.get(width, 8));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -91,40 +108,48 @@ public class ThreePlay {
         return ReverseGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
     }
 
-    public static BufferedImage rani(BufferedImage border) {
+    public static BufferedImage rani(BufferedImage right, BufferedImage left) {
 
-        int width = border.getWidth();
+        int width = right.getWidth();
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         inputBIs.add(EmptyGenerator.get(width, 32));
 
         //box
-        inputBIs.add(EmptyGenerator.get(width, 2));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 4)));
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
+        //kali
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 10));
+        inputBIs.add(AchuLayoutGenerator.get(width, 8));
 
-        // locking
+        //border
+        inputBIs.add(left);
+        //locking
         inputBIs.add(PlainGenerator.get(width, 16));
-        // body
-        inputBIs.add(EmptyGenerator.get(width, 720));
-        // locking
+        inputBIs.add(EmptyGenerator.get(width, 480));
+        //locking
         inputBIs.add(PlainGenerator.get(width, 16));
-        // border
-        inputBIs.add(border);
+        //border
+        inputBIs.add(right);
 
+        //box
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 4)));
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
+        //kali
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 14));
+        inputBIs.add(AchuLayoutGenerator.get(width, 8));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
 
         for (BufferedImage bi : inputBIs) {
+            System.out.println("test");
             displayPixels(bi);
+            System.out.println("test");
             repeatWidth = bi.getWidth();
             repeatHeight += bi.getHeight();
         }
@@ -133,7 +158,7 @@ public class ThreePlay {
     }
 
     public static void displayPixels(BufferedImage fileOne) {
-        System.out.println(String.format("Width : %s, Height : %s", fileOne.getWidth(), fileOne.getHeight()));
+        System.out.println(String.format("No 12 : Width : %s, Height : %s", fileOne.getWidth(), fileOne.getHeight()));
     }
 
 
@@ -147,7 +172,7 @@ public class ThreePlay {
 
     public static BufferedImage getBrocade(List<BufferedImage> inputs) {
         for (int i = 0; i < inputs.size(); i++) {
-            System.out.println(String.format("Brocade => Width : %s, Height : %s", inputs.get(0).getWidth(), inputs.get(0).getHeight()));
+            System.out.println(String.format("Brocade => Width : %s, Height : %s", inputs.get(i).getWidth(), inputs.get(i).getHeight()));
         }
         return ColumnRepeatGenerator.get(inputs);
     }
