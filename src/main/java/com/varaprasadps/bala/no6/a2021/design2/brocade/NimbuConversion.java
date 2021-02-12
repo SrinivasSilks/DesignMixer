@@ -30,6 +30,7 @@ public class NimbuConversion {
 
         //body
         inputBIs.add(body);
+        inputBIs.add(body);
         //right
         inputBIs.add(right);
 
