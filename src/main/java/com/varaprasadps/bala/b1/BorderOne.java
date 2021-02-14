@@ -1,4 +1,4 @@
-package com.varaprasadps.bala.no6.a2021.design2;
+package com.varaprasadps.bala.b1;
 
 import com.varaprasadps.image.*;
 
@@ -9,38 +9,39 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class BorderConversion {
+public class BorderOne {
+
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-bala/out/6/a2021/design2/border-%s-%s.bmp";
+        String out = "z-bala/out/b1/1border-%s-%s.bmp";
 
-        final BufferedImage right = ReverseGenerator.get(ImageIO.read(new File("z-bala/in/6/a2021/design2/border/border.bmp")));
-        final BufferedImage body = EmptyGenerator.get(right.getWidth(), 960);
+        final BufferedImage right = ImageIO.read(new File("z-bala/in/b1/border/right.bmp"));
+        final BufferedImage left = ImageIO.read(new File("z-bala/in/b1/border/left.bmp"));
 
-        int width = body.getWidth();
+        int width = right.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         inputBIs.add(EmptyGenerator.get(width, 128));
+
         //achu
-        inputBIs.add(EmptyGenerator.get(width, 16));
-        //kali
-        inputBIs.add(EmptyGenerator.get(width, 32));
+        inputBIs.add(AchuLayoutGenerator.get(width, 16));
+
+        //left
+        inputBIs.add(VerticalFlipGenerator.get(left));
+
         //body
-        inputBIs.add(body);
+        inputBIs.add(EmptyGenerator.get(width, 720));
         //right
         inputBIs.add(right);
-        inputBIs.add(StepLayoutGenerator.get(width));
 
         //box
-        inputBIs.add(EmptyGenerator.get(width, 12));
+        inputBIs.add(EmptyGenerator.get(width, 4));
         //achu
-        inputBIs.add(EmptyGenerator.get(width, 16));
+        inputBIs.add(AchuLayoutGenerator.get(width, 16));
 
         inputBIs.add(EmptyGenerator.get(width, 128));
-
-
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -62,5 +63,4 @@ public class BorderConversion {
     private static void saveBMP(final BufferedImage bi, final String path) throws IOException {
         ImageIO.write(bi, "bmp", new File(path));
     }
-
 }
