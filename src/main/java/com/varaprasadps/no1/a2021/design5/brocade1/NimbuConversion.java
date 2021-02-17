@@ -1,4 +1,4 @@
-package com.varaprasadps.no1.a2021.design3.brocade1;
+package com.varaprasadps.no1.a2021.design5.brocade1;
 
 import com.varaprasadps.image.*;
 
@@ -13,9 +13,9 @@ public class NimbuConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/1/a2021/design3/1nimbu-%s-%s.bmp";
+        String out = "z-data/out/1/a2021/design5/1nimbu-%s-%s.bmp";
 
-        BufferedImage body = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/1/a2021/design3/brocade/jari.bmp")));
+        BufferedImage body = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/1/a2021/design5/brocade/jari.bmp")));
         int width = body.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
