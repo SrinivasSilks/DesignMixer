@@ -1,4 +1,4 @@
-package com.varaprasadps.no4.a2021.design1;
+package com.varaprasadps.no4.a2021.design3;
 
 import com.varaprasadps.image.AddLayoutGenerator;
 import com.varaprasadps.image.CutLayoutGenerator;
@@ -13,13 +13,13 @@ import java.util.List;
 public class Bondu {
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-data/out/4/a2021/design1/pset.bmp";
+        String out = "z-data/out/4/a2021/design3/pset.bmp";
 
-        BufferedImage kongu = ImageIO.read(new File("z-data/out/4/a2021/design1/kongu-2-1440.bmp"));
-        BufferedImage kanni = ImageIO.read(new File("z-data/out/4/a2021/design1/kanni-1440-720.bmp"));
-        BufferedImage anni = ImageIO.read(new File("z-data/out/4/a2021/design1/anni-360-1440.bmp"));
-        BufferedImage pallu = ImageIO.read(new File("z-data/out/4/a2021/design1/pallu-1440-4000.bmp"));
-        BufferedImage brocade = ImageIO.read(new File("z-data/out/4/a2021/design1/1brocade-1440-1080.bmp"));
+        BufferedImage kongu = ImageIO.read(new File("z-data/out/4/a2021/design3/kongu-2-1440.bmp"));
+        BufferedImage kanni = ImageIO.read(new File("z-data/out/4/a2021/design3/kanni-1440-720.bmp"));
+        BufferedImage anni = ImageIO.read(new File("z-data/out/4/a2021/design3/anni-360-1440.bmp"));
+        BufferedImage pallu = ImageIO.read(new File("z-data/out/4/a2021/design3/pallu-1440-4000.bmp"));
+        BufferedImage brocade = ImageIO.read(new File("z-data/out/4/a2021/design3/1brocade-1440-1080.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 

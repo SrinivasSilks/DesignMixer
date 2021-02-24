@@ -1,4 +1,4 @@
-package com.varaprasadps.no4.a2021.design1.brocade;
+package com.varaprasadps.no4.a2021.design3.brocade;
 
 import com.varaprasadps.image.*;
 
@@ -13,13 +13,13 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/4/a2021/design1/1rani-%s-%s.bmp";
+        String out = "z-data/out/4/a2021/design3/1rani-%s-%s.bmp";
 
-        final BufferedImage border = cut(ImageIO.read(new File("z-data/in/4/a2021/design1/border/right.bmp")));
-        final BufferedImage bugada = cut(ImageIO.read(new File("z-data/in/4/a2021/design1/border/bugada.bmp")));
-        final BufferedImage teega = cut(ImageIO.read(new File("z-data/in/4/a2021/design1/border/teega.bmp")));
-        final BufferedImage banaras = cut(ImageIO.read(new File("z-data/in/4/a2021/design1/border/banaras.bmp")));
-        final BufferedImage sunanda = cut(ImageIO.read(new File("z-data/in/4/a2021/design1/border/sunanda.bmp")));
+        final BufferedImage border = cut(ImageIO.read(new File("z-data/in/4/a2021/design3/border/right.bmp")));
+        final BufferedImage bugada = cut(ImageIO.read(new File("z-data/in/4/a2021/design3/border/bugada.bmp")));
+        final BufferedImage teega = cut(ImageIO.read(new File("z-data/in/4/a2021/design3/border/teega.bmp")));
+        final BufferedImage banaras = cut(ImageIO.read(new File("z-data/in/4/a2021/design3/border/banaras.bmp")));
+        final BufferedImage sunanda = cut(ImageIO.read(new File("z-data/in/4/a2021/design3/border/sunanda.bmp")));
         final int width = border.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
@@ -76,6 +76,7 @@ public class RaniConversion {
         BufferedImage abc = HorizontalRepeatGenerator.get(2, read);
         return CutLayoutGenerator.get(CutLayoutGenerator.get(abc, 240, 1), 360, 0);
     }
+
 
     private static void displayPixels(BufferedImage fileOne) {
         System.out.println(String.format("Width : %s, Height : %s", fileOne.getWidth(), fileOne.getHeight()));
