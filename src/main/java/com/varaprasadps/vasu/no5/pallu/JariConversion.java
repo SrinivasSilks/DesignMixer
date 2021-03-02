@@ -28,7 +28,7 @@ public class JariConversion {
 
         inputBIs.add(pallu);
         //locking
-        inputBIs.add(StepLayoutGenerator.get(width, 6));
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 6)));
         inputBIs.add(EmptyGenerator.get(width, 520));
         inputBIs.add(EmptyGenerator.get(width, 352));
 

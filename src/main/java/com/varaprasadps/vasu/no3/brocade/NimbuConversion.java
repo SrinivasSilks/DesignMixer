@@ -31,10 +31,10 @@ public class NimbuConversion {
         inputBIs.add(EmptyGenerator.get(width, 10));
 
         //locking
-        inputBIs.add(StepLayoutGenerator.get(width, 2));
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 2)));
         inputBIs.add(brocade);
         //locking
-        inputBIs.add(StepLayoutGenerator.get(width, 2));
+        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 2)));
 
         inputBIs.add(EmptyGenerator.get(width, 400));
 
