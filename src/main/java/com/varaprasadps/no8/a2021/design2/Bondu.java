@@ -1,4 +1,4 @@
-package com.varaprasadps.no8.a2021.design1;
+package com.varaprasadps.no8.a2021.design2;
 
 import com.varaprasadps.image.AddLayoutGenerator;
 import com.varaprasadps.image.CutLayoutGenerator;
@@ -13,27 +13,27 @@ import java.util.List;
 public class Bondu {
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-data/out/8/a2021/design1/pset.bmp";
+        String out = "z-data/out/8/a2021/design2/pset.bmp";
 
-        BufferedImage kongu = ImageIO.read(new File("z-data/out/8/a2021/design1/kongu-2-1824.bmp"));
-        BufferedImage kanni = ImageIO.read(new File("z-data/out/8/a2021/design1/kanni-1824-800.bmp"));
-        BufferedImage anni = ImageIO.read(new File("z-data/out/8/a2021/design1/anni-400-1824.bmp"));
-        BufferedImage pallu = ImageIO.read(new File("z-data/out/8/a2021/design1/pallu-1824-4000.bmp"));
-        BufferedImage brocade = ImageIO.read(new File("z-data/out/8/a2021/design1/1brocade-1824-1200.bmp"));
+        BufferedImage kongu = ImageIO.read(new File("z-data/out/8/a2021/design2/kongu-2-1824.bmp"));
+        BufferedImage kanni = ImageIO.read(new File("z-data/out/8/a2021/design2/kanni-1824-960.bmp"));
+        BufferedImage anni = ImageIO.read(new File("z-data/out/8/a2021/design2/anni-480-1824.bmp"));
+        BufferedImage pallu = ImageIO.read(new File("z-data/out/8/a2021/design2/pallu-1824-4000.bmp"));
+        BufferedImage brocade = ImageIO.read(new File("z-data/out/8/a2021/design2/1brocade-1824-1440.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
 //        inputBIs.add(brocade);
         inputBIs.add(brocade);
-        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(kanni, 580).get(0), 560).get(1));
+        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(kanni, 740).get(0), 720).get(1));
         inputBIs.add(kongu);
-        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(kanni, 590).get(0), 580).get(1));
-        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(anni, 385).get(0), 295).get(1));
-        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(kanni, 790).get(0), 770).get(1));
+        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(kanni, 750).get(0), 740).get(1));
+        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(anni, 465).get(0), 375).get(1));
+        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(kanni, 950).get(0), 930).get(1));
         inputBIs.add(kongu);
-        inputBIs.add(CutLayoutGenerator.get(kanni, 790).get(1));
+        inputBIs.add(CutLayoutGenerator.get(kanni, 950).get(1));
         inputBIs.add(pallu);
-        inputBIs.add(CutLayoutGenerator.get(anni, 140).get(0));
+        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(anni, 80).get(1), 140).get(0));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

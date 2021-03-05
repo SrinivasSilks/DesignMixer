@@ -1,4 +1,4 @@
-package com.varaprasadps.no8.a2021.design1.brocade;
+package com.varaprasadps.no8.a2021.design2.brocade;
 
 import com.varaprasadps.image.*;
 
@@ -13,10 +13,10 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/8/a2021/design1/1rani-%s-%s.bmp";
+        String out = "z-data/out/8/a2021/design2/1rani-%s-%s.bmp";
 
-        BufferedImage ag = HorizontalRepeatGenerator.get(2, ImageIO.read(new File("z-data/in/8/a2021/design1/border/border.bmp")));
-        BufferedImage border = CutLayoutGenerator.get(CutLayoutGenerator.get(ag, 280, 1), 400, 0);
+        BufferedImage ag = HorizontalRepeatGenerator.get(2, ImageIO.read(new File("z-data/in/8/a2021/design2/border/border.bmp")));
+        BufferedImage border = CutLayoutGenerator.get(CutLayoutGenerator.get(ag, 360, 1), 480, 0);
         int width = border.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();

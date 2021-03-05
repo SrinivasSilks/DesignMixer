@@ -1,4 +1,4 @@
-package com.varaprasadps.no8.a2021.design1.brocade;
+package com.varaprasadps.no8.a2021.design2.kanni;
 
 import com.varaprasadps.image.*;
 
@@ -13,11 +13,13 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/8/a2021/design1/1rani-%s-%s.bmp";
+        String out = "z-data/out/8/a2021/design2/k-rani-%s-%s.bmp";
 
-        BufferedImage ag = HorizontalRepeatGenerator.get(2, ImageIO.read(new File("z-data/in/8/a2021/design1/border/border.bmp")));
-        BufferedImage border = CutLayoutGenerator.get(CutLayoutGenerator.get(ag, 280, 1), 400, 0);
+        BufferedImage border = ImageIO.read(new File("z-data/in/8/a2021/design2/border/border.bmp"));
         int width = border.getWidth();
+
+        final BufferedImage chucks = StepLayoutGenerator.get(border.getWidth(), 15);
+        final BufferedImage body = PlainGenerator.get(width, 480);
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -31,20 +33,20 @@ public class RaniConversion {
         inputBIs.add(PlainGenerator.get(width, 4));
 
         //brocade
-        inputBIs.add(EmptyGenerator.get(width, 480));
+        inputBIs.add(body);
         //mango
-        inputBIs.add(EmptyGenerator.get(width, 96));
+        inputBIs.add(CutLayoutGenerator.get(body, 96).get(0));
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));
         //chucks
-        inputBIs.add(EmptyGenerator.get(width, 60));
+        inputBIs.add(chucks);
         //border
         inputBIs.add(border);
 
         //box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 4)));
         //mispick
-        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 8), 1).get(0)));
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 1).get(0)));
         //chakram
         inputBIs.add(EmptyGenerator.get(width, 1));
         //achu
@@ -70,4 +72,5 @@ public class RaniConversion {
     private static void saveBMP(final BufferedImage bi, final String path) throws IOException {
         ImageIO.write(bi, "bmp", new File(path));
     }
+
 }
