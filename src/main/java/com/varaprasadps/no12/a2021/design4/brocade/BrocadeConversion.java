@@ -26,8 +26,8 @@ public class BrocadeConversion {
     public static void main(String[] args) throws IOException {
         BufferedImage right = getBorder("z-data/in/12/a2021/design4/border/border.bmp");
         BufferedImage left = VerticalFlipGenerator.get(right);
-        BufferedImage jari = HorizontalRepeatGenerator.get(1, PlainGenerator.get(1280, 480));
-        BufferedImage nimbu = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/12/a2021/design4/brocade/jari.bmp")));
+        BufferedImage nimbu = HorizontalRepeatGenerator.get(1, PlainGenerator.get(1280, 480));
+        BufferedImage jari = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/12/a2021/design4/brocade/jari.bmp")));
         get(right, left, nimbu, jari);
     }
 
