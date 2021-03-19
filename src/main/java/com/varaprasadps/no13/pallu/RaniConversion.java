@@ -15,9 +15,9 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/13/p-rani-%s-%s.bmp";
+        String out = "z-data/out/13/design1/p-rani-%s-%s.bmp";
 
-        final BufferedImage pallu = ImageIO.read(new File("z-data/in/13/pallu-rani.bmp"));
+        final BufferedImage pallu = ImageIO.read(new File("z-data/in/13/pallu/pallu-rani.bmp"));
         int width = pallu.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
@@ -30,7 +30,6 @@ public class RaniConversion {
         //locking
         inputBIs.add(PlainGenerator.get(width, 16));
 
-        inputBIs.add(pallu);
         inputBIs.add(pallu);
 
         //locking
@@ -46,7 +45,7 @@ public class RaniConversion {
         inputBIs.add(EmptyGenerator.get(width, 12));
 
         inputBIs.add(EmptyGenerator.get(width, 1));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 7)));
+        inputBIs.add(EmptyGenerator.get(width, 7));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

@@ -1,4 +1,4 @@
-package com.varaprasadps.no9.design1.anni;
+package com.varaprasadps.no10.design1.anni;
 
 import com.varaprasadps.image.*;
 
@@ -13,10 +13,10 @@ public class AnniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/9/a2021/design1/anni-%s-%s.bmp";
+        String out = "z-data/out/10/a2021/design1/anni-%s-%s.bmp";
 
-        BufferedImage right = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/9/a2021/design1/border/right.bmp")));
-        BufferedImage left = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/9/a2021/design1/border/left.bmp")));
+        BufferedImage right = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/10/a2021/design1/border/right.bmp")));
+        BufferedImage left = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/10/a2021/design1/border/left.bmp")));
 
         BufferedImage body = PlainGenerator.get(right.getWidth(), 960);
         int width = right.getWidth();
@@ -25,14 +25,10 @@ public class AnniConversion {
 
         inputBIs.add(EmptyGenerator.get(width, 32));
 
-        //box
-        inputBIs.add(EmptyGenerator.get(width, 2));
-        inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 8), 2).get(0));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 10));
-
+        inputBIs.add(AchuLayoutGenerator.get(width, 14));
 
         //left
         inputBIs.add(VerticalFlipGenerator.get(left));
@@ -45,10 +41,13 @@ public class AnniConversion {
         //right
         inputBIs.add(right);
 
+        //box
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 14));
+        inputBIs.add(AchuLayoutGenerator.get(width, 10));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

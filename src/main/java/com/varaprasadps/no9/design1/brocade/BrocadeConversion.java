@@ -1,4 +1,4 @@
-package com.varaprasadps.no13.brocade;
+package com.varaprasadps.no9.design1.brocade;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
 import com.varaprasadps.image.LeftLayoutGenerator;
@@ -13,17 +13,16 @@ import java.util.List;
 public class BrocadeConversion {
 
     public static void main(final String[] args) throws IOException {
-
         JariConversion.main(null);
         NimbuConversion.main(null);
         RaniConversion.main(null);
 
-        String out = "z-data/out/13/design1/1BROC.bmp";
+        String out = "z-data/out/9/a2021/design1/1brocade-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("z-data/out/13/design1/1rani-720-1544.bmp");
-        inputs.add("z-data/out/13/design1/1jari-720-1544.bmp");
-        inputs.add("z-data/out/13/design1/1nimbu-720-1544.bmp");
+        inputs.add("z-data/out/9/a2021/design1/1rani-1440-1824.bmp");
+        inputs.add("z-data/out/9/a2021/design1/1jari-1440-1824.bmp");
+        inputs.add("z-data/out/9/a2021/design1/1nimbu-1440-1824.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {
@@ -43,6 +42,5 @@ public class BrocadeConversion {
     private static void saveBMP(final BufferedImage bi, final String path) throws IOException {
         ImageIO.write(bi, "bmp", new File(path));
     }
-
 
 }

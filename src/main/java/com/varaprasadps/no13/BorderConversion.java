@@ -13,9 +13,9 @@ public class BorderConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/13/1BORDER.bmp";
+        String out = "z-data/out/13/design1/1BORDER.bmp";
 
-        final BufferedImage border = ImageIO.read(new File("z-data/in/13/border.bmp"));
+        final BufferedImage border = ImageIO.read(new File("z-data/in/13/border/border.bmp"));
 
         int width = border.getWidth();
 

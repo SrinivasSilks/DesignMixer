@@ -15,9 +15,10 @@ public class BlouseConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/13/1BLOUSE.bmp";
+        String out = "z-data/out/13/design1/1BLOUSE.bmp";
 
-        int width = 12;
+        final BufferedImage body = ImageIO.read(new File("z-data/in/13/blouse.bmp"));
+        int width = body.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -29,22 +30,22 @@ public class BlouseConversion {
         //locking
         inputBIs.add(PlainGenerator.get(width, 16));
 
-        inputBIs.add(PlainGenerator.get(width, 960));
+        inputBIs.add(body);
 
         //locking
         inputBIs.add(PlainGenerator.get(width, 16));
         inputBIs.add(EmptyGenerator.get(width, 512));
 
         //box
-        inputBIs.add(EmptyGenerator.get(width, 1));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
+        inputBIs.add(EmptyGenerator.get(width, 1));
         //mispick
         inputBIs.add(ReverseGenerator.get(get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //achu
         inputBIs.add(EmptyGenerator.get(width, 12));
 
         inputBIs.add(EmptyGenerator.get(width, 1));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 7)));
+        inputBIs.add(EmptyGenerator.get(width, 7));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
