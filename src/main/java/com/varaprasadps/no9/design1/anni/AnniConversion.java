@@ -18,7 +18,7 @@ public class AnniConversion {
         BufferedImage right = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/9/a2021/design1/border/right.bmp")));
         BufferedImage left = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/9/a2021/design1/border/left.bmp")));
 
-        BufferedImage body = PlainGenerator.get(right.getWidth(), 960);
+        BufferedImage body =  ImageIO.read(new File("z-data/in/9/a2021/design1/plain.bmp"));
         int width = right.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();

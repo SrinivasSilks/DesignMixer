@@ -1,4 +1,4 @@
-package com.varaprasadps.no9.design1.brocade;
+package com.varaprasadps.no9.design2.pallu;
 
 import com.varaprasadps.image.*;
 
@@ -9,24 +9,24 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class NimbuConversion {
+public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/9/a2021/design1/1nimbu-%s-%s.bmp";
+        String out = "z-data/out/9/a2021/design2/p-jari-%s-%s.bmp";
 
-        BufferedImage body = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/9/a2021/design1/brocade/jari.bmp")));
+        BufferedImage body = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/9/a2021/design2/pallu/pallu_jari.bmp")));
         BufferedImage right = EmptyGenerator.get(body.getWidth(), 480);
         BufferedImage left = EmptyGenerator.get(body.getWidth(), 288);
-        int width = body.getWidth();
+        int width = right.getWidth();
 
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         inputBIs.add(EmptyGenerator.get(width, 32));
+
         //box
-        inputBIs.add(EmptyGenerator.get(width, 2));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 4)));
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //achu
@@ -35,11 +35,11 @@ public class NimbuConversion {
         //left
         inputBIs.add(VerticalFlipGenerator.get(left));
         //locking
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 4)));
+        inputBIs.add(PlainGenerator.get(width, 16));
         //body
         inputBIs.add(body);
         //locking
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 4)));
+        inputBIs.add(PlainGenerator.get(width, 16));
         //right
         inputBIs.add(right);
 
@@ -59,6 +59,7 @@ public class NimbuConversion {
         BufferedImage bi = ReverseGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
+
     }
 
     private static void displayPixels(BufferedImage fileOne) {
@@ -68,4 +69,5 @@ public class NimbuConversion {
     private static void saveBMP(final BufferedImage bi, final String path) throws IOException {
         ImageIO.write(bi, "bmp", new File(path));
     }
+
 }
