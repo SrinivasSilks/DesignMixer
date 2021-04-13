@@ -17,12 +17,12 @@ public class BrocadeConversion {
         NimbuConversion.main(null);
         RaniConversion.main(null);
 
-        String out = "z-data/out/6/a2020nov/design3/4brocade-%s-%s.bmp";
+        String out = "z-data/out/6/a2021/design1/1brocade-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("z-data/out/6/a2020nov/design3/4rani-960-1824.bmp");
-        inputs.add("z-data/out/6/a2020nov/design3/4jari-960-1824.bmp");
-        inputs.add("z-data/out/6/a2020nov/design3/4nimbu-960-1824.bmp");
+        inputs.add("z-data/out/6/a2021/design1/1rani-360-1824.bmp");
+        inputs.add("z-data/out/6/a2021/design1/1jari-360-1824.bmp");
+        inputs.add("z-data/out/6/a2021/design1/1nimbu-360-1824.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {

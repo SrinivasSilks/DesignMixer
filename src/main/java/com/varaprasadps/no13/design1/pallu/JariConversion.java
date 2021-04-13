@@ -1,4 +1,4 @@
-package com.varaprasadps.no13.brocade;
+package com.varaprasadps.no13.design1.pallu;
 
 import com.varaprasadps.image.*;
 
@@ -9,15 +9,15 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class NimbuConversion {
+public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/13/design1/1nimbu-%s-%s.bmp";
+        String out = "z-data/out/13/design1/p-jari-%s-%s.bmp";
 
-        final BufferedImage brocade = ImageIO.read(new File("z-data/in/13/brocade/jari.bmp"));
+        final BufferedImage pallu = ImageIO.read(new File("z-data/in/13/pallu/pallu-jari.bmp"));
 
-        int width = brocade.getWidth();
+        int width = pallu.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -28,7 +28,7 @@ public class NimbuConversion {
 
         //locking
         inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 4)));
-        inputBIs.add(brocade);
+        inputBIs.add(pallu);
         //locking
         inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 4)));
 

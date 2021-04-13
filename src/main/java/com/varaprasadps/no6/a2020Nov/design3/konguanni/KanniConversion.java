@@ -15,11 +15,11 @@ public class KanniConversion {
     public static void main(final String[] args) throws IOException {
         JariConversion.main(null);
         RaniConversion.main(null);
-        String out = "z-data/out/6/a2020nov/design3/2kanni-%s-%s.bmp";
+        String out = "z-data/out/6/a2021/design1/2kanni-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("z-data/out/6/a2020nov/design3/2k-rani-120-1824.bmp");
-        inputs.add("z-data/out/6/a2020nov/design3/2k-jari-120-1824.bmp");
+        inputs.add("z-data/out/6/a2021/design1/2k-rani-360-1824.bmp");
+        inputs.add("z-data/out/6/a2021/design1/2k-jari-360-1824.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {

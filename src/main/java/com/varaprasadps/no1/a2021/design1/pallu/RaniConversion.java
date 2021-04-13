@@ -15,13 +15,13 @@ public class RaniConversion {
 
         String out = "z-data/out/1/a2021/design1/p-rani-%s-%s.bmp";
 
-        final BufferedImage pallu = ImageIO.read(new File("z-data/in/1/a2021/design1/pallu/pallu-rani.bmp"));
+        final BufferedImage pallu = ImageIO.read(new File("z-data/in/1/a2021/design1/pallu/1pallu-rani.bmp"));
 
         final BufferedImage leftt = VerticalFlipGenerator.get(ImageIO.read(new File("z-data/in/1/a2021/design1/border/left.bmp")));
         final BufferedImage rightt = ImageIO.read(new File("z-data/in/1/a2021/design1/border/right.bmp"));
 
-        BufferedImage right = CutLayoutGenerator.get(HorizontalRepeatGenerator.get(20, rightt), 2100, 0);
-        BufferedImage left = CutLayoutGenerator.get(HorizontalRepeatGenerator.get(20, leftt), 2100, 0);
+        BufferedImage right = CutLayoutGenerator.get(HorizontalRepeatGenerator.get(20, rightt), 2000, 0);
+        BufferedImage left = CutLayoutGenerator.get(HorizontalRepeatGenerator.get(20, leftt), 2000, 0);
 
         int width = pallu.getWidth();
 

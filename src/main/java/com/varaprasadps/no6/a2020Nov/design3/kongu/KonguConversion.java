@@ -13,7 +13,7 @@ public class KonguConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/6/a2020nov/design3/kongu-%s-%s.bmp";
+        String out = "z-data/out/6/a2021/design1/kongu-%s-%s.bmp";
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 

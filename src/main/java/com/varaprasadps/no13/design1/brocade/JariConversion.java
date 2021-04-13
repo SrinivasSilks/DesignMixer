@@ -1,4 +1,4 @@
-package com.varaprasadps.no13.brocade;
+package com.varaprasadps.no13.design1.brocade;
 
 import com.varaprasadps.image.*;
 
@@ -11,13 +11,13 @@ import java.util.List;
 
 import static com.varaprasadps.image.CutLayoutGenerator.get;
 
-public class RaniConversion {
+public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/13/design1/1rani-%s-%s.bmp";
+        String out = "z-data/out/13/design1/1jari-%s-%s.bmp";
 
-        final BufferedImage brocade = ImageIO.read(new File("z-data/in/13/brocade/rani.bmp"));
+        final BufferedImage brocade = ImageIO.read(new File("z-data/in/13/brocade/nimbu.bmp"));
         int width = brocade.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
@@ -34,15 +34,14 @@ public class RaniConversion {
         inputBIs.add(PlainGenerator.get(width, 16));
 
         inputBIs.add(EmptyGenerator.get(width, 512));
-
         //box
-        inputBIs.add(EmptyGenerator.get(width, 1));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
         inputBIs.add(ReverseGenerator.get(get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //achu
         inputBIs.add(EmptyGenerator.get(width, 12));
-        inputBIs.add(EmptyGenerator.get(width, 1));
+
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
         inputBIs.add(EmptyGenerator.get(width, 7));
 
         int repeatWidth = 0;

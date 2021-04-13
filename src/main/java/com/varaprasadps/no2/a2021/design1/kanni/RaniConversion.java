@@ -15,7 +15,7 @@ public class RaniConversion {
 
         String out = "z-data/out/2/a2021/design1/k-rani-%s-%s.bmp";
 
-        final BufferedImage left = ImageIO.read(new File("z-data/in/2/a2021/design1/border/left.bmp"));
+        final BufferedImage left = VerticalFlipGenerator.get(ImageIO.read(new File("z-data/in/2/a2021/design1/border/left.bmp")));
         final BufferedImage right = ImageIO.read(new File("z-data/in/2/a2021/design1/border/right.bmp"));
 
         int width = left.getWidth();

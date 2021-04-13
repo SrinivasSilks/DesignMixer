@@ -13,11 +13,13 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/6/a2020nov/design3/4rani-%s-%s.bmp";
+        String out = "z-data/out/6/a2021/design1/1rani-%s-%s.bmp";
 
-        BufferedImage meena = ReverseGenerator.get(HorizontalRepeatGenerator.get(8, ImageIO.read(new File("z-data/in/6/a2020nov/design3/r/meena.bmp"))));
-        BufferedImage jari = ReverseGenerator.get(HorizontalRepeatGenerator.get(8, ImageIO.read(new File("z-data/in/6/a2020nov/design3/r/jari.bmp"))));
-        final BufferedImage body = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/6/a2020nov/design3/brocade4/rani.bmp")));
+        BufferedImage meena = ReverseGenerator.get(HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/6/a2021/design1/border/rani/meena.bmp"))));
+        BufferedImage jari = ReverseGenerator.get(HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/6/a2021/design1/border/rani/jari.bmp"))));
+//        final BufferedImage body = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/6/a2021/design1/brocade4/rani.bmp")));
+        final BufferedImage body = EmptyGenerator.get(meena.getWidth(), 960);
+
 
         int width = meena.getWidth();
 

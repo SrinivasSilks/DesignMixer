@@ -1,4 +1,4 @@
-package com.varaprasadps.no13.pallu;
+package com.varaprasadps.vasu.no3.design4.brocade;
 
 import com.varaprasadps.image.*;
 
@@ -15,37 +15,33 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/13/design1/p-rani-%s-%s.bmp";
+        String out = "z-vasu/out/3/design4/1rani-%s-%s.bmp";
 
-        final BufferedImage pallu = ImageIO.read(new File("z-data/in/13/pallu/pallu-rani.bmp"));
-        int width = pallu.getWidth();
+        final BufferedImage body = ImageIO.read(new File("z-vasu/in/3/design4/rani.bmp"));
+        int width = body.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
+        //box
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //mispick
         inputBIs.add(get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //achu
-        inputBIs.add(EmptyGenerator.get(width, 14));
+        inputBIs.add(EmptyGenerator.get(width, 10));
 
         //locking
-        inputBIs.add(PlainGenerator.get(width, 16));
-
-        inputBIs.add(pallu);
-
+        inputBIs.add(PlainGenerator.get(width, 8));
+        inputBIs.add(body);
         //locking
-        inputBIs.add(PlainGenerator.get(width, 16));
-        inputBIs.add(EmptyGenerator.get(width, 512));
+        inputBIs.add(PlainGenerator.get(width, 8));
+        inputBIs.add(EmptyGenerator.get(width, 400));
 
-        //box
-        inputBIs.add(EmptyGenerator.get(width, 1));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
         //mispick
         inputBIs.add(ReverseGenerator.get(get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //achu
-        inputBIs.add(EmptyGenerator.get(width, 12));
-
+        inputBIs.add(EmptyGenerator.get(width, 14));
         inputBIs.add(EmptyGenerator.get(width, 1));
-        inputBIs.add(EmptyGenerator.get(width, 7));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

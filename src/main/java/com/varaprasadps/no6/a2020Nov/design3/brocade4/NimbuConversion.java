@@ -13,9 +13,9 @@ public class NimbuConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/6/a2020nov/design3/4nimbu-%s-%s.bmp";
+        String out = "z-data/out/6/a2021/design1/1nimbu-%s-%s.bmp";
 
-        final BufferedImage body = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/6/a2020nov/design3/brocade4/nimbu.bmp")));
+        final BufferedImage body = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/6/a2021/design1/brocade/nimbu.bmp")));
         BufferedImage meena = EmptyGenerator.get(body.getWidth(), 400);
         BufferedImage jari = EmptyGenerator.get(body.getWidth(), 400);
 

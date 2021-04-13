@@ -13,9 +13,9 @@ public class AnniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/6/a2020nov/design3/anni-%s-%s.bmp";
+        String out = "z-data/out/6/a2021/design1/anni-%s-%s.bmp";
 
-        BufferedImage jari = ImageIO.read(new File("z-data/in/6/a2020nov/design3/border.bmp"));
+        BufferedImage jari = ImageIO.read(new File("z-data/in/6/a2021/design1/border.bmp"));
 
         int width = jari.getWidth();
 

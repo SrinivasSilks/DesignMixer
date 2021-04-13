@@ -3,6 +3,7 @@ package com.varaprasadps.no2.a2021.design1.pallu;
 import com.varaprasadps.image.ColumnRepeatGenerator;
 import com.varaprasadps.image.HorizontalFlipGenerator;
 import com.varaprasadps.image.LeftLayoutGenerator;
+import com.varaprasadps.vasu.no4.a2021.pallu.RaniConversion;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
