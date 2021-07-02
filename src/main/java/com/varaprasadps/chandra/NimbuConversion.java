@@ -1,4 +1,4 @@
-package com.varaprasadps.vasu.no4.a2021;
+package com.varaprasadps.chandra;
 
 import com.varaprasadps.image.*;
 
@@ -9,38 +9,20 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class PlainConversion {
+public class NimbuConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-vasu/out/4/a2021/plain-%s-%s.bmp";
+        String out = "z-data/1nimbu-%s-%s.bmp";
 
-        int width = 12;
+        int width = 10;
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        inputBIs.add(EmptyGenerator.get(width, 128));
-
-        //locking
-        inputBIs.add(PlainGenerator.get(width, 4));
-        //achu
-        inputBIs.add(AchuLayoutGenerator.get(width,12));
-        //mispick
-        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
-        //left
-        inputBIs.add(PlainGenerator.get(width, 600));
-        inputBIs.add(EmptyGenerator.get(width, 774));
-
-
         //box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         inputBIs.add(EmptyGenerator.get(width, 2));
-        //mispick
-        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
-        //achu
-        inputBIs.add(AchuLayoutGenerator.get(width,10));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
 
-        inputBIs.add(EmptyGenerator.get(width, 256));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -50,7 +32,7 @@ public class PlainConversion {
             repeatWidth = bi.getWidth();
             repeatHeight += bi.getHeight();
         }
-        BufferedImage bi = LeftLayoutGenerator.get(HorizontalFlipGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs)));
+        BufferedImage bi = LeftLayoutGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
     }
@@ -62,5 +44,4 @@ public class PlainConversion {
     private static void saveBMP(final BufferedImage bi, final String path) throws IOException {
         ImageIO.write(bi, "bmp", new File(path));
     }
-
 }

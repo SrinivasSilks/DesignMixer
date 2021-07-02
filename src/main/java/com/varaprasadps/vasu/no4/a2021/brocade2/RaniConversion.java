@@ -1,4 +1,4 @@
-package com.varaprasadps.vasu.no4.a2021.brocade;
+package com.varaprasadps.vasu.no4.a2021.brocade2;
 
 import com.varaprasadps.image.*;
 
@@ -9,38 +9,37 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class JariConversion {
+public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-vasu/out/4/a2021/broc-jari-%s-%s.bmp";
+        String out = "z-vasu/out/4/a2021/2b-rani-%s-%s.bmp";
 
-        BufferedImage body = ImageIO.read(new File("z-vasu/in/4/a2021/design1/brocade/nimbu2.bmp"));
-
-        int width = body.getWidth();
+        final BufferedImage pallu = ImageIO.read(new File("z-vasu/in/4/a2021/design1/brocade2/rani.bmp"));
+        int width = pallu.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         inputBIs.add(EmptyGenerator.get(width, 128));
 
         //locking
-        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(PlainGenerator.get(pallu.getWidth(), 4));
         //achu
-        inputBIs.add(EmptyGenerator.get(width, 12));
+        inputBIs.add(AchuLayoutGenerator.get(pallu.getWidth(), 12));
         //mispick
-        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
+        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(pallu.getWidth(), 4), 2).get(0));
 
-        inputBIs.add(body);
-        //right border
+        //left
+        inputBIs.add(pallu);
         inputBIs.add(EmptyGenerator.get(width, 774));
 
         //box
-        inputBIs.add(EmptyGenerator.get(width, 2));
-        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(EmptyGenerator.get(pallu.getWidth(), 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(pallu.getWidth(), 2)));
         //mispick
-        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(pallu.getWidth(), 4), 2).get(0)));
         //achu
-        inputBIs.add(EmptyGenerator.get(width, 10));
+        inputBIs.add(AchuLayoutGenerator.get(pallu.getWidth(), 10));
 
         inputBIs.add(EmptyGenerator.get(width, 256));
 
