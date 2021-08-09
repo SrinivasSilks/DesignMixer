@@ -38,12 +38,17 @@ public class JariConversion {
         //left
         inputBIs.add(VerticalFlipGenerator.get(left));
         //locking
-        inputBIs.add(PlainGenerator.get(width, 16));
+//        inputBIs.add(PlainGenerator.get(width, 16));
+        inputBIs.add(EmptyGenerator.get(width, 14));
+        inputBIs.add(PlainGenerator.get(width, 2));
         //body
         inputBIs.add(body);
         inputBIs.add(body);
         //locking
-        inputBIs.add(PlainGenerator.get(width, 16));
+//        inputBIs.add(PlainGenerator.get(width, 16));
+        inputBIs.add(PlainGenerator.get(width, 2));
+        //locking
+        inputBIs.add(EmptyGenerator.get(width, 14));
         //right
         inputBIs.add(right);
 

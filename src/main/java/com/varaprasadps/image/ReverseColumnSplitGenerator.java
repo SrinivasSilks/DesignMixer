@@ -10,10 +10,10 @@ import java.util.List;
 public class ReverseColumnSplitGenerator {
 
     public static void main(final String[] args) throws IOException {
-        String outOne = "z-bala/in/10/pallu-jari-%s-%s.bmp";
-        String outTwo = "z-bala/in/10/pallu-rani-%s-%s.bmp";
+        String outOne = "z-giri/in/4/out/pallu02a-1-%s-%s.bmp";
+        String outTwo = "z-giri/in/4/out/pallu02a-2-%s-%s.bmp";
 
-        String input = "z-bala/in/10/pallu.bmp";
+        String input = "z-giri/in/4/pallu02a.bmp";
         BufferedImage inputImage = ImageIO.read(new File(input));
 
         int repeatWidth = inputImage.getWidth();
