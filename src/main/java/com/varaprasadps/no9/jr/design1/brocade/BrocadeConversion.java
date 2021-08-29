@@ -17,7 +17,7 @@ public class BrocadeConversion {
         NimbuConversion.main(null);
         RaniConversion.main(null);
 
-        String out = "z-data/out/9/a2021/jr/design1/1brocade-%s-%s.bmp";
+        String out = "z-data/out/9/a2021/jr/design1/2brocade-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
         inputs.add("z-data/out/9/a2021/jr/design1/1rani-400-1824.bmp");
