@@ -12,6 +12,10 @@ import java.util.List;
 public class TwoPlay {
 
     public static BufferedImage jari(BufferedImage border, BufferedImage body) {
+        return jari(border, body, ReverseGenerator.get(StepLayoutGenerator.get(border.getWidth(), 4)));
+    }
+
+    public static BufferedImage jari(BufferedImage border, BufferedImage body, BufferedImage locking) {
 
         int width = border.getWidth();
 
@@ -28,13 +32,13 @@ public class TwoPlay {
         inputBIs.add(EmptyGenerator.get(width, 10));
 
         // locking
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 4)));
+        inputBIs.add(locking);
 
         // body
         inputBIs.add(body);
 
         // locking
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 4)));
+        inputBIs.add(locking);
 
         //border
         inputBIs.add(border);
@@ -56,6 +60,10 @@ public class TwoPlay {
     }
 
     public static BufferedImage rani(BufferedImage border, BufferedImage body) {
+        return rani(border, body, PlainGenerator.get(border.getWidth(), 16));
+    }
+
+    public static BufferedImage rani(BufferedImage border, BufferedImage body, BufferedImage locking) {
 
         int width = border.getWidth();
         List<BufferedImage> inputBIs = new LinkedList<>();
@@ -71,11 +79,11 @@ public class TwoPlay {
         inputBIs.add(AchuLayoutGenerator.get(width, 10));
 
         // locking
-        inputBIs.add(PlainGenerator.get(width, 16));
+        inputBIs.add(locking);
         //body
         inputBIs.add(body);
         // locking
-        inputBIs.add(PlainGenerator.get(width, 16));
+        inputBIs.add(locking);
         //border
         inputBIs.add(border);
 

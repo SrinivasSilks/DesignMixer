@@ -28,7 +28,7 @@ public class NimbuConversion {
 
         inputBIs.add(brocade);
         //locking
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 6)));
+        inputBIs.add(EmptyGenerator.get(width, 24));
         inputBIs.add(EmptyGenerator.get(width, 520));
         inputBIs.add(EmptyGenerator.get(width, 352));
 

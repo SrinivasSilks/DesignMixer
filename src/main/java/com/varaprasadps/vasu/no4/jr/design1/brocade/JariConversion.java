@@ -13,9 +13,9 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-vasu/out/4/jr/design1/broc-jari-%s-%s.bmp";
+        String out = "z-vasu/out/4/jr/design1/red-broc-jari-%s-%s.bmp";
 
-        BufferedImage body = ImageIO.read(new File("z-vasu/in/4/jr/design1/brocade/rani.bmp"));
+        BufferedImage body = ImageIO.read(new File("z-vasu/in/4/jr/design1/brocade/nimbu.bmp"));
 
         int width = body.getWidth();
 
@@ -24,7 +24,7 @@ public class JariConversion {
         inputBIs.add(EmptyGenerator.get(width, 128));
 
         //locking
-        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(EmptyGenerator.get(width, 4));
         //achu
         inputBIs.add(EmptyGenerator.get(width, 12));
         //mispick

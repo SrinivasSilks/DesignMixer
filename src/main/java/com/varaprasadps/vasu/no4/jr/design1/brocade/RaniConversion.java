@@ -13,9 +13,9 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-vasu/out/4/jr/design1/broc-rani-%s-%s.bmp";
+        String out = "z-vasu/out/4/jr/design1/red-broc-rani-%s-%s.bmp";
 
-        final BufferedImage brocade = ImageIO.read(new File("z-vasu/in/4/jr/design1/brocade/nimbu.bmp"));
+        final BufferedImage brocade = ImageIO.read(new File("z-vasu/in/4/jr/design1/brocade/rani.bmp"));
 
         int width = brocade.getWidth();
 

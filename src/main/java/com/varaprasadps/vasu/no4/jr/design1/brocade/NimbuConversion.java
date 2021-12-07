@@ -13,7 +13,7 @@ public class NimbuConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-vasu/out/4/jr/design1/broc-nimbu-%s-%s.bmp";
+        String out = "z-vasu/out/4/jr/design1/red-broc-nimbu-%s-%s.bmp";
 
         BufferedImage body = ImageIO.read(new File("z-vasu/in/4/jr/design1/brocade/jari.bmp"));
         int width = body.getWidth();
@@ -23,7 +23,7 @@ public class NimbuConversion {
         inputBIs.add(EmptyGenerator.get(width, 128));
 
         //locking
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width)));
+        inputBIs.add(EmptyGenerator.get(width, 4));
         //Achu
         inputBIs.add(EmptyGenerator.get(width, 12));
         //mispick

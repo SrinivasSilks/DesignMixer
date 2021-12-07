@@ -16,7 +16,7 @@ public class RaniConversion {
     public static void main(final String[] args) throws IOException {
 
         String out = "z-vasu/out/5/a2021/design1/2rani-%s-%s.bmp";
-        final BufferedImage brocade = ImageIO.read(new File("z-vasu/in/5/a2021/design1/brocade2/nimbu.bmp"));
+        final BufferedImage brocade = ImageIO.read(new File("z-vasu/in/5/a2021/design1/brocade2/rani.bmp"));
 
         int width = brocade.getWidth();
 

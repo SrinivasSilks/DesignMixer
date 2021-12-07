@@ -13,9 +13,9 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/8/a2021/design3/1jari-%s-%s.bmp";
+        String out = "z-data/out/8/a2021/design3/2jari-%s-%s.bmp";
 
-        BufferedImage brocade = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/8/a2021/design3/brocade/nimbu.bmp")));
+        BufferedImage brocade = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/8/a2021/design3/brocade2/nimbu.bmp")));
 
         final BufferedImage chucks = ReverseGenerator.get(EmptyGenerator.get(brocade.getWidth(), 60));
         int width = brocade.getWidth();

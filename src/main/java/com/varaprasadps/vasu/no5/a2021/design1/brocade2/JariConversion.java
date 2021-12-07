@@ -17,7 +17,7 @@ public class JariConversion {
 
         String out = "z-vasu/out/5/a2021/design1/2jari-%s-%s.bmp";
 
-        final BufferedImage brocade = ImageIO.read(new File("z-vasu/in/5/a2021/design1/brocade2/rani.bmp"));
+        final BufferedImage brocade = ImageIO.read(new File("z-vasu/in/5/a2021/design1/brocade2/nimbu.bmp"));
         int width = brocade.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
@@ -29,7 +29,7 @@ public class JariConversion {
 
         inputBIs.add(brocade);
         //locking
-        inputBIs.add(PlainGenerator.get(width, 24));
+        inputBIs.add(EmptyGenerator.get(width, 24));
         inputBIs.add(EmptyGenerator.get(width, 520));
         inputBIs.add(EmptyGenerator.get(width, 352));
 
