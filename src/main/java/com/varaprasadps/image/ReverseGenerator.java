@@ -12,13 +12,13 @@ import java.util.TreeSet;
 public class ReverseGenerator {
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-chandra/out/1/brocade-compressed.bmp";
+        String out = "z-chandra/in/5/design1/border/left.bmp";
 
-        String path = "z-chandra/out/1/brocade-37500-1792.bmp";
+        String path = "z-chandra/in/5/design1/border/left.bmp";
         BufferedImage image = ImageIO.read(new File(path));
 
 
-        BufferedImage img = get(get(image));
+        BufferedImage img = get(image);
         saveBMP(img, String.format(out,image.getWidth(),image.getHeight()));
     }
 

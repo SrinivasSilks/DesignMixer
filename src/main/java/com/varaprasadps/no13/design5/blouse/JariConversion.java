@@ -1,4 +1,4 @@
-package com.varaprasadps.vasu.no2.pallu;
+package com.varaprasadps.no13.design5.blouse;
 
 import com.varaprasadps.image.*;
 
@@ -13,42 +13,44 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-vasu/out/2/a2021/p-jari-%s-%s.bmp";
+        String out = "z-data/out/13/design5/b-jari-%s-%s.bmp";
 
-        final BufferedImage pallu = CutLayoutGenerator.get(HorizontalFlipGenerator.get(ImageIO.read(new File("z-vasu/in/2/P_JARI.bmp"))), 400).get(0);
-        final BufferedImage border = EmptyGenerator.get(pallu.getWidth(), 960);
+        final BufferedImage pallu = ImageIO.read(new File("z-data/in/13/design5/blouse/jari.bmp"));
+
         int width = pallu.getWidth();
-
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        // Board Khali
-        inputBIs.add(EmptyGenerator.get(width, 128));
-
-        // mispick
-        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
-
-        // Achu khali
+        //mispick
+        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
+        //achu
         inputBIs.add(EmptyGenerator.get(width, 14));
 
+        //locking
+        inputBIs.add(EmptyGenerator.get(width, 12));
+        inputBIs.add(PlainGenerator.get(width, 4));
+
         inputBIs.add(pallu);
-        inputBIs.add(border);
+        inputBIs.add(pallu);
+        inputBIs.add(pallu);
+        inputBIs.add(pallu);
 
-        // Locking
-        inputBIs.add(ReverseGenerator.get(StepLayoutGenerator.get(width, 4)));
-
-        // Box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
-        inputBIs.add(EmptyGenerator.get(width, 1));
-
-        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
-
-        //Achu Khali
+        //locking
+        inputBIs.add(PlainGenerator.get(width, 4));
         inputBIs.add(EmptyGenerator.get(width, 12));
 
+        inputBIs.add(EmptyGenerator.get(width, 512));
 
-        // Board Khali
-        inputBIs.add(EmptyGenerator.get(width, 256));
+        //box
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
+        inputBIs.add(EmptyGenerator.get(width, 1));
+        //mispick
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
+        //achu
+        inputBIs.add(EmptyGenerator.get(width, 12));
+
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
+        inputBIs.add(EmptyGenerator.get(width, 7));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -58,7 +60,7 @@ public class JariConversion {
             repeatWidth = bi.getWidth();
             repeatHeight += bi.getHeight();
         }
-        BufferedImage bi = LeftLayoutGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
+        BufferedImage bi = AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs);
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
     }

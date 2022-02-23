@@ -9,17 +9,16 @@ import java.util.List;
 
 public class CutLayoutGenerator {
     public static void main(final String[] args) throws IOException {
-        String side = "z-vasu/in/5/design1/jari-side.bmp";
-        String middle = "z-vasu/in/5/design1/jari-middle.bmp";
-        BufferedImage sidee = LeftLayoutGenerator.get(ImageIO.read(new File(side)));
-        BufferedImage middlee = LeftLayoutGenerator.get(ImageIO.read(new File(middle)));
+        String side = "z-data/in/13/design5/border/border3.bmp";
+        BufferedImage sidee = ImageIO.read(new File(side));
 
         List<BufferedImage> result = new LinkedList<>();
 
-        result.add(sidee);
-        result.add(middlee);
-        result.add(middlee);
-        result.add(sidee);
+        List<BufferedImage> images = CutLayoutGenerator.get(sidee, 385);
+        List<BufferedImage> images2 = CutLayoutGenerator.get(images.get(1), 22);
+
+        result.add(images.get(0));
+        result.add(images2.get(1));
 
         int x = 0;
         int y = 0;
@@ -27,8 +26,8 @@ public class CutLayoutGenerator {
             x = bi.getWidth();
             y += bi.getHeight();
         }
-        BufferedImage output = RightLayoutGenerator.get(AddLayoutGenerator.get(x, y, result));
-        AddLayoutGenerator.saveBMP(output, "z-vasu/in/5/design1/pallu/pallu-jari.bmp");
+        BufferedImage output = AddLayoutGenerator.get(x, y, result);
+        AddLayoutGenerator.saveBMP(output, "z-data/in/13/design5/border/border4.bmp");
     }
 
     public static BufferedImage get(BufferedImage input, int sizeX, int index) {

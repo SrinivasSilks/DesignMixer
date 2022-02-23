@@ -13,32 +13,38 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-vasu/out/2/p-rani-%s-%s.bmp";
+        String out = "z-vasu/out/2/a2021/p-rani-%s-%s.bmp";
 
-        final BufferedImage pallu = HorizontalFlipGenerator.get(ImageIO.read(new File("z-vasu/in/2/P_RANI.bmp")));
+        final BufferedImage pallu = CutLayoutGenerator.get(HorizontalFlipGenerator.get(ImageIO.read(new File("z-vasu/in/2/P_RANI.bmp"))),400).get(0);
+        final BufferedImage border = EmptyGenerator.get(pallu.getWidth(), 960);
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         // Board Khali
         inputBIs.add(EmptyGenerator.get(pallu.getWidth(), 128));
 
-        // Box
-        inputBIs.add(EmptyGenerator.get(pallu.getWidth(), 2));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(pallu.getWidth(), 2)));
+        // mispick
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(pallu.getWidth(), 4), 2).get(0)));
 
-        //Achu
-        inputBIs.add(AchuLayoutGenerator.get(pallu.getWidth(), 12));
+        // Achu
+        inputBIs.add(AchuLayoutGenerator.get(pallu.getWidth(), 14));
+
 
         inputBIs.add(pallu);
+        inputBIs.add(border);
 
         // Locking
         inputBIs.add(PlainGenerator.get(pallu.getWidth(), 16));
 
-        // Box
-        inputBIs.add(EmptyGenerator.get(pallu.getWidth(), 2));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(pallu.getWidth(), 2)));
 
-        // Achu
+        // Box
+        inputBIs.add(EmptyGenerator.get(pallu.getWidth(), 1));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(pallu.getWidth(), 1)));
+
+        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(pallu.getWidth(), 4), 2).get(0));
+
+        //Achu
         inputBIs.add(AchuLayoutGenerator.get(pallu.getWidth(), 12));
+
 
         // Board Khali
         inputBIs.add(EmptyGenerator.get(pallu.getWidth(), 256));
@@ -51,7 +57,7 @@ public class RaniConversion {
             repeatWidth = bi.getWidth();
             repeatHeight += bi.getHeight();
         }
-        BufferedImage bi = AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs);
+        BufferedImage bi = LeftLayoutGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
     }

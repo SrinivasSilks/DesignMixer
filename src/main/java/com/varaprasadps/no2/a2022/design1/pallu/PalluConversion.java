@@ -1,7 +1,8 @@
-package com.varaprasadps.vasu.no2.pallu;
+package com.varaprasadps.no2.a2022.design1.pallu;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
 import com.varaprasadps.image.HorizontalFlipGenerator;
+import com.varaprasadps.image.LeftLayoutGenerator;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -15,18 +16,18 @@ public class PalluConversion {
     public static void main(final String[] args) throws IOException {
         JariConversion.main(null);
         RaniConversion.main(null);
-        String out = "z-vasu/out/2/pallu-%s-%s.bmp";
+        String out = "z-data/out/2/a2022/design1/pallu-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("z-vasu/out/2/p-rani-2400-1792.bmp");
-        inputs.add("z-vasu/out/2/p-jari-2400-1792.bmp");
+        inputs.add("z-data/out/2/a2022/design1/p-rani-2000-2688.bmp");
+        inputs.add("z-data/out/2/a2022/design1/p-jari-2000-2688.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {
             inputBIs.add(ImageIO.read(new File(input)));
         }
 
-        BufferedImage bi = HorizontalFlipGenerator.get(ColumnRepeatGenerator.get(inputBIs));
+        BufferedImage bi = LeftLayoutGenerator.get(HorizontalFlipGenerator.get(ColumnRepeatGenerator.get(inputBIs)));
         displayPixels(bi);
         saveBMP(bi, String.format(out, bi.getWidth(), bi.getHeight()));
     }

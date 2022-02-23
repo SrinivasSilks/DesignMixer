@@ -1,4 +1,4 @@
-package com.varaprasadps.vasu.no2.kongu;
+package com.varaprasadps.no2.a2022.design1;
 
 import com.varaprasadps.image.*;
 
@@ -9,42 +9,25 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class KonguConversion {
+public class Pallu {
 
     public static void main(final String[] args) throws IOException {
+        String out = "z-data/in/2/a2020/pallu/pallu-rani.bmp";
 
-        String out = "z-vasu/out/2/2kongu-%s-%s.bmp";
+        BufferedImage middle = ImageIO.read(new File("z-data/in/2/a2020/pallu/middle-rani.bmp"));
+//        BufferedImage bugada = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("z-data/in/2/a2020/pallu/pallu-bugada-jari.bmp")));
+        BufferedImage bugada = PlainGenerator.get(1200, 430);
 
-        int width = 2;
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-
-        // Board Khali
-        inputBIs.add(EmptyGenerator.get(width, 128));
-
-        // Box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
-        inputBIs.add(EmptyGenerator.get(width, 2));
-
-        //Achu
-        inputBIs.add(EmptyGenerator.get(width, 12));
-
-        inputBIs.add(KonguLayoutGenerator.get(100));
-
-        inputBIs.add(EmptyGenerator.get(width, 960));
-
-        // Locking
-        inputBIs.add(KonguLayoutGenerator.get(4));
-
-        // Box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
-        inputBIs.add(EmptyGenerator.get(width, 2));
-
-        // Achu
-        inputBIs.add(EmptyGenerator.get(width, 12));
-
-        // Board Khali
-        inputBIs.add(EmptyGenerator.get(width, 256));
+        inputBIs.add(bugada);
+        inputBIs.add(CutLayoutGenerator.get(middle, 60).get(1));
+        for (int i = 0; i < 3; i++) {
+            inputBIs.add(middle);
+        }
+        List<BufferedImage> images = CutLayoutGenerator.get(bugada, 39);
+        inputBIs.add(images.get(1));
+        inputBIs.add(VerticalFlipGenerator.get(images.get(0)));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -54,6 +37,7 @@ public class KonguConversion {
             repeatWidth = bi.getWidth();
             repeatHeight += bi.getHeight();
         }
+
         BufferedImage bi = HorizontalFlipGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
@@ -63,7 +47,7 @@ public class KonguConversion {
         System.out.println(String.format("Width : %s, Height : %s", fileOne.getWidth(), fileOne.getHeight()));
     }
 
-    private static void saveBMP(final BufferedImage bi, final String path) throws IOException {
+    static void saveBMP(final BufferedImage bi, final String path) throws IOException {
         ImageIO.write(bi, "bmp", new File(path));
     }
 
