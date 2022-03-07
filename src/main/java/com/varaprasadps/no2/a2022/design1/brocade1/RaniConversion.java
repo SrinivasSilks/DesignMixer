@@ -13,18 +13,11 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/2/a2021/design3/1rani-%s-%s.bmp";
+        String out = "z-data/out/2/a2022/design1/1rani-%s-%s.bmp";
 
-        final BufferedImage leftt = HorizontalRepeatGenerator.get(3, VerticalFlipGenerator.get(ImageIO.read(new File("z-data/in/2/a2021/design3/border/left.bmp"))));
-        final BufferedImage rightt = HorizontalRepeatGenerator.get(6, ImageIO.read(new File("z-data/in/2/a2021/design3/border/right.bmp")));
+        final BufferedImage body = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/2/a2022/design1/brocade/rani.bmp")));
 
-        BufferedImage rightf = HorizontalRepeatGenerator.get(2, rightt);
-        BufferedImage leftf = HorizontalRepeatGenerator.get(2, leftt);
-
-        BufferedImage right = CutLayoutGenerator.get(CutLayoutGenerator.get(rightf, leftt.getWidth() - 120, 1), leftt.getWidth(), 0);
-        BufferedImage left = CutLayoutGenerator.get(CutLayoutGenerator.get(leftf, leftt.getWidth() - 120, 1), leftt.getWidth(), 0);
-
-        int width = left.getWidth();
+        int width = body.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -41,16 +34,16 @@ public class RaniConversion {
         inputBIs.add(AchuLayoutGenerator.get(width, 8));
 
         //left border
-        inputBIs.add(left);
+        inputBIs.add(EmptyGenerator.get(width, 416));
         //locking
         inputBIs.add(PlainGenerator.get(width, 16));
 
-        inputBIs.add(EmptyGenerator.get(width, 1200));
+        inputBIs.add(body);
 
         //locking
         inputBIs.add(PlainGenerator.get(width, 16));
         //right border
-        inputBIs.add(right);
+        inputBIs.add(EmptyGenerator.get(width, 624));
 
         //box
         inputBIs.add(EmptyGenerator.get(width, 2));
@@ -73,7 +66,7 @@ public class RaniConversion {
             repeatWidth = bi.getWidth();
             repeatHeight += bi.getHeight();
         }
-        BufferedImage bi = AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs);
+        BufferedImage bi = LeftLayoutGenerator.get(HorizontalFlipGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs)));
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
     }

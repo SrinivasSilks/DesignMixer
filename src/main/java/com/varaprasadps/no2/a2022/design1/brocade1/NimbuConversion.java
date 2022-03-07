@@ -13,9 +13,9 @@ public class NimbuConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/2/a2021/design3/1nimbu-%s-%s.bmp";
+        String out = "z-data/out/2/a2022/design1/1nimbu-%s-%s.bmp";
 
-        final BufferedImage brocade = HorizontalRepeatGenerator.get(2, ImageIO.read(new File("z-data/in/2/a2021/design3/brocade/jari.bmp")));
+        final BufferedImage brocade = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/2/a2022/design1/brocade/jari.bmp")));
 
         int width = brocade.getWidth();
 
@@ -67,7 +67,7 @@ public class NimbuConversion {
             repeatWidth = bi.getWidth();
             repeatHeight += bi.getHeight();
         }
-        BufferedImage bi = AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs);
+        BufferedImage bi = LeftLayoutGenerator.get(HorizontalFlipGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs)));
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
     }

@@ -31,12 +31,12 @@ public class KonguConversion {
         //left
         inputBIs.add(EmptyGenerator.get(width, 416));
         //locking
-        inputBIs.add(EmptyGenerator.get(width, 16));
+        inputBIs.add(KonguLayoutGenerator.get(4));
         //body
         inputBIs.add(KonguLayoutGenerator.get(300));
 
         //locking
-        inputBIs.add(EmptyGenerator.get(width, 16));
+        inputBIs.add(KonguLayoutGenerator.get(4));
         //right
         inputBIs.add(EmptyGenerator.get(width, 624));
 

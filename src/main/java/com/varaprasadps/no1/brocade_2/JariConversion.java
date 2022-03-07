@@ -11,6 +11,15 @@ import java.util.List;
 
 public class JariConversion {
 
+
+    /*
+    *
+    * 0-10 - Empty
+    * 11-200 - Reverse Image (Input)
+    * 201-202 - service configuration (fixed)
+    *
+    * */
+    //
     public static void main(final String[] args) throws IOException {
 
         String out = "z-data/out/1/2_jari-%s-%s.bmp";
