@@ -1,4 +1,4 @@
-package com.varaprasadps.no11.a2021.jr;
+package com.varaprasadps.no8.a2022.design1.kongu;
 
 import com.varaprasadps.image.*;
 
@@ -9,41 +9,36 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class AnniConversion {
+public class KonguConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/11/a2021/jr/anni-%s-%s.bmp";
-
-        BufferedImage border = ImageIO.read(new File("z-data/in/11/a2021/jr/design1/border.bmp"));
-
-        int width = border.getWidth();
+        String out = "z-data/out/8/a2022/design1/kongu-%s-%s.bmp";
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        inputBIs.add(EmptyGenerator.get(width, 32));
+        inputBIs.add(EmptyGenerator.get(2, 32));
 
-        //box
-        inputBIs.add(EmptyGenerator.get(width, 2));
-        inputBIs.add(EmptyGenerator.get(width, 2));
-        //mispick
-        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 6));
+        inputBIs.add(EmptyGenerator.get(2, 12));
         //locking
-        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(KonguLayoutGenerator.get(1));
 
         //all over
-        inputBIs.add(PlainGenerator.get(width, 960));
-
-        inputBIs.add(border);
-
+        inputBIs.add(KonguLayoutGenerator.get(120));
+        //mango
+        inputBIs.add(KonguLayoutGenerator.get(24));
         //locking
-        inputBIs.add(PlainGenerator.get(width, 4));
-        //mispick
-        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
+        inputBIs.add(KonguLayoutGenerator.get(1));
+        //chucks
+        inputBIs.add(EmptyGenerator.get(2, 60));
+        //border
+        inputBIs.add(EmptyGenerator.get(2, 1120));
+
+        //box
+        inputBIs.add(EmptyGenerator.get(2, 4));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 10));
+        inputBIs.add(EmptyGenerator.get(2, 12));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

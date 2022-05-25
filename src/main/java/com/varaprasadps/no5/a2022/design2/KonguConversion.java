@@ -1,4 +1,4 @@
-package com.varaprasadps.chandra.no5.design1.kanni;
+package com.varaprasadps.no5.a2022.design2;
 
 import com.varaprasadps.image.*;
 
@@ -9,42 +9,38 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class JariConversion {
+public class KonguConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-chandra/out/5/design1/k-jari-%s-%s.bmp";
-
-        final BufferedImage right = EmptyGenerator.get(360, 720);
-        final BufferedImage left = EmptyGenerator.get(360, 50);
-        final BufferedImage body = PlainGenerator.get(360, 600);
-
-        int width = right.getWidth();
+        String out = "z-data/out/5/a2022/design2/kongu-%s-%s.bmp";
+        int width = 2;
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        inputBIs.add(EmptyGenerator.get(width, 128));
-
-        //mispick
-        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
-        //achu
-        inputBIs.add(EmptyGenerator.get(width, 14));
-
-        inputBIs.add(left);
-        //locking
-        inputBIs.add(PlainGenerator.get(width,6));
-        inputBIs.add(body);
-        inputBIs.add(right);
+        inputBIs.add(EmptyGenerator.get(width, 32));
 
         //box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        //locking
+        inputBIs.add(KonguLayoutGenerator.get());
+        //mispick
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
+        //achu
+        inputBIs.add(EmptyGenerator.get(width, 6));
+
+        inputBIs.add(EmptyGenerator.get(width, 320));
+        inputBIs.add(KonguLayoutGenerator.get(180));
+        inputBIs.add(EmptyGenerator.get(width, 720));
+
+        //locking
+        inputBIs.add(KonguLayoutGenerator.get());
+
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //achu
         inputBIs.add(EmptyGenerator.get(width, 10));
-
-        inputBIs.add(EmptyGenerator.get(width, 256));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -54,7 +50,7 @@ public class JariConversion {
             repeatWidth = bi.getWidth();
             repeatHeight += bi.getHeight();
         }
-        BufferedImage bi = AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs);
+        BufferedImage bi = LeftLayoutGenerator.get(ReverseGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs)));
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
     }

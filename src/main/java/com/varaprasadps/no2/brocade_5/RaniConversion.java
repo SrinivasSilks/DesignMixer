@@ -1,6 +1,5 @@
 package com.varaprasadps.no2.brocade_5;
 
-import com.sun.org.apache.regexp.internal.RE;
 import com.varaprasadps.image.*;
 
 import javax.imageio.ImageIO;

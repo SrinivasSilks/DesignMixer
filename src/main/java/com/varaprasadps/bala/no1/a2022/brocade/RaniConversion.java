@@ -12,9 +12,9 @@ import java.util.List;
 public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-bala/out/1/2022/1rani-%s-%s.bmp";
+        String out = "z-bala/out/1/2022/3rani-%s-%s.bmp";
 
-        final BufferedImage body = ImageIO.read(new File("z-bala/in/1/2022/brocade/red.bmp"));
+        final BufferedImage body = ImageIO.read(new File("z-bala/in/1/2022/brocade3/red.bmp"));
 
         final BufferedImage right = EmptyGenerator.get(body.getWidth(), 560);
         int width = body.getWidth();
