@@ -14,16 +14,28 @@ import java.util.List;
 public class Bondu {
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-data/out/1/a2021/jr/pset.bmp";
+        String out = "z-data/out/1/a2021/jr/pset_kongu.bmp";
 
         BufferedImage anni = VerticalFlipGenerator.get(ImageIO.read(new File("z-data/out/1/a2021/jr/1anni-60-2688.bmp")));
         BufferedImage pallu = VerticalFlipGenerator.get(ImageIO.read(new File("z-data/out/1/a2021/jr/pallu-2688-3840.bmp")));
         BufferedImage brocade = VerticalFlipGenerator.get(ImageIO.read(new File("z-data/out/1/a2021/jr/1brocade-2688-1260.bmp")));
+        BufferedImage kanni = VerticalFlipGenerator.get(ImageIO.read(new File("z-data/out/1/a2021/jr/kanni-2688-120.bmp")));
+        BufferedImage kongu = VerticalFlipGenerator.get(ImageIO.read(new File("z-data/out/1/a2021/design1/1kongu-2-2688.bmp")));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
 //        inputBIs.add(brocade);
-        inputBIs.add(anni);
+
+        inputBIs.add(CutLayoutGenerator.get(kanni, 20).get(0));
+        inputBIs.add(kongu);
+        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(kanni, 20).get(1), 10).get(0));
+        inputBIs.add(CutLayoutGenerator.get(anni, 15).get(1));
+
+        inputBIs.add(CutLayoutGenerator.get(kanni, 20).get(0));
+        inputBIs.add(kongu);
+        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(kanni, 20).get(1), 10).get(0));
+        inputBIs.add(CutLayoutGenerator.get(anni, 15).get(1));
+
         inputBIs.add(pallu);
         inputBIs.add(anni);
         inputBIs.add(anni);

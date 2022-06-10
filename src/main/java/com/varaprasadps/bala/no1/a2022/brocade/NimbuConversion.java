@@ -13,9 +13,9 @@ public class NimbuConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-bala/out/1/2022/3nimbu-%s-%s.bmp";
+        String out = "z-bala/out/1/2022/red/2nimbu-%s-%s.bmp";
 
-        final BufferedImage body = ImageIO.read(new File("z-bala/in/1/2022/brocade3/green.bmp"));
+        final BufferedImage body = ImageIO.read(new File("z-bala/in/1/2022/brocade2/silver.bmp"));
 
         final BufferedImage right = EmptyGenerator.get(body.getWidth(), 560);
         int width = body.getWidth();
@@ -37,6 +37,7 @@ public class NimbuConversion {
         //left
         inputBIs.add(right);
         //body
+        inputBIs.add(body);
         inputBIs.add(body);
         inputBIs.add(body);
         //right

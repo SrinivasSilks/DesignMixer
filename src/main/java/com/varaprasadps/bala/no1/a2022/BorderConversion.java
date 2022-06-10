@@ -18,7 +18,7 @@ public class BorderConversion {
 
         String out = "z-bala/out/1/2022/border-%s-%s.bmp";
 
-        final BufferedImage border = ImageIO.read(new File("z-bala/in/1/2022/border/border.bmp"));
+        final BufferedImage border = ImageIO.read(new File("z-bala/in/1/2022/border-new/border.bmp"));
         final BufferedImage body = EmptyGenerator.get(border.getWidth(), 720);
 
         int width = body.getWidth();
