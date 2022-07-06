@@ -1,4 +1,4 @@
-package com.varaprasadps.no7.jr;
+package com.varaprasadps.no7.a2022.design1;
 
 import com.varaprasadps.image.AddLayoutGenerator;
 import com.varaprasadps.image.CutLayoutGenerator;
@@ -17,14 +17,14 @@ public class Bondu {
 
         BufferedImage blouse = ImageIO.read(new File("z-data/out/7/jr/design1/blouse-1824-240.bmp"));
         BufferedImage pallu = ImageIO.read(new File("z-data/out/7/jr/design1/pallu-1824-3216.bmp"));
-        BufferedImage brocade = ImageIO.read(new File("z-data/out/7/jr/design1/4brocade-1824-6120.bmp"));
+        BufferedImage brocade = ImageIO.read(new File("z-data/out/7/jr/design1/1brocade-1824-1800.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
 //        inputBIs.add(brocade);
         inputBIs.add(CutLayoutGenerator.get(blouse, 144).get(0));
 //        inputBIs.add(pallu);
-//        inputBIs.add(CutLayoutGenerator.get(blouse, 180).get(0));
+//        inputBIs.add(CutLayoutGenerator.get(anni, 800 - 176).get(1));
 
 
         int repeatWidth = 0;

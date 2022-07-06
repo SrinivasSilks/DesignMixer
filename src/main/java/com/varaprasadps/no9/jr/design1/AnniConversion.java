@@ -13,7 +13,7 @@ public class AnniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/9/a2021/jr/design1/anni-%s-%s.bmp";
+        String out = "z-data/out/9/a2021/jr/design1/new-anni-%s-%s.bmp";
 
         BufferedImage right = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/9/a2021/jr/design1/border/right.bmp")));
         BufferedImage left = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/9/a2021/jr/design1/border/left.bmp")));
@@ -30,8 +30,10 @@ public class AnniConversion {
         inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 8), 2).get(0));
+        //kali
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 10));
+        inputBIs.add(AchuLayoutGenerator.get(width, 8));
 
 
         //left
@@ -47,8 +49,10 @@ public class AnniConversion {
 
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
+        //kali
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 14));
+        inputBIs.add(AchuLayoutGenerator.get(width, 12));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

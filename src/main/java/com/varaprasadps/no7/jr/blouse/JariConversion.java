@@ -30,7 +30,10 @@ public class JariConversion {
         inputBIs.add(EmptyGenerator.get(width, 8));
 
         //left
-        inputBIs.add(EmptyGenerator.get(width, 202));
+        inputBIs.add(EmptyGenerator.get(width, 190));
+
+        //locking
+        inputBIs.add(EmptyGenerator.get(width, 12));
 
         //body
         inputBIs.add(blouse);
@@ -38,8 +41,11 @@ public class JariConversion {
         inputBIs.add(blouse);
         inputBIs.add(blouse);
 
+        //locking
+        inputBIs.add(EmptyGenerator.get(width, 12));
+
         //right
-        inputBIs.add(EmptyGenerator.get(width, 600));
+        inputBIs.add(EmptyGenerator.get(width, 588));
 
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));

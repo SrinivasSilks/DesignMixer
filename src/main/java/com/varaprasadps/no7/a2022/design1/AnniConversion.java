@@ -1,4 +1,4 @@
-package com.varaprasadps.no7.jr;
+package com.varaprasadps.no7.a2022.design1;
 
 import com.varaprasadps.image.*;
 
@@ -13,10 +13,10 @@ public class AnniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/7/jr/design1/anni-%s-%s.bmp";
+        String out = "z-data/out/7/a2022/design1/anni-%s-%s.bmp";
 
-        BufferedImage left = ImageIO.read(new File("z-data/in/7/jr/design1/border1/left-border.bmp"));
-        BufferedImage right = ImageIO.read(new File("z-data/in/7/jr/design1/border1/right-border.bmp"));
+        BufferedImage left = VerticalFlipGenerator.get(ImageIO.read(new File("z-data/in/7/a2022/design1/border/left.bmp")));
+        BufferedImage right = ImageIO.read(new File("z-data/in/7/a2022//design1/border/right.bmp"));
 
         int width = right.getWidth();
 
@@ -34,13 +34,8 @@ public class AnniConversion {
 
         //border
         inputBIs.add(left);
-
-        //locking
-        inputBIs.add(PlainGenerator.get(width, 12));
         //all over
         inputBIs.add(PlainGenerator.get(width, 960));
-        //locking
-        inputBIs.add(PlainGenerator.get(width, 12));
 
         //right border
         inputBIs.add(right);
