@@ -13,18 +13,18 @@ import java.util.List;
 public class Bondu {
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-data/out/9/a2021/jr/design1/kongu.bmp";
+        String out = "z-data/out/9/a2021/jr/design1/pset.bmp";
 
         BufferedImage anni = ImageIO.read(new File("z-data/out/9/a2021/jr/design1/blouse-1824-800.bmp"));
         BufferedImage pallu = ImageIO.read(new File("z-data/out/9/a2021/jr/design1/pallu-1824-3224.bmp"));
-        BufferedImage brocade = ImageIO.read(new File("z-data/out/9/a2021/jr/design1/1brocade-1824-1200.bmp"));
+        BufferedImage brocade = ImageIO.read(new File("z-data/out/9/a2021/jr/ka-anni-1824-8800.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
 //        inputBIs.add(brocade);
-        inputBIs.add(CutLayoutGenerator.get(anni, 200).get(0));
-//        inputBIs.add(pallu);
-//        inputBIs.add(CutLayoutGenerator.get(anni, 800 - 176).get(1));
+//        inputBIs.add(CutLayoutGenerator.get(anni, 200).get(0));
+        inputBIs.add(pallu);
+        inputBIs.add(CutLayoutGenerator.get(anni, 800 - 176).get(1));
 
 
         int repeatWidth = 0;
