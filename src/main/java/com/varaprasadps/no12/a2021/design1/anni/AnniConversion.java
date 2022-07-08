@@ -13,7 +13,7 @@ public class AnniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/12/a2021/design1/anni-%s-%s.bmp";
+        String out = "z-data/out/12/a2022/design1/anni-%s-%s.bmp";
 
         BufferedImage border = ImageIO.read(new File("z-data/in/12/a2021/design1/border/border.bmp"));
 
@@ -24,7 +24,7 @@ public class AnniConversion {
         inputBIs.add(EmptyGenerator.get(width, 32));
 
         //box
-        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
@@ -47,7 +47,7 @@ public class AnniConversion {
         inputBIs.add(border);
 
         //box
-        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));

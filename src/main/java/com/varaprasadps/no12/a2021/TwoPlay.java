@@ -20,7 +20,8 @@ public class TwoPlay {
         inputBIs.add(EmptyGenerator.get(width, 32));
 
         //box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 4)));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //kali
@@ -37,7 +38,8 @@ public class TwoPlay {
         inputBIs.add(border);
 
         //box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 4)));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //kali
@@ -64,7 +66,8 @@ public class TwoPlay {
         inputBIs.add(EmptyGenerator.get(width, 32));
 
         //box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 4)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //kali
@@ -82,7 +85,8 @@ public class TwoPlay {
         inputBIs.add(right);
 
         //box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 4)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //kali

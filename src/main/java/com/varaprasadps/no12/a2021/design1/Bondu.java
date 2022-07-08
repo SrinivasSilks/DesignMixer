@@ -13,13 +13,13 @@ import java.util.List;
 public class Bondu {
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-data/out/12/a2021/design1/pset.bmp";
+        String out = "z-data/out/12/a2022/design1/pset.bmp";
 
-        BufferedImage kongu = ImageIO.read(new File("z-data/out/12/a2021/design1/kongu-2-1824.bmp"));
-        BufferedImage kanni = ImageIO.read(new File("z-data/out/12/a2021/design1/kanni-1824-960.bmp"));
-        BufferedImage anni = ImageIO.read(new File("z-data/out/12/a2021/design1/anni-480-1824.bmp"));
-        BufferedImage pallu = ImageIO.read(new File("z-data/out/12/a2021/design1/pallu-1824-4000.bmp"));
-        BufferedImage brocade = ImageIO.read(new File("z-data/out/12/a2021/design1/brocade-1824-1440.bmp"));
+        BufferedImage kongu = ImageIO.read(new File("z-data/out/12/a2022/design1/kongu-2-1824.bmp"));
+        BufferedImage kanni = ImageIO.read(new File("z-data/out/12/a2022/design1/kanni-1824-960.bmp"));
+        BufferedImage anni = ImageIO.read(new File("z-data/out/12/a2022/design1/anni-480-1824.bmp"));
+        BufferedImage pallu = ImageIO.read(new File("z-data/out/12/a2022/design1/pallu-1824-4000.bmp"));
+        BufferedImage brocade = ImageIO.read(new File("z-data/out/12/a2022/design1/brocade-1824-1440.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 

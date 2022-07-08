@@ -24,7 +24,7 @@ public class KanniConversion {
         BufferedImage brocade = LeftLayoutGenerator.get(getBrocade(brocades));
         displayPixels(brocade);
 
-        saveBMP(brocade, format("z-data/out/12/a2021/design1/kanni-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
+        saveBMP(brocade, format("z-data/out/12/a2022/design1/kanni-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
         return brocade;
     }
 

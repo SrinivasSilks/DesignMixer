@@ -22,7 +22,7 @@ public class BrocadeConversion {
         brocades.add(jari(border, nimbu));
         brocades.add(nimbu(border, jari));
         BufferedImage brocade = LeftLayoutGenerator.get(getBrocade(brocades));
-        saveBMP(brocade, String.format("z-data/out/12/a2021/design1/brocade-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
+        saveBMP(brocade, String.format("z-data/out/12/a2022/design1/brocade-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
         return brocade;
     }
 

@@ -18,8 +18,8 @@ public class ThreePlay {
         inputBIs.add(EmptyGenerator.get(width, 32));
 
         //box
-        inputBIs.add(EmptyGenerator.get(width, 2));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //kali
@@ -38,8 +38,8 @@ public class ThreePlay {
         inputBIs.add(EmptyGenerator.get(border.getWidth(), border.getHeight()));
 
         //box
-        inputBIs.add(EmptyGenerator.get(width, 2));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //kali
@@ -68,8 +68,7 @@ public class ThreePlay {
         inputBIs.add(EmptyGenerator.get(width, 32));
 
         //box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
-        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(EmptyGenerator.get(width, 4));
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //khali
@@ -88,8 +87,7 @@ public class ThreePlay {
         inputBIs.add(EmptyGenerator.get(border.getWidth(), border.getHeight()));
 
         //box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
-        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(EmptyGenerator.get(width, 4));
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //kali
@@ -116,7 +114,8 @@ public class ThreePlay {
         inputBIs.add(EmptyGenerator.get(width, 32));
 
         //box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 4)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //kali
@@ -135,7 +134,8 @@ public class ThreePlay {
         inputBIs.add(right);
 
         //box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 4)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //kali

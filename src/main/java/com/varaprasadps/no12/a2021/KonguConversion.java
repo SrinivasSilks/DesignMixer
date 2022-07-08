@@ -13,7 +13,7 @@ public class KonguConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/12/a2021/design1/kongu-%s-%s.bmp";
+        String out = "z-data/out/12/a2022/design1/kongu-%s-%s.bmp";
 
         int width = 2;
         BufferedImage border = EmptyGenerator.get(2, 624);
@@ -23,7 +23,7 @@ public class KonguConversion {
         inputBIs.add(EmptyGenerator.get(width, 32));
 
         //box
-        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
@@ -48,7 +48,7 @@ public class KonguConversion {
         inputBIs.add(border);
 
         //box
-        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
