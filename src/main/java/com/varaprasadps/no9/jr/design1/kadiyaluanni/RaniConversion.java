@@ -15,8 +15,8 @@ public class RaniConversion {
 
         String out = "z-data/out/9/a2021/jr/ka-rani-%s-%s.bmp";
 
-        BufferedImage right = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/9/a2021/jr/design1/border/right-first.bmp")));
-        BufferedImage left = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/9/a2021/jr/design1/border/left.bmp")));
+        BufferedImage right = HorizontalRepeatGenerator.get(11, ImageIO.read(new File("z-data/in/9/a2021/jr/design1/border/right-first.bmp")));
+        BufferedImage left = HorizontalRepeatGenerator.get(11, ImageIO.read(new File("z-data/in/9/a2021/jr/design1/border/left.bmp")));
 
         int width = left.getWidth();
 
@@ -39,13 +39,13 @@ public class RaniConversion {
         //left
         inputBIs.add(VerticalFlipGenerator.get(left));
         //locking
-        inputBIs.add(PlainGenerator.get(width, 12));
-        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(PlainGenerator.get(width, 14));
+        inputBIs.add(PlainGenerator.get(width, 2));
         //body
         inputBIs.add(body);
         //locking
-        inputBIs.add(PlainGenerator.get(width, 12));
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 4)));
+        inputBIs.add(PlainGenerator.get(width, 2));
+        inputBIs.add(PlainGenerator.get(width, 14));
         //right
         inputBIs.add(right);
 
