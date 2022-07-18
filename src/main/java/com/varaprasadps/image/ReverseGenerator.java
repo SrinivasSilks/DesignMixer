@@ -12,11 +12,10 @@ import java.util.TreeSet;
 public class ReverseGenerator {
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-bala/in/1/2022/brocade2/red.bmp";
+        String out = "z-data/in/10/a2022/design1/border/border-first.bmp";
 
-        String path = "z-bala/in/1/2022/brocade2/red.bmp";
+        String path = "z-data/in/10/a2022/design1/border/border-first.bmp";
         BufferedImage image = ImageIO.read(new File(path));
-
 
         BufferedImage img = get(image);
         saveBMP(img, String.format(out,image.getWidth(),image.getHeight()));

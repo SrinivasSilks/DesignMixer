@@ -1,4 +1,4 @@
-package com.varaprasadps.no10.a2022.kadiyalu3;
+package com.varaprasadps.no10.a2022.design1.kadiyalu3;
 
 import com.varaprasadps.image.*;
 
