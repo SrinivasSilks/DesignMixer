@@ -1,6 +1,7 @@
-package com.varaprasadps.no10.a2022.design1.kadiyaluanni;
+package com.varaprasadps.vasu.no4.a2022.pallu;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
+import com.varaprasadps.image.HorizontalFlipGenerator;
 import com.varaprasadps.image.LeftLayoutGenerator;
 
 import javax.imageio.ImageIO;
@@ -10,23 +11,23 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class KadiyaluAnniConversion {
+public class PalluConversion {
 
     public static void main(final String[] args) throws IOException {
         JariConversion.main(null);
         RaniConversion.main(null);
-        String out = "z-data/out/10/a2022/design1/2ka-anni-%s-%s.bmp";
+        String out = "z-vasu/out/4/pallu-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("z-data/out/10/a2022/design1/ka-rani-120-1824.bmp");
-        inputs.add("z-data/out/10/a2022/design1/ka-jari-120-1824.bmp");
+        inputs.add("z-vasu/out/4/p-rani-2040-1792.bmp");
+        inputs.add("z-vasu/out/4/p-jari-2040-1792.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {
             inputBIs.add(ImageIO.read(new File(input)));
         }
 
-        BufferedImage bi = LeftLayoutGenerator.get(ColumnRepeatGenerator.get(inputBIs));
+        BufferedImage bi = LeftLayoutGenerator.get(HorizontalFlipGenerator.get(ColumnRepeatGenerator.get(inputBIs)));
         displayPixels(bi);
         saveBMP(bi, String.format(out, bi.getWidth(), bi.getHeight()));
     }

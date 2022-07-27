@@ -10,9 +10,9 @@ import java.util.List;
 public class AddLayoutGenerator {
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-data/in/10/a2022/design1/border/border-first.bmp";
+        String out = "z-vasu/in/4/a2022/border/border-first.bmp";
 
-        BufferedImage image = LeftLayoutGenerator.get(ImageIO.read(new File("z-data/in/10/a2022/design1/border/border.bmp")));
+        BufferedImage image = LeftLayoutGenerator.get(ImageIO.read(new File("z-vasu/in/4/a2022/border/border.bmp")));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
