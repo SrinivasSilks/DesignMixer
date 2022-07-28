@@ -9,16 +9,13 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class AnniConversion {
+public class JariUpConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/7/jr/design1/new/anni-%s-%s.bmp";
+        String out = "z-data/out/7/jr/design1/new/jariup-%s-%s.bmp";
 
-        BufferedImage left = ImageIO.read(new File("z-data/in/7/jr/design1/border1/left.bmp"));
-        BufferedImage right = ImageIO.read(new File("z-data/in/7/jr/design1/border1/right.bmp"));
-
-        int width = right.getWidth();
+        int width = 20;
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -31,20 +28,20 @@ public class AnniConversion {
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 8));
+        inputBIs.add(EmptyGenerator.get(width, 8));
 
         //border
-        inputBIs.add(left);
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 186)));
 
         //locking
-        inputBIs.add(PlainGenerator.get(width, 16));
+        inputBIs.add(EmptyGenerator.get(width, 16));
         //all over
-        inputBIs.add(PlainGenerator.get(width, 960));
+        inputBIs.add(EmptyGenerator.get(width, 960));
         //locking
-        inputBIs.add(PlainGenerator.get(width, 16));
+        inputBIs.add(EmptyGenerator.get(width, 16));
 
         //right border
-        inputBIs.add(right);
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 584)));
 
         //kali
         inputBIs.add(EmptyGenerator.get(width, 2));
@@ -53,7 +50,7 @@ public class AnniConversion {
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 10));
+        inputBIs.add(EmptyGenerator.get(width, 10));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

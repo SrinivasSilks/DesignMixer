@@ -13,7 +13,7 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/7/jr/design1/blouse-jari-%s-%s.bmp";
+        String out = "z-data/out/7/jr/design1/new/blouse-jari-%s-%s.bmp";
 
         BufferedImage blouse = HorizontalRepeatGenerator.get(6, ImageIO.read(new File("z-data/in/7/jr/design1/blouse/jari.bmp")));
 
@@ -23,36 +23,34 @@ public class JariConversion {
         inputBIs.add(EmptyGenerator.get(width, 32));
 
         //box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 4)));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        //kadiyalu kali
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //achu
         inputBIs.add(EmptyGenerator.get(width, 8));
 
         //left
-        inputBIs.add(EmptyGenerator.get(width, 190));
-
+        inputBIs.add(EmptyGenerator.get(width, 186));
         //locking
-        inputBIs.add(EmptyGenerator.get(width, 12));
-
+        inputBIs.add(EmptyGenerator.get(width, 16));
         //body
         inputBIs.add(blouse);
         inputBIs.add(blouse);
         inputBIs.add(blouse);
         inputBIs.add(blouse);
-
         //locking
-        inputBIs.add(EmptyGenerator.get(width, 12));
-
+        inputBIs.add(EmptyGenerator.get(width, 16));
         //right
-        inputBIs.add(EmptyGenerator.get(width, 588));
+        inputBIs.add(EmptyGenerator.get(width, 584));
 
-        //locking
-        inputBIs.add(PlainGenerator.get(width, 4));
-
+        //kali
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        //kadiyalu kali
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
-
         //achu
         inputBIs.add(EmptyGenerator.get(width, 10));
 

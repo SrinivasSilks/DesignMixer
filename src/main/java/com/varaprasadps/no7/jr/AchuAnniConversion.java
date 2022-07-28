@@ -9,16 +9,13 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class AnniConversion {
+public class AchuAnniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/7/jr/design1/new/anni-%s-%s.bmp";
+        String out = "z-data/out/7/jr/design1/new/achu-anni-%s-%s.bmp";
 
-        BufferedImage left = ImageIO.read(new File("z-data/in/7/jr/design1/border1/left.bmp"));
-        BufferedImage right = ImageIO.read(new File("z-data/in/7/jr/design1/border1/right.bmp"));
-
-        int width = right.getWidth();
+        int width = 20;
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -34,7 +31,7 @@ public class AnniConversion {
         inputBIs.add(AchuLayoutGenerator.get(width, 8));
 
         //border
-        inputBIs.add(left);
+        inputBIs.add(EmptyGenerator.get(width, 186));
 
         //locking
         inputBIs.add(PlainGenerator.get(width, 16));
@@ -44,7 +41,7 @@ public class AnniConversion {
         inputBIs.add(PlainGenerator.get(width, 16));
 
         //right border
-        inputBIs.add(right);
+        inputBIs.add(EmptyGenerator.get(width, 584));
 
         //kali
         inputBIs.add(EmptyGenerator.get(width, 2));
