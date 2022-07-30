@@ -59,7 +59,7 @@ public class JariConversion {
         // Achu
         inputBIs.add(AchuLayoutGenerator.get(width, 8));
 
-        inputBIs.add(PlainGenerator.get(width, 80));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 80)));
 
         // Board Khali
         inputBIs.add(EmptyGenerator.get(width, 256));
