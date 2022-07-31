@@ -36,7 +36,7 @@ public class RaniConversion {
         inputBIs.add(ReverseGenerator.get(AchuLayoutGenerator.get(width, 8)));
 
         //left
-        inputBIs.add(VerticalFlipGenerator.get(left));
+        inputBIs.add(left);
         //body
         inputBIs.add(body);
         //right

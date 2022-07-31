@@ -35,7 +35,7 @@ public class JariConversion {
         inputBIs.add(AchuLayoutGenerator.get(width, 8));
 
         //left
-        inputBIs.add(VerticalFlipGenerator.get(left));
+        inputBIs.add(left);
         //body
         inputBIs.add(body);
         //right
