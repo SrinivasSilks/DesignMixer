@@ -33,7 +33,7 @@ public class AnniConversion {
         inputBIs.add(AchuLayoutGenerator.get(width, 8));
 
         //left
-        inputBIs.add(VerticalFlipGenerator.get(border));
+        inputBIs.add(border);
         //all over
         inputBIs.add(PlainGenerator.get(width, 960));
         //right

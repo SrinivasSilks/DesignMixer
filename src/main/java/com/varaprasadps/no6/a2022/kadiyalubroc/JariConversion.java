@@ -1,4 +1,4 @@
-package com.varaprasadps.no6.a2022.kadiyaluanni;
+package com.varaprasadps.no6.a2022.kadiyalubroc;
 
 import com.varaprasadps.image.*;
 
@@ -13,10 +13,10 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/6/a2022/ka-jari-%s-%s.bmp";
+        String out = "z-data/out/6/a2022/kb-jari-%s-%s.bmp";
 
-        BufferedImage right = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/6/a2022/border/border.bmp")));
-        BufferedImage left = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/6/a2022/border/border.bmp")));
+        BufferedImage right = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("z-data/in/6/a2022/border/border.bmp")));
+        BufferedImage left = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("z-data/in/6/a2022/border/border.bmp")));
         int width = left.getWidth();
         final BufferedImage body =  PlainGenerator.get(width, 960);
 
@@ -25,8 +25,8 @@ public class JariConversion {
         inputBIs.add(EmptyGenerator.get(width, 32));
 
         //locking
-        inputBIs.add(PlainGenerator.get(width, 2));
         inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 2)));
+        inputBIs.add(PlainGenerator.get(width, 2));
         //mispick
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //kadiyalu
@@ -35,15 +35,15 @@ public class JariConversion {
         inputBIs.add(AchuLayoutGenerator.get(width, 8));
 
         //left
-        inputBIs.add(left);
+        inputBIs.add(VerticalFlipGenerator.get(left));
         //body
         inputBIs.add(body);
         //right
         inputBIs.add(right);
 
         //box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //mispick
         inputBIs.add(EmptyGenerator.get(width, 2));
         //kadiyalu
