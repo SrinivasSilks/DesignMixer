@@ -9,41 +9,44 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class AnniConversion {
+public class KonguConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-vasu/out/4/a2022/anni-%s-%s.bmp";
+        String out = "z-vasu/out/4/a2022/kongu-%s-%s.bmp";
 
-        final BufferedImage border = ImageIO.read(new File("z-vasu/in/4/a2022/border/border.bmp"));
-        int width = border.getWidth();
+        int width = 2;
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         // Board Khali
         inputBIs.add(EmptyGenerator.get(width, 128));
 
-        //mispick
-        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
-        //khali
+        // mispick
+        inputBIs.add(EmptyGenerator.get(width,2 ));
+        // Khali
         inputBIs.add(EmptyGenerator.get(width, 2));
-        //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 12));
+        //Achu
+        inputBIs.add(EmptyGenerator.get(width, 12));
 
-        inputBIs.add(VerticalFlipGenerator.get(border));
-        inputBIs.add(PlainGenerator.get(width, 480));
+        inputBIs.add(EmptyGenerator.get(width, 400));
+
+        inputBIs.add(KonguLayoutGenerator.get(120));
         // Locking
-        inputBIs.add(PlainGenerator.get(width, 16));
-        inputBIs.add(border);
+        inputBIs.add(KonguLayoutGenerator.get(4));
 
-        //box
+        inputBIs.add(EmptyGenerator.get(width, 400));
+
+        //Box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         inputBIs.add(EmptyGenerator.get(width, 2));
-        //mispick
+
+        // mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
-        //kadiyalu
+
+        // Achu
         inputBIs.add(EmptyGenerator.get(width, 2));
-        //achu
+        // Achu
         inputBIs.add(AchuLayoutGenerator.get(width, 8));
 
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 80)));

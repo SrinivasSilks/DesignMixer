@@ -7,25 +7,20 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class AddLayoutGenerator {
+public class KadiyaluLayoutGenerator {
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-vasu/in/4/a2022/pallu/pallu-jari1.bmp";
 
-        BufferedImage image = LeftLayoutGenerator.get(ImageIO.read(new File("z-vasu/in/4/a2022/pallu/pallu-jari.bmp")));
+        String out = "z-data/in/6/a2022/border/border-first.bmp";
+
+        BufferedImage image = LeftLayoutGenerator.get(ImageIO.read(new File("z-data/in/6/a2022/border/border.bmp")));
+
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        List<BufferedImage> cc = CutLayoutGenerator.get(image, 224);
-        BufferedImage figure = cc.get(0);
-        BufferedImage repeat = CutLayoutGenerator.get(cc.get(1), 60).get(0);
+        List<BufferedImage> cc = CutLayoutGenerator.get(image, 1);
 
-        inputBIs.add(figure);
-        inputBIs.add(CutLayoutGenerator.get(repeat, 28).get(1));
-
-        for (int i = 0; i < 4; i++) {
-            inputBIs.add(repeat);
-        }
         inputBIs.add(cc.get(1));
+        inputBIs.add(cc.get(0));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
