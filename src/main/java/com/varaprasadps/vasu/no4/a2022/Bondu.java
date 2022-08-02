@@ -20,12 +20,11 @@ public class Bondu {
         BufferedImage kongu = VerticalFlipGenerator.get(ImageIO.read(new File("z-vasu/out/4/a2022/kongu-2-1792.bmp")));
         BufferedImage kanni = VerticalFlipGenerator.get(ImageIO.read(new File("z-vasu/out/4/a2022/kongu-anni-1792-480.bmp")));
         BufferedImage pallu = VerticalFlipGenerator.get(ImageIO.read(new File("z-vasu/out/4/a2022/pallu-1792-3840.bmp")));
-        BufferedImage brocade = VerticalFlipGenerator.get(ImageIO.read(new File("z-vasu/out/4/a2022/kbroc-1792-9360.bmp")));
+        BufferedImage brocade = VerticalFlipGenerator.get(ImageIO.read(new File("z-vasu/out/4/a2022/brocade-1792-9360.bmp")));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 //
 //        inputBIs.add(brocade);
-
         inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(kanni, 260).get(0), 240).get(1));
         inputBIs.add(kongu);
         inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(kanni, 270).get(0), 260).get(1));

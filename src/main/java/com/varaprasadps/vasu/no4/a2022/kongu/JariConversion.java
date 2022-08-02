@@ -13,7 +13,7 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-vasu/out/4/a2022/k-jari-%s-%s.bmp";
+        String out = "z-vasu/out/4/a2022/kongu-jari-%s-%s.bmp";
 
         int width = 240;
         final BufferedImage body = PlainGenerator.get(width, 480);

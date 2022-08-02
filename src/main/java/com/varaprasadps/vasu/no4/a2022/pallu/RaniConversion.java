@@ -35,18 +35,8 @@ public class RaniConversion {
 
         inputBIs.add(VerticalFlipGenerator.get(left));
         inputBIs.add(pallu);
-
         //locking right
-        inputBIs.add(PlainGenerator.get(width, 2));
-        inputBIs.add(PlainGenerator.get(width, 2));
-
-        //locking left
-        inputBIs.add(PlainGenerator.get(width, 2));
-        inputBIs.add(PlainGenerator.get(width, 2));
-
-        // Locking
-        inputBIs.add(PlainGenerator.get(width, 8));
-
+        inputBIs.add(PlainGenerator.get(width, 16));
         inputBIs.add(right);
 
         //Box

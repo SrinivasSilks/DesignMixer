@@ -15,11 +15,8 @@ public class JariConversion {
 
         String out = "z-vasu/out/4/a2022/p-jari-%s-%s.bmp";
 
-        BufferedImage right = HorizontalRepeatGenerator.get(8, ImageIO.read(new File("z-vasu/in/4/a2022/border/border-first.bmp")));
-        BufferedImage left = HorizontalRepeatGenerator.get(8, ImageIO.read(new File("z-vasu/in/4/a2022/border/border.bmp")));
-
-        int width = left.getWidth();
         final BufferedImage body = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-vasu/in/4/a2022/pallu/pallu-jari1.bmp")));
+        int width = body.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -33,17 +30,11 @@ public class JariConversion {
         //Achu
         inputBIs.add(EmptyGenerator.get(width, 12));
 
-        inputBIs.add(VerticalFlipGenerator.get(left));
+        inputBIs.add(EmptyGenerator.get(width, 400));
         inputBIs.add(body);
-        //locking right
-        inputBIs.add(PlainGenerator.get(width, 2));
-        inputBIs.add(PlainGenerator.get(width, 2));
-        //locking left
-        inputBIs.add(PlainGenerator.get(width, 2));
-        inputBIs.add(PlainGenerator.get(width, 2));
-        // Locking
-        inputBIs.add(PlainGenerator.get(width, 8));
-        inputBIs.add(right);
+        //locking
+        inputBIs.add(PlainGenerator.get(width, 16));
+        inputBIs.add(EmptyGenerator.get(width, 400));
 
         //Box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
