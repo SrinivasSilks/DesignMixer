@@ -15,8 +15,8 @@ public class RaniConversion {
 
         String out = "z-data/out/7/jr/design1/new/kbroc-rani-%s-%s.bmp";
 
-        BufferedImage right = HorizontalRepeatGenerator.get(17, ImageIO.read(new File("z-data/in/7/jr/design1/border1/right-first.bmp")));
-        BufferedImage left = HorizontalRepeatGenerator.get(17, ImageIO.read(new File("z-data/in/7/jr/design1/border1/left.bmp")));
+        BufferedImage right = HorizontalRepeatGenerator.get(17, ImageIO.read(new File("z-data/in/7/jr/design1/border1/right.bmp")));
+        BufferedImage left = HorizontalRepeatGenerator.get(17, ImageIO.read(new File("z-data/in/7/jr/design1/border1/left-first.bmp")));
         int width = left.getWidth();
         BufferedImage body = HorizontalRepeatGenerator.get(6, ImageIO.read(new File("z-data/in/7/jr/design1/brocade3/silver.bmp")));
 
@@ -27,11 +27,11 @@ public class RaniConversion {
         //box
         inputBIs.add(EmptyGenerator.get(width, 2));
         //kadiyalu
-        inputBIs.add(EmptyGenerator.get(width, 2));
-        //mispick
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        //mispick
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 8));
+        inputBIs.add(ReverseGenerator.get(AchuLayoutGenerator.get(width, 8)));
 
         //left-border
         inputBIs.add(left);
@@ -49,11 +49,11 @@ public class RaniConversion {
         //kali
         inputBIs.add(EmptyGenerator.get(width, 2));
         //kadiyalu kali
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
-        //mispick
         inputBIs.add(EmptyGenerator.get(width, 2));
+        //mispick
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //achu
-        inputBIs.add(ReverseGenerator.get(AchuLayoutGenerator.get(width, 10)));
+        inputBIs.add(AchuLayoutGenerator.get(width, 10));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

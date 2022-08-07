@@ -16,7 +16,7 @@ public class KadiyaluBrocConversion {
         NimbuConversion.main(null);
         JariConversion.main(null);
         RaniConversion.main(null);
-        String out = "z-data/out/7/jr/design1/new/kadiyalu-broc-%s-%s.bmp";
+        String out = "z-data/out/7/jr/design1/new/3kadiyalu-broc-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
         inputs.add("z-data/out/7/jr/design1/new/kbroc-rani-2040-1824.bmp");

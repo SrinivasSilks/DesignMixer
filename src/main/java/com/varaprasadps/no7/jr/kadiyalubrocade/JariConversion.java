@@ -27,31 +27,32 @@ public class JariConversion {
         //box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //kadiyalu kali
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
-        //mispick
         inputBIs.add(EmptyGenerator.get(width, 2));
+        //mispick
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //achu
         inputBIs.add(AchuLayoutGenerator.get(width, 8));
 
         //left
         inputBIs.add(left);
         //locking
-        inputBIs.add(PlainGenerator.get(width, 12));
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 4)));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 12)));
+        inputBIs.add(PlainGenerator.get(width, 4));
         //body
         inputBIs.add(body);
         //locking
-        inputBIs.add(PlainGenerator.get(width, 4));
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 12)));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 4)));
+        inputBIs.add(PlainGenerator.get(width, 12));
+
         //right
         inputBIs.add(right);
 
         //kali
         inputBIs.add(EmptyGenerator.get(width, 2));
         //kadiyalu kali
-        inputBIs.add(EmptyGenerator.get(width, 2));
-        //mispick
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        //mispick
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
         inputBIs.add(AchuLayoutGenerator.get(width, 10));
 
