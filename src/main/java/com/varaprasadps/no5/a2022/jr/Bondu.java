@@ -18,7 +18,7 @@ public class Bondu {
         BufferedImage kongu = ImageIO.read(new File("z-data/out/5/a2022/jr/kongu-2-1824.bmp"));
         BufferedImage kanni = ImageIO.read(new File("z-data/out/5/a2022/jr/kanni-1824-800.bmp"));
         BufferedImage anni = ImageIO.read(new File("z-data/out/5/a2022/jr/anni-400-1824.bmp"));
-        BufferedImage pallu = ImageIO.read(new File("z-data/out/5/a2022/jr/pallu-1824-4000.bmp"));
+        BufferedImage pallu = ImageIO.read(new File("z-data/out/5/a2022/jr/pallu-1824-3600.bmp"));
 //        BufferedImage brocade = ImageIO.read(new File("z-data/out/5/a2022/jr/1brocade-1824-3600.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
