@@ -28,7 +28,7 @@ public class FloatCheck {
                 if (rgb != Color.WHITE.getRGB() && rgb == prevRGB) {
                     sameColorBox++;
                     if (sameColorBox >= floatCheck) {
-                        res.setRGB(x, y, Color.MAGENTA.getRGB());
+                        res.setRGB(x, y, Color.GREEN.getRGB());
                     } else {
                         res.setRGB(x, y, rgb);
                     }
