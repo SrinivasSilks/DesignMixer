@@ -11,9 +11,9 @@ public class KadiyaluLayoutGenerator {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-bvr/in/26/a2022/border/left-first.bmp";
+        String out = "z-data/in/9/a2021/jr/design1/border/left-first.bmp";
 
-        BufferedImage image = LeftLayoutGenerator.get(ImageIO.read(new File("z-bvr/in/26/a2022/border/left.bmp")));
+        BufferedImage image = LeftLayoutGenerator.get(ImageIO.read(new File("z-data/in/9/a2021/jr/design1/border/left.bmp")));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
