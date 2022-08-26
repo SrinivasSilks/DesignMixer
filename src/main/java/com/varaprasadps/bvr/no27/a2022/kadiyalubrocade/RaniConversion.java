@@ -1,4 +1,4 @@
-package com.varaprasadps.bvr.no27.a2022.kadiyaluanni;
+package com.varaprasadps.bvr.no27.a2022.kadiyalubrocade;
 
 import com.varaprasadps.image.*;
 
@@ -13,7 +13,7 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-bvr/out/27/a2022/ka-rani-%s-%s.bmp";
+        String out = "z-bvr/out/27/a2022/k-broc-rani-%s-%s.bmp";
 
         BufferedImage right = HorizontalRepeatGenerator.get(1, StepLayoutGenerator.get(40, 120, 5));
         BufferedImage left = HorizontalRepeatGenerator.get(1, KadiyaluLayoutGenerator.kadiyalu(StepLayoutGenerator.get(40, 74, 4)));
@@ -43,7 +43,6 @@ public class RaniConversion {
         inputBIs.add(body);
         //right
         inputBIs.add(right);
-
 
         //mispick
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));

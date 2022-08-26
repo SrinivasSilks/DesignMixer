@@ -10,10 +10,20 @@ import java.util.List;
 public class KadiyaluLayoutGenerator {
 
     public static void main(final String[] args) throws IOException {
-
         String out = "z-data/in/9/a2021/jr/design1/border/left-first.bmp";
+        String input = "z-data/in/9/a2021/jr/design1/border/left.bmp";
+        BufferedImage bi = kadiyalu(input);
+        displayPixels(bi);
+        saveBMP(bi, String.format(out, bi.getWidth(), bi.getHeight()));
+    }
 
-        BufferedImage image = LeftLayoutGenerator.get(ImageIO.read(new File("z-data/in/9/a2021/jr/design1/border/left.bmp")));
+    public static BufferedImage kadiyalu(String input) throws IOException {
+        BufferedImage inputBi = ImageIO.read(new File(input));
+        return kadiyalu(inputBi);
+    }
+
+    public static BufferedImage kadiyalu(BufferedImage inputBi) {
+        BufferedImage image = LeftLayoutGenerator.get(inputBi);
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -31,9 +41,7 @@ public class KadiyaluLayoutGenerator {
             repeatHeight += bi.getHeight();
         }
 
-        BufferedImage bi = RightLayoutGenerator.get(get(repeatWidth, repeatHeight, inputBIs));
-        displayPixels(bi);
-        saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
+        return RightLayoutGenerator.get(get(repeatWidth, repeatHeight, inputBIs));
     }
 
     private static void displayPixels(BufferedImage fileOne) {

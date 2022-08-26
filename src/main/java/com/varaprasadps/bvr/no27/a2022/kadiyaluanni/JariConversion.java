@@ -46,8 +46,8 @@ public class JariConversion {
         //mispick
         inputBIs.add(EmptyGenerator.get(width, 2));
         //box
-        inputBIs.add(EmptyGenerator.get(width, 1));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
+        inputBIs.add(EmptyGenerator.get(width, 1));
         //locking
         inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 2)));
         //kadiyalu
