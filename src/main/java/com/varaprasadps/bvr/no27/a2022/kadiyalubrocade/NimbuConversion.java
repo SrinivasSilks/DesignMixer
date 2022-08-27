@@ -26,31 +26,31 @@ public class NimbuConversion {
 
         //mispick
         inputBIs.add(get(AchuLayoutGenerator.get(width, 4), 2).get(0));
-        //locking
-        inputBIs.add(PlainGenerator.get(width, 2));
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 1));
+        //locking
+        inputBIs.add(PlainGenerator.get(width, 2));
         //achu
         inputBIs.add(EmptyGenerator.get(width, 8));
         //plain
         inputBIs.add(PlainGenerator.get(width, 3));
 
         //left
-        inputBIs.add(EmptyGenerator.get(width, 196));
+        inputBIs.add(EmptyGenerator.get(width, 296));
         //body
         inputBIs.add(body);
         //right
-        inputBIs.add(EmptyGenerator.get(width, 700));
+        inputBIs.add(EmptyGenerator.get(width, 600));
 
         //mispick
         inputBIs.add( ReverseGenerator.get(get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
         inputBIs.add(EmptyGenerator.get(width, 1));
-        //locking
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 2)));
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 1));
+        //locking
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 2)));
         //achu
         inputBIs.add(EmptyGenerator.get(width, 8));
         //kadiyalu

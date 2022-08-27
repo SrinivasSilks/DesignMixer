@@ -27,10 +27,10 @@ public class JariConversion {
 
         //mispick
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
-        //locking
-        inputBIs.add(PlainGenerator.get(width, 2));
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 1));
+        //locking
+        inputBIs.add(PlainGenerator.get(width, 2));
         //achu
         inputBIs.add(AchuLayoutGenerator.get(width, 8));
         //plain
@@ -48,10 +48,10 @@ public class JariConversion {
         //box
         inputBIs.add(EmptyGenerator.get(width, 1));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
-        //locking
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 2)));
         //kadiyalu
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
+        //locking
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 2)));
         //achu
         inputBIs.add(AchuLayoutGenerator.get(width, 8));
         //kadiyalu
