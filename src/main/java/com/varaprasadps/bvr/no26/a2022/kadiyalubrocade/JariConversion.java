@@ -43,7 +43,6 @@ public class JariConversion {
         //right
         inputBIs.add(right);
 
-
         //mispick
         inputBIs.add(EmptyGenerator.get(width, 2));
         //locking

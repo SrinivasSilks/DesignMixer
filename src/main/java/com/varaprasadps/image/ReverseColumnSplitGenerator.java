@@ -9,12 +9,12 @@ import java.util.List;
 
 public class ReverseColumnSplitGenerator {
 
-    public static final int FILES = 3;
+    public static final int FILES = 2;
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-data/in/2/a2022/design1/";
+        String out = "split/";
 
-        String input = "z-data/in/2/a2022/design1/full.bmp";
+        String input = "split/pla.bmp";
         BufferedImage inputImage = ImageIO.read(new File(input));
 
         int repeatWidth = inputImage.getWidth();
@@ -24,11 +24,11 @@ public class ReverseColumnSplitGenerator {
 
         displayPixels(bis.get(0));
         displayPixels(bis.get(1));
-        displayPixels(bis.get(2));
+//        displayPixels(bis.get(2));
 
         saveBMP(bis.get(0), String.format(out+"file-%s-%s-%s.bmp", 1, repeatWidth, repeatHeight));
         saveBMP(bis.get(1), String.format(out+"file-%s-%s-%s.bmp", 2, repeatWidth, repeatHeight));
-        saveBMP(bis.get(2), String.format(out+"file-%s-%s-%s.bmp", 3, repeatWidth, repeatHeight));
+//        saveBMP(bis.get(2), String.format(out+"file-%s-%s-%s.bmp", 3, repeatWidth, repeatHeight));
     }
 
     private static List<BufferedImage> get(BufferedImage input) {
@@ -38,8 +38,9 @@ public class ReverseColumnSplitGenerator {
 
         BufferedImage one = getOne(width, height, input);
         BufferedImage two = getTwo(width, height, input);
-        BufferedImage three = getThree(width, height, input);
-        return Arrays.asList(one, two, three);
+//        BufferedImage three = getThree(width, height, input);
+//        return Arrays.asList(one, two, three);
+        return Arrays.asList(one, two);
     }
 
     private static void displayPixels(BufferedImage fileOne) {
