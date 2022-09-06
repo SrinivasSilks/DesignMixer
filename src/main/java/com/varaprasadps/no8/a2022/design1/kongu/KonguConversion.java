@@ -36,7 +36,8 @@ public class KonguConversion {
         inputBIs.add(EmptyGenerator.get(2, 1120));
 
         //box
-        inputBIs.add(EmptyGenerator.get(2, 4));
+        inputBIs.add(EmptyGenerator.get(2, 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(2, 2)));
         //achu
         inputBIs.add(EmptyGenerator.get(2, 12));
 
