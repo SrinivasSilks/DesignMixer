@@ -17,7 +17,7 @@ public class RaniConversion {
 
         BufferedImage left = ImageIO.read(new File("z-data/in/7/jr/design1/border1/left.bmp"));
         BufferedImage right = ImageIO.read(new File("z-data/in/7/jr/design1/border1/right.bmp"));
-        BufferedImage blouse = HorizontalRepeatGenerator.get(6, ImageIO.read(new File("z-data/in/7/jr/design1/blouse/rani.bmp")));
+        BufferedImage blouse = HorizontalRepeatGenerator.get(6, ImageIO.read(new File("z-data/in/7/jr/design1/blouse/jari.bmp")));
 
         int width = left.getWidth();
 
@@ -26,7 +26,8 @@ public class RaniConversion {
         inputBIs.add(EmptyGenerator.get(width, 32));
 
         //box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
+        inputBIs.add(EmptyGenerator.get(width, 1));
         //kadiyalu kali
         inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick

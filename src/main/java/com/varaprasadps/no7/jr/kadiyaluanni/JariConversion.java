@@ -15,8 +15,8 @@ public class JariConversion {
 
         String out = "z-data/out/7/jr/design1/new/k-jari-%s-%s.bmp";
 
-        BufferedImage right = HorizontalRepeatGenerator.get(1, ReverseGenerator.get(ImageIO.read(new File("z-data/in/7/jr/design1/border1/right.bmp"))));
-        BufferedImage left = HorizontalRepeatGenerator.get(1, ReverseGenerator.get(ImageIO.read(new File("z-data/in/7/jr/design1/border1/left.bmp"))));
+        BufferedImage right = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/7/jr/design1/border1/right.bmp")));
+        BufferedImage left = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/7/jr/design1/border1/left.bmp")));
         int width = left.getWidth();
         BufferedImage body = HorizontalRepeatGenerator.get(1, PlainGenerator.get(width, 960));
 
@@ -25,7 +25,8 @@ public class JariConversion {
         inputBIs.add(EmptyGenerator.get(width, 32));
 
         //box
-        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(EmptyGenerator.get(width, 1));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
         //kadiyalu kali
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //mispick
