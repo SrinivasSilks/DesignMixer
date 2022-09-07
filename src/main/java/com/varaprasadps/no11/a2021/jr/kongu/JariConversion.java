@@ -23,7 +23,8 @@ public class JariConversion {
         inputBIs.add(EmptyGenerator.get(width, 32));
 
         //box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 4)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //achu
