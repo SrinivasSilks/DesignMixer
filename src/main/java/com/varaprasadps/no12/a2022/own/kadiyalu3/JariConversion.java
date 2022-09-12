@@ -19,6 +19,7 @@ public class JariConversion {
         BufferedImage right = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/12/a2022/own/border/right.bmp")));
 
         int width = left.getWidth();
+
         final BufferedImage body = HorizontalRepeatGenerator.get(1, PlainGenerator.get(480, 480));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
@@ -39,14 +40,14 @@ public class JariConversion {
         inputBIs.add(left);
 
         //locking
-        inputBIs.add(PlainGenerator.get(width, 14));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 14)));
         inputBIs.add(PlainGenerator.get(width, 2));
 
         //body
         inputBIs.add(body);
         //locking
         inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 2)));
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 14)));
+        inputBIs.add(PlainGenerator.get(width, 14));
 
         //right
         inputBIs.add(right);
@@ -60,6 +61,7 @@ public class JariConversion {
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //achu
         inputBIs.add(AchuLayoutGenerator.get(width, 8));
+
 
         int repeatWidth = 0;
         int repeatHeight = 0;
