@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
+import static com.varaprasadps.image.CutLayoutGenerator.get;
+
 public class BorderConversion {
 
     public static void main(final String[] args) throws IOException {
@@ -22,8 +24,12 @@ public class BorderConversion {
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        //kali
-        inputBIs.add(EmptyGenerator.get(width, 16));
+        //mispick
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        //kadiyalu kali
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        //achu
+        inputBIs.add(AchuLayoutGenerator.get(width, 12));
 
         //left border
         inputBIs.add(left);
@@ -37,8 +43,14 @@ public class BorderConversion {
         //right border
         inputBIs.add(right);
 
-        //kali
-        inputBIs.add(EmptyGenerator.get(width, 16));
+        //box
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        //mispick
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        //kadiyalu kali
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        //achu
+        inputBIs.add(AchuLayoutGenerator.get(width, 10));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

@@ -23,11 +23,11 @@ public class BodyDownConversion {
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         //mispick
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 16)));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //kadiyalu kali
         inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 12)));
+        inputBIs.add(EmptyGenerator.get(width, 12));
 
         //border
         inputBIs.add(EmptyGenerator.get(width, 180));
@@ -35,6 +35,8 @@ public class BodyDownConversion {
         inputBIs.add(EmptyGenerator.get(width, 80));
         //bugada
         inputBIs.add(EmptyGenerator.get(width, 60));
+
+
         inputBIs.add(EmptyGenerator.get(width, 32));
         inputBIs.add(EmptyGenerator.get(width, 32));
         inputBIs.add(EmptyGenerator.get(width, 32));
@@ -53,7 +55,7 @@ public class BodyDownConversion {
         //kadiyalu kali
         inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 10)));
+        inputBIs.add(EmptyGenerator.get(width, 10));
 
         inputBIs.add(EmptyGenerator.get(width, 1));
         inputBIs.add(EmptyGenerator.get(width, 7));

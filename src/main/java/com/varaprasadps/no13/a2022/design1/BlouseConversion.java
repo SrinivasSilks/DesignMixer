@@ -25,7 +25,7 @@ public class BlouseConversion {
         //kadiyalu kali
         inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 12));
+        inputBIs.add(EmptyGenerator.get(width, 12));
 
         //left border
         inputBIs.add(EmptyGenerator.get(width, 320));
@@ -49,7 +49,7 @@ public class BlouseConversion {
         //kadiyalu kali
         inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 10));
+        inputBIs.add(EmptyGenerator.get(width, 10));
 
         inputBIs.add(EmptyGenerator.get(width, 1));
         inputBIs.add(EmptyGenerator.get(width, 7));

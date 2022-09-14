@@ -19,8 +19,13 @@ public class BorderDownConversion {
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        //kali
-        inputBIs.add(EmptyGenerator.get(width, 16));
+        //box
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        //kadiyalu kali
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        //achu
+        inputBIs.add(EmptyGenerator.get(width, 12));
+
         //border
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 180)));
         //sununda
@@ -40,8 +45,14 @@ public class BorderDownConversion {
         //border
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 592)));
 
-        //kali
-        inputBIs.add(EmptyGenerator.get(width, 16));
+        //box
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        //mispick
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        //kadiyalu kali
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        //achu
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 10)));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
