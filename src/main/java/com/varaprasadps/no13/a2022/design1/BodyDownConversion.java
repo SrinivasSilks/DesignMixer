@@ -1,6 +1,9 @@
 package com.varaprasadps.no13.a2022.design1;
 
-import com.varaprasadps.image.*;
+import com.varaprasadps.image.AddLayoutGenerator;
+import com.varaprasadps.image.EmptyGenerator;
+import com.varaprasadps.image.LeftLayoutGenerator;
+import com.varaprasadps.image.ReverseGenerator;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -9,35 +12,36 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-import static com.varaprasadps.image.CutLayoutGenerator.get;
-
-public class BlouseConversion {
+public class BodyDownConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/13/a2022/design1/1BLOUSE.bmp";
+        String out = "z-data/out/13/a2022/design1/1BDOWN.bmp";
 
         int width = 10;
+
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         //mispick
-        inputBIs.add(get(AchuLayoutGenerator.get(width, 4), 2).get(0));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 16)));
         //kadiyalu kali
         inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 12));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 12)));
 
-        //left border
-        inputBIs.add(EmptyGenerator.get(width, 320));
-
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 32)));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 32)));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 32)));
-
-        //body
-        inputBIs.add(PlainGenerator.get(width, 480));
+        //border
+        inputBIs.add(EmptyGenerator.get(width, 180));
+        //sununda
+        inputBIs.add(EmptyGenerator.get(width, 80));
+        //bugada
+        inputBIs.add(EmptyGenerator.get(width, 60));
+        inputBIs.add(EmptyGenerator.get(width, 32));
+        inputBIs.add(EmptyGenerator.get(width, 32));
+        inputBIs.add(EmptyGenerator.get(width, 32));
+        //allover
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 480)));
         //locking
-        inputBIs.add(PlainGenerator.get(width, 16));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 16)));
         //border
         inputBIs.add(EmptyGenerator.get(width, 592));
 
@@ -45,11 +49,11 @@ public class BlouseConversion {
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
         inputBIs.add(EmptyGenerator.get(width, 1));
         //mispick
-        inputBIs.add(ReverseGenerator.get(get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //kadiyalu kali
         inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 10));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 10)));
 
         inputBIs.add(EmptyGenerator.get(width, 1));
         inputBIs.add(EmptyGenerator.get(width, 7));
