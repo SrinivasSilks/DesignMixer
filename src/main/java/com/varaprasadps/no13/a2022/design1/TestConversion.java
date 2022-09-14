@@ -11,11 +11,11 @@ import java.util.List;
 
 import static com.varaprasadps.image.CutLayoutGenerator.get;
 
-public class BlouseConversion {
+public class TestConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/13/a2022/design1/1BLOUSE.bmp";
+        String out = "z-data/out/13/a2022/design1/1TEST.bmp";
 
         int width = 10;
         List<BufferedImage> inputBIs = new LinkedList<>();
@@ -30,9 +30,26 @@ public class BlouseConversion {
         //left border
         inputBIs.add(EmptyGenerator.get(width, 320));
 
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 32)));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 32)));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 32)));
+        inputBIs.add(EmptyGenerator.get(width, 5));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 7)));
+        inputBIs.add(EmptyGenerator.get(width, 3));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 7)));
+        inputBIs.add(EmptyGenerator.get(width, 3));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 7)));
+
+        inputBIs.add(EmptyGenerator.get(width, 5));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 7)));
+        inputBIs.add(EmptyGenerator.get(width, 3));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 7)));
+        inputBIs.add(EmptyGenerator.get(width, 3));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 7)));
+
+        inputBIs.add(EmptyGenerator.get(width, 5));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 7)));
+        inputBIs.add(EmptyGenerator.get(width, 3));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 7)));
+        inputBIs.add(EmptyGenerator.get(width, 3));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 7)));
 
         //body
         inputBIs.add(PlainGenerator.get(width, 480));
