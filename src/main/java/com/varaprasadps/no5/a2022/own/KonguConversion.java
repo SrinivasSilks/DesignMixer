@@ -1,4 +1,4 @@
-package com.varaprasadps.no13.a2022.design1;
+package com.varaprasadps.no5.a2022.own;
 
 import com.varaprasadps.image.*;
 
@@ -9,50 +9,42 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class BorderDownConversion {
+public class KonguConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/13/a2022/design1/1BRDOWN.bmp";
-
-        int width = 10;
+        String out = "z-data/out/5/a2022/own/kongu-%s-%s.bmp";
+        int width = 2;
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        //box
-        inputBIs.add(EmptyGenerator.get(width, 2));
-        //kadiyalu kali
-        inputBIs.add(EmptyGenerator.get(width, 2));
-        //achu
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 12)));
-
-        //border
-        inputBIs.add(EmptyGenerator.get(width, 180));
-        //sununda
-        inputBIs.add(EmptyGenerator.get(width, 80));
-        //bugada
-        inputBIs.add(EmptyGenerator.get(width, 60));
-
         inputBIs.add(EmptyGenerator.get(width, 32));
-        inputBIs.add(EmptyGenerator.get(width, 32));
-        inputBIs.add(EmptyGenerator.get(width, 32));
-
-        //locking
-        inputBIs.add(EmptyGenerator.get(width, 480));
-        //locking
-        inputBIs.add(EmptyGenerator.get(width, 16));
-
-        //border
-        inputBIs.add(EmptyGenerator.get(width, 592));
 
         //box
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         inputBIs.add(EmptyGenerator.get(width, 2));
+        //locking
+        inputBIs.add(KonguLayoutGenerator.get());
         //mispick
-        inputBIs.add(EmptyGenerator.get(width, 2));
-        //kadiyalu kali
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
+        //kali
         inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 10)));
+        inputBIs.add(EmptyGenerator.get(width, 8));
+
+        inputBIs.add(EmptyGenerator.get(width, 316));
+        inputBIs.add(KonguLayoutGenerator.get(180));
+        inputBIs.add(EmptyGenerator.get(width, 720));
+
+        //locking
+        inputBIs.add(KonguLayoutGenerator.get());
+
+        //mispick
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
+        //kali
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        //achu
+        inputBIs.add(EmptyGenerator.get(width, 8));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -62,7 +54,7 @@ public class BorderDownConversion {
             repeatWidth = bi.getWidth();
             repeatHeight += bi.getHeight();
         }
-        BufferedImage bi = VerticalFlipGenerator.get(LeftLayoutGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs)));
+        BufferedImage bi = LeftLayoutGenerator.get(ReverseGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs)));
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
     }
