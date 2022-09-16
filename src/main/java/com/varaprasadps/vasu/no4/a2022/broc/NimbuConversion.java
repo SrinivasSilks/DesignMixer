@@ -35,7 +35,7 @@ public class NimbuConversion {
         inputBIs.add(VerticalFlipGenerator.get(border));
         inputBIs.add(brocade);
         // Locking
-        inputBIs.add(PlainGenerator.get(width, 16));
+        inputBIs.add(StepLayoutGenerator.get(width, 4));
         inputBIs.add(border);
 
         //box
