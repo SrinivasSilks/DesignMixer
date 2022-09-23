@@ -17,10 +17,9 @@ public class RaniConversion {
 
         String out = "z-data/out/13/a2022/design1/test-rani-%s-%s.bmp";
 
-
-        final BufferedImage body = PlainGenerator.get(60, 480);
-        final BufferedImage checks = ReverseGenerator.get(ImageIO.read(new File("z-data/in/13/a2022/checks.bmp")));
+        final BufferedImage body = ImageIO.read(new File("z-data/in/13/a2022/design1/brocade/anni.bmp"));
         int width = body.getWidth();
+        final BufferedImage checks = ReverseGenerator.get(ImageIO.read(new File("z-data/in/13/a2022/checks.bmp")));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -39,7 +38,7 @@ public class RaniConversion {
         inputBIs.add(ReverseGenerator.get(checks));
         inputBIs.add(ReverseGenerator.get(checks));
         //body
-        inputBIs.add(body);
+        inputBIs.add(ReverseGenerator.get(body));
         //locking
         inputBIs.add(PlainGenerator.get(width, 16));
 
