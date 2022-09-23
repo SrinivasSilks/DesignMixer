@@ -10,22 +10,23 @@ import java.util.List;
 public class AddLayoutGenerator {
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-data/in/12/a2022/own/1/pallu/pallu-jari.bmp";
+        String out = "z-data/in/5/a2022/jr/pallu/pallu-jari2.bmp";
 
-        BufferedImage image = LeftLayoutGenerator.get(ImageIO.read(new File("z-data/in/12/a2022/own/1/pallu/a.bmp")));
+        BufferedImage image = LeftLayoutGenerator.get(ImageIO.read(new File("z-data/in/5/a2022/jr/pallu/pallu-jari1.bmp")));
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        List<BufferedImage> cc = CutLayoutGenerator.get(image, 358);
+        List<BufferedImage> cc = CutLayoutGenerator.get(image, 306);
         BufferedImage figure = cc.get(0);
-        BufferedImage repeat = CutLayoutGenerator.get(cc.get(1), 30).get(0);
+        List<BufferedImage> images = CutLayoutGenerator.get(cc.get(1), 100);
+        BufferedImage repeat = images.get(0);
 
         inputBIs.add(figure);
-        inputBIs.add(CutLayoutGenerator.get(repeat, 26).get(1));
-
-        for (int i = 0; i < 3; i++) {
-            inputBIs.add(repeat);
-        }
-        inputBIs.add(cc.get(1));
+//        inputBIs.add(CutLayoutGenerator.get(repeat, 26).get(1));
+//
+//        for (int i = 0; i < 3; i++) {
+//            inputBIs.add(repeat);
+//        }
+        inputBIs.add(images.get(1));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
