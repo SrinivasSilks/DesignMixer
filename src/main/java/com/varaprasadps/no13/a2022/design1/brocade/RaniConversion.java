@@ -20,6 +20,7 @@ public class RaniConversion {
         final BufferedImage body = ImageIO.read(new File("z-data/in/13/a2022/design1/brocade/anni.bmp"));
         int width = body.getWidth();
         final BufferedImage checks = ReverseGenerator.get(ImageIO.read(new File("z-data/in/13/a2022/checks.bmp")));
+//        final BufferedImage checks = ReverseGenerator.get(EmptyGenerator.get(width, 32));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
