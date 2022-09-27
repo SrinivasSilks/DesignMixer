@@ -1,4 +1,4 @@
-package com.varaprasadps.no12.a2022.own.kadiyalu4;
+package com.varaprasadps.no7.jr.kadiyalubrocade2;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
 import com.varaprasadps.image.LeftLayoutGenerator;
@@ -13,17 +13,15 @@ import java.util.List;
 public class KadiyaluBrocConversion {
 
     public static void main(final String[] args) throws IOException {
-        SilverConversion.main(null);
         NimbuConversion.main(null);
         JariConversion.main(null);
         RaniConversion.main(null);
-        String out = "z-data/out/12/a2022/own/kadiyalubroc4/kbroc-%s-%s.bmp";
+        String out = "z-data/out/7/jr/design1/new2/3kadiyalu-broc-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("z-data/out/12/a2022/own/kadiyalubroc4/kbroc-rani-600-1824.bmp");
-        inputs.add("z-data/out/12/a2022/own/kadiyalubroc4/kbroc-jari-600-1824.bmp");
-        inputs.add("z-data/out/12/a2022/own/kadiyalubroc4/kbroc-nimbu-600-1824.bmp");
-        inputs.add("z-data/out/12/a2022/own/kadiyalubroc4/kbroc-silver-600-1824.bmp");
+        inputs.add("z-data/out/7/jr/design1/new2/kbroc-rani-600-1824.bmp");
+        inputs.add("z-data/out/7/jr/design1/new2/kbroc-jari-600-1824.bmp");
+        inputs.add("z-data/out/7/jr/design1/new2/kbroc-nimbu-600-1824.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {
