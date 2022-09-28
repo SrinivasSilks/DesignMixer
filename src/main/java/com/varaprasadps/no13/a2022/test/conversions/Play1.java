@@ -1,4 +1,4 @@
-package com.varaprasadps.no13.a2022.design1.conversions;
+package com.varaprasadps.no13.a2022.test.conversions;
 
 import com.varaprasadps.image.*;
 

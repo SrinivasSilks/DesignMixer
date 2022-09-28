@@ -1,4 +1,4 @@
-package com.varaprasadps.no13.a2022.design1.brocade;
+package com.varaprasadps.no13.a2022.test.brocade;
 
 import com.varaprasadps.image.*;
 
@@ -11,16 +11,15 @@ import java.util.List;
 
 import static com.varaprasadps.image.CutLayoutGenerator.get;
 
-public class RaniConversion {
+public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/13/a2022/design1/test-rani-%s-%s.bmp";
+        String out = "z-data/out/13/a2022/design1/test-jari-%s-%s.bmp";
 
-        final BufferedImage body = ImageIO.read(new File("z-data/in/13/a2022/design1/brocade/anni.bmp"));
+        final BufferedImage body = ImageIO.read(new File("z-data/in/13/a2022/design1/brocade/jari.bmp"));
         int width = body.getWidth();
         final BufferedImage checks = ReverseGenerator.get(ImageIO.read(new File("z-data/in/13/a2022/checks.bmp")));
-//        final BufferedImage checks = ReverseGenerator.get(EmptyGenerator.get(width, 32));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -48,8 +47,8 @@ public class RaniConversion {
 
 
         //box
-        inputBIs.add(EmptyGenerator.get(width, 1));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
+        inputBIs.add(EmptyGenerator.get(width, 1));
         //mispick
         inputBIs.add(ReverseGenerator.get(get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //kadiyalu kali
@@ -57,7 +56,7 @@ public class RaniConversion {
         //achu
         inputBIs.add(EmptyGenerator.get(width, 10));
 
-        inputBIs.add(EmptyGenerator.get(width, 1));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
         inputBIs.add(EmptyGenerator.get(width, 7));
 
         int repeatWidth = 0;
@@ -74,7 +73,7 @@ public class RaniConversion {
     }
 
     private static void displayPixels(BufferedImage fileOne) {
-        System.out.println(String.format("Width : %s, Height : %s", fileOne.getWidth(), fileOne.getHeight()));
+        System.out.printf("Width : %s, Height : %s%n", fileOne.getWidth(), fileOne.getHeight());
     }
 
     private static void saveBMP(final BufferedImage bi, final String path) throws IOException {

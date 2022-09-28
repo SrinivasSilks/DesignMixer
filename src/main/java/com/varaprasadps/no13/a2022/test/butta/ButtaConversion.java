@@ -1,4 +1,4 @@
-package com.varaprasadps.no13.a2022.design1.butta;
+package com.varaprasadps.no13.a2022.test.butta;
 
 import com.varaprasadps.image.PlainGenerator;
 import com.varaprasadps.image.ReverseGenerator;

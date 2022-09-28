@@ -1,4 +1,4 @@
-package com.varaprasadps.no13.a2022.design1;
+package com.varaprasadps.no13.a2022.test;
 
 import com.varaprasadps.image.*;
 
@@ -9,41 +9,39 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class BorderDownConversion {
+import static com.varaprasadps.image.CutLayoutGenerator.get;
+
+public class BorderConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/13/a2022/design1/1BRDOWN.bmp";
+        String out = "z-data/out/13/a2022/design1/1BORDER.bmp";
 
-        int width = 10;
+        BufferedImage left = ImageIO.read(new File("z-data/in/13/a2022/design1/border/left.bmp"));
+        BufferedImage right = ImageIO.read(new File("z-data/in/13/a2022/design1/border/right.bmp"));
+
+        int width = right.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        //box
+        //mispick
         inputBIs.add(EmptyGenerator.get(width, 2));
         //kadiyalu kali
         inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 12)));
+        inputBIs.add(AchuLayoutGenerator.get(width, 12));
 
-        //border
-        inputBIs.add(EmptyGenerator.get(width, 180));
-        //sununda
-        inputBIs.add(EmptyGenerator.get(width, 80));
-        //bugada
-        inputBIs.add(EmptyGenerator.get(width, 60));
-
+        //left border
+        inputBIs.add(left);
         inputBIs.add(EmptyGenerator.get(width, 32));
         inputBIs.add(EmptyGenerator.get(width, 32));
         inputBIs.add(EmptyGenerator.get(width, 32));
-
-        //locking
+        //body
         inputBIs.add(EmptyGenerator.get(width, 480));
         //locking
         inputBIs.add(EmptyGenerator.get(width, 16));
-
-        //border
-        inputBIs.add(EmptyGenerator.get(width, 592));
+        //right border
+        inputBIs.add(right);
 
         //box
         inputBIs.add(EmptyGenerator.get(width, 2));
@@ -52,7 +50,7 @@ public class BorderDownConversion {
         //kadiyalu kali
         inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 10)));
+        inputBIs.add(AchuLayoutGenerator.get(width, 10));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
