@@ -31,13 +31,13 @@ public class PalluConversion {
         BufferedImage leftd = VerticalFlipGenerator.get(ImageIO.read(new File("z-data/in/12/a2022/own/1/border/left.bmp")));
 
         BufferedImage rightf = HorizontalRepeatGenerator.get(9, rightd);
-        BufferedImage right = CutLayoutGenerator.get(CutLayoutGenerator.get(rightf, 180, 1), 1800, 0);
+        BufferedImage right = CutLayoutGenerator.get(CutLayoutGenerator.get(rightf, 180, 1), 1706, 0);
 
         BufferedImage leftf = HorizontalRepeatGenerator.get(9, leftd);
-        BufferedImage left = CutLayoutGenerator.get(CutLayoutGenerator.get(leftf, 180, 1), 1800, 0);
+        BufferedImage left = CutLayoutGenerator.get(CutLayoutGenerator.get(leftf, 180, 1), 1706, 0);
 
-        BufferedImage rani = PlainGenerator.get(1800, 480);
-        BufferedImage jari = ImageIO.read(new File("z-data/in/12/a2022/own/1/pallu/pallu-jari.bmp"));
+        BufferedImage rani = PlainGenerator.get(1706, 480);
+        BufferedImage jari = ImageIO.read(new File("z-data/in/12/a2022/own/1/pallu/a.bmp"));
         get(right, left, rani, jari);
     }
 

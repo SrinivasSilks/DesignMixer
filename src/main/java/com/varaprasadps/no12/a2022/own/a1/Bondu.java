@@ -18,7 +18,7 @@ public class Bondu {
         BufferedImage kongu = ImageIO.read(new File("z-data/out/12/a2022/own/kongu-2-1824.bmp"));
         BufferedImage kanni = ImageIO.read(new File("z-data/out/12/a2022/own/1/kanni-1824-480.bmp"));
         BufferedImage anni = ImageIO.read(new File("z-data/out/12/a2022/own/1/anni-240-1824.bmp"));
-        BufferedImage pallu = ImageIO.read(new File("z-data/out/12/a2022/own/1/pallu-1824-3600.bmp"));
+        BufferedImage pallu = ImageIO.read(new File("z-data/out/12/a2022/own/1/pallu-1824-3412.bmp"));
         BufferedImage brocade = ImageIO.read(new File("z-data/out/12/a2022/own/1/kadiyalubroc4/kbroc-1824-960.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
@@ -33,7 +33,8 @@ public class Bondu {
         inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(kanni, 190).get(1), 10).get(0));
         inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(anni, 100).get(1), 80).get(0));
         inputBIs.add(pallu);
-        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(anni, 60).get(1), 120).get(0));
+        inputBIs.add(CutLayoutGenerator.get(anni, 206).get(1));
+        inputBIs.add(CutLayoutGenerator.get(anni, 46).get(0));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
