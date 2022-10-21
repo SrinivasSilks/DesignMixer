@@ -14,7 +14,7 @@ public class ReverseColumnSplitGenerator {
     public static void main(final String[] args) throws IOException {
         String out = "z-data/test/";
 
-        String input = "z-data/test/bb.bmp";
+        String input = "z-data/test/teste.bmp";
         BufferedImage inputImage = ImageIO.read(new File(input));
 
         int repeatWidth = inputImage.getWidth();
@@ -26,8 +26,8 @@ public class ReverseColumnSplitGenerator {
         displayPixels(bis.get(1));
 //        displayPixels(bis.get(2));
 
-        saveBMP(bis.get(0), String.format(out+"file-%s-%s-%s.bmp", 1, repeatWidth, repeatHeight));
-        saveBMP(bis.get(1), String.format(out+"file-%s-%s-%s.bmp", 2, repeatWidth, repeatHeight));
+        saveBMP(ReverseGenerator.get(bis.get(0)), String.format(out+"file-%s-%s-%s.bmp", 1, repeatWidth, repeatHeight));
+        saveBMP(ReverseGenerator.get(bis.get(1)), String.format(out+"file-%s-%s-%s.bmp", 2, repeatWidth, repeatHeight));
 //        saveBMP(bis.get(2), String.format(out+"file-%s-%s-%s.bmp", 3, repeatWidth, repeatHeight));
     }
 
