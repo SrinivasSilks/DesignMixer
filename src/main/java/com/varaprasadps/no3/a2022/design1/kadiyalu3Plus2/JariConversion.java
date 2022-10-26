@@ -1,4 +1,4 @@
-package com.varaprasadps.no3.a2022.design1.kadiyalu2;
+package com.varaprasadps.no3.a2022.design1.kadiyalu3Plus2;
 
 import com.varaprasadps.image.*;
 
@@ -13,7 +13,7 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/3/a2022/design1/k2/1brc-jari-%s-%s.bmp";
+        String out = "z-data/out/3/a2022/design1/k3/2brc-jari-%s-%s.bmp";
 
         BufferedImage right = HorizontalRepeatGenerator.get(11, ImageIO.read(new File("z-data/in/3/a2022/design1/border/border.bmp")));
         BufferedImage left = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(11, ImageIO.read(new File("z-data/in/3/a2022/design1/border/border.bmp"))));
@@ -38,13 +38,13 @@ public class JariConversion {
         //left
         inputBIs.add(left);
         //locking
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 12)));
-        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 14)));
+        inputBIs.add(PlainGenerator.get(width, 2));
         //body
         inputBIs.add(body);
         //locking
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 4)));
-        inputBIs.add(PlainGenerator.get(width, 12));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 2)));
+        inputBIs.add(PlainGenerator.get(width, 14));
         //right
         inputBIs.add(right);
 
