@@ -15,12 +15,12 @@ public class RaniConversion {
 
         String out = "z-data/out/3/a2022/design1/k2/2brc-rani-%s-%s.bmp";
 
-        BufferedImage right = HorizontalRepeatGenerator.get(4, ImageIO.read(new File("z-data/in/3/a2022/design1/border/border.bmp")));
-        BufferedImage left = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(4, ImageIO.read(new File("z-data/in/3/a2022/design1/border/border-first.bmp"))));
+        BufferedImage right = HorizontalRepeatGenerator.get(7, ImageIO.read(new File("z-data/in/3/a2022/design1/border/border.bmp")));
+        BufferedImage left = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(7, ImageIO.read(new File("z-data/in/3/a2022/design1/border/border-first.bmp"))));
 
         int width = left.getWidth();
 
-        BufferedImage body = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("z-data/in/3/a2022/design1/brocade3/resham.bmp")));
+        BufferedImage body = HorizontalRepeatGenerator.get(12, PlainGenerator.get(140, 480));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -39,13 +39,13 @@ public class RaniConversion {
         //left border
         inputBIs.add(left);
         //locking
-        inputBIs.add(PlainGenerator.get(width, 14));
-        inputBIs.add(PlainGenerator.get(width, 2));
+        inputBIs.add(PlainGenerator.get(width, 12));
+        inputBIs.add(PlainGenerator.get(width, 4));
         //body
         inputBIs.add(body);
         //locking
-        inputBIs.add(PlainGenerator.get(width, 2));
-        inputBIs.add(PlainGenerator.get(width, 14));
+        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(PlainGenerator.get(width, 12));
         //right
         inputBIs.add(right);
 
