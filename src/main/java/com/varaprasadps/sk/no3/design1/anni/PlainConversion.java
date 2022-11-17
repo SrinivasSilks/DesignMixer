@@ -49,7 +49,7 @@ public class PlainConversion {
         //achu
         inputBIs.add(AchuLayoutGenerator.get(width, 10));
 
-        inputBIs.add(BlackGenerator.get(width, 1));
+        inputBIs.add(EmptyGenerator.get(width, 1));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
