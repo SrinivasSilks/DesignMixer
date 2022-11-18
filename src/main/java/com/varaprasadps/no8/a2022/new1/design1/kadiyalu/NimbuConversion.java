@@ -1,4 +1,4 @@
-package com.varaprasadps.sk.no3.design1.anni;
+package com.varaprasadps.no8.a2022.new1.design1.kadiyalu;
 
 import com.varaprasadps.image.*;
 
@@ -9,47 +9,53 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class PlainConversion {
+public class NimbuConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-sk/out/3/design1/5PLAIN.bmp";
+        String out = "z-data/out/8/a2022/own/design1/kadiyalu/kadiyalu-nimbu-%s-%s.bmp";
 
-        final BufferedImage left = EmptyGenerator.get(120, 132);
-        final BufferedImage right = EmptyGenerator.get(120, 308);
+        final BufferedImage body = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("z-data/in/8/a2022/new/design1/brocade/jari.bmp")));
 
-        final int width = right.getWidth();
+        int width = body.getWidth();
+
+        BufferedImage right = EmptyGenerator.get(width, 480);
+        BufferedImage left = EmptyGenerator.get(width, 316);
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        //box
-        inputBIs.add(EmptyGenerator.get(width, 4));
+        inputBIs.add(EmptyGenerator.get(width, 32));
+
+        //mispick
+        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 6));
-        //dunno
-        inputBIs.add(EmptyGenerator.get(width, 4));
+        inputBIs.add(EmptyGenerator.get(width, 8));
 
         //left
         inputBIs.add(VerticalFlipGenerator.get(left));
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));
         //body
-        inputBIs.add(PlainGenerator.get(width, 480));
+        inputBIs.add(body);
+        inputBIs.add(body);
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));
         //right
         inputBIs.add(right);
 
-        //dunno
-        inputBIs.add(EmptyGenerator.get(width, 4));
-        //kadiyalu
+        //box
         inputBIs.add(EmptyGenerator.get(width, 2));
-        //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 10));
-
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        //mispick
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
+        //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 1));
+        //chakram
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
+        //achu
+        inputBIs.add(EmptyGenerator.get(width, 8));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -59,7 +65,7 @@ public class PlainConversion {
             repeatWidth = bi.getWidth();
             repeatHeight += bi.getHeight();
         }
-        BufferedImage bi = LeftLayoutGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
+        BufferedImage bi = ReverseGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
     }

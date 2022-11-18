@@ -1,4 +1,4 @@
-package com.varaprasadps.sk.no3.design1.anni;
+package com.varaprasadps.sk.no3.design1.kplain;
 
 import com.varaprasadps.image.*;
 
@@ -9,34 +9,39 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class PlainConversion {
+public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-sk/out/3/design1/5PLAIN.bmp";
+        String out = "z-sk/out/3/design1/ka-plain-rani-%s-%s.bmp";
 
         final BufferedImage left = EmptyGenerator.get(120, 132);
         final BufferedImage right = EmptyGenerator.get(120, 308);
 
-        final int width = right.getWidth();
+        int width = left.getWidth();
+
+        final BufferedImage body = PlainGenerator.get(width, 480);
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         //box
-        inputBIs.add(EmptyGenerator.get(width, 4));
-        //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        //kadiyalu
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
+        //wheel
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 6));
+        inputBIs.add(ReverseGenerator.get(AchuLayoutGenerator.get(width, 6)));
         //dunno
         inputBIs.add(EmptyGenerator.get(width, 4));
 
-        //left
-        inputBIs.add(VerticalFlipGenerator.get(left));
+        //left border
+        inputBIs.add(left);
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));
         //body
-        inputBIs.add(PlainGenerator.get(width, 480));
+        inputBIs.add(body);
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));
         //right
@@ -59,7 +64,7 @@ public class PlainConversion {
             repeatWidth = bi.getWidth();
             repeatHeight += bi.getHeight();
         }
-        BufferedImage bi = LeftLayoutGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
+        BufferedImage bi = AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs);
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
     }

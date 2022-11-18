@@ -1,4 +1,4 @@
-package com.varaprasadps.sk.no3.design1.anni;
+package com.varaprasadps.sk.no3.design1.kborder;
 
 import com.varaprasadps.image.*;
 
@@ -9,16 +9,17 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class PlainConversion {
+public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-sk/out/3/design1/5PLAIN.bmp";
+        String out = "z-sk/out/3/design1/ka-jari-%s-%s.bmp";
 
-        final BufferedImage left = EmptyGenerator.get(120, 132);
-        final BufferedImage right = EmptyGenerator.get(120, 308);
+        BufferedImage right = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-sk/in/3/design1/border/right.bmp")));
+        BufferedImage left = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-sk/in/3/design1/border/left.bmp"))));
 
-        final int width = right.getWidth();
+        int width = left.getWidth();
+        final BufferedImage body = EmptyGenerator.get(width, 480);
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -27,18 +28,18 @@ public class PlainConversion {
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 6));
+        inputBIs.add(EmptyGenerator.get(width, 6));
         //dunno
         inputBIs.add(EmptyGenerator.get(width, 4));
 
         //left
-        inputBIs.add(VerticalFlipGenerator.get(left));
+        inputBIs.add(left);
         //locking
-        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(EmptyGenerator.get(width, 4));
         //body
-        inputBIs.add(PlainGenerator.get(width, 480));
+        inputBIs.add(body);
         //locking
-        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(EmptyGenerator.get(width, 4));
         //right
         inputBIs.add(right);
 
@@ -47,9 +48,7 @@ public class PlainConversion {
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 10));
-
-        inputBIs.add(EmptyGenerator.get(width, 1));
+        inputBIs.add(EmptyGenerator.get(width, 10));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -59,7 +58,7 @@ public class PlainConversion {
             repeatWidth = bi.getWidth();
             repeatHeight += bi.getHeight();
         }
-        BufferedImage bi = LeftLayoutGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
+        BufferedImage bi = AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs);
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
     }

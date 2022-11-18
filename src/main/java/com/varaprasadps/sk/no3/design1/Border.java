@@ -13,7 +13,7 @@ public class Border {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-sk/out/3/design1/1BORDER.bmp";
+        String out = "z-sk/out/3/design1/5BORDER.bmp";
         final BufferedImage left = ImageIO.read(new File("z-sk/in/3/design1/border/left.bmp"));
         final BufferedImage right = ImageIO.read(new File("z-sk/in/3/design1/border/right.bmp"));
         final int width = right.getWidth();
