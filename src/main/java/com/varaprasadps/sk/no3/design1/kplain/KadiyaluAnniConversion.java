@@ -18,8 +18,8 @@ public class KadiyaluAnniConversion {
         String out = "z-sk/out/3/design1/5KPLAIN.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("z-sk/out/3/design1/ka-plain-rani-120-961.bmp");
-        inputs.add("z-sk/out/3/design1/ka-plain-jari-120-961.bmp");
+        inputs.add("z-sk/out/3/design1/ka-plain-rani-4-961.bmp");
+        inputs.add("z-sk/out/3/design1/ka-plain-jari-4-961.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {

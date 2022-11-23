@@ -3,6 +3,7 @@ package com.varaprasadps.sk.no3.design1.kplain;
 import com.varaprasadps.image.*;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -15,12 +16,12 @@ public class RaniConversion {
 
         String out = "z-sk/out/3/design1/ka-plain-rani-%s-%s.bmp";
 
-        final BufferedImage left = EmptyGenerator.get(120, 132);
-        final BufferedImage right = EmptyGenerator.get(120, 308);
+        BufferedImage anni = ImageIO.read(new File("z-sk/in/3/design1/anni-1.bmp"));
+        final BufferedImage body = RightLayoutGenerator.get(HorizontalRepeatGenerator.get(480 / 4, LeftLayoutGenerator.get(anni)));
+        int width = body.getWidth();
 
-        int width = left.getWidth();
-
-        final BufferedImage body = PlainGenerator.get(width, 480);
+        final BufferedImage left = EmptyGenerator.get(width, 132);
+        final BufferedImage right = EmptyGenerator.get(width, 308);
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -30,7 +31,7 @@ public class RaniConversion {
         //kadiyalu
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
         //wheel
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
+        inputBIs.add(EmptyGenerator.get(width, 1));
         //achu
         inputBIs.add(ReverseGenerator.get(AchuLayoutGenerator.get(width, 6)));
         //dunno

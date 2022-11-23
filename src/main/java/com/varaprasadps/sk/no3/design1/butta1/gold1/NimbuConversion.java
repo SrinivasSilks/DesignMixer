@@ -1,9 +1,6 @@
 package com.varaprasadps.sk.no3.design1.butta1.gold1;
 
-import com.varaprasadps.image.AddLayoutGenerator;
-import com.varaprasadps.image.EmptyGenerator;
-import com.varaprasadps.image.HorizontalRepeatGenerator;
-import com.varaprasadps.image.PlainGenerator;
+import com.varaprasadps.image.*;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -32,7 +29,7 @@ public class NimbuConversion {
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 1));
         //wheel
-        inputBIs.add(EmptyGenerator.get(width, 1));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
         //achu
         inputBIs.add(EmptyGenerator.get(width, 6));
         //dunno
@@ -56,7 +53,7 @@ public class NimbuConversion {
         //achu
         inputBIs.add(EmptyGenerator.get(width, 10));
 
-        inputBIs.add(EmptyGenerator.get(width, 1));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
