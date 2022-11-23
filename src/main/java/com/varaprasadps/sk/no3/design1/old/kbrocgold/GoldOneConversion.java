@@ -1,4 +1,4 @@
-package com.varaprasadps.sk.no3.design1.kbrocsilver;
+package com.varaprasadps.sk.no3.design1.old.kbrocgold;
 
 import com.varaprasadps.image.*;
 
@@ -9,13 +9,13 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class GoldTwoConversion {
+public class GoldOneConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-sk/out/3/design1/2ka-broc-silver2-%s-%s.bmp";
+        String out = "z-sk/out/3/design1/ka-broc-gold1-%s-%s.bmp";
 
-        final BufferedImage body = ImageIO.read(new File("z-sk/in/3/design1/butta/silverjari.bmp"));
+        final BufferedImage body = ImageIO.read(new File("z-sk/in/3/design1/butta/goldjari.bmp"));
 
         int width = body.getWidth();
         final BufferedImage left = EmptyGenerator.get(width, 132);
@@ -24,7 +24,7 @@ public class GoldTwoConversion {
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         //box
-        inputBIs.add(BlackGenerator.get(width, 2));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         inputBIs.add(EmptyGenerator.get(width, 2));
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 1));
@@ -35,14 +35,14 @@ public class GoldTwoConversion {
         //dunno
         inputBIs.add(EmptyGenerator.get(width, 4));
 
-        //left
+        //left border
         inputBIs.add(left);
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));
         //body
         inputBIs.add(body);
         //locking
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 4)));
+        inputBIs.add(PlainGenerator.get(width, 4));
         //right
         inputBIs.add(right);
 

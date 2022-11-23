@@ -1,4 +1,4 @@
-package com.varaprasadps.sk.no3.design1.kbrocsilver;
+package com.varaprasadps.sk.no3.design1.butta1.gold1;
 
 import com.varaprasadps.image.*;
 
@@ -9,48 +9,46 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class RaniConversion {
+public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-sk/out/3/design1/2ka-broc-rani-%s-%s.bmp";
+        String out = "z-sk/out/3/design1/butta1/1-ka-butta-jari-%s-%s.bmp";
 
-        final BufferedImage left = EmptyGenerator.get(22, 132);
-        final BufferedImage right = EmptyGenerator.get(22, 308);
+        final BufferedImage left = EmptyGenerator.get(35, 132);
+        final BufferedImage right = EmptyGenerator.get(35, 308);
 
         int width = left.getWidth();
-
-        final BufferedImage body = PlainGenerator.get(width, 480);
+        final BufferedImage body = ReverseGenerator.get(PlainGenerator.get(width, 480));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         //box
-        inputBIs.add(EmptyGenerator.get(width, 2));
-        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 4)));
         //kadiyalu
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
+        inputBIs.add(EmptyGenerator.get(width, 1));
         //wheel
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
+        inputBIs.add(EmptyGenerator.get(width, 1));
         //achu
-        inputBIs.add(ReverseGenerator.get(AchuLayoutGenerator.get(width, 6)));
+        inputBIs.add(AchuLayoutGenerator.get(width, 6));
         //dunno
         inputBIs.add(EmptyGenerator.get(width, 4));
 
-        //left border
+        //left
         inputBIs.add(left);
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));
         //body
         inputBIs.add(body);
         //locking
-        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 4)));
         //right
         inputBIs.add(right);
 
         //dunno
         inputBIs.add(EmptyGenerator.get(width, 4));
         //kadiyalu
-        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //achu
         inputBIs.add(AchuLayoutGenerator.get(width, 10));
 

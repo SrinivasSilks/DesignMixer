@@ -1,4 +1,4 @@
-package com.varaprasadps.sk.no3.design1.kbrocsilver;
+package com.varaprasadps.sk.no3.design1.old.kbrocgold;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
 import com.varaprasadps.image.LeftLayoutGenerator;
@@ -17,13 +17,13 @@ public class KadiyaluBrocConversion {
         GoldTwoConversion.main(null);
         JariConversion.main(null);
         RaniConversion.main(null);
-        String out = "z-sk/out/3/design1/silverbutta.bmp";
+        String out = "z-sk/out/3/design1/goldbutta.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("z-sk/out/3/design1/2ka-broc-rani-22-961.bmp");
-        inputs.add("z-sk/out/3/design1/2ka-broc-jari-22-961.bmp");
-        inputs.add("z-sk/out/3/design1/2ka-broc-silver1-22-961.bmp");
-        inputs.add("z-sk/out/3/design1/2ka-broc-silver2-22-961.bmp");
+        inputs.add("z-sk/out/3/design1/ka-broc-rani-22-961.bmp");
+        inputs.add("z-sk/out/3/design1/ka-broc-jari-22-961.bmp");
+        inputs.add("z-sk/out/3/design1/ka-broc-gold1-22-961.bmp");
+        inputs.add("z-sk/out/3/design1/ka-broc-gold2-22-961.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {

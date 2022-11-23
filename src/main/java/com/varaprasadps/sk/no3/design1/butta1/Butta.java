@@ -1,4 +1,4 @@
-package com.varaprasadps.sk.no3.design1.butta;
+package com.varaprasadps.sk.no3.design1.butta1;
 
 import com.varaprasadps.image.AddLayoutGenerator;
 import com.varaprasadps.image.CutLayoutGenerator;
@@ -13,18 +13,18 @@ import java.util.List;
 public class Butta {
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-sk/out/3/design1/5KBUTTA.bmp";
+        String out = "z-sk/out/3/design1/butta1/5KBUTTA1.bmp";
 
         BufferedImage kplain = ImageIO.read(new File("z-sk/out/3/design1/5KPLAIN.bmp"));
-        BufferedImage gold = ImageIO.read(new File("z-sk/out/3/design1/goldbutta.bmp"));
-        BufferedImage silver = ImageIO.read(new File("z-sk/out/3/design1/silverbutta.bmp"));
+        BufferedImage gold1 = ImageIO.read(new File("z-sk/out/3/design1/butta1/1-BUTTA.bmp"));
+        BufferedImage gold2 = ImageIO.read(new File("z-sk/out/3/design1/butta1/2-BUTTA.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        inputBIs.add(silver);
-        inputBIs.add(CutLayoutGenerator.get(kplain, 44).get(0));
-        inputBIs.add(gold);
-        inputBIs.add(CutLayoutGenerator.get(kplain, 44).get(0));
+        inputBIs.add(gold2);
+        inputBIs.add(CutLayoutGenerator.get(kplain, 140).get(0));
+        inputBIs.add(gold1);
+        inputBIs.add(CutLayoutGenerator.get(kplain, 140).get(0));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

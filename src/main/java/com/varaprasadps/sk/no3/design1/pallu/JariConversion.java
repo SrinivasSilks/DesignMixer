@@ -1,4 +1,4 @@
-package com.varaprasadps.sk.no3.design1.kplain;
+package com.varaprasadps.sk.no3.design1.pallu;
 
 import com.varaprasadps.image.*;
 
@@ -13,24 +13,25 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-sk/out/3/design1/ka-plain-jari-%s-%s.bmp";
+        String out = "z-sk/out/3/design1/pallu-jari-%s-%s.bmp";
 
-        final BufferedImage left = EmptyGenerator.get(120, 132);
-        final BufferedImage right = EmptyGenerator.get(120, 308);
+        final BufferedImage body = ImageIO.read(new File("z-sk/in/3/design1/pallu/pallu-jari.bmp"));
+        final BufferedImage box = HorizontalRepeatGenerator.get(body.getWidth() / 2, ImageIO.read(new File("z-sk/in/3/box.bmp")));
+        int width = body.getWidth();
 
-        int width = left.getWidth();
-        final BufferedImage body = ReverseGenerator.get(PlainGenerator.get(width, 480));
+        final BufferedImage left = EmptyGenerator.get(width, 132);
+        final BufferedImage right = EmptyGenerator.get(width, 308);
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         //box
-        inputBIs.add(EmptyGenerator.get(width, 4));
+        inputBIs.add(box);
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 1));
         //wheel
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 6));
+        inputBIs.add(EmptyGenerator.get(width, 6));
         //dunno
         inputBIs.add(EmptyGenerator.get(width, 4));
 
@@ -41,18 +42,18 @@ public class JariConversion {
         //body
         inputBIs.add(body);
         //locking
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 4)));
+        inputBIs.add(PlainGenerator.get(width, 4));
         //right
         inputBIs.add(right);
 
         //dunno
         inputBIs.add(EmptyGenerator.get(width, 4));
         //kadiyalu
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 10));
+        inputBIs.add(EmptyGenerator.get(width, 10));
 
-        inputBIs.add(EmptyGenerator.get(width, 1));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
