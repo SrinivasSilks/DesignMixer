@@ -1,7 +1,6 @@
 package com.varaprasadps.sk.no3.design1.butta1;
 
 import com.varaprasadps.image.AddLayoutGenerator;
-import com.varaprasadps.image.CutLayoutGenerator;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -10,10 +9,10 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Butta {
+public class Butta2 {
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-sk/out/3/design1/butta1/5KBUTTA1.bmp";
+        String out = "z-sk/out/3/design1/butta1/5KBUTTA2.bmp";
 
         BufferedImage kplain = ImageIO.read(new File("z-sk/out/3/design1/5KPLAIN.bmp"));
         BufferedImage gold1 = ImageIO.read(new File("z-sk/out/3/design1/butta1/1-BUTTA.bmp"));
@@ -22,11 +21,11 @@ public class Butta {
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         inputBIs.add(gold2);
-        for (int i = 0; i < 18; i++) {
+        for (int i = 0; i < 40; i++) {
             inputBIs.add(kplain);
         }
         inputBIs.add(gold1);
-        for (int i = 0; i < 18; i++) {
+        for (int i = 0; i < 40; i++) {
             inputBIs.add(kplain);
         }
 

@@ -15,12 +15,13 @@ public class JariConversion {
 
         String out = "z-sk/out/3/design1/butta1/1-ka-butta-jari-%s-%s.bmp";
 
-        final BufferedImage left = EmptyGenerator.get(35, 132);
-        final BufferedImage right = EmptyGenerator.get(35, 308);
+        BufferedImage anni = ReverseGenerator.get(ImageIO.read(new File("z-sk/in/3/design1/anni-1.bmp")));
+        final BufferedImage boday = HorizontalRepeatGenerator.get(9, RightLayoutGenerator.get(HorizontalRepeatGenerator.get(480 / 4, LeftLayoutGenerator.get(anni))));
+        final BufferedImage body = CutLayoutGenerator.get(boday, 35, 0);
+        int width = body.getWidth();
 
-        int width = left.getWidth();
-        final BufferedImage body = ReverseGenerator.get(PlainGenerator.get(width, 480));
-
+        final BufferedImage left = EmptyGenerator.get(width, 132);
+        final BufferedImage right = EmptyGenerator.get(width, 308);
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         //box
