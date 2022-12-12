@@ -16,12 +16,12 @@ public class BrocConversion {
         NimbuConversion.main(null);
         JariConversion.main(null);
         RaniConversion.main(null);
-        String out = "z-data/out/13/a2022/design1/1BRC.bmp";
+        String out = "z-data/out/13/a2022/design1/3BRC.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("z-data/out/13/a2022/design1/1brc-rani-80-1544.bmp");
-        inputs.add("z-data/out/13/a2022/design1/1brc-jari-80-1544.bmp");
-        inputs.add("z-data/out/13/a2022/design1/1brc-nimbu-80-1544.bmp");
+        inputs.add("z-data/out/13/a2022/design1/3brc-rani-540-1544.bmp");
+        inputs.add("z-data/out/13/a2022/design1/3brc-jari-540-1544.bmp");
+        inputs.add("z-data/out/13/a2022/design1/3brc-nimbu-540-1544.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {

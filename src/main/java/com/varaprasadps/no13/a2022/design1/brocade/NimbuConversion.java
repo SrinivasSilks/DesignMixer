@@ -13,10 +13,10 @@ public class NimbuConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/13/a2022/design1/1brc-nimbu-%s-%s.bmp";
+        String out = "z-data/out/13/a2022/design1/3brc-nimbu-%s-%s.bmp";
 
-        final BufferedImage body = ImageIO.read(new File("z-data/in/13/a2022/design1/brocade/jari.bmp"));
-        final BufferedImage checks = ImageIO.read(new File("z-data/in/13/a2022/design1/brocade/checks.bmp"));
+        final BufferedImage body = ImageIO.read(new File("z-data/in/13/a2022/design1/brocade3/jari.bmp"));
+        final BufferedImage checks = EmptyGenerator.get(body.getWidth(), 32);
 
         int width = body.getWidth();
 

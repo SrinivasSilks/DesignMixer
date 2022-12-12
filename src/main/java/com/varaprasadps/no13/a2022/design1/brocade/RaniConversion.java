@@ -15,9 +15,9 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/13/a2022/design1/1brc-rani-%s-%s.bmp";
+        String out = "z-data/out/13/a2022/design1/3brc-rani-%s-%s.bmp";
 
-        final BufferedImage body = EmptyGenerator.get(80, 480);
+        final BufferedImage body = EmptyGenerator.get(540, 480);
         int width = body.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
