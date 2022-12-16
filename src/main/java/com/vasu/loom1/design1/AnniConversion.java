@@ -29,7 +29,9 @@ public class AnniConversion {
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //kadiyalu
-        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(EmptyGenerator.get(width, 1));
+        //wheel
+        inputBIs.add(EmptyGenerator.get(width, 1));
         //achu
         inputBIs.add(AchuLayoutGenerator.get(width, 8));
 

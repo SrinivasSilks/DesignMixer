@@ -32,7 +32,9 @@ public class RaniConversion {
         //mispick
         inputBIs.add(EmptyGenerator.get(width, 2));
         //kadiyalu
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
+        //wheel
+        inputBIs.add(EmptyGenerator.get(width, 1));
         //achu
         inputBIs.add(ReverseGenerator.get(AchuLayoutGenerator.get(width, 8)));
 
