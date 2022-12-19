@@ -46,6 +46,9 @@ public class TwoPlay {
         //achu
         inputBIs.add(EmptyGenerator.get(width, 12));
 
+        //kali
+        inputBIs.add(EmptyGenerator.get(width, 256));
+
         int repeatWidth = 0;
         int repeatHeight = 0;
 
@@ -89,6 +92,9 @@ public class TwoPlay {
         inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
         inputBIs.add(AchuLayoutGenerator.get(width, 12));
+
+        //kali
+        inputBIs.add(EmptyGenerator.get(width, 256));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
