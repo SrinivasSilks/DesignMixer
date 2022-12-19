@@ -25,18 +25,21 @@ public class TwoPlay {
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //kali
-        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(EmptyGenerator.get(width, 1));
+        //wheel
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
         //achu
         inputBIs.add(EmptyGenerator.get(width, 8));
 
+        //border
         inputBIs.add(VerticalFlipGenerator.get(border));
         //locking
-        inputBIs.add(EmptyGenerator.get(width, 14));
+        inputBIs.add(PlainGenerator.get(width, 14));
         inputBIs.add(PlainGenerator.get(width, 2));
         inputBIs.add(body);
         //locking
         inputBIs.add(PlainGenerator.get(width, 2));
-        inputBIs.add(EmptyGenerator.get(width, 14));
+        inputBIs.add(PlainGenerator.get(width, 14));
         inputBIs.add(border);
 
         //mispick
@@ -70,7 +73,9 @@ public class TwoPlay {
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //kali
-        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(EmptyGenerator.get(width, 1));
+        //wheel
+        inputBIs.add(EmptyGenerator.get(width, 1));
         //achu
         inputBIs.add(AchuLayoutGenerator.get(width, 8));
 
