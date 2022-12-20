@@ -1,7 +1,8 @@
-package com.vasu.loom3.design1;
+package com.varaprasadps.no1.a2023;
 
 import com.varaprasadps.image.AddLayoutGenerator;
 import com.varaprasadps.image.CutLayoutGenerator;
+import com.varaprasadps.image.VerticalFlipGenerator;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -13,13 +14,13 @@ import java.util.List;
 public class Bondu {
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-vasu/out/3/design1/pset.bmp";
+        String out = "z-data/out/1/a2023/design1/pset.bmp";
 
-        BufferedImage kongu = ImageIO.read(new File("z-vasu/out/3/design1/kongu-2-1824.bmp"));
-        BufferedImage kanni = ImageIO.read(new File("z-vasu/out/3/design1/kanni-1824-600.bmp"));
-        BufferedImage anni = ImageIO.read(new File("z-vasu/out/3/design1/anni-300-1824.bmp"));
-        BufferedImage pallu = ImageIO.read(new File("z-vasu/out/3/design1/pallu-1824-3600.bmp"));
-        BufferedImage brocade = ImageIO.read(new File("z-vasu/out/3/design1/1brocade-1824-900.bmp"));
+        BufferedImage anni = VerticalFlipGenerator.get(ImageIO.read(new File("z-data/out/1/a2023/design1/1anni-360-2688.bmp")));
+        BufferedImage pallu = VerticalFlipGenerator.get(ImageIO.read(new File("z-data/out/1/a2023/design1/pallu-2688-3480.bmp")));
+        BufferedImage brocade = VerticalFlipGenerator.get(ImageIO.read(new File("z-data/out/1/a2023/design1/kadiyalu/1kadiyalu-brc-2688-1080.bmp")));
+        BufferedImage kanni = VerticalFlipGenerator.get(ImageIO.read(new File("z-data/out/1/a2023/design1/kanni-2688-720.bmp")));
+        BufferedImage kongu = VerticalFlipGenerator.get(ImageIO.read(new File("z-data/out/1/a2023/design1/1kongu-2-2688.bmp")));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -33,7 +34,8 @@ public class Bondu {
         inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(kanni, 190).get(1), 10).get(0));
         inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(anni, 100).get(1), 80).get(0));
         inputBIs.add(pallu);
-        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(anni, 180).get(1), 80).get(0));
+        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(anni, 120).get(1), 80).get(0));
+
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -44,7 +46,7 @@ public class Bondu {
             repeatHeight += bi.getHeight();
         }
 
-        BufferedImage bi = AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs);
+        BufferedImage bi = VerticalFlipGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
     }

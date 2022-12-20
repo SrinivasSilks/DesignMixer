@@ -18,7 +18,7 @@ public class RaniConversion {
 
         BufferedImage right = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/1/a2023/design1/border/border.bmp")));
         BufferedImage left = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/1/a2023/design1/border/border-first.bmp"))));
-        BufferedImage body = ImageIO.read(new File("z-data/in/1/a2023/design1/brocade/nimbu.bmp"));
+        BufferedImage body = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("z-data/in/1/a2023/design1/brocade/nimbu.bmp")));
 
         int width = left.getWidth();
 
@@ -45,13 +45,15 @@ public class RaniConversion {
         inputBIs.add(PlainGenerator.get(width, 4));
 
         //temple
-        inputBIs.add(CutLayoutGenerator.get(body, 464).get(1));
+        inputBIs.add(CutLayoutGenerator.get(body, 84).get(1));
         //body
+        inputBIs.add(body);
+        inputBIs.add(body);
         inputBIs.add(body);
         inputBIs.add(body);
         //skirt
         inputBIs.add(body);
-        inputBIs.add(CutLayoutGenerator.get(body, 140).get(0));
+        inputBIs.add(body);
 
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));

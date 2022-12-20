@@ -17,7 +17,7 @@ public class JariConversion {
 
         BufferedImage right = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/1/a2023/design1/border/border.bmp")));
         BufferedImage left = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-data/in/1/a2023/design1/border/border.bmp"))));
-        BufferedImage body = ImageIO.read(new File("z-data/in/1/a2023/design1/brocade/nimbu.bmp"));
+        BufferedImage body = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("z-data/in/1/a2023/design1/brocade/nimbu.bmp")));
 
         int width = body.getWidth();
 
@@ -42,14 +42,16 @@ public class JariConversion {
         inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 12)));
         inputBIs.add(PlainGenerator.get(width, 4));
 
+
         //temple
-        inputBIs.add(CutLayoutGenerator.get(body, 464).get(1));
-        //body
+        inputBIs.add(CutLayoutGenerator.get(body, 84).get(1));
+        inputBIs.add(body);
+        inputBIs.add(body);
         inputBIs.add(body);
         inputBIs.add(body);
         //skirt
         inputBIs.add(body);
-        inputBIs.add(CutLayoutGenerator.get(body, 140).get(0));
+        inputBIs.add(body);
 
         //locking
         inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 4)));

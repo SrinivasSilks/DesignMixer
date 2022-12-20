@@ -16,7 +16,7 @@ public class Bondu {
         String out = "z-vasu/out/1/design1/pset.bmp";
 
         BufferedImage kongu = ImageIO.read(new File("z-vasu/out/1/design1/kongu-2-1824.bmp"));
-        BufferedImage kanni = ImageIO.read(new File("z-vasu/out/1/design1/kplainanni-1824-720.bmp"));
+        BufferedImage kanni = ImageIO.read(new File("z-vasu/out/1/design1/kanni-1824-720.bmp"));
         BufferedImage anni = ImageIO.read(new File("z-vasu/out/1/design1/anni-360-1824.bmp"));
         BufferedImage pallu = ImageIO.read(new File("z-vasu/out/1/design1/pallu-1824-3600.bmp"));
         BufferedImage brocade = ImageIO.read(new File("z-vasu/out/1/design1/1brocade-1824-2160.bmp"));
