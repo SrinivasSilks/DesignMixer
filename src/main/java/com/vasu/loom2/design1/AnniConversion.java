@@ -1,4 +1,4 @@
-package com.vasu.loom2;
+package com.vasu.loom2.design1;
 
 import com.varaprasadps.image.*;
 
@@ -15,7 +15,7 @@ public class AnniConversion {
 
         String out = "z-vasu/out/2/design1/anni-%s-%s.bmp";
 
-        BufferedImage border = ImageIO.read(new File("z-vasu/in/1/design1/border/border.bmp"));
+        BufferedImage border = ImageIO.read(new File("z-vasu/in/2/design1/border/border.bmp"));
 
         int width = border.getWidth();
 
