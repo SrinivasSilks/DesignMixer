@@ -33,7 +33,7 @@ public class Bondu {
         inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(kanni, 190).get(1), 10).get(0));
         inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(anni, 100).get(1), 80).get(0));
         inputBIs.add(pallu);
-        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(anni, 180).get(1), 80).get(0));
+        inputBIs.add(CutLayoutGenerator.get(anni, 80).get(0));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
