@@ -1,4 +1,4 @@
-package com.vasu.loom1.design1.pallu;
+package com.vasu.loom1.design3.pallu;
 
 import com.varaprasadps.image.*;
 
@@ -22,22 +22,22 @@ public class PalluConversion {
         BufferedImage brocade = LeftLayoutGenerator.get(getBrocade(brocades));
         displayPixels(brocade);
 
-        saveBMP(brocade, format("z-vasu/out/1/design1/pallu-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
+        saveBMP(brocade, format("z-vasu/out/1/design3/pallu-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
         return brocade;
     }
 
     public static void main(final String[] args) throws IOException {
-        BufferedImage rightd = ImageIO.read(new File("z-vasu/in/1/design1/border/border.bmp"));
-        BufferedImage leftd = VerticalFlipGenerator.get(ImageIO.read(new File("z-vasu/in/1/design1/border/border.bmp")));
+        BufferedImage rightd = ImageIO.read(new File("z-vasu/in/1/design3/border/border.bmp"));
+        BufferedImage leftd = VerticalFlipGenerator.get(ImageIO.read(new File("z-vasu/in/1/design3/border/border.bmp")));
 
-        BufferedImage rightf = HorizontalRepeatGenerator.get(6, rightd);
-        BufferedImage right = CutLayoutGenerator.get(CutLayoutGenerator.get(rightf, 180, 1), 1920, 0);
+        BufferedImage rightf = HorizontalRepeatGenerator.get(50, rightd);
+        BufferedImage right = CutLayoutGenerator.get(CutLayoutGenerator.get(rightf, 180, 1), 1722, 0);
 
-        BufferedImage leftf = HorizontalRepeatGenerator.get(6, leftd);
-        BufferedImage left = CutLayoutGenerator.get(CutLayoutGenerator.get(leftf, 180, 1), 1920, 0);
+        BufferedImage leftf = HorizontalRepeatGenerator.get(50, leftd);
+        BufferedImage left = CutLayoutGenerator.get(CutLayoutGenerator.get(leftf, 180, 1), 1722, 0);
 
-        BufferedImage rani = ImageIO.read(new File("z-vasu/in/1/design1/pallu/pallu_rani.bmp"));
-        BufferedImage jari = ImageIO.read(new File("z-vasu/in/1/design1/pallu/pallu_jari.bmp"));
+        BufferedImage rani = PlainGenerator.get(1722, 960);
+        BufferedImage jari = ImageIO.read(new File("z-vasu/in/1/design3/pallu/pallu_jari.bmp"));
         get(right, left, rani, jari);
     }
 

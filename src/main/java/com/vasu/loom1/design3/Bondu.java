@@ -1,4 +1,4 @@
-package com.vasu.loom1.design1;
+package com.vasu.loom1.design3;
 
 import com.varaprasadps.image.AddLayoutGenerator;
 import com.varaprasadps.image.CutLayoutGenerator;
@@ -13,13 +13,13 @@ import java.util.List;
 public class Bondu {
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-vasu/out/1/design1/pset.bmp";
+        String out = "z-vasu/out/1/design3/pset.bmp";
 
-        BufferedImage kongu = ImageIO.read(new File("z-vasu/out/1/design1/kongu-2-1824.bmp"));
-        BufferedImage kanni = ImageIO.read(new File("z-vasu/out/1/design1/kanni-1824-720.bmp"));
-        BufferedImage anni = ImageIO.read(new File("z-vasu/out/1/design1/anni-360-1824.bmp"));
-        BufferedImage pallu = ImageIO.read(new File("z-vasu/out/1/design1/pallu-1824-3840.bmp"));
-        BufferedImage brocade = ImageIO.read(new File("z-vasu/out/1/design1/1brocade-1824-2160.bmp"));
+        BufferedImage kongu = ImageIO.read(new File("z-vasu/out/1/design2/kongu-2-1824.bmp"));
+        BufferedImage kanni = ImageIO.read(new File("z-vasu/out/1/design3/kanni-1824-400.bmp"));
+        BufferedImage anni = ImageIO.read(new File("z-vasu/out/1/design3/anni-200-1824.bmp"));
+        BufferedImage pallu = ImageIO.read(new File("z-vasu/out/1/design3/pallu-1824-3444.bmp"));
+        BufferedImage brocade = ImageIO.read(new File("z-vasu/out/1/design3/kbroc-1824-1800.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -33,8 +33,7 @@ public class Bondu {
         inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(kanni, 190).get(1), 10).get(0));
         inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(anni, 100).get(1), 80).get(0));
         inputBIs.add(pallu);
-        inputBIs.add(CutLayoutGenerator.get(anni, 300).get(1));
-        inputBIs.add(CutLayoutGenerator.get(anni, 20).get(0));
+        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(anni, 22).get(1), 80).get(0));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
