@@ -23,8 +23,6 @@ public class ThreePlay {
         inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
         inputBIs.add(EmptyGenerator.get(width, 12));
-        //kali
-        inputBIs.add(EmptyGenerator.get(width, 256));
 
         //border
         inputBIs.add(EmptyGenerator.get(border.getWidth(), border.getHeight()));
@@ -50,6 +48,8 @@ public class ThreePlay {
         //achu
         inputBIs.add(EmptyGenerator.get(width, 8));
 
+        //kali
+        inputBIs.add(EmptyGenerator.get(width, 256));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

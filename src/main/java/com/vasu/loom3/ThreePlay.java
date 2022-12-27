@@ -33,10 +33,10 @@ public class ThreePlay {
         inputBIs.add(EmptyGenerator.get(border.getWidth(), border.getHeight()));
 
         //locking
-        inputBIs.add(StepLayoutGenerator.get(width, 4));
+        inputBIs.add(EmptyGenerator.get(width, 16));
         inputBIs.add(jari);
         //locking
-        inputBIs.add(StepLayoutGenerator.get(width, 4));
+        inputBIs.add(EmptyGenerator.get(width, 16));
 
         //border
         inputBIs.add(EmptyGenerator.get(border.getWidth(), border.getHeight()));
