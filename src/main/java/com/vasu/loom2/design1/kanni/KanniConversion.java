@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-import static com.vasu.loom1.TwoPlay.*;
+import static com.vasu.loom2.TwoPlay.*;
 import static java.lang.String.format;
 
 

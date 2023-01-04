@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-import static com.vasu.loom1.ThreePlay.*;
+import static com.vasu.loom2.ThreePlay.*;
 
 
 public class BrocadeConversion {
