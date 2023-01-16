@@ -1,4 +1,4 @@
-package com.vasu.loom4;
+package com.vasu.loom4.design4;
 
 import com.varaprasadps.image.*;
 
@@ -13,9 +13,9 @@ public class AnniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-vasu/out/4/design1/anni-%s-%s.bmp";
+        String out = "z-vasu/out/4/design4/anni-%s-%s.bmp";
 
-        BufferedImage border = ImageIO.read(new File("z-vasu/in/4/design1/border/border.bmp"));
+        BufferedImage border = ImageIO.read(new File("z-vasu/in/4/design4/border/border.bmp"));
 
         int width = border.getWidth();
 

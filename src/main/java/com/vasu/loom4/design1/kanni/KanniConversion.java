@@ -1,6 +1,5 @@
-package com.vasu.loom4.kplain;
+package com.vasu.loom4.design1.kanni;
 
-import com.varaprasadps.image.EmptyGenerator;
 import com.varaprasadps.image.LeftLayoutGenerator;
 import com.varaprasadps.image.PlainGenerator;
 import com.varaprasadps.image.VerticalFlipGenerator;
@@ -12,7 +11,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-import static com.vasu.loom3.TwoPlay.*;
+import static com.vasu.loom4.TwoPlay.*;
 import static java.lang.String.format;
 
 
@@ -25,7 +24,7 @@ public class KanniConversion {
         BufferedImage brocade = LeftLayoutGenerator.get(getBrocade(brocades));
         displayPixels(brocade);
 
-        saveBMP(brocade, format("z-vasu/out/4/design1/kplainanni-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
+        saveBMP(brocade, format("z-vasu/out/4/design1/kanni-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
         return brocade;
     }
 
@@ -33,7 +32,7 @@ public class KanniConversion {
         BufferedImage right = ImageIO.read(new File("z-vasu/in/4/design1/border/border.bmp"));
         BufferedImage left = VerticalFlipGenerator.get(ImageIO.read(new File("z-vasu/in/4/design1/border/border.bmp")));
 
-        BufferedImage rani = EmptyGenerator.get(right.getWidth(), 720);
+        BufferedImage rani = PlainGenerator.get(right.getWidth(), 720);
         BufferedImage jari = PlainGenerator.get(right.getWidth(), 720);
         get(right, left, rani, jari);
     }

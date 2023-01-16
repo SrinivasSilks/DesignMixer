@@ -1,4 +1,4 @@
-package com.vasu.loom4.brocade;
+package com.vasu.loom4.design1.brocade;
 
 import com.varaprasadps.image.HorizontalRepeatGenerator;
 import com.varaprasadps.image.LeftLayoutGenerator;
