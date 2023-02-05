@@ -1,9 +1,8 @@
-package com.varaprasadps.no1.a2023.kadiyaluplain;
+package com.varaprasadps.no1.a2023.design1.kanni;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
 import com.varaprasadps.image.HorizontalFlipGenerator;
 import com.varaprasadps.image.LeftLayoutGenerator;
-import com.varaprasadps.no1.a2023.kadiyalubrocade.NimbuConversion;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -12,19 +11,17 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class KadiyaluPlainConversion {
+public class KanniConversion {
 
     public static void main(final String[] args) throws IOException {
-
         JariConversion.main(null);
-        NimbuConversion.main(null);
         RaniConversion.main(null);
-
-        String out = "z-data/out/1/a2023/design1/1kadiyalu-plain-%s-%s.bmp";
+        String out = "z-data/out/1/a2023/design1/kanni-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("z-data/out/1/a2023/design1/1rani-360-2688.bmp");
-        inputs.add("z-data/out/1/a2023/design1/1jari-360-2688.bmp");
+        inputs.add("z-data/out/1/a2023/design1/k-rani-360-2688.bmp");
+        inputs.add("z-data/out/1/a2023/design1/k-jari-360-2688.bmp");
+
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {
             inputBIs.add(ImageIO.read(new File(input)));

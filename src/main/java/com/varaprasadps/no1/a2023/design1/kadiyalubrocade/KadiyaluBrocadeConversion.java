@@ -1,4 +1,4 @@
-package com.varaprasadps.no1.a2023.kadiyalubrocade;
+package com.varaprasadps.no1.a2023.design1.kadiyalubrocade;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
 import com.varaprasadps.image.HorizontalFlipGenerator;

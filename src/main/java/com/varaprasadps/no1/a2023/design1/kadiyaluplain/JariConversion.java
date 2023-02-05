@@ -1,6 +1,5 @@
-package com.varaprasadps.no1.a2023.kadiyaluplain;
+package com.varaprasadps.no1.a2023.design1.kadiyaluplain;
 
-import com.varaprasadps.bala.b1.Plain;
 import com.varaprasadps.image.*;
 
 import javax.imageio.ImageIO;

@@ -1,4 +1,4 @@
-package com.varaprasadps.no1.a2023.pallu;
+package com.varaprasadps.no1.a2023.design1.pallu;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
 import com.varaprasadps.image.HorizontalFlipGenerator;

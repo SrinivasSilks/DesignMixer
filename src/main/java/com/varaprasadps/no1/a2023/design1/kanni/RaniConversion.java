@@ -1,4 +1,4 @@
-package com.varaprasadps.no1.a2023.kanni;
+package com.varaprasadps.no1.a2023.design1.kanni;
 
 import com.varaprasadps.image.*;
 
