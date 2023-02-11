@@ -1,4 +1,4 @@
-package com.vasu.loom4.design4.pallu;
+package com.vasu.loom4.design5.pallu;
 
 import com.varaprasadps.image.*;
 
@@ -22,22 +22,22 @@ public class PalluConversion {
         BufferedImage brocade = LeftLayoutGenerator.get(getBrocade(brocades));
         displayPixels(brocade);
 
-        saveBMP(brocade, format("z-vasu/out/4/design4/pallu-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
+        saveBMP(brocade, format("z-vasu/out/4/design5/pallu-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
         return brocade;
     }
 
     public static void main(final String[] args) throws IOException {
-        BufferedImage rightd = ImageIO.read(new File("z-vasu/in/4/design4/border/border.bmp"));
-        BufferedImage leftd = VerticalFlipGenerator.get(ImageIO.read(new File("z-vasu/in/4/design4/border/border.bmp")));
+        BufferedImage rightd = ImageIO.read(new File("z-vasu/in/4/design5/border/border.bmp"));
+        BufferedImage leftd = VerticalFlipGenerator.get(ImageIO.read(new File("z-vasu/in/4/design5/border/border.bmp")));
 
-        BufferedImage rightf = HorizontalRepeatGenerator.get(7, rightd);
+        BufferedImage rightf = HorizontalRepeatGenerator.get(9, rightd);
         BufferedImage right = CutLayoutGenerator.get(CutLayoutGenerator.get(rightf, 180, 1), 1920, 0);
 
-        BufferedImage leftf = HorizontalRepeatGenerator.get(7, leftd);
+        BufferedImage leftf = HorizontalRepeatGenerator.get(9, leftd);
         BufferedImage left = CutLayoutGenerator.get(CutLayoutGenerator.get(leftf, 180, 1), 1920, 0);
 
         BufferedImage rani = PlainGenerator.get(1920, 720);
-        BufferedImage jari = ImageIO.read(new File("z-vasu/in/4/design4/pallu/pallu_jari.bmp"));
+        BufferedImage jari = ImageIO.read(new File("z-vasu/in/4/design5/pallu/pallu_jari.bmp"));
         get(right, left, rani, jari);
     }
 
