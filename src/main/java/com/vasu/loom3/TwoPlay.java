@@ -31,12 +31,12 @@ public class TwoPlay {
 
         inputBIs.add(VerticalFlipGenerator.get(border));
         //locking
-        inputBIs.add(EmptyGenerator.get(width, 14));
+        inputBIs.add(PlainGenerator.get(width, 14));
         inputBIs.add(PlainGenerator.get(width, 2));
         inputBIs.add(body);
         //locking
         inputBIs.add(PlainGenerator.get(width, 2));
-        inputBIs.add(EmptyGenerator.get(width, 14));
+        inputBIs.add(PlainGenerator.get(width, 14));
         inputBIs.add(border);
 
         //mispick
