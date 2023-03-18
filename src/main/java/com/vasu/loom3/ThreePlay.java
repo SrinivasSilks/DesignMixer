@@ -34,7 +34,9 @@ public class ThreePlay {
 
         //locking
         inputBIs.add(EmptyGenerator.get(width, 16));
-        inputBIs.add(jari);
+        for (int i = 0; i < 720 / jari.getHeight() ; i++) {
+            inputBIs.add(jari);
+        }
         //locking
         inputBIs.add(EmptyGenerator.get(width, 16));
 
@@ -85,7 +87,9 @@ public class ThreePlay {
         inputBIs.add(EmptyGenerator.get(border.getWidth(), border.getHeight()));
         //locking
         inputBIs.add(PlainGenerator.get(width, 16));
-        inputBIs.add(nimbu);
+        for (int i = 0; i < 720 / nimbu.getHeight() ; i++) {
+            inputBIs.add(nimbu);
+        }
         //locking
         inputBIs.add(PlainGenerator.get(width, 16));
         //border
