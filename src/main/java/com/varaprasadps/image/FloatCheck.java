@@ -10,11 +10,11 @@ import java.io.IOException;
 public class FloatCheck {
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-data/test/jari-raw-float-check.bmp";
-        String path = "z-data/test/jari-raw.bmp";
+        String out = "z-data/test/single-jari-design1-floatcheck.bmp";
+        String path = "z-data/test/single-jari-design1.bmp";
         BufferedImage image = ImageIO.read(new File(path));
 
-        BufferedImage img = get(image, 4);
+        BufferedImage img = get(image, 6);
         saveBMP(img, String.format(out, image.getWidth(), image.getHeight()));
     }
 
@@ -28,7 +28,7 @@ public class FloatCheck {
                 if (rgb != Color.WHITE.getRGB() && rgb == prevRGB) {
                     sameColorBox++;
                     if (sameColorBox >= floatCheck) {
-                        res.setRGB(x, y, Color.GREEN.getRGB());
+                        res.setRGB(x, y, Color.BLACK.getRGB());
                     } else {
                         res.setRGB(x, y, rgb);
                     }
