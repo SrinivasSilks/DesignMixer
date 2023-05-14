@@ -9,13 +9,13 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class AnniConversion {
+public class JariDownConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "d/4/out/anni-%s-%s.bmp";
-        final BufferedImage right = ImageIO.read(new File("d/4/in/design1/border/right.bmp"));
-        final BufferedImage left = ImageIO.read(new File("d/4/in/design1/border/left.bmp"));
+        String out = "d/4/out/jari-down-%s-%s.bmp";
+        final BufferedImage right = EmptyGenerator.get(2, 480);
+        final BufferedImage left = EmptyGenerator.get(2, 396);
         final int width = right.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
@@ -23,13 +23,13 @@ public class AnniConversion {
         inputBIs.add(EmptyGenerator.get(width, 32));
 
         //mispick
-        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //kadiyalu
-        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(BlackGenerator.get(width, 2));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 8));
+        inputBIs.add(BlackGenerator.get(width, 8));
         //jamudu
-        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(BlackGenerator.get(width, 4));
 
         //left
         inputBIs.add(left);
@@ -42,16 +42,16 @@ public class AnniConversion {
         inputBIs.add(right);
 
         //jamudu
-        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(BlackGenerator.get(width, 4));
         //box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //kadiyalu
-        inputBIs.add(PlainGenerator.get(width, 2));
+        inputBIs.add(BlackGenerator.get(width, 2));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 8));
+        inputBIs.add(BlackGenerator.get(width, 8));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
