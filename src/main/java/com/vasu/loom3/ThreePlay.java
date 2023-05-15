@@ -34,7 +34,7 @@ public class ThreePlay {
 
         //locking
         inputBIs.add(EmptyGenerator.get(width, 16));
-        for (int i = 0; i < 720 / jari.getHeight() ; i++) {
+        for (int i = 0; i < 720 / jari.getHeight(); i++) {
             inputBIs.add(jari);
         }
         //locking
@@ -87,7 +87,7 @@ public class ThreePlay {
         inputBIs.add(EmptyGenerator.get(border.getWidth(), border.getHeight()));
         //locking
         inputBIs.add(PlainGenerator.get(width, 16));
-        for (int i = 0; i < 720 / nimbu.getHeight() ; i++) {
+        for (int i = 0; i < 720 / nimbu.getHeight(); i++) {
             inputBIs.add(nimbu);
         }
         //locking
@@ -117,6 +117,10 @@ public class ThreePlay {
     }
 
     public static BufferedImage rani(BufferedImage right, BufferedImage left) {
+        return rani(right, left, EmptyGenerator.get(right.getWidth(), 720));
+    }
+
+    public static BufferedImage rani(BufferedImage right, BufferedImage left, BufferedImage body) {
 
         int width = right.getWidth();
         List<BufferedImage> inputBIs = new LinkedList<>();
@@ -139,7 +143,7 @@ public class ThreePlay {
         inputBIs.add(left);
         //locking
         inputBIs.add(PlainGenerator.get(width, 16));
-        inputBIs.add(EmptyGenerator.get(width, 720));
+        inputBIs.add(body);
         //locking
         inputBIs.add(PlainGenerator.get(width, 16));
         //border
@@ -168,7 +172,7 @@ public class ThreePlay {
     }
 
     public static void displayPixels(BufferedImage fileOne) {
-        System.out.println(String.format("Width : %s, Height : %s", fileOne.getWidth(), fileOne.getHeight()));
+        System.out.printf("Width : %s, Height : %s%n", fileOne.getWidth(), fileOne.getHeight());
     }
 
 
@@ -182,7 +186,7 @@ public class ThreePlay {
 
     public static BufferedImage getBrocade(List<BufferedImage> inputs) {
         for (int i = 0; i < inputs.size(); i++) {
-            System.out.println(String.format("Brocade => Width : %s, Height : %s", inputs.get(i).getWidth(), inputs.get(i).getHeight()));
+            System.out.printf("Brocade => Width : %s, Height : %s%n", inputs.get(i).getWidth(), inputs.get(i).getHeight());
         }
         return ColumnRepeatGenerator.get(inputs);
     }
