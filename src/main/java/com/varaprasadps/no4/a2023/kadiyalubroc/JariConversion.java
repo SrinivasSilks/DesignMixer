@@ -56,7 +56,9 @@ public class JariConversion {
         //mispick
         inputBIs.add(EmptyGenerator.get(width, 2));
         //kadiyalu
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
+        //wheel
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
         //achu
         inputBIs.add(AchuLayoutGenerator.get(width, 8));
 

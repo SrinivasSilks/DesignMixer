@@ -51,7 +51,6 @@ public class NimbuConversion {
         //right
         inputBIs.add(right);
 
-
         //locking
         inputBIs.add(EmptyGenerator.get(width, 4));
         //box
@@ -60,7 +59,9 @@ public class NimbuConversion {
         //mispick
         inputBIs.add(ReverseGenerator.get(get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //kadiyalu
-        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(EmptyGenerator.get(width, 1));
+        //wheel
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
         //achu
         inputBIs.add(EmptyGenerator.get(width, 8));
 
