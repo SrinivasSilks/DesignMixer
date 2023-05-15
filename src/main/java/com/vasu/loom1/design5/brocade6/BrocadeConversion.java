@@ -1,4 +1,4 @@
-package com.vasu.loom2.design5.brocade4;
+package com.vasu.loom1.design5.brocade6;
 
 import com.varaprasadps.image.HorizontalRepeatGenerator;
 import com.varaprasadps.image.LeftLayoutGenerator;
@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-import static com.vasu.loom2.ThreePlay.*;
+import static com.vasu.loom1.ThreePlay.*;
 
 
 public class BrocadeConversion {
@@ -23,19 +23,19 @@ public class BrocadeConversion {
         brocades.add(jari(border, nimbu));
         brocades.add(nimbu(border, jari));
         BufferedImage brocade = LeftLayoutGenerator.get(getBrocade(brocades));
-        saveBMP(brocade, String.format("z-vasu/out/2/design5/44brocade-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
+        saveBMP(brocade, String.format("z-vasu/out/1/design5/6brocade-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
         return brocade;
     }
 
     public static void main(String[] args) throws IOException {
-        BufferedImage borderdf = ImageIO.read(new File("z-vasu/in/2/design5/border/border.bmp"));
-        BufferedImage border = HorizontalRepeatGenerator.get(11, borderdf);
+        BufferedImage borderdf = ImageIO.read(new File("z-vasu/in/1/design5/border/border.bmp"));
+        BufferedImage border = HorizontalRepeatGenerator.get(5, borderdf);
 
-        BufferedImage read = ImageIO.read(new File("z-vasu/in/2/design5/brocade4/jari.bmp"));
-        BufferedImage readnimbu = ImageIO.read(new File("z-vasu/in/2/design5/brocade4/nimbu.bmp"));
+        BufferedImage read = ImageIO.read(new File("z-vasu/in/1/design5/brocade6/jari.bmp"));
+        BufferedImage readnimbu = ImageIO.read(new File("z-vasu/in/1/design5/brocade6/nimbu.bmp"));
 
-        BufferedImage jari = HorizontalRepeatGenerator.get(12, RightLayoutGenerator.get(HorizontalRepeatGenerator.get(2, LeftLayoutGenerator.get(read))));
-        BufferedImage nimbu = HorizontalRepeatGenerator.get(12, RightLayoutGenerator.get(HorizontalRepeatGenerator.get(2, LeftLayoutGenerator.get(readnimbu))));
+        BufferedImage jari = HorizontalRepeatGenerator.get(4, RightLayoutGenerator.get(HorizontalRepeatGenerator.get(2, LeftLayoutGenerator.get(read))));
+        BufferedImage nimbu = HorizontalRepeatGenerator.get(4, RightLayoutGenerator.get(HorizontalRepeatGenerator.get(2, LeftLayoutGenerator.get(readnimbu))));
         get(border, nimbu, jari);
     }
 

@@ -1,4 +1,4 @@
-package com.vasu.loom2.design5.brocade4;
+package com.vasu.loom2.design5.brocade5;
 
 import com.varaprasadps.image.HorizontalRepeatGenerator;
 import com.varaprasadps.image.LeftLayoutGenerator;
@@ -23,19 +23,19 @@ public class BrocadeConversion {
         brocades.add(jari(border, nimbu));
         brocades.add(nimbu(border, jari));
         BufferedImage brocade = LeftLayoutGenerator.get(getBrocade(brocades));
-        saveBMP(brocade, String.format("z-vasu/out/2/design5/44brocade-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
+        saveBMP(brocade, String.format("z-vasu/out/2/design5/55brocade-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
         return brocade;
     }
 
     public static void main(String[] args) throws IOException {
         BufferedImage borderdf = ImageIO.read(new File("z-vasu/in/2/design5/border/border.bmp"));
-        BufferedImage border = HorizontalRepeatGenerator.get(11, borderdf);
+        BufferedImage border = HorizontalRepeatGenerator.get(5, borderdf);
 
-        BufferedImage read = ImageIO.read(new File("z-vasu/in/2/design5/brocade4/jari.bmp"));
-        BufferedImage readnimbu = ImageIO.read(new File("z-vasu/in/2/design5/brocade4/nimbu.bmp"));
+        BufferedImage read = ImageIO.read(new File("z-vasu/in/2/design5/brocade5/jari.bmp"));
+        BufferedImage readnimbu = ImageIO.read(new File("z-vasu/in/2/design5/brocade5/nimbu.bmp"));
 
-        BufferedImage jari = HorizontalRepeatGenerator.get(12, RightLayoutGenerator.get(HorizontalRepeatGenerator.get(2, LeftLayoutGenerator.get(read))));
-        BufferedImage nimbu = HorizontalRepeatGenerator.get(12, RightLayoutGenerator.get(HorizontalRepeatGenerator.get(2, LeftLayoutGenerator.get(readnimbu))));
+        BufferedImage jari = HorizontalRepeatGenerator.get(8, RightLayoutGenerator.get(HorizontalRepeatGenerator.get(2, LeftLayoutGenerator.get(read))));
+        BufferedImage nimbu = HorizontalRepeatGenerator.get(8, RightLayoutGenerator.get(HorizontalRepeatGenerator.get(2, LeftLayoutGenerator.get(readnimbu))));
         get(border, nimbu, jari);
     }
 
