@@ -13,9 +13,9 @@ public class AnniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "d/4/out/anni-%s-%s.bmp";
+        String out = "d/4/out/design1/anni-%s-%s.bmp";
         final BufferedImage right = ImageIO.read(new File("d/4/in/design1/border/right.bmp"));
-        final BufferedImage left = ImageIO.read(new File("d/4/in/design1/border/left.bmp"));
+        final BufferedImage left = VerticalFlipGenerator.get(ImageIO.read(new File("d/4/in/design1/border/left.bmp")));
         final int width = right.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
