@@ -46,14 +46,14 @@ public class AnniConversion {
         inputBIs.add(PlainGenerator.get(width, 8));
         inputBIs.add(right);
 
-        //jamudu
-        inputBIs.add(PlainGenerator.get(width, 4));
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
         inputBIs.add(AchuLayoutGenerator.get(width, 8));
+        //jamudu
+        inputBIs.add(PlainGenerator.get(width, 4));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

@@ -43,14 +43,14 @@ public class JariUpConversion {
         inputBIs.add(EmptyGenerator.get(width, 8));
         inputBIs.add(BlackGenerator.get(width, 590));
 
-        //jamudu
-        inputBIs.add(EmptyGenerator.get(width, 4));
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
         inputBIs.add(EmptyGenerator.get(width, 8));
+        //jamudu
+        inputBIs.add(EmptyGenerator.get(width, 4));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
