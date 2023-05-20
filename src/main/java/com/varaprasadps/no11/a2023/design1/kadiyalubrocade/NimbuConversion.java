@@ -35,7 +35,7 @@ public class NimbuConversion {
         //achu
         inputBIs.add(EmptyGenerator.get(width, 8));
         //jamudu
-        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(EmptyGenerator.get(width, 4));
 
         //left
         inputBIs.add(left);
