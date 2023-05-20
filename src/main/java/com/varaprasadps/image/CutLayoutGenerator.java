@@ -9,14 +9,14 @@ import java.util.List;
 
 public class CutLayoutGenerator {
     public static void main(final String[] args) throws IOException {
-        String in = "d/1/out/design1/kadiyalu/1kadiyalu-brc-2688-26640.bmp";
-        String out = "d/1/out/design1/kadiyalu/1kadiyalu-2.bmp";
+        String in = "z-data/in/7/jr/design1/border/right-border.bmp";
+        String out = "d/11/in/design1/border/right.bmp";
         BufferedImage a = ImageIO.read(new File(in));
 
         List<BufferedImage> result = new LinkedList<>();
 
-        List<BufferedImage> images = CutLayoutGenerator.get(a, a.getHeight()/2);
-        result.add(images.get(1));
+        List<BufferedImage> images = CutLayoutGenerator.get(a, 590);
+        result.add(images.get(0));
 
         int x = 0;
         int y = 0;
