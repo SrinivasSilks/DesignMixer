@@ -60,7 +60,7 @@ public class RaniConversion {
         //achu
         inputBIs.add(AchuLayoutGenerator.get(width, 8));
         //jamudu
-        inputBIs.add(EmptyGenerator.get(width, 4));
+        inputBIs.add(PlainGenerator.get(width, 4));
         int repeatWidth = 0;
         int repeatHeight = 0;
 
