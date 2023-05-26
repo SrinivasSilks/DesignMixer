@@ -40,13 +40,13 @@ public class NimbuConversion {
         //left
         inputBIs.add(left);
         //locking
-        inputBIs.add(EmptyGenerator.get(width, 4));
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 4)));
+        inputBIs.add(EmptyGenerator.get(width, 6));
+        inputBIs.add(PlainGenerator.get(width, 2));
         //body
         inputBIs.add(body);
         //locking
-        inputBIs.add(PlainGenerator.get(width, 4));
-        inputBIs.add(EmptyGenerator.get(width, 4));
+        inputBIs.add(PlainGenerator.get(width, 2));
+        inputBIs.add(EmptyGenerator.get(width, 6));
         //right
         inputBIs.add(right);
 
