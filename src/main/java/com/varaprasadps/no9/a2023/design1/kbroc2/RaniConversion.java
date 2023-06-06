@@ -15,12 +15,12 @@ public class RaniConversion {
 
         String out = "d/9/out/design1/kbrc/2kbroc-rani-%s-%s.bmp";
 
-        BufferedImage right = HorizontalRepeatGenerator.get(4, ImageIO.read(new File("d/9/in/design1/border/right.bmp")));
-        BufferedImage left = HorizontalRepeatGenerator.get(4, ImageIO.read(new File("d/9/in/design1/border/left-first.bmp")));
+        BufferedImage right = HorizontalRepeatGenerator.get(9, ImageIO.read(new File("d/9/in/design1/border/right.bmp")));
+        BufferedImage left = HorizontalRepeatGenerator.get(9, ImageIO.read(new File("d/9/in/design1/border/left-first.bmp")));
 
         int width = left.getWidth();
 
-        final BufferedImage body = PlainGenerator.get(width, 480);
+        final BufferedImage body = HorizontalRepeatGenerator.get(10, ImageIO.read(new File("d/9/in/design1/brocade2/silver.bmp")));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -42,7 +42,6 @@ public class RaniConversion {
         inputBIs.add(PlainGenerator.get(width, 14));
         inputBIs.add(PlainGenerator.get(width, 2));
         //body
-        inputBIs.add(body);
         inputBIs.add(body);
         //locking
         inputBIs.add(PlainGenerator.get(width, 2));
@@ -72,7 +71,7 @@ public class RaniConversion {
     }
 
     private static void displayPixels(BufferedImage fileOne) {
-        System.out.printf("Width : %s, Height : %s%n", fileOne.getWidth(), fileOne.getHeight());
+        System.out.println(String.format("Width : %s, Height : %s", fileOne.getWidth(), fileOne.getHeight()));
     }
 
     private static void saveBMP(final BufferedImage bi, final String path) throws IOException {
