@@ -1,4 +1,4 @@
-package com.vasu.loom12;
+package com.vasu.loom12.selfbrocade;
 
 import com.varaprasadps.image.*;
 
@@ -9,15 +9,15 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class PlainConversion {
+public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-vasu/out/12/a2023/design1/1PLAIN.bmp";
+        String out = "z-vasu/out/12/a2023/design1/1self-jari-%s-%s.bmp";
 
-        final BufferedImage plain = PlainGenerator.get(20, 720);
+        final BufferedImage body = ImageIO.read(new File("z-vasu/in/12/a2023/design1/brocade1/jari.bmp"));
 
-        int width = plain.getWidth();
+        int width = body.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -32,7 +32,7 @@ public class PlainConversion {
         //left
         inputBIs.add(EmptyGenerator.get(width, 330));
         //body
-        inputBIs.add(plain);
+        inputBIs.add(body);
         //left
         inputBIs.add(EmptyGenerator.get(width, 330));
 
@@ -43,7 +43,7 @@ public class PlainConversion {
 
         //config
         inputBIs.add(EmptyGenerator.get(width, 7));
-        inputBIs.add(EmptyGenerator.get(width, 1));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -53,7 +53,7 @@ public class PlainConversion {
             repeatWidth = bi.getWidth();
             repeatHeight += bi.getHeight();
         }
-        BufferedImage bi = LeftLayoutGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
+        BufferedImage bi = AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs);
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
     }
