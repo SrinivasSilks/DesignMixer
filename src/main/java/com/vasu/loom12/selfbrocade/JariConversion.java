@@ -42,8 +42,8 @@ public class JariConversion {
         inputBIs.add(EmptyGenerator.get(width, 10));
 
         //config
-        inputBIs.add(EmptyGenerator.get(width, 7));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
+        inputBIs.add(EmptyGenerator.get(width, 7));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
