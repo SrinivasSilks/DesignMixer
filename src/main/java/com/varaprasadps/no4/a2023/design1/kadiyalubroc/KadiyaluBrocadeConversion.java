@@ -1,4 +1,4 @@
-package com.varaprasadps.no4.a2023.kadiyaluanni;
+package com.varaprasadps.no4.a2023.design1.kadiyalubroc;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
 import com.varaprasadps.image.LeftLayoutGenerator;
@@ -10,16 +10,18 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class KadiyaluAnniConversion {
+public class KadiyaluBrocadeConversion {
 
     public static void main(final String[] args) throws IOException {
+        NimbuConversion.main(null);
         JariConversion.main(null);
         RaniConversion.main(null);
-        String out = "d/4/out/design1/kadiyalu-anni-%s-%s.bmp";
+        String out = "d/4/out/design1/kadiyalu-brocade-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("d/4/out/design1/kanni-rani-360-1440.bmp");
-        inputs.add("d/4/out/design1/kanni-jari-360-1440.bmp");
+        inputs.add("d/4/out/design1/kbroc-rani-360-1440.bmp");
+        inputs.add("d/4/out/design1/kbroc-jari-360-1440.bmp");
+        inputs.add("d/4/out/design1/kbroc-nimbu-360-1440.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {

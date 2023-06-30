@@ -1,4 +1,4 @@
-package com.varaprasadps.no4.a2023.kadiyalubroc;
+package com.varaprasadps.no4.a2023.design1.kadiyaluanni;
 
 import com.varaprasadps.image.*;
 
@@ -13,12 +13,12 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "d/4/out/design1/kbroc-jari-%s-%s.bmp";
+        String out = "d/4/out/design1/kanni-jari-%s-%s.bmp";
 
         BufferedImage right = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/4/in/design1/border/right.bmp")));
         BufferedImage left = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/4/in/design1/border/left.bmp")));
         int width = left.getWidth();
-        BufferedImage body = HorizontalRepeatGenerator.get(4, ImageIO.read(new File("d/4/in/design1/brocade/silver.bmp")));
+        final BufferedImage body = PlainGenerator.get(width, 480);
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -40,19 +40,18 @@ public class JariConversion {
         inputBIs.add(PlainGenerator.get(width, 4));
         //body
         inputBIs.add(body);
-        inputBIs.add(body);
         //locking
         inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 4)));
         inputBIs.add(PlainGenerator.get(width, 4));
         //right
         inputBIs.add(right);
 
+
         //jamudu
         inputBIs.add(PlainGenerator.get(width, 4));
-
         //box
-        inputBIs.add(EmptyGenerator.get(width, 2));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
         inputBIs.add(EmptyGenerator.get(width, 2));
         //kadiyalu
@@ -76,7 +75,7 @@ public class JariConversion {
     }
 
     private static void displayPixels(BufferedImage fileOne) {
-        System.out.println(String.format("Width : %s, Height : %s", fileOne.getWidth(), fileOne.getHeight()));
+        System.out.printf("Width : %s, Height : %s%n", fileOne.getWidth(), fileOne.getHeight());
     }
 
     private static void saveBMP(final BufferedImage bi, final String path) throws IOException {
