@@ -1,4 +1,4 @@
-package com.varaprasadps.no4.a2023.design2.pallu;
+package com.varaprasadps.no4.a2023.design2.brocade1;
 
 import com.varaprasadps.image.*;
 
@@ -13,15 +13,13 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "d/4/out/design2/pallu-rani-%s-%s.bmp";
-        final BufferedImage rightt = HorizontalRepeatGenerator.get(10, ImageIO.read(new File("d/4/in/design2/border/right.bmp")));
-        final BufferedImage leftt = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(10, ImageIO.read(new File("d/4/in/design2/border/left.bmp"))));
+        String out = "d/4/out/design2/1broc-rani-%s-%s.bmp";
+        final BufferedImage right = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/4/in/design2/border/right.bmp")));
+        final BufferedImage left = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/4/in/design2/border/left.bmp"))));
 
-        BufferedImage right = CutLayoutGenerator.get(CutLayoutGenerator.get(rightt, 100, 1), 1612, 0);
-        BufferedImage left = CutLayoutGenerator.get(CutLayoutGenerator.get(leftt, 100, 1), 1612, 0);
         int width = right.getWidth();
 
-        final BufferedImage body = CutLayoutGenerator.get(ImageIO.read(new File("d/4/in/design2/pallu/pallu-rani.bmp")), 480).get(0);
+        final BufferedImage body = ImageIO.read(new File("d/4/in/design2/brocade/red.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
