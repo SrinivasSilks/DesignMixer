@@ -1,4 +1,4 @@
-package com.varaprasadps.no4.a2023.design2.pallu;
+package com.varaprasadps.no8.a2023.design2.kanni;
 
 import com.varaprasadps.image.*;
 
@@ -9,45 +9,41 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class JariConversion {
+public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "d/4/out/design2/pallu-jari-%s-%s.bmp";
+        String out = "z-data/out/8/a2023/design2/k-rani-%s-%s.bmp";
 
-        final BufferedImage body = ImageIO.read(new File("d/4/in/design2/pallu/pallu-jari.bmp"));
+        BufferedImage right = ImageIO.read(new File("z-data/in/8/a2023/design2/border/right.bmp"));
+        BufferedImage left = ImageIO.read(new File("z-data/in/8/a2023/design2/border/left.bmp"));
+        int width = right.getWidth();
 
-        final int width = body.getWidth();
-        final BufferedImage right = EmptyGenerator.get(width, 480);
-        final BufferedImage left = EmptyGenerator.get(width, 396);
+        final BufferedImage body = PlainGenerator.get(width, 480);
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         inputBIs.add(EmptyGenerator.get(width, 32));
 
         //mispick
-        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
+        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 8), 2).get(0));
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
-        inputBIs.add(EmptyGenerator.get(width, 8));
-        //jamudu
-        inputBIs.add(EmptyGenerator.get(width, 4));
+        inputBIs.add(AchuLayoutGenerator.get(width, 8));
 
-        //left
-        inputBIs.add(left);
+        //brocade
+        inputBIs.add(VerticalFlipGenerator.get(left));
         //locking
-        inputBIs.add(EmptyGenerator.get(width, 4));
         inputBIs.add(PlainGenerator.get(width, 4));
         //body
         inputBIs.add(body);
+        inputBIs.add(body);
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));
-        inputBIs.add(EmptyGenerator.get(width, 4));
+        //border
         inputBIs.add(right);
 
-        //jamudu
-        inputBIs.add(EmptyGenerator.get(width, 4));
         //box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         inputBIs.add(EmptyGenerator.get(width, 2));
@@ -55,11 +51,10 @@ public class JariConversion {
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 1));
-        //wheel
+        //chakram
         inputBIs.add(EmptyGenerator.get(width, 1));
-
         //achu
-        inputBIs.add(EmptyGenerator.get(width, 8));
+        inputBIs.add(AchuLayoutGenerator.get(width, 8));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -72,11 +67,10 @@ public class JariConversion {
         BufferedImage bi = ReverseGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
-
     }
 
     private static void displayPixels(BufferedImage fileOne) {
-        System.out.printf("Width : %s, Height : %s%n", fileOne.getWidth(), fileOne.getHeight());
+        System.out.println(String.format("Width : %s, Height : %s", fileOne.getWidth(), fileOne.getHeight()));
     }
 
     private static void saveBMP(final BufferedImage bi, final String path) throws IOException {

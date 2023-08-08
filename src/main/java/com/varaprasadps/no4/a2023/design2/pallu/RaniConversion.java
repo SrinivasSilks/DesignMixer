@@ -21,7 +21,7 @@ public class RaniConversion {
         BufferedImage left = CutLayoutGenerator.get(CutLayoutGenerator.get(leftt, 100, 1), 1612, 0);
         int width = right.getWidth();
 
-        final BufferedImage body = CutLayoutGenerator.get(ImageIO.read(new File("d/4/in/design2/pallu/pallu-rani.bmp")), 480).get(0);
+        final BufferedImage body = PlainGenerator.get(1612, 480);
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
