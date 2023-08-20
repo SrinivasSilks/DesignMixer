@@ -9,12 +9,12 @@ import java.util.List;
 
 public class ReverseColumnSplitGenerator {
 
-    public static final int FILES = 2;
+    public static final int FILES = 3;
 
     public static void main(final String[] args) throws IOException {
         String out = "z-data/test/";
 
-        String input = "z-data/test/abcd.bmp";
+        String input = "z-data/test/123456.bmp";
         BufferedImage inputImage = ImageIO.read(new File(input));
 
         int repeatWidth = inputImage.getWidth();
@@ -24,11 +24,13 @@ public class ReverseColumnSplitGenerator {
 
         displayPixels(bis.get(0));
         displayPixels(bis.get(1));
-//        displayPixels(bis.get(2));
+        if (FILES == 3) {
+            displayPixels(bis.get(2));
+            saveBMP(bis.get(2), String.format(out + "file-%s-%s-%s.bmp", 3, repeatWidth, repeatHeight));
+        }
 
-        saveBMP(ReverseGenerator.get(bis.get(0)), String.format(out+"file-%s-%s-%s.bmp", 1, repeatWidth, repeatHeight));
-        saveBMP(ReverseGenerator.get(bis.get(1)), String.format(out+"file-%s-%s-%s.bmp", 2, repeatWidth, repeatHeight));
-//        saveBMP(bis.get(2), String.format(out+"file-%s-%s-%s.bmp", 3, repeatWidth, repeatHeight));
+        saveBMP(bis.get(0), String.format(out + "file-%s-%s-%s.bmp", 1, repeatWidth, repeatHeight));
+        saveBMP(bis.get(1), String.format(out + "file-%s-%s-%s.bmp", 2, repeatWidth, repeatHeight));
     }
 
     private static List<BufferedImage> get(BufferedImage input) {
@@ -38,8 +40,10 @@ public class ReverseColumnSplitGenerator {
 
         BufferedImage one = getOne(width, height, input);
         BufferedImage two = getTwo(width, height, input);
-//        BufferedImage three = getThree(width, height, input);
-//        return Arrays.asList(one, two, three);
+        if (FILES == 3) {
+            BufferedImage three = getThree(width, height, input);
+            return Arrays.asList(one, two, three);
+        }
         return Arrays.asList(one, two);
     }
 
@@ -53,7 +57,7 @@ public class ReverseColumnSplitGenerator {
 
     private static BufferedImage getOne(int width, int height, BufferedImage input) {
         int oneHeight = height / FILES;
-        BufferedImage one = new BufferedImage(width, oneHeight,input.getType());
+        BufferedImage one = new BufferedImage(width, oneHeight, BufferedImage.TYPE_INT_RGB);
 
         int x = 0;
         int y = 0;
@@ -71,7 +75,7 @@ public class ReverseColumnSplitGenerator {
 
     private static BufferedImage getTwo(int width, int height, BufferedImage input) {
         int oneHeight = height / FILES;
-        BufferedImage two = new BufferedImage(width, oneHeight, input.getType());
+        BufferedImage two = new BufferedImage(width, oneHeight, BufferedImage.TYPE_INT_RGB);
 
         int x = 0;
         int y = 1;
@@ -88,7 +92,7 @@ public class ReverseColumnSplitGenerator {
 
     private static BufferedImage getThree(int width, int height, BufferedImage input) {
         int oneHeight = height / FILES;
-        BufferedImage two = new BufferedImage(width, oneHeight, input.getType());
+        BufferedImage two = new BufferedImage(width, oneHeight,  BufferedImage.TYPE_INT_RGB);
 
         int x = 0;
         int y = 2;
@@ -104,11 +108,11 @@ public class ReverseColumnSplitGenerator {
     }
 
     public static BufferedImage left(BufferedImage input) {
-        final BufferedImage res = new BufferedImage(input.getHeight(), input.getWidth(), input.getType());
+        final BufferedImage res = new BufferedImage(input.getHeight(), input.getWidth(),  BufferedImage.TYPE_INT_RGB);
         for (int x = 0; x < input.getWidth(); x++) {
             for (int y = 0; y < input.getHeight(); y++) {
                 int rgb = input.getRGB(x, y);
-                int sizeX =  y;
+                int sizeX = y;
                 int sizeY = input.getWidth() - 1 - x;
                 res.setRGB(sizeX, sizeY, rgb);
             }
