@@ -42,7 +42,7 @@ public class JariConversion {
         //jamudu
         inputBIs.add(StepLayoutGenerator.get(width, 2));
         //locking
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 4)));
+        inputBIs.add(PlainGenerator.get(width, 4));
         inputBIs.add(PlainGenerator.get(width, 4));
         //right part1
         inputBIs.add(CutLayoutGenerator.get(right, 264).get(0));
@@ -54,7 +54,7 @@ public class JariConversion {
 
         //locking
         inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 4)));
-        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 4)));
         //right part2
         inputBIs.add(CutLayoutGenerator.get(right, 264).get(1));
 

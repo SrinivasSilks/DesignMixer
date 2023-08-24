@@ -44,8 +44,8 @@ public class GoldConversion {
         //jamudu
         inputBIs.add(EmptyGenerator.get(width, 8));
         //locking
-        inputBIs.add(EmptyGenerator.get(width, 6));
         inputBIs.add(PlainGenerator.get(width, 2));
+        inputBIs.add(EmptyGenerator.get(width, 6));
         //right part1
         inputBIs.add(CutLayoutGenerator.get(right, 264).get(0));
         //body
@@ -53,8 +53,8 @@ public class GoldConversion {
         //salari
         inputBIs.add(EmptyGenerator.get(width, 64));
         //locking
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 2)));
         inputBIs.add(EmptyGenerator.get(width, 6));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 2)));
         //right part1
         inputBIs.add(CutLayoutGenerator.get(right, 264).get(1));
 
