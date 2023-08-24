@@ -10,8 +10,8 @@ import java.util.List;
 public class KadiyaluLayoutGenerator {
 
     public static void main(final String[] args) throws IOException {
-        String out ="d/11/in/design2/border/left-first.bmp";
-        String input = "d/11/in/design2/border/left.bmp";
+        String out ="d/3/in/design1/border/left-first.bmp";
+        String input = "d/3/in/design1/border/left.bmp";
         BufferedImage bi = kadiyalu(input);
         displayPixels(bi);
         saveBMP(bi, String.format(out, bi.getWidth(), bi.getHeight()));
