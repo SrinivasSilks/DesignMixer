@@ -14,12 +14,12 @@ public class RaniConversion {
     public static void main(final String[] args) throws IOException {
 
         String out = "d/4/out/design2/2broc-rani-%s-%s.bmp";
-        final BufferedImage right = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("d/4/in/design2/border/right.bmp")));
-        final BufferedImage left = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(5, ImageIO.read(new File("d/4/in/design2/border/left.bmp"))));
+        final BufferedImage right = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("d/4/in/design2/border2/right.bmp")));
+        final BufferedImage left = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(5, ImageIO.read(new File("d/4/in/design2/border2/left.bmp"))));
 
         int width = right.getWidth();
 
-        final BufferedImage body = HorizontalRepeatGenerator.get(4,ImageIO.read(new File("d/4/in/design2/brocade2/red.bmp")));
+        final BufferedImage body = HorizontalRepeatGenerator.get(2,ImageIO.read(new File("d/4/in/design2/brocade2/red.bmp")));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 

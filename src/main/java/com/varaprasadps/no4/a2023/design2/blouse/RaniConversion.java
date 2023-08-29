@@ -14,8 +14,8 @@ public class RaniConversion {
     public static void main(final String[] args) throws IOException {
 
         String out = "d/4/out/design2/blouse-rani-%s-%s.bmp";
-        final BufferedImage right = ImageIO.read(new File("d/4/in/design2/border/right.bmp"));
-        final BufferedImage left = VerticalFlipGenerator.get(ImageIO.read(new File("d/4/in/design2/border/left.bmp")));
+        final BufferedImage right = ImageIO.read(new File("d/4/in/design2/border2/right.bmp"));
+        final BufferedImage left = VerticalFlipGenerator.get(ImageIO.read(new File("d/4/in/design2/border2/left.bmp")));
         final int width = right.getWidth();
         BufferedImage blo = ImageIO.read(new File("d/4/in/design2/blouse/jari.bmp"));
         final BufferedImage body = HorizontalRepeatGenerator.get(width / blo.getWidth(), blo);

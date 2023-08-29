@@ -14,8 +14,8 @@ public class JariConversion {
     public static void main(final String[] args) throws IOException {
 
         String out = "d/4/out/design2/blouse-jari-%s-%s.bmp";
-        final BufferedImage right = EmptyGenerator.get(240, 480);
-        final BufferedImage left = EmptyGenerator.get(240, 396);
+        final BufferedImage right = EmptyGenerator.get(120, 480);
+        final BufferedImage left = EmptyGenerator.get(120, 396);
         final int width = right.getWidth();
         BufferedImage blo = ImageIO.read(new File("d/4/in/design2/blouse/rani.bmp"));
         final BufferedImage body = HorizontalRepeatGenerator.get(width / blo.getWidth(), blo);
