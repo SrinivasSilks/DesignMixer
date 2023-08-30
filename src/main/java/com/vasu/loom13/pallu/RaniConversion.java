@@ -15,7 +15,7 @@ public class RaniConversion {
 
         String out = "z-vasu/out/13/design1/1pallu-rani-%s-%s.bmp";
 
-        final BufferedImage plain = EmptyGenerator.get(1920, 480);
+        final BufferedImage plain = PlainGenerator.get(1920, 480);
 
         int width = plain.getWidth();
 
