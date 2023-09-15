@@ -23,7 +23,7 @@ public class ReverseGenerator {
 
     public static BufferedImage get(BufferedImage input) {
         Set<Integer> output = new TreeSet<>();
-        final BufferedImage res = new BufferedImage(input.getWidth(), input.getHeight(), BufferedImage.TYPE_BYTE_BINARY);
+        final BufferedImage res = new BufferedImage(input.getWidth(), input.getHeight(), BufferedImage.TYPE_INT_RGB);
         for (int x = 0; x < input.getWidth(); x++) {
             for (int y = 0; y < input.getHeight(); y++) {
                 int rgb = input.getRGB(x, y);

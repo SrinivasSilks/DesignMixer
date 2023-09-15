@@ -9,12 +9,12 @@ import java.util.List;
 
 public class ReverseColumnSplitGenerator {
 
-    public static final int FILES = 2;
+    public static final int FILES = 4;
 
     public static void main(final String[] args) throws IOException {
         String out = "z-data/test/";
 
-        String input = "z-data/test/aaaa.bmp";
+        String input = "z-data/test/1694311164734.bmp";
         BufferedImage inputImage = ImageIO.read(new File(input));
 
         int repeatWidth = inputImage.getWidth();
@@ -27,6 +27,12 @@ public class ReverseColumnSplitGenerator {
         if (FILES == 3) {
             displayPixels(bis.get(2));
             saveBMP(bis.get(2), String.format(out + "file-%s-%s-%s.bmp", 3, repeatWidth, repeatHeight));
+        }
+        if (FILES == 4) {
+            displayPixels(bis.get(2));
+            displayPixels(bis.get(3));
+            saveBMP(bis.get(2), String.format(out + "file-%s-%s-%s.bmp", 3, repeatWidth, repeatHeight));
+            saveBMP(bis.get(3), String.format(out + "file-%s-%s-%s.bmp", 4, repeatWidth, repeatHeight));
         }
 
         saveBMP(bis.get(0), String.format(out + "file-%s-%s-%s.bmp", 1, repeatWidth, repeatHeight));
@@ -43,6 +49,12 @@ public class ReverseColumnSplitGenerator {
         if (FILES == 3) {
             BufferedImage three = getThree(width, height, input);
             return Arrays.asList(one, two, three);
+        }
+
+        if (FILES == 4) {
+            BufferedImage three = getThree(width, height, input);
+            BufferedImage four = getFour(width, height, input);
+            return Arrays.asList(one, two, three, four);
         }
         return Arrays.asList(one, two);
     }
@@ -98,6 +110,22 @@ public class ReverseColumnSplitGenerator {
         int y = 2;
         for (int oneX = 0; oneX < width && x < width; oneX++) {
             y = 2;
+            for (int oneY = 0; oneY < oneHeight; oneY++) {
+                two.setRGB(oneX, oneY, input.getRGB(x, y));
+                y = y + FILES;
+            }
+            x++;
+        }
+        return two;
+    }
+    private static BufferedImage getFour(int width, int height, BufferedImage input) {
+        int oneHeight = height / FILES;
+        BufferedImage two = new BufferedImage(width, oneHeight,  BufferedImage.TYPE_INT_RGB);
+
+        int x = 0;
+        int y = 3;
+        for (int oneX = 0; oneX < width && x < width; oneX++) {
+            y = 3;
             for (int oneY = 0; oneY < oneHeight; oneY++) {
                 two.setRGB(oneX, oneY, input.getRGB(x, y));
                 y = y + FILES;
