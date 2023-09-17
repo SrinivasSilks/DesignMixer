@@ -35,14 +35,14 @@ public class JariConversion {
         //left
         inputBIs.add(EmptyGenerator.get(width, 186));
         //locking
-        inputBIs.add(EmptyGenerator.get(width, 16));
+        inputBIs.add(CutLayoutGenerator.get(blouse, blouse.getHeight() - 16).get(1));
         //body
         inputBIs.add(blouse);
         inputBIs.add(blouse);
         inputBIs.add(blouse);
         inputBIs.add(blouse);
         //locking
-        inputBIs.add(EmptyGenerator.get(width, 16));
+        inputBIs.add(CutLayoutGenerator.get(blouse, 16).get(0));
         //right
         inputBIs.add(EmptyGenerator.get(width, 584));
 

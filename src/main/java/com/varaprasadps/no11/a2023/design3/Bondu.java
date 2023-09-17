@@ -13,7 +13,7 @@ import java.util.List;
 public class Bondu {
 
     public static void main(final String[] args) throws IOException {
-        String out = "d/11/out/design3/kongu.bmp";
+        String out = "d/11/out/design3/pset.bmp";
 
         BufferedImage blouse = ImageIO.read(new File("d/11/out/design3/blouse-1824-960.bmp"));
         BufferedImage pallu = ImageIO.read(new File("d/11/out/design3/pallu-1824-3260.bmp"));
@@ -22,9 +22,9 @@ public class Bondu {
         List<BufferedImage> inputBIs = new LinkedList<>();
 
 //        inputBIs.add(brocade);
-        inputBIs.add(CutLayoutGenerator.get(blouse, 200).get(0));
-//        inputBIs.add(pallu);
-//        inputBIs.add(CutLayoutGenerator.get(blouse, blouse.getHeight() - 140).get(1));
+//        inputBIs.add(CutLayoutGenerator.get(blouse, 200).get(0));
+        inputBIs.add(pallu);
+        inputBIs.add(CutLayoutGenerator.get(blouse, blouse.getHeight() - 140).get(1));
 //        inputBIs.add(CutLayoutGenerator.get(blouse, 20).get(0));
 
 

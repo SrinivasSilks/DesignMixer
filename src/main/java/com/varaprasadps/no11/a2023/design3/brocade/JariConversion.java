@@ -15,7 +15,7 @@ public class JariConversion {
 
         String out = "d/11/out/design3/1jari-%s-%s.bmp";
 
-        BufferedImage brocade = HorizontalRepeatGenerator.get(15, ImageIO.read(new File("d/11/in/design3/brocade/red.bmp")));
+        BufferedImage brocade = HorizontalRepeatGenerator.get(10, ImageIO.read(new File("d/11/in/design3/brocade/red.bmp")));
 
         int width = brocade.getWidth();
         List<BufferedImage> inputBIs = new LinkedList<>();

@@ -37,14 +37,15 @@ public class RaniConversion {
         //left-border
         inputBIs.add(left);
         //locking
-        inputBIs.add(PlainGenerator.get(width, 12));
         inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(CutLayoutGenerator.get(body, body.getHeight() - 12).get(1));
+
         //body
         inputBIs.add(body);
         inputBIs.add(body);
         //locking
+        inputBIs.add(CutLayoutGenerator.get(body, 12).get(0));
         inputBIs.add(PlainGenerator.get(width, 4));
-        inputBIs.add(PlainGenerator.get(width, 12));
         //right-border
         inputBIs.add(right);
 

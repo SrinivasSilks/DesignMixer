@@ -15,7 +15,7 @@ public class NimbuConversion {
 
         String out = "d/11/out/design3/1nimbu-%s-%s.bmp";
 
-        BufferedImage brocade = HorizontalRepeatGenerator.get(15, ImageIO.read(new File("d/11/in/design3/brocade/silver.bmp")));
+        BufferedImage brocade = HorizontalRepeatGenerator.get(10, ImageIO.read(new File("d/11/in/design3/brocade/silver.bmp")));
 
         int width = brocade.getWidth();
         List<BufferedImage> inputBIs = new LinkedList<>();

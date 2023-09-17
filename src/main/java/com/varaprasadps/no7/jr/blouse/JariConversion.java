@@ -13,7 +13,7 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/7/jr/design1/new/blouse-jari-%s-%s.bmp";
+        String out = "z-data/out/7/jr/a2023/design1/blouse-jari-%s-%s.bmp";
 
         BufferedImage blouse = HorizontalRepeatGenerator.get(6, ImageIO.read(new File("z-data/in/7/jr/design1/blouse/rani.bmp")));
 
@@ -35,14 +35,14 @@ public class JariConversion {
         //left
         inputBIs.add(EmptyGenerator.get(width, 186));
         //locking
-        inputBIs.add(EmptyGenerator.get(width, 16));
+        inputBIs.add(CutLayoutGenerator.get(blouse, blouse.getHeight() - 16).get(1));
         //body
         inputBIs.add(blouse);
         inputBIs.add(blouse);
         inputBIs.add(blouse);
         inputBIs.add(blouse);
         //locking
-        inputBIs.add(EmptyGenerator.get(width, 16));
+        inputBIs.add(CutLayoutGenerator.get(blouse, 16).get(0));
         //right
         inputBIs.add(EmptyGenerator.get(width, 584));
 

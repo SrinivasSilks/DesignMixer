@@ -20,10 +20,10 @@ public class BrocadeConversion {
         String out = "d/11/out/design3/1brocade-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("d/11/out/design3/1rani-5040-1824.bmp");
-        inputs.add("d/11/out/design3/1gold-5040-1824.bmp");
-        inputs.add("d/11/out/design3/1jari-5040-1824.bmp");
-        inputs.add("d/11/out/design3/1nimbu-5040-1824.bmp");
+        inputs.add("d/11/out/design3/1rani-3360-1824.bmp");
+        inputs.add("d/11/out/design3/1gold-3360-1824.bmp");
+        inputs.add("d/11/out/design3/1jari-3360-1824.bmp");
+        inputs.add("d/11/out/design3/1nimbu-3360-1824.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {

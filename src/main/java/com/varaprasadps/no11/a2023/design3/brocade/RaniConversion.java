@@ -15,9 +15,9 @@ public class RaniConversion {
 
         String out = "d/11/out/design3/1rani-%s-%s.bmp";
 
-        BufferedImage left = HorizontalRepeatGenerator.get(14, ImageIO.read(new File("d/11/in/design3/border/left.bmp")));
-        BufferedImage right = HorizontalRepeatGenerator.get(14, ImageIO.read(new File("d/11/in/design3/border/right.bmp")));
-        BufferedImage brocade = HorizontalRepeatGenerator.get(15, ImageIO.read(new File("d/11/in/design3/brocade/majenta.bmp")));
+        BufferedImage left = HorizontalRepeatGenerator.get(7, ImageIO.read(new File("d/11/in/design3/border/left.bmp")));
+        BufferedImage right = HorizontalRepeatGenerator.get(7, ImageIO.read(new File("d/11/in/design3/border/right.bmp")));
+        BufferedImage brocade = HorizontalRepeatGenerator.get(10, ImageIO.read(new File("d/11/in/design3/brocade/majenta.bmp")));
 
         int width = left.getWidth();
 
@@ -37,7 +37,7 @@ public class RaniConversion {
         //achu
         inputBIs.add(AchuLayoutGenerator.get(width, 8));
         //jamudu
-        inputBIs.add(StepLayoutGenerator.get(width, 1));
+        inputBIs.add(PlainGenerator.get(width, 4));
 
         //left
         inputBIs.add(left);
@@ -59,7 +59,7 @@ public class RaniConversion {
         //achu
         inputBIs.add(AchuLayoutGenerator.get(width, 8));
         //jamudu
-        inputBIs.add(StepLayoutGenerator.get(width, 1));
+        inputBIs.add(PlainGenerator.get(width, 4));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

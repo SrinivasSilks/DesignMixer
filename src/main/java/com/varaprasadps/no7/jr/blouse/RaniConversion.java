@@ -13,7 +13,7 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/7/jr/design1/new/blouse-rani-%s-%s.bmp";
+        String out = "z-data/out/7/jr/a2023/design1/blouse-rani-%s-%s.bmp";
 
         BufferedImage left = ImageIO.read(new File("z-data/in/7/jr/design1/border1/left.bmp"));
         BufferedImage right = ImageIO.read(new File("z-data/in/7/jr/design1/border1/right.bmp"));
@@ -38,7 +38,7 @@ public class RaniConversion {
         //left-border
         inputBIs.add(left);
         //locking
-        inputBIs.add(PlainGenerator.get(width, 16));
+        inputBIs.add(CutLayoutGenerator.get(blouse, blouse.getHeight() - 16).get(1));
         //body
         inputBIs.add(blouse);
         inputBIs.add(blouse);
@@ -46,7 +46,7 @@ public class RaniConversion {
         inputBIs.add(blouse);
 
         //locking
-        inputBIs.add(PlainGenerator.get(width, 16));
+        inputBIs.add(CutLayoutGenerator.get(blouse, 16).get(0));
         //right-border
         inputBIs.add(right);
 

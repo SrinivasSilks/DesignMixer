@@ -13,7 +13,7 @@ public class AnniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/7/jr/design1/new/anni-%s-%s.bmp";
+        String out = "z-data/out/7/jr/a2023/design1/anni-%s-%s.bmp";
 
         BufferedImage left = ImageIO.read(new File("z-data/in/7/jr/design1/border1/left.bmp"));
         BufferedImage right = ImageIO.read(new File("z-data/in/7/jr/design1/border1/right.bmp"));
