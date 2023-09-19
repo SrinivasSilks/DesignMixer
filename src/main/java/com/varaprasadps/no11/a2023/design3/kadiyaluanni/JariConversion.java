@@ -1,4 +1,4 @@
-package com.varaprasadps.no3.a2023new.design1.kadiyalusilvergold;
+package com.varaprasadps.no11.a2023.design3.kadiyaluanni;
 
 import com.varaprasadps.image.*;
 
@@ -9,66 +9,56 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class RaniConversion {
+public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "d/3/out/design1/3brc-rani-%s-%s.bmp";
+        String out = "d/11/out/design3/kanni-jari-%s-%s.bmp";
 
-        BufferedImage right = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("d/3/in/design1/border/right.bmp")));
-        BufferedImage left = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(3, ImageIO.read(new File("d/3/in/design1/border/left-first.bmp"))));
-
+        BufferedImage right = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/11/in/design3/border/right.bmp")));
+        BufferedImage left = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/11/in/design3/border/left.bmp")));
         int width = left.getWidth();
-
-        final BufferedImage body = PlainGenerator.get(width, 480);
+        BufferedImage body = HorizontalRepeatGenerator.get(1, PlainGenerator.get(width, 960));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         inputBIs.add(EmptyGenerator.get(width, 32));
 
         //box
+        inputBIs.add(EmptyGenerator.get(width, 2));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
-        inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
-        inputBIs.add(EmptyGenerator.get(width, 2));
-        //kadiyalu
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
-        //achu
-        inputBIs.add(ReverseGenerator.get(AchuLayoutGenerator.get(width, 8)));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        //kadiyalu kali
+        inputBIs.add(EmptyGenerator.get(width, 1));
         //wheel
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
-
-        //left border
-        inputBIs.add(left);
-
+        //achu
+        inputBIs.add(AchuLayoutGenerator.get(width, 8));
         //jamudu
-        inputBIs.add(KadiyaluLayoutGenerator.kadiyalu(StepLayoutGenerator.get(width, 2)));
+        inputBIs.add(PlainGenerator.get(width, 4));
 
+        //left
+        inputBIs.add(left);
         //locking
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 4)));
         inputBIs.add(PlainGenerator.get(width, 4));
-        inputBIs.add(PlainGenerator.get(width, 4));
-        // Right part 1
-        inputBIs.add(CutLayoutGenerator.get(right, 264).get(0));
         //body
         inputBIs.add(body);
-        //salari
-        inputBIs.add(EmptyGenerator.get(width, 64));
         //locking
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 4)));
         inputBIs.add(PlainGenerator.get(width, 4));
-        inputBIs.add(PlainGenerator.get(width, 4));
-        // Right part 2
-        inputBIs.add(CutLayoutGenerator.get(right, 264).get(1));
-
-        //jamudu
-        inputBIs.add(StepLayoutGenerator.get(width, 2));
+        //right
+        inputBIs.add(right);
 
         //mispick
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
-        //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 2));
+        //kadiyalu
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 12));
-
+        inputBIs.add(AchuLayoutGenerator.get(width, 8));
+        //jamudu
+        inputBIs.add(PlainGenerator.get(width, 4));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -81,6 +71,7 @@ public class RaniConversion {
         BufferedImage bi = ReverseGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
+
     }
 
     private static void displayPixels(BufferedImage fileOne) {

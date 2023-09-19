@@ -12,9 +12,9 @@ public class ReverseColumnSplitGenerator {
     public static final int FILES = 4;
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-data/test/";
+        String out = "z-data/test/2/";
 
-        String input = "z-data/test/1694311164734.bmp";
+        String input = "z-data/test/2.bmp";
         BufferedImage inputImage = ImageIO.read(new File(input));
 
         int repeatWidth = inputImage.getWidth();
