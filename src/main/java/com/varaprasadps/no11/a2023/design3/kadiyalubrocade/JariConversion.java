@@ -42,7 +42,7 @@ public class JariConversion {
         inputBIs.add(left);
         //locking
         inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 4)));
-        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(CutLayoutGenerator.get(body, body.getHeight()- 4).get(1));
         //body
         inputBIs.add(body);
         inputBIs.add(body);

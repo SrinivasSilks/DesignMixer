@@ -40,8 +40,8 @@ public class NimbuConversion {
         //left
         inputBIs.add(left);
         //locking
-        inputBIs.add(EmptyGenerator.get(width, 6));
         inputBIs.add(PlainGenerator.get(width, 2));
+        inputBIs.add(CutLayoutGenerator.get(body, body.getHeight()- 6).get(1));
         //body
         inputBIs.add(body);
         inputBIs.add(body);
