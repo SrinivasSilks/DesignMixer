@@ -39,8 +39,8 @@ public class JariConversion {
         //left
         inputBIs.add(EmptyGenerator.get(width, 190));
         //locking
-        inputBIs.add(EmptyGenerator.get(width, 4));
         inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(CutLayoutGenerator.get(blouse, blouse.getHeight() - 4).get(1));
         //body
         inputBIs.add(blouse);
         inputBIs.add(blouse);
