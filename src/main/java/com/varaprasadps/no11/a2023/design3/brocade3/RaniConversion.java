@@ -43,8 +43,7 @@ public class RaniConversion {
         inputBIs.add(left);
 
         //locking
-        inputBIs.add(PlainGenerator.get(width, 2));
-        inputBIs.add(CutLayoutGenerator.get(brocade, brocade.getHeight() - 6).get(1));
+        inputBIs.add(PlainGenerator.get(width, 8));
         //body
         inputBIs.add(brocade);
         inputBIs.add(brocade);

@@ -45,7 +45,8 @@ public class RaniConversion {
         //left
         inputBIs.add(left);
         //locking
-        inputBIs.add(CutLayoutGenerator.get(pallu, pallu.getHeight() - 8).get(1));
+        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(CutLayoutGenerator.get(pallu, pallu.getHeight() - 4).get(1));
         //body
         inputBIs.add(pallu);
         inputBIs.add(pallu);

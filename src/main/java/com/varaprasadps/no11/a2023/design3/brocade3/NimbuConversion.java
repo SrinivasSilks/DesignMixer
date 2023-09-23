@@ -39,9 +39,9 @@ public class NimbuConversion {
         //left
         inputBIs.add(EmptyGenerator.get(width, 190));
         //locking
-        inputBIs.add(PlainGenerator.get(width, 2));
+        inputBIs.add(PlainGenerator.get(width, 4));
         //locking
-        inputBIs.add(CutLayoutGenerator.get(brocade, brocade.getHeight() - 6).get(1));
+        inputBIs.add(CutLayoutGenerator.get(brocade, brocade.getHeight() - 4).get(1));
         //body
         inputBIs.add(brocade);
         inputBIs.add(brocade);
