@@ -38,13 +38,21 @@ public class NimbuConversion {
         //left
         inputBIs.add(VerticalFlipGenerator.get(left));
         //locking
-        inputBIs.add(EmptyGenerator.get(width, 12));
-        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(EmptyGenerator.get(width, 6));
+        inputBIs.add(PlainGenerator.get(width, 6));
+
+        //jamudu
+        inputBIs.add(EmptyGenerator.get(width, 4));
+
         //body
         inputBIs.add(body);
         //locking
+        inputBIs.add(CutLayoutGenerator.get(body, 8).get(0));
         inputBIs.add(PlainGenerator.get(width, 4));
-        inputBIs.add(EmptyGenerator.get(width, 12));
+
+        //jamudu
+        inputBIs.add(EmptyGenerator.get(width, 4));
+
         //right
         inputBIs.add(right);
 

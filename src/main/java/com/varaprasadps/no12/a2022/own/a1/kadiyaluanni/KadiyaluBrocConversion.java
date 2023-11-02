@@ -1,4 +1,4 @@
-package com.varaprasadps.no12.a2022.own.a1.kadiyalu2;
+package com.varaprasadps.no12.a2022.own.a1.kadiyaluanni;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
 import com.varaprasadps.image.LeftLayoutGenerator;
