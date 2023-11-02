@@ -31,13 +31,21 @@ public class TwoPlay {
 
         inputBIs.add(VerticalFlipGenerator.get(border));
 
+        //kali
+        inputBIs.add(EmptyGenerator.get(width, 6));
         //locking
-        inputBIs.add(EmptyGenerator.get(width, 14));
-        inputBIs.add(PlainGenerator.get(width, 2));
+        inputBIs.add(PlainGenerator.get(width, 6));
+        //jamudu
+        inputBIs.add(EmptyGenerator.get(width, 4));
+
         inputBIs.add(body);
+
         //locking
-        inputBIs.add(PlainGenerator.get(width, 2));
-        inputBIs.add(EmptyGenerator.get(width, 14));
+        inputBIs.add(PlainGenerator.get(width, 6));
+        //kali
+        inputBIs.add(EmptyGenerator.get(width, 6));
+        //jamudu
+        inputBIs.add(EmptyGenerator.get(width, 4));
 
         inputBIs.add(border);
 
@@ -81,11 +89,21 @@ public class TwoPlay {
 
 
         inputBIs.add(left);
+        //kali
+        inputBIs.add(PlainGenerator.get(width, 6));
         //locking
-        inputBIs.add(PlainGenerator.get(width, 16));
+        inputBIs.add(PlainGenerator.get(width, 6));
+        //jamudu
+        inputBIs.add(PlainGenerator.get(width, 4));
+
         inputBIs.add(body);
         //locking
-        inputBIs.add(PlainGenerator.get(width, 16));
+        inputBIs.add(PlainGenerator.get(width, 6));
+        //kali
+        inputBIs.add(PlainGenerator.get(width, 6));
+        //jamudu
+        inputBIs.add(PlainGenerator.get(width, 4));
+
         inputBIs.add(right);
 
         //box

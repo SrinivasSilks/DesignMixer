@@ -17,6 +17,7 @@ public class AnniConversion {
 
         BufferedImage right = ImageIO.read(new File("z-data/in/12/a2022/own/1/border/right.bmp"));
         BufferedImage left = VerticalFlipGenerator.get(ImageIO.read(new File("z-data/in/12/a2022/own/1/border/left.bmp")));
+        BufferedImage body = PlainGenerator.get(left.getTileWidth(), 480);
 
         int width = right.getWidth();
 
@@ -37,12 +38,20 @@ public class AnniConversion {
         //left
         inputBIs.add(left);
 
-        //anni
-        inputBIs.add(PlainGenerator.get(width, 16));
-        //all over
-        inputBIs.add(PlainGenerator.get(width, 480));
+        //kali
+        inputBIs.add(PlainGenerator.get(width, 6));
         //locking
-        inputBIs.add(PlainGenerator.get(width, 16));
+        inputBIs.add(PlainGenerator.get(width, 6));
+        //jamudu
+        inputBIs.add(PlainGenerator.get(width, 4));
+
+        inputBIs.add(body);
+        //locking
+        inputBIs.add(PlainGenerator.get(width, 6));
+        //kali
+        inputBIs.add(PlainGenerator.get(width, 6));
+        //jamudu
+        inputBIs.add(PlainGenerator.get(width, 4));
 
         //right
         inputBIs.add(right);
