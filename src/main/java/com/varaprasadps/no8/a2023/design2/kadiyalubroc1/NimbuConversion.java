@@ -1,4 +1,4 @@
-package com.varaprasadps.no12.a2022.own.a2.brocade2;
+package com.varaprasadps.no8.a2023.design2.kadiyalubroc1;
 
 import com.varaprasadps.image.*;
 
@@ -13,21 +13,19 @@ public class NimbuConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-data/out/12/a2022/own/2/kadiyalubroc/2kbroc-nimbu-%s-%s.bmp";
+        String out = "z-data/out/8/a2023/design2/1kadiyalu-nimbu-%s-%s.bmp";
 
-        BufferedImage right = HorizontalRepeatGenerator.get(8, EmptyGenerator.get(240, 624));
-        BufferedImage left = HorizontalRepeatGenerator.get(8, EmptyGenerator.get(240, 624));
+        final BufferedImage body = HorizontalRepeatGenerator.get(15, ImageIO.read(new File("z-data/in/8/a2023/design2/brocade1/jari.bmp")));
 
-        int width = left.getWidth();
-        BufferedImage body = HorizontalRepeatGenerator.get(15, ImageIO.read(new File("z-data/in/12/a2022/own/2/brocade2/jari.bmp")));
+        int width = body.getWidth();
+
+        BufferedImage right = EmptyGenerator.get(width, 480);
+        BufferedImage left = EmptyGenerator.get(width, 316);
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         inputBIs.add(EmptyGenerator.get(width, 32));
 
-        //box
-        inputBIs.add(EmptyGenerator.get(width, 2));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //kadiyalu
@@ -38,21 +36,11 @@ public class NimbuConversion {
         //left
         inputBIs.add(VerticalFlipGenerator.get(left));
         //locking
-        inputBIs.add(EmptyGenerator.get(width, 6));
-        inputBIs.add(PlainGenerator.get(width, 6));
-
-        //jamudu
-        inputBIs.add(EmptyGenerator.get(width, 4));
-
+        inputBIs.add(PlainGenerator.get(width, 4));
         //body
         inputBIs.add(body);
         //locking
-        inputBIs.add(CutLayoutGenerator.get(body, 8).get(0));
         inputBIs.add(PlainGenerator.get(width, 4));
-
-        //jamudu
-        inputBIs.add(EmptyGenerator.get(width, 4));
-
         //right
         inputBIs.add(right);
 
@@ -62,7 +50,9 @@ public class NimbuConversion {
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //kadiyalu
-        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(EmptyGenerator.get(width, 1));
+        //chakram
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
         //achu
         inputBIs.add(EmptyGenerator.get(width, 8));
 
