@@ -1,4 +1,4 @@
-package com.varaprasadps.no3.a2023new.design1.kadiyalu2;
+package com.varaprasadps.no3.a2023new.design1.brocade3;
 
 import com.varaprasadps.image.*;
 
@@ -9,17 +9,17 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class GoldConversion {
+public class SilverConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "d/3/out/design1/2brc-gold-%s-%s.bmp";
+        String out = "d/3/out/design1/3brc-silver-%s-%s.bmp";
 
-        final BufferedImage body = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/3/in/design1/brocade2/jari.bmp")));
+        final BufferedImage body = HorizontalRepeatGenerator.get(4, ImageIO.read(new File("d/3/in/design1/brocade3/silver.bmp")));
         int width = body.getWidth();
 
-        BufferedImage right = HorizontalRepeatGenerator.get(1, EmptyGenerator.get(300, 632));
-        BufferedImage left = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(1, EmptyGenerator.get(300, 168)));
+        BufferedImage right = HorizontalRepeatGenerator.get(3, EmptyGenerator.get(300, 632));
+        BufferedImage left = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(3, EmptyGenerator.get(300, 168)));
 
 
         List<BufferedImage> inputBIs = new LinkedList<>();
@@ -45,7 +45,7 @@ public class GoldConversion {
         inputBIs.add(EmptyGenerator.get(width, 8));
         //locking
         inputBIs.add(PlainGenerator.get(width, 2));
-        inputBIs.add(EmptyGenerator.get(width, 6));
+        inputBIs.add(CutLayoutGenerator.get(body, body.getHeight() - 6).get(1));
         //right part1
         inputBIs.add(CutLayoutGenerator.get(right, 264).get(0));
         //body
@@ -53,7 +53,7 @@ public class GoldConversion {
         //salari
         inputBIs.add(EmptyGenerator.get(width, 64));
         //locking
-        inputBIs.add(EmptyGenerator.get(width, 6));
+        inputBIs.add(CutLayoutGenerator.get(body, 6).get(0));
         inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 2)));
         //right part1
         inputBIs.add(CutLayoutGenerator.get(right, 264).get(1));
