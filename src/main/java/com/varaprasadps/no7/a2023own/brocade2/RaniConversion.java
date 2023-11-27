@@ -1,4 +1,4 @@
-package com.varaprasadps.no7.a2023own.kadiyaluanni;
+package com.varaprasadps.no7.a2023own.brocade2;
 
 import com.varaprasadps.image.*;
 
@@ -13,12 +13,12 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "d/7/out/design1/kanni-rani-%s-%s.bmp";
+        String out = "d/7/out/design1/2kbroc-rani-%s-%s.bmp";
 
-        BufferedImage right = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/7/in/design1/border/right.bmp")));
-        BufferedImage left = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/7/in/design1/border/left-first.bmp")));
+        BufferedImage right = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("d/7/in/design1/border/right.bmp")));
+        BufferedImage left = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("d/7/in/design1/border/left-first.bmp")));
         int width = left.getWidth();
-        BufferedImage body = PlainGenerator.get(width, 960);
+        BufferedImage body = HorizontalRepeatGenerator.get(4, ImageIO.read(new File("d/7/in/design1/brocade2/silver.bmp")));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -40,6 +40,7 @@ public class RaniConversion {
         inputBIs.add(PlainGenerator.get(width, 4));
         inputBIs.add(CutLayoutGenerator.get(body, body.getHeight() - 12).get(1));
         //body
+        inputBIs.add(body);
         inputBIs.add(body);
         //locking
         inputBIs.add(CutLayoutGenerator.get(body, 12).get(0));
