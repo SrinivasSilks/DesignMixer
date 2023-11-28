@@ -1,4 +1,4 @@
-package com.varaprasadps.no12.a2022.own.a2.kadiyalugold3;
+package com.varaprasadps.no12.a2022.own.a2.kadiyalugold1;
 
 import com.varaprasadps.image.*;
 
@@ -23,7 +23,7 @@ public class KadiyaluGoldConversion {
         BufferedImage brocade = LeftLayoutGenerator.get(getBrocade(brocades));
         displayPixels(brocade);
 
-        saveBMP(brocade, format("z-data/out/12/a2022/own/2/test-2kbroc-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
+        saveBMP(brocade, format("z-data/out/12/a2022/own/2/1kbroc-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
         return brocade;
     }
 
@@ -32,9 +32,8 @@ public class KadiyaluGoldConversion {
         BufferedImage leftBack = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(5, ImageIO.read(new File("z-data/in/12/a2022/own/2/border/left-first.bmp"))));
         BufferedImage left = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(5, ImageIO.read(new File("z-data/in/12/a2022/own/2/border/left.bmp"))));
 
-
-        BufferedImage resham = HorizontalRepeatGenerator.get(4, ImageIO.read(new File("z-data/in/12/a2022/own/2/brocade/anni.bmp")));
         BufferedImage gold = HorizontalRepeatGenerator.get(4, ImageIO.read(new File("z-data/in/12/a2022/own/2/brocade/jari.bmp")));
+        BufferedImage resham = PlainGenerator.get(gold.getWidth(), 480);
 
         get(right, leftBack, left, resham, gold);
     }
