@@ -1,4 +1,4 @@
-package com.varaprasadps.no11.a2023.design3.pallu;
+package com.varaprasadps.no11.a2023.design3.old.brocade3;
 
 import com.varaprasadps.image.*;
 
@@ -13,18 +13,18 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "d/11/out/design3/pallu-jari-%s-%s.bmp";
+        String out = "d/11/out/design3/3jari-%s-%s.bmp";
 
-        BufferedImage pallu = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/11/in/design3/pallu/pallu-jari.bmp")));
+        BufferedImage brocade = HorizontalRepeatGenerator.get(8, ImageIO.read(new File("d/11/in/design3/brocade3/gold.bmp")));
 
-        int width = pallu.getWidth();
+        int width = brocade.getWidth();
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         inputBIs.add(EmptyGenerator.get(width, 32));
 
         //box
         inputBIs.add(EmptyGenerator.get(width, 2));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //kadiyalu
@@ -40,15 +40,15 @@ public class JariConversion {
         inputBIs.add(EmptyGenerator.get(width, 190));
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));
-        //locking
-        inputBIs.add(CutLayoutGenerator.get(pallu, pallu.getHeight() - 4).get(1));
-        //body
-        inputBIs.add(pallu);
-        inputBIs.add(pallu);
-        //locking
-        inputBIs.add(CutLayoutGenerator.get(pallu,  4).get(0));
-        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(CutLayoutGenerator.get(brocade, brocade.getHeight() - 4).get(1));
 
+        //body
+        inputBIs.add(brocade);
+        inputBIs.add(brocade);
+        //locking
+        inputBIs.add(PlainGenerator.get(width, 4));
+        //locking
+        inputBIs.add(EmptyGenerator.get(width, 4));
         //right
         inputBIs.add(EmptyGenerator.get(width, 590));
 
