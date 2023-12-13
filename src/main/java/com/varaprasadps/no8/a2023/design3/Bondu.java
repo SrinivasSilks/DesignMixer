@@ -15,7 +15,7 @@ public class Bondu {
     public static void main(final String[] args) throws IOException {
         String out = "z-data/out/8/a2023/design3/pset.bmp";
 
-        BufferedImage anni = ImageIO.read(new File("z-data/out/8/a2023/design3/anni-170-1824.bmp"));
+        BufferedImage anni = ImageIO.read(new File("z-data/out/8/a2023/design3/anni-340-1824.bmp"));
         BufferedImage pallu = ImageIO.read(new File("z-data/out/8/a2023/design3/pallu-1824-3412.bmp"));
         BufferedImage brocade = ImageIO.read(new File("z-data/out/8/a2023/design3/1self-broc-1824-680.bmp"));
 
