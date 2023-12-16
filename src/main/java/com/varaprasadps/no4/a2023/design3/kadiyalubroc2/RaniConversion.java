@@ -1,4 +1,4 @@
-package com.varaprasadps.no4.a2023.design3.kadiyalubroc;
+package com.varaprasadps.no4.a2023.design3.kadiyalubroc2;
 
 import com.varaprasadps.image.*;
 
@@ -13,14 +13,14 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "d/4/out/design3/1kbroc-rani-%s-%s.bmp";
+        String out = "d/4/out/design3/2kbroc-rani-%s-%s.bmp";
 
-        BufferedImage right = HorizontalRepeatGenerator.get(30, ImageIO.read(new File("d/4/in/design3/border/right.bmp")));
-        BufferedImage left = HorizontalRepeatGenerator.get(30, ImageIO.read(new File("d/4/in/design3/border/left-first.bmp")));
+        BufferedImage right = HorizontalRepeatGenerator.get(12, ImageIO.read(new File("d/4/in/design3/border/right.bmp")));
+        BufferedImage left = HorizontalRepeatGenerator.get(12, ImageIO.read(new File("d/4/in/design3/border/left-first.bmp")));
 
         int width = left.getWidth();
 
-        BufferedImage body = HorizontalRepeatGenerator.get(17, ImageIO.read(new File("d/4/in/design3/brocade1/silver.bmp")));
+        BufferedImage body = HorizontalRepeatGenerator.get(17, ImageIO.read(new File("d/4/in/design3/brocade2/silver.bmp")));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -39,11 +39,11 @@ public class RaniConversion {
         inputBIs.add(VerticalFlipGenerator.get(left));
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));
-        inputBIs.add(PlainGenerator.get(width, 4));
         //body
+        inputBIs.add(CutLayoutGenerator.get(body, body.getHeight() - 4).get(1));
         inputBIs.add(body);
+        inputBIs.add(CutLayoutGenerator.get(body, 4).get(0));
         //locking
-        inputBIs.add(PlainGenerator.get(width, 4));
         inputBIs.add(PlainGenerator.get(width, 4));
         //right
         inputBIs.add(right);
