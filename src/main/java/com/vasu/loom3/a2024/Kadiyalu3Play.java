@@ -68,7 +68,7 @@ public class Kadiyalu3Play {
     }
 
     public static BufferedImage jari(BufferedImage right, BufferedImage left, BufferedImage body) {
-        int width = body.getWidth();
+        int width = left.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
