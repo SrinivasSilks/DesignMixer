@@ -1,4 +1,4 @@
-package com.varaprasadps.no3.a2023new.design1;
+package com.vasu.loom3.a2024;
 
 import com.varaprasadps.image.*;
 
@@ -13,51 +13,39 @@ public class AnniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "d/3/out/design1/anni-%s-%s.bmp";
+        String out = "z-vasu/out/3/a2024/design1/anni-%s-%s.bmp";
 
+        BufferedImage right = ImageIO.read(new File("z-vasu/in/3/a2024/design1/border/left.bmp"));
+        BufferedImage left = ImageIO.read(new File("z-vasu/in/3/a2024/design1/border/left.bmp"));
 
-
-        BufferedImage right = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/3/in/design1/border/right.bmp")));
-        BufferedImage left = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/3/in/design1/border/left.bmp"))));
-
-        final int width = right.getWidth();
+        int width = right.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         inputBIs.add(EmptyGenerator.get(width, 32));
 
         //box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 1));
-        //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 8));
         //wheel
         inputBIs.add(EmptyGenerator.get(width, 1));
+        //achu
+        inputBIs.add(AchuLayoutGenerator.get(width, 8));
 
-        //left border
-        inputBIs.add(left);
-
-        //jamudu
-        inputBIs.add(PlainGenerator.get(width, 8));
+        //border
+        inputBIs.add(VerticalFlipGenerator.get(left));
         //locking
-        inputBIs.add(PlainGenerator.get(width, 8));
-        //right border PART-1
-        inputBIs.add(CutLayoutGenerator.get(right, 264).get(0));
-        //allover
-        inputBIs.add(PlainGenerator.get(width, 480));
-        //salari
-        inputBIs.add(EmptyGenerator.get(width, 64));
+        inputBIs.add(PlainGenerator.get(width, 16));
+        //all over
+        inputBIs.add(PlainGenerator.get(width, 720));
         //locking
-        inputBIs.add(PlainGenerator.get(width, 8));
-        //right border PART-2
-        inputBIs.add(CutLayoutGenerator.get(right, 264).get(1));
-
-        //jamudu
-        inputBIs.add(PlainGenerator.get(width, 8));
+        inputBIs.add(PlainGenerator.get(width, 16));
+        //right border
+        inputBIs.add(right);
 
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
@@ -65,6 +53,9 @@ public class AnniConversion {
         inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
         inputBIs.add(AchuLayoutGenerator.get(width, 12));
+
+        //kali
+        inputBIs.add(EmptyGenerator.get(width, 256));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

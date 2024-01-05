@@ -40,7 +40,7 @@ public class JariConversion {
         //left
         inputBIs.add(left);
         //jamudu
-        inputBIs.add(StepLayoutGenerator.get(width, 2));
+        inputBIs.add(PlainGenerator.get(width, 8));
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));
         inputBIs.add(PlainGenerator.get(width, 4));
@@ -59,7 +59,7 @@ public class JariConversion {
         inputBIs.add(CutLayoutGenerator.get(right, 264).get(1));
 
         //jamudu
-        inputBIs.add(StepLayoutGenerator.get(width, 2));
+        inputBIs.add(PlainGenerator.get(width, 8));
         //mispick
         inputBIs.add(EmptyGenerator.get(width, 2));
         //kadiyalu

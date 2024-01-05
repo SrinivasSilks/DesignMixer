@@ -6,6 +6,7 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.security.spec.PKCS8EncodedKeySpec;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -42,7 +43,7 @@ public class RaniConversion {
         inputBIs.add(left);
 
         //jamudu
-        inputBIs.add(KadiyaluLayoutGenerator.kadiyalu(StepLayoutGenerator.get(width, 2)));
+        inputBIs.add(KadiyaluLayoutGenerator.kadiyalu(PlainGenerator.get(width, 8)));
 
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));
@@ -60,7 +61,7 @@ public class RaniConversion {
         inputBIs.add(CutLayoutGenerator.get(right, 264).get(1));
 
         //jamudu
-        inputBIs.add(StepLayoutGenerator.get(width, 2));
+        inputBIs.add(PlainGenerator.get(width, 8));
 
         //mispick
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
