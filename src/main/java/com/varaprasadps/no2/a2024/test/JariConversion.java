@@ -1,4 +1,4 @@
-package com.varaprasadps.no9.a2023.design2.kanni;
+package com.varaprasadps.no2.a2024.test;
 
 import com.varaprasadps.image.*;
 
@@ -13,21 +13,21 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "d/9/out/design2/kanni-jari-%s-%s.bmp";
+        String out = "d/2/out/design1/1kpln-jari-%s-%s.bmp";
 
-        BufferedImage right = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/9/in/design2/border/right.bmp")));
-        BufferedImage left = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/9/in/design2/border/left.bmp")));
+        BufferedImage right = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/2/in/design1/border/right.bmp")));
+        BufferedImage left = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/2/in/design1/border/left.bmp"))));
+        BufferedImage body = PlainGenerator.get(left.getWidth(), 1200);
 
-        int width = left.getWidth();
-        final BufferedImage body = PlainGenerator.get(width, 960);
+        int width = body.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        inputBIs.add(EmptyGenerator.get(width, 32));
+
+        inputBIs.add(EmptyGenerator.get(width, 256));
 
         //box
-        inputBIs.add(EmptyGenerator.get(width, 2));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 4));
         //mispick
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //kadiyalu
@@ -36,24 +36,31 @@ public class JariConversion {
         inputBIs.add(AchuLayoutGenerator.get(width, 8));
 
         //left
-        inputBIs.add(VerticalFlipGenerator.get(left));
-        //locking
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 12)));
-        inputBIs.add(PlainGenerator.get(width, 4));
-        //body
-        inputBIs.add(body);
+        inputBIs.add(left);
         //locking
         inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 4)));
+        //body
         inputBIs.add(PlainGenerator.get(width, 12));
+        inputBIs.add(body);
+        inputBIs.add(PlainGenerator.get(width, 12));
+        //locking
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 4)));
         //right
         inputBIs.add(right);
 
+        //box
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
         inputBIs.add(EmptyGenerator.get(width, 2));
         //kadiyalu
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
+        //wheel
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 12));
+        inputBIs.add(AchuLayoutGenerator.get(width, 8));
+
+        inputBIs.add(EmptyGenerator.get(width, 128));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -63,7 +70,7 @@ public class JariConversion {
             repeatWidth = bi.getWidth();
             repeatHeight += bi.getHeight();
         }
-        BufferedImage bi = ReverseGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
+        BufferedImage bi = AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs);
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
     }
