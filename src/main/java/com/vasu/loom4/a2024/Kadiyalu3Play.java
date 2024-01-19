@@ -110,6 +110,7 @@ public class Kadiyalu3Play {
         //kali
         inputBIs.add(EmptyGenerator.get(width, 256));
 
+
         int repeatWidth = 0;
         int repeatHeight = 0;
 
@@ -165,6 +166,7 @@ public class Kadiyalu3Play {
 
         //kali
         inputBIs.add(EmptyGenerator.get(width, 256));
+
 
         int repeatWidth = 0;
         int repeatHeight = 0;
