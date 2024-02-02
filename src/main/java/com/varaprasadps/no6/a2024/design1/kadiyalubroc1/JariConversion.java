@@ -15,11 +15,11 @@ public class JariConversion {
 
         String out = "d/6/out/design1/kbroc-jari-%s-%s.bmp";
 
-        BufferedImage right = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("d/6/in/design1/border/right.bmp")));
-        BufferedImage left = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("d/6/in/design1/border/left.bmp")));
-        final BufferedImage body = HorizontalRepeatGenerator.get(2, ImageIO.read(new File("d/6/in/design1/brocade1/meena.bmp")));
+        BufferedImage right = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("d/6/in/design1/border/right.bmp")));
+        BufferedImage left = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("d/6/in/design1/border/left.bmp")));
 
         int width = left.getWidth();
+        final BufferedImage body = PlainGenerator.get(width, 960);
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -51,6 +51,7 @@ public class JariConversion {
         inputBIs.add(EmptyGenerator.get(width, 2));
         //kadiyalu
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
+        //wheel
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
         //achu
         inputBIs.add(AchuLayoutGenerator.get(width, 6));

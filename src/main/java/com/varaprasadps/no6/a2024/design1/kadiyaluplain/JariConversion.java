@@ -1,4 +1,4 @@
-package com.varaprasadps.no6.a2024.design1.kadiyaluanni;
+package com.varaprasadps.no6.a2024.design1.kadiyaluplain;
 
 import com.varaprasadps.image.*;
 
@@ -51,6 +51,7 @@ public class JariConversion {
         inputBIs.add(EmptyGenerator.get(width, 2));
         //kadiyalu
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
+        //wheel
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
         //achu
         inputBIs.add(AchuLayoutGenerator.get(width, 6));

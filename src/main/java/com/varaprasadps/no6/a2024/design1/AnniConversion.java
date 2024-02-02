@@ -15,7 +15,7 @@ public class AnniConversion {
 
         String out = "d/6/out/design1/anni-%s-%s.bmp";
 
-        BufferedImage left = ImageIO.read(new File("d/6/in/design1/border/left.bmp"));
+        BufferedImage left = ImageIO.read(new File("d/6/in/design1/border/right.bmp"));
         BufferedImage right = ImageIO.read(new File("d/6/in/design1/border/right.bmp"));
 
         int width = left.getWidth();

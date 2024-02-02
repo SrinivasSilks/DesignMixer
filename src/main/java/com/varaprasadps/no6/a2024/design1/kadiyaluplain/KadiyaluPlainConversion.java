@@ -1,4 +1,4 @@
-package com.varaprasadps.no6.a2024.design1.kadiyaluanni;
+package com.varaprasadps.no6.a2024.design1.kadiyaluplain;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
 import com.varaprasadps.image.LeftLayoutGenerator;

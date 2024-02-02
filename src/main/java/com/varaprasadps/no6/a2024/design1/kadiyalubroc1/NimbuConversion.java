@@ -17,7 +17,7 @@ public class NimbuConversion {
 
         String out = "d/6/out/design1/kbroc-nimbu-%s-%s.bmp";
 
-        final BufferedImage body = HorizontalRepeatGenerator.get(2, ImageIO.read(new File("d/6/in/design1/brocade1/jari.bmp")));
+        final BufferedImage body = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("d/6/in/design1/brocade1/jari.bmp")));
         int width = body.getWidth();
 
         BufferedImage right = EmptyGenerator.get(width, 400);
@@ -53,6 +53,7 @@ public class NimbuConversion {
         inputBIs.add(ReverseGenerator.get(get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 1));
+        //wheel
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
         //achu
         inputBIs.add(EmptyGenerator.get(width, 6));
