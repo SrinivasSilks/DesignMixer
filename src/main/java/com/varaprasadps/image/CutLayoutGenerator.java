@@ -34,6 +34,11 @@ public class CutLayoutGenerator {
         return RightLayoutGenerator.get(get(LeftLayoutGenerator.get(input), sizeX).get(index));
     }
 
+    public static Pair getPair(BufferedImage input, int sizeX) {
+        List<BufferedImage> bufferedImages = get(LeftLayoutGenerator.get(input), sizeX);
+        return new Pair(RightLayoutGenerator.get(bufferedImages.get(0)), RightLayoutGenerator.get(bufferedImages.get(1)));
+    }
+
     public static List<BufferedImage> get(BufferedImage inputBI, int sizeY) {
         final List<BufferedImage> res = new LinkedList<>();
         final List<BufferedImage> images = SplitGenerator.get(inputBI, inputBI.getHeight());

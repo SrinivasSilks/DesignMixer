@@ -14,7 +14,7 @@ import java.util.List;
 public class Bondu {
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-vasu/out/6/a2024/design1/kongu.bmp";
+        String out = "z-vasu/out/6/a2024/design1/pset.bmp";
 
         BufferedImage blouse = VerticalFlipGenerator.get(ImageIO.read(new File("z-vasu/out/6/a2024/design1/blouse-1792-800.bmp")));
         BufferedImage pallu = VerticalFlipGenerator.get(ImageIO.read(new File("z-vasu/out/6/a2024/design1/pallu-1792-3200.bmp")));
@@ -23,9 +23,9 @@ public class Bondu {
         List<BufferedImage> inputBIs = new LinkedList<>();
 //
 //        inputBIs.add(brocade);
-        inputBIs.add(CutLayoutGenerator.get(blouse, 120).get(0));
-//        inputBIs.add(pallu);
-//        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(blouse, 120).get(1), 160).get(0));
+//        inputBIs.add(CutLayoutGenerator.get(blouse, 120).get(0));
+        inputBIs.add(pallu);
+        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(blouse, 120).get(1), 160).get(0));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
