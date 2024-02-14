@@ -17,7 +17,7 @@ public class Bondu {
 
         BufferedImage anni = ImageIO.read(new File("d/3/out/2024/design1/anni-120-1440.bmp"));
         BufferedImage kongu = ImageIO.read(new File("d/3/out/2024/design1/kongu-2-1440.bmp"));
-        BufferedImage pallu = ImageIO.read(new File("d/3/out/2024/design1/pallu-1440-3240.bmp"));
+        BufferedImage pallu = ImageIO.read(new File("d/3/out/2024/design1/pallu-1440-3320.bmp"));
         BufferedImage kanni1 = ImageIO.read(new File("d/3/out/2024/design1/konguanni1-1440-240.bmp"));
         BufferedImage kanni2 = ImageIO.read(new File("d/3/out/2024/design1/konguanni2-1440-240.bmp"));
         BufferedImage brocade = ImageIO.read(new File("d/3/out/2024/design1/1kbroc-1440-264.bmp"));
@@ -37,7 +37,7 @@ public class Bondu {
         inputBIs.add(CutLayoutGenerator.get(anni, 60).get(0));
 
         inputBIs.add(pallu);
-        inputBIs.add(CutLayoutGenerator.get(anni, 80).get(0));
+        inputBIs.add(CutLayoutGenerator.get(anni, 40).get(1));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
