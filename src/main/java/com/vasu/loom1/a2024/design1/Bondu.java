@@ -23,7 +23,7 @@ public class Bondu {
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        inputBIs.add(brocade);
+//        inputBIs.add(brocade);
         inputBIs.add(CutLayoutGenerator.get(kanni, 20).get(0));
         inputBIs.add(kongu);
         inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(kanni, 20).get(1), 10).get(0));
