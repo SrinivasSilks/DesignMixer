@@ -33,13 +33,15 @@ public class TwoPlay {
 
         //border
         inputBIs.add(VerticalFlipGenerator.get(border));
+        inputBIs.add(EmptyGenerator.get(width, 8));
         //locking
-        inputBIs.add(PlainGenerator.get(width, 14));
-        inputBIs.add(PlainGenerator.get(width, 2));
+        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(CutLayoutGenerator.get(body, body.getHeight() - 4).get(1));
         inputBIs.add(body);
+        inputBIs.add(CutLayoutGenerator.get(body,  4).get(0));
         //locking
-        inputBIs.add(PlainGenerator.get(width, 2));
-        inputBIs.add(PlainGenerator.get(width, 14));
+        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(EmptyGenerator.get(width, 8));
         inputBIs.add(border);
 
         //mispick
