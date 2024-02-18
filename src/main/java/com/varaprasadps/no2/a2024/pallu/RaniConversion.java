@@ -18,11 +18,11 @@ public class RaniConversion {
         final BufferedImage pallu = PlainGenerator.get(1700, 1200);
         int width = pallu.getWidth();
 
-        BufferedImage leftt = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("d/2/in/design1/border/left.bmp")));
-        BufferedImage left = CutLayoutGenerator.get(CutLayoutGenerator.get(leftt, 160, 1), pallu.getWidth(), 0);
+        BufferedImage leftt = HorizontalRepeatGenerator.get(10, ImageIO.read(new File("d/2/in/design1/border/left.bmp")));
+        BufferedImage left = CutLayoutGenerator.get(CutLayoutGenerator.get(leftt, 180, 1), pallu.getWidth(), 0);
 
         BufferedImage rightt = HorizontalRepeatGenerator.get(10, ImageIO.read(new File("d/2/in/design1/border/right.bmp")));
-        BufferedImage right = CutLayoutGenerator.get(CutLayoutGenerator.get(rightt, 160, 1), pallu.getWidth(), 0);
+        BufferedImage right = CutLayoutGenerator.get(CutLayoutGenerator.get(rightt, 180, 1), pallu.getWidth(), 0);
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 

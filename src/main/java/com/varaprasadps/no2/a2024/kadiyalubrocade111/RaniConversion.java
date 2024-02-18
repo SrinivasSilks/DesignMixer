@@ -15,8 +15,8 @@ public class RaniConversion {
 
         String out = "d/2/out/design1/1kbrc1-rani-%s-%s.bmp";
 
-        BufferedImage right = HorizontalRepeatGenerator.get(8, ImageIO.read(new File("d/2/in/design1/border/right.bmp")));
-        BufferedImage leftBack = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(8, ImageIO.read(new File("d/2/in/design1/border/left-first.bmp"))));
+        BufferedImage right = HorizontalRepeatGenerator.get(6, ImageIO.read(new File("d/2/in/design1/border/right.bmp")));
+        BufferedImage leftBack = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(6, ImageIO.read(new File("d/2/in/design1/border/left-first.bmp"))));
 
         int width = leftBack.getWidth();
         BufferedImage body = PlainGenerator.get(width, 1200);

@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class KadiyaluPlainConversion {
+public class KadiyaluBrocadeConversion {
 
     public static void main(final String[] args) throws IOException {
 
@@ -23,9 +23,9 @@ public class KadiyaluPlainConversion {
         String out = "d/2/out/design1/1kadiyalu-brocade-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("d/2/out/design1/1kbrc1-rani-3600-2688.bmp");
-        inputs.add("d/2/out/design1/1kbrc1-jari-3600-2688.bmp");
-        inputs.add("d/2/out/design1/1kbrc1-nimbu-3600-2688.bmp");
+        inputs.add("d/2/out/design1/1kbrc1-rani-1200-2688.bmp");
+        inputs.add("d/2/out/design1/1kbrc1-jari-1200-2688.bmp");
+        inputs.add("d/2/out/design1/1kbrc1-nimbu-1200-2688.bmp");
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {
             inputBIs.add(ImageIO.read(new File(input)));

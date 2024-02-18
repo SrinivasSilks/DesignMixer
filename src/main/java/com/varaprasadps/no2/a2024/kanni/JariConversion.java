@@ -15,7 +15,7 @@ public class JariConversion {
 
         String out = "d/2/out/design1/k-jari-%s-%s.bmp";
 
-        int width = 450;
+        int width = 200;
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
