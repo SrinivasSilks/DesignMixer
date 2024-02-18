@@ -1,4 +1,4 @@
-package com.varaprasadps.no2.a2024.pallu;
+package com.varaprasadps.no2.a2024.design1.pallu;
 
 import com.varaprasadps.image.*;
 

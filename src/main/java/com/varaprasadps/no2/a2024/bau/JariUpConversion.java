@@ -1,4 +1,4 @@
-package com.varaprasadps.no2.a2024;
+package com.varaprasadps.no2.a2024.bau;
 
 import com.varaprasadps.image.*;
 
@@ -9,16 +9,16 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class AnniConversion {
+public class JariUpConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "d/2/out/design1/anni-%s-%s.bmp";
+        String out = "d/2/out/bau/jari-up-%s-%s.bmp";
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        BufferedImage right = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/2/in/design1/border/right.bmp")));
-        BufferedImage left = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/2/in/design1/border/left.bmp"))));
+        BufferedImage right = BlackGenerator.get(20, 624);
+        BufferedImage left = BlackGenerator.get(20, 416);
 
         int width = right.getWidth();
 
@@ -32,7 +32,7 @@ public class AnniConversion {
         //khali
         inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 8));
+        inputBIs.add(EmptyGenerator.get(width, 8));
 
 
         //left border
@@ -54,7 +54,7 @@ public class AnniConversion {
         //khali
         inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 8));
+        inputBIs.add(EmptyGenerator.get(width, 8));
 
         inputBIs.add(EmptyGenerator.get(width, 128));
 

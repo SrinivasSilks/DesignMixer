@@ -1,4 +1,4 @@
-package com.varaprasadps.no2.a2024.kadiyalubrocade2;
+package com.varaprasadps.no2.a2024.design1.kadiyaluplain;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
 import com.varaprasadps.image.HorizontalFlipGenerator;
@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class KadiyaluBrocadeConversion {
+public class KadiyaluPlainConversion {
 
     public static void main(final String[] args) throws IOException {
 
@@ -20,12 +20,11 @@ public class KadiyaluBrocadeConversion {
         NimbuConversion.main(null);
         RaniConversion.main(null);
 
-        String out = "d/2/out/design1/2kadiyalu-brocade-%s-%s.bmp";
+        String out = "d/2/out/design1/1kadiyalu-plain-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("d/2/out/design1/2kbrc1-rani-1800-2688.bmp");
-        inputs.add("d/2/out/design1/2kbrc1-jari-1800-2688.bmp");
-        inputs.add("d/2/out/design1/2kbrc1-nimbu-1800-2688.bmp");
+        inputs.add("d/2/out/design1/1kpln-rani-200-2688.bmp");
+        inputs.add("d/2/out/design1/1kpln-jari-200-2688.bmp");
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {
             inputBIs.add(ImageIO.read(new File(input)));

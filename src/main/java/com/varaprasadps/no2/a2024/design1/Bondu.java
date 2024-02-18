@@ -1,4 +1,4 @@
-package com.varaprasadps.no2.a2024;
+package com.varaprasadps.no2.a2024.design1;
 
 import com.varaprasadps.image.AddLayoutGenerator;
 import com.varaprasadps.image.CutLayoutGenerator;
