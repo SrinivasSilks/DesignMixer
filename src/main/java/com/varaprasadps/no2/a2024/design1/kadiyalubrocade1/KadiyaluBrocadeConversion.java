@@ -3,7 +3,6 @@ package com.varaprasadps.no2.a2024.design1.kadiyalubrocade1;
 import com.varaprasadps.image.ColumnRepeatGenerator;
 import com.varaprasadps.image.HorizontalFlipGenerator;
 import com.varaprasadps.image.LeftLayoutGenerator;
-import com.varaprasadps.no1.a2023.design1.kadiyalubrocade.NimbuConversion;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
