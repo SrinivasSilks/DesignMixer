@@ -1,4 +1,4 @@
-package com.varaprasadps.no5.a2024.design1.kadiyalubroc;
+package com.varaprasadps.no5.a2024.design1.kadiyalubroc1;
 
 import com.varaprasadps.image.*;
 
@@ -13,7 +13,7 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "d/5/out/2024/design1/kbroc-rani-%s-%s.bmp";
+        String out = "d/5/out/2024/design1/1kbroc-rani-%s-%s.bmp";
 
         BufferedImage right = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("d/5/in/2024/design1/border/right.bmp")));
         BufferedImage left = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("d/5/in/2024/design1/border/left-first.bmp")));

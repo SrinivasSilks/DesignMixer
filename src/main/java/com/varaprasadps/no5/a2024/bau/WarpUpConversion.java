@@ -13,7 +13,7 @@ public class WarpUpConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "d/5/out/2024/warp-up-%s-%s.bmp";
+        String out = "d/5/out/2024/bau/warp-up-%s-%s.bmp";
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 

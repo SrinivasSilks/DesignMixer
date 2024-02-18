@@ -13,7 +13,7 @@ public class JariUpConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "d/5/out/2024/jari-up-%s-%s.bmp";
+        String out = "d/5/out/2024/bau/jari-up-%s-%s.bmp";
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
