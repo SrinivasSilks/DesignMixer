@@ -1,7 +1,8 @@
-package com.varaprasadps.no4.a2024.design1;
+package com.vasu.loom6.a2024.design2;
 
 import com.varaprasadps.image.AddLayoutGenerator;
 import com.varaprasadps.image.CutLayoutGenerator;
+import com.varaprasadps.image.VerticalFlipGenerator;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -13,19 +14,20 @@ import java.util.List;
 public class Bondu {
 
     public static void main(final String[] args) throws IOException {
-        String out = "d/4/out/a2024/design1/kongu.bmp";
+        String out = "z-vasu/out/6/a2024/design2/kongu.bmp";
 
-        BufferedImage blouse = ImageIO.read(new File("d/4/out/a2024/design1/blouse-1440-480.bmp"));
-        BufferedImage pallu = ImageIO.read(new File("d/4/out/a2024/design1/pallu-1440-3200.bmp"));
-        BufferedImage brocade = ImageIO.read(new File("d/4/out/a2024/design1/1kadiyalu-brocade-1440-2160.bmp"));
+        BufferedImage blouse = VerticalFlipGenerator.get(ImageIO.read(new File("z-vasu/out/6/a2024/design2/blouse-1792-480.bmp")));
+        BufferedImage pallu = VerticalFlipGenerator.get(ImageIO.read(new File("z-vasu/out/6/a2024/design2/pallu-1792-3200.bmp")));
+        BufferedImage brocade = VerticalFlipGenerator.get(ImageIO.read(new File("z-vasu/out/6/a2024/design2/1brocade-1792-1440.bmp")));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
-
+//
 //        inputBIs.add(brocade);
         inputBIs.add(CutLayoutGenerator.get(blouse, 120).get(0));
 //        inputBIs.add(pallu);
 //        inputBIs.add(CutLayoutGenerator.get(blouse, blouse.getHeight() - 40).get(1));
-//        inputBIs.add(CutLayoutGenerator.get(blouse, 80).get(0));
+//        inputBIs.add(CutLayoutGenerator.get(blouse, 120).get(0));
+
         int repeatWidth = 0;
         int repeatHeight = 0;
 
@@ -35,13 +37,13 @@ public class Bondu {
             repeatHeight += bi.getHeight();
         }
 
-        BufferedImage bi = AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs);
+        BufferedImage bi = VerticalFlipGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
     }
 
     private static void displayPixels(BufferedImage fileOne) {
-        System.out.printf("Width : %s, Height : %s%n", fileOne.getWidth(), fileOne.getHeight());
+        System.out.println(String.format("Width : %s, Height : %s", fileOne.getWidth(), fileOne.getHeight()));
     }
 
     static void saveBMP(final BufferedImage bi, final String path) throws IOException {

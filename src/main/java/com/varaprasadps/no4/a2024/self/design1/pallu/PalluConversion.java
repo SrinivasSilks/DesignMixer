@@ -1,4 +1,4 @@
-package com.varaprasadps.no4.a2024.design1.blouse;
+package com.varaprasadps.no4.a2024.self.design1.pallu;
 
 import com.varaprasadps.image.*;
 
@@ -13,7 +13,7 @@ import static com.varaprasadps.no4.a2024.TwoPlay.*;
 import static java.lang.String.format;
 
 
-public class BlouseConversion {
+public class PalluConversion {
 
     public static BufferedImage get(BufferedImage right, BufferedImage left, BufferedImage jamudu, BufferedImage meena, BufferedImage jari) throws IOException {
         List<BufferedImage> brocades = new LinkedList<>();
@@ -27,18 +27,22 @@ public class BlouseConversion {
         BufferedImage brocade = LeftLayoutGenerator.get(getBrocade(brocades));
         displayPixels(brocade);
 
-        saveBMP(brocade, format("d/4/out/a2024/design1/blouse-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
+        saveBMP(brocade, format("d/4/out/a2024/design1/pallu-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
         return brocade;
     }
 
     public static void main(final String[] args) throws IOException {
 
-        final BufferedImage right = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/4/in/a2024/design1/border/right.bmp")));
-        final BufferedImage left = HorizontalRepeatGenerator.get(1, VerticalFlipGenerator.get(ImageIO.read(new File("d/4/in/a2024/design1/border/left.bmp"))));
-        final BufferedImage jamudu = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/4/in/a2024/design1/border/jamudu.bmp")));
+        BufferedImage jari = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/4/in/a2024/design1/pallu/pallu_jari.bmp")));
+        BufferedImage meena = PlainGenerator.get(jari.getWidth(), jari.getHeight());
 
-        BufferedImage meena = VerticalRepeatGenerator.get(2, HorizontalRepeatGenerator.get(left.getWidth() / 20, ImageIO.read(new File("d/4/in/a2024/design1/blouse/jari.bmp"))));
-        BufferedImage jari = VerticalRepeatGenerator.get(2, HorizontalRepeatGenerator.get(left.getWidth() / 20, ImageIO.read(new File("d/4/in/a2024/design1/blouse/rani.bmp"))));
+        final BufferedImage rightt = HorizontalRepeatGenerator.get(4 * 3, ImageIO.read(new File("d/4/in/a2024/design1/border/right.bmp")));
+        final BufferedImage leftt = HorizontalRepeatGenerator.get(4 * 3, VerticalFlipGenerator.get(ImageIO.read(new File("d/4/in/a2024/design1/border/left.bmp"))));
+        final BufferedImage jamudut = HorizontalRepeatGenerator.get(4 * 1, ImageIO.read(new File("d/4/in/a2024/design1/border/jamudu.bmp")));
+
+        BufferedImage right = RightLayoutGenerator.get(CutLayoutGenerator.get(CutLayoutGenerator.get(LeftLayoutGenerator.get(rightt), 60).get(1), jari.getWidth()).get(0));
+        BufferedImage left = RightLayoutGenerator.get(CutLayoutGenerator.get(CutLayoutGenerator.get(LeftLayoutGenerator.get(leftt), 60).get(1), jari.getWidth()).get(0));
+        BufferedImage jamudu = RightLayoutGenerator.get(CutLayoutGenerator.get(CutLayoutGenerator.get(LeftLayoutGenerator.get(jamudut), 60).get(1), jari.getWidth()).get(0));
 
         get(right, left, jamudu, meena, jari);
     }

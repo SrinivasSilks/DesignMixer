@@ -1,6 +1,9 @@
-package com.varaprasadps.no4.a2024.design1.blouse;
+package com.varaprasadps.no4.a2024.self.design1.blouse;
 
-import com.varaprasadps.image.*;
+import com.varaprasadps.image.HorizontalRepeatGenerator;
+import com.varaprasadps.image.LeftLayoutGenerator;
+import com.varaprasadps.image.PlainGenerator;
+import com.varaprasadps.image.VerticalFlipGenerator;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -33,12 +36,12 @@ public class BlouseConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        final BufferedImage right = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/4/in/a2024/design1/border/right.bmp")));
-        final BufferedImage left = HorizontalRepeatGenerator.get(1, VerticalFlipGenerator.get(ImageIO.read(new File("d/4/in/a2024/design1/border/left.bmp"))));
+        final BufferedImage right = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("d/4/in/a2024/design1/border/right.bmp")));
+        final BufferedImage left = HorizontalRepeatGenerator.get(3, VerticalFlipGenerator.get(ImageIO.read(new File("d/4/in/a2024/design1/border/left.bmp"))));
         final BufferedImage jamudu = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/4/in/a2024/design1/border/jamudu.bmp")));
 
-        BufferedImage meena = VerticalRepeatGenerator.get(2, HorizontalRepeatGenerator.get(left.getWidth() / 20, ImageIO.read(new File("d/4/in/a2024/design1/blouse/jari.bmp"))));
-        BufferedImage jari = VerticalRepeatGenerator.get(2, HorizontalRepeatGenerator.get(left.getWidth() / 20, ImageIO.read(new File("d/4/in/a2024/design1/blouse/rani.bmp"))));
+        BufferedImage jari = HorizontalRepeatGenerator.get(4, ImageIO.read(new File("d/4/in/a2024/design1/blouse/blouse.bmp")));
+        BufferedImage meena = PlainGenerator.get(jari.getWidth(), jari.getHeight());
 
         get(right, left, jamudu, meena, jari);
     }

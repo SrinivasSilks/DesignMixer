@@ -1,4 +1,4 @@
-package com.varaprasadps.no4.a2024.design1;
+package com.varaprasadps.no4.a2024.self.design2;
 
 import com.varaprasadps.image.AddLayoutGenerator;
 import com.varaprasadps.image.CutLayoutGenerator;
@@ -13,19 +13,21 @@ import java.util.List;
 public class Bondu {
 
     public static void main(final String[] args) throws IOException {
-        String out = "d/4/out/a2024/design1/kongu.bmp";
+        String out = "d/4/out/a2024/design2/kongu.bmp";
 
-        BufferedImage blouse = ImageIO.read(new File("d/4/out/a2024/design1/blouse-1440-480.bmp"));
-        BufferedImage pallu = ImageIO.read(new File("d/4/out/a2024/design1/pallu-1440-3200.bmp"));
-        BufferedImage brocade = ImageIO.read(new File("d/4/out/a2024/design1/1kadiyalu-brocade-1440-2160.bmp"));
+        BufferedImage konguFile = ImageIO.read(new File("d/4/out/a2024/design2/kongu-1440-480.bmp"));
+        BufferedImage pallu = ImageIO.read(new File("d/4/out/a2024/design2/pallu-1440-3200.bmp"));
+//        BufferedImage brocade = ImageIO.read(new File("d/4/out/a2024/design1/1self-brocade-1440-4800.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
 //        inputBIs.add(brocade);
-        inputBIs.add(CutLayoutGenerator.get(blouse, 120).get(0));
+        inputBIs.add(CutLayoutGenerator.get(konguFile, 120).get(0));
 //        inputBIs.add(pallu);
-//        inputBIs.add(CutLayoutGenerator.get(blouse, blouse.getHeight() - 40).get(1));
-//        inputBIs.add(CutLayoutGenerator.get(blouse, 80).get(0));
+//        inputBIs.add(CutLayoutGenerator.get(konguFile, konguFile.getHeight() - 40).get(1));
+//        inputBIs.add(CutLayoutGenerator.get(konguFile, 80).get(0));
+
+
         int repeatWidth = 0;
         int repeatHeight = 0;
 

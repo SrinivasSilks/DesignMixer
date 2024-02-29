@@ -36,9 +36,9 @@ public class PalluConversion {
         BufferedImage jari = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/4/in/a2024/design1/pallu/pallu_jari.bmp")));
         BufferedImage meena = PlainGenerator.get(jari.getWidth(), jari.getHeight());
 
-        final BufferedImage rightt = HorizontalRepeatGenerator.get(4 * 3, ImageIO.read(new File("d/4/in/a2024/design1/border/right.bmp")));
-        final BufferedImage leftt = HorizontalRepeatGenerator.get(4 * 3, VerticalFlipGenerator.get(ImageIO.read(new File("d/4/in/a2024/design1/border/left.bmp"))));
-        final BufferedImage jamudut = HorizontalRepeatGenerator.get(4 * 1, ImageIO.read(new File("d/4/in/a2024/design1/border/jamudu.bmp")));
+        final BufferedImage rightt = HorizontalRepeatGenerator.get(9, ImageIO.read(new File("d/4/in/a2024/design1/border/right.bmp")));
+        final BufferedImage leftt = HorizontalRepeatGenerator.get(9, VerticalFlipGenerator.get(ImageIO.read(new File("d/4/in/a2024/design1/border/left.bmp"))));
+        final BufferedImage jamudut = HorizontalRepeatGenerator.get(9, ImageIO.read(new File("d/4/in/a2024/design1/border/jamudu.bmp")));
 
         BufferedImage right = RightLayoutGenerator.get(CutLayoutGenerator.get(CutLayoutGenerator.get(LeftLayoutGenerator.get(rightt), 60).get(1), jari.getWidth()).get(0));
         BufferedImage left = RightLayoutGenerator.get(CutLayoutGenerator.get(CutLayoutGenerator.get(LeftLayoutGenerator.get(leftt), 60).get(1), jari.getWidth()).get(0));
