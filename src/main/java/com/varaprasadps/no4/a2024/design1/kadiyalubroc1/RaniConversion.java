@@ -18,8 +18,8 @@ public class RaniConversion {
 
         final BufferedImage right = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("d/4/in/a2024/design1/border/right.bmp")));
         final BufferedImage left = HorizontalRepeatGenerator.get(3, VerticalFlipGenerator.get(ImageIO.read(new File("d/4/in/a2024/design1/border/left-first.bmp"))));
-        final BufferedImage jamudu = ImageIO.read(new File("d/4/in/a2024/design1/border/jamudu.bmp"));
-        final BufferedImage jamuduFirst = ImageIO.read(new File("d/4/in/a2024/design1/border/jamudu-first.bmp"));
+        final BufferedImage jamudu = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("d/4/in/a2024/design1/border/jamudu.bmp")));
+        final BufferedImage jamuduFirst = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("d/4/in/a2024/design1/border/jamudu-first.bmp")));
 
         int width = left.getWidth();
 

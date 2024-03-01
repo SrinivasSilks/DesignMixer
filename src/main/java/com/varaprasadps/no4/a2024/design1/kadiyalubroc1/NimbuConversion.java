@@ -18,9 +18,9 @@ public class NimbuConversion {
         String out = "d/4/out/a2024/design1/1kbroc-nimbu-%s-%s.bmp";
 
         BufferedImage body = HorizontalRepeatGenerator.get(2, ImageIO.read(new File("d/4/in/a2024/design1/brocade1/meena.bmp")));
-        BufferedImage right = HorizontalRepeatGenerator.get(1, EmptyGenerator.get(body.getWidth(), 480));
-        BufferedImage left = HorizontalRepeatGenerator.get(1, EmptyGenerator.get(body.getWidth(), 396));
-        int width = left.getWidth();
+        int width = body.getWidth();
+        BufferedImage left = HorizontalRepeatGenerator.get(1, EmptyGenerator.get(width, 396));
+        BufferedImage right = HorizontalRepeatGenerator.get(1, EmptyGenerator.get(width, 480));
         BufferedImage jamudu = EmptyGenerator.get(width, 4);
 
 
