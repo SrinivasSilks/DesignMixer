@@ -11,6 +11,10 @@ import java.util.List;
 
 public class KadiyaluAnni {
     public static BufferedImage jari(BufferedImage right, BufferedImage left) {
+        return jari(right, left, PlainGenerator.get(left.getWidth(), 960));
+    }
+
+    public static BufferedImage jari(BufferedImage right, BufferedImage left, BufferedImage body) {
         int width = right.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
@@ -32,7 +36,7 @@ public class KadiyaluAnni {
         inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 4)));
         inputBIs.add(PlainGenerator.get(width, 4));
         //body
-        inputBIs.add(PlainGenerator.get(left.getWidth(), 960));
+        inputBIs.add(body);
         //locking
         inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 4)));
         inputBIs.add(PlainGenerator.get(width, 4));
@@ -66,6 +70,10 @@ public class KadiyaluAnni {
     }
 
     public static BufferedImage rani(BufferedImage right, BufferedImage left) {
+        return rani(right, left, PlainGenerator.get(left.getWidth(), 960));
+    }
+
+    public static BufferedImage rani(BufferedImage right, BufferedImage left, BufferedImage body) {
 
         int width = right.getWidth();
 
@@ -88,7 +96,7 @@ public class KadiyaluAnni {
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));
         //body
-        inputBIs.add(PlainGenerator.get(left.getWidth(), 960));
+        inputBIs.add(body);
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));
         inputBIs.add(PlainGenerator.get(width, 4));
