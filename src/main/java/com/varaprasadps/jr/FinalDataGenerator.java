@@ -1,4 +1,4 @@
-package com.varaprasadps.image;
+package com.varaprasadps.jr;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -7,19 +7,18 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ColumnRepeatGenerator {
+public class FinalDataGenerator {
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-jr/out/final-%s-%s.bmp";
+        String out = "z-data/out/repeat-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("z-jr/input/rani.bmp");
-        inputs.add("z-jr/input/jari.bmp");
-        inputs.add("z-jr/input/nimbu.bmp");
+        inputs.add("z-data/out/plain-16-1824.bmp");
+        inputs.add("z-data/out/empty-16-1824.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {
-            inputBIs.add(RightLayoutGenerator.get(ImageIO.read(new File(input))));
+            inputBIs.add(ImageIO.read(new File(input)));
         }
 
         int repeatWidth = 0;
@@ -30,7 +29,7 @@ public class ColumnRepeatGenerator {
             repeatWidth += bi.getWidth();
             repeatHeight = bi.getHeight();
         }
-        BufferedImage bi = RemoveWhiteLines.get(LeftLayoutGenerator.get(map(repeatWidth, repeatHeight, inputBIs)));
+        BufferedImage bi = map(repeatWidth, repeatHeight, inputBIs);
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
     }
