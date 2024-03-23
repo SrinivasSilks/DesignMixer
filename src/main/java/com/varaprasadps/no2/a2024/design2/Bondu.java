@@ -19,7 +19,7 @@ public class Bondu {
         BufferedImage anni = VerticalFlipGenerator.get(ImageIO.read(new File("d/2/out/design2/anni-240-2688.bmp")));
         BufferedImage kongu = VerticalFlipGenerator.get(ImageIO.read(new File("d/2/out/design1/kongu-2-2688.bmp")));
         BufferedImage kanni = VerticalFlipGenerator.get(ImageIO.read(new File("d/2/out/design2/kanni-2688-480.bmp")));
-        BufferedImage pallu = VerticalFlipGenerator.get(ImageIO.read(new File("d/2/out/design2/pallu-2688-3360.bmp")));
+        BufferedImage pallu = VerticalFlipGenerator.get(ImageIO.read(new File("d/2/out/design2/pallu-2688-3240.bmp")));
         BufferedImage brocade = VerticalFlipGenerator.get(ImageIO.read(new File("d/2/out/design2/1kadiyalu-plain-2688-480.bmp")));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
@@ -37,8 +37,7 @@ public class Bondu {
         inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(kanni, 200).get(1), 10).get(0));
         inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(anni, 105).get(1), 75).get(0));
         inputBIs.add(pallu);
-        inputBIs.add(CutLayoutGenerator.get(anni, 180).get(1));
-        inputBIs.add(CutLayoutGenerator.get(anni, 20).get(0));
+        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(anni, 120).get(1), 80).get(0));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
