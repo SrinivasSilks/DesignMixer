@@ -11,7 +11,7 @@ import java.util.List;
 
 import static com.varaprasadps.no3.a2024.Kadiyalu1Play.jari1;
 import static com.varaprasadps.no3.a2024.Kadiyalu1Play.rani1;
-import static com.varaprasadps.no3.a2024.Kadiyalu2Play.getBrocade;
+import static com.varaprasadps.no3.a2024.Kadiyalu12Play.getBrocade;
 import static java.lang.String.format;
 
 public class KadiyaluPlain {

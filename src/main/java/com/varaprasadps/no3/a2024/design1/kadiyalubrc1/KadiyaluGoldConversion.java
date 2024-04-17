@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-import static com.varaprasadps.no3.a2024.Kadiyalu2Play.*;
+import static com.varaprasadps.no3.a2024.Kadiyalu12Play.*;
 import static com.varaprasadps.no3.a2024.Kadiyalu1Play.*;
 import static java.lang.String.format;
 
@@ -35,7 +35,7 @@ public class KadiyaluGoldConversion {
         List<BufferedImage> brocades = new LinkedList<>();
         brocades.add(rani2(right, leftback, meena, checks));
         brocades.add(jari2(right, left, meena, checks));
-        brocades.add(nimbu2(getBorder(right), getBorder(left), jari, checks));
+        brocades.add(gold(getBorder(right), getBorder(left), jari, checks));
         for (BufferedImage bufferedImage : brocades) {
             System.out.println(String.format("file data - %s - %s", bufferedImage.getWidth(), bufferedImage.getHeight()));
         }

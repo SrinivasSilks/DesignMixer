@@ -42,9 +42,9 @@ public class JariConversion {
         //body
         inputBIs.add(PlainGenerator.get(width, 12));
         inputBIs.add(body);
-        inputBIs.add(PlainGenerator.get(width, 12));
+        inputBIs.add(PlainGenerator.get(width, 10));
         //locking
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 4)));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 6)));
         //right
         inputBIs.add(right);
 

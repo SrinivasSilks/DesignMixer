@@ -9,9 +9,9 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Kadiyalu2Play {
+public class Kadiyalu13Play {
 
-    public static BufferedImage nimbu2(BufferedImage right, BufferedImage left, BufferedImage body, BufferedImage checks) {
+    public static BufferedImage silver(BufferedImage right, BufferedImage left, BufferedImage body, BufferedImage checks) {
 
         int width = left.getWidth();
 
@@ -83,7 +83,7 @@ public class Kadiyalu2Play {
 
         //box
         inputBIs.add(EmptyGenerator.get(width, 2));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //wheel

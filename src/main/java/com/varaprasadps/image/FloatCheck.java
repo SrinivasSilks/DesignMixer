@@ -10,11 +10,11 @@ import java.io.IOException;
 public class FloatCheck {
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-data/test/test-subject-1-check.bmp";
-        String path = "z-data/test/test-subject-1.bmp";
-        BufferedImage image = LeftLayoutGenerator.get(ReverseGenerator.get(ImageIO.read(new File(path))));
+        String out = "z-data/test/checks/final-color-cl.bmp";
+        String path = "z-data/test/checks/final-color.bmp";
+        BufferedImage image = ImageIO.read(new File(path));
 
-        BufferedImage img = get(image, 10);
+        BufferedImage img = get(image, 8);
         saveBMP(img, String.format(out, image.getWidth(), image.getHeight()));
     }
 

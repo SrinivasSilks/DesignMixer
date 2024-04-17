@@ -15,7 +15,7 @@ public class RaniConversion {
 
         String out = "d/2/out/design1/p-rani-%s-%s.bmp";
 
-        final BufferedImage pallu = PlainGenerator.get(1700, 1200);
+        final BufferedImage pallu = PlainGenerator.get(1620, 1200);
         int width = pallu.getWidth();
 
         BufferedImage leftt = HorizontalRepeatGenerator.get(10, ImageIO.read(new File("d/2/in/design1/border/left.bmp")));
