@@ -12,6 +12,7 @@ import java.util.List;
 public class Kadiyalu1Play {
 
     public static BufferedImage jari1(BufferedImage right, BufferedImage left, BufferedImage body, BufferedImage checks) {
+
         int width = body.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();

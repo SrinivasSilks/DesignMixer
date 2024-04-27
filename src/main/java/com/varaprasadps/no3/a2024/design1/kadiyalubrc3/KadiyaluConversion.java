@@ -27,7 +27,7 @@ public class KadiyaluConversion {
         for (BufferedImage bufferedImage : brocades) {
             System.out.println(String.format("file data - %s - %s", bufferedImage.getWidth(), bufferedImage.getHeight()));
         }
-        BufferedImage brocade = LeftLayoutGenerator.get(getBrocade(brocades));
+        BufferedImage brocade = getBrocade(brocades);
         displayPixels(brocade);
         return brocade;
     }
@@ -41,9 +41,8 @@ public class KadiyaluConversion {
         for (BufferedImage bufferedImage : brocades) {
             System.out.println(String.format("file data - %s - %s", bufferedImage.getWidth(), bufferedImage.getHeight()));
         }
-        BufferedImage brocade = LeftLayoutGenerator.get(getBrocade(brocades));
+        BufferedImage brocade = getBrocade(brocades);
         displayPixels(brocade);
-        saveBMP(brocade, String.format("d/3/out/2024/design1/test/gold-file-%s.bmp", Math.random()));
         return brocade;
     }
 
@@ -55,7 +54,7 @@ public class KadiyaluConversion {
         for (BufferedImage bufferedImage : brocades) {
             System.out.println(String.format("file data - %s - %s", bufferedImage.getWidth(), bufferedImage.getHeight()));
         }
-        BufferedImage brocade = LeftLayoutGenerator.get(getBrocade(brocades));
+        BufferedImage brocade = getBrocade(brocades);
         displayPixels(brocade);
         return brocade;
     }
@@ -67,7 +66,7 @@ public class KadiyaluConversion {
         for (BufferedImage bufferedImage : brocades) {
             System.out.println(String.format("file data - %s - %s", bufferedImage.getWidth(), bufferedImage.getHeight()));
         }
-        BufferedImage brocade = LeftLayoutGenerator.get(getBrocade(brocades));
+        BufferedImage brocade = getBrocade(brocades);
         displayPixels(brocade);
         return brocade;
     }
@@ -82,48 +81,34 @@ public class KadiyaluConversion {
         final BufferedImage gold = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("d/3/in/2024/design1/brocade3/gold.bmp")));
         final BufferedImage silver = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("d/3/in/2024/design1/brocade3/silver.bmp")));
 
-        List<BufferedImage> rightSilces = getSlices(right);
-        List<BufferedImage> leftBackSilces = getSlices(leftBack);
-        List<BufferedImage> leftSilces = getSlices(left);
-        List<BufferedImage> checksSilces = getSlices(checks);
+        List<BufferedImage> rightSilces = SlicerGenerator.get(right, 2);
+        List<BufferedImage> leftBackSilces = SlicerGenerator.get(leftBack, 2);
+        List<BufferedImage> leftSilces = SlicerGenerator.get(left, 2);
+        List<BufferedImage> checksSilces = SlicerGenerator.get(checks, 2);
 
-        List<BufferedImage> silverSilces = getSlices(silver);
-        List<BufferedImage> goldSilces = getSlices(gold);
-        List<BufferedImage> meenaSilces = getSlices(meena);
+        List<BufferedImage> silverSilces = SlicerGenerator.get(silver, 2);
+        List<BufferedImage> goldSilces = SlicerGenerator.get(gold, 2);
+        List<BufferedImage> meenaSilces = SlicerGenerator.get(meena, 2);
 
-        List<BufferedImage> brocades = new LinkedList<>();
+        LinkedList<BufferedImage> brocades = new LinkedList<>();
 
         if (rightSilces.size() == silverSilces.size()) {
             for (int i = 0; i < rightSilces.size(); i++) {
                 boolean isSilverValid = BlackCheck.valid(silverSilces.get(i));
                 boolean isGoldValid = BlackCheck.valid(goldSilces.get(i));
                 if (isSilverValid && isGoldValid) {
-                    System.out.println("all the way - 123");
                     brocades.add(kadiyalu123Play(rightSilces.get(i), leftBackSilces.get(i), leftSilces.get(i), checksSilces.get(i), meenaSilces.get(i), silverSilces.get(i), goldSilces.get(i)));
                 } else if (!isSilverValid && isGoldValid) {
-                    System.out.println("all the way - 13");
                     brocades.add(kadiyalu13Play(rightSilces.get(i), leftBackSilces.get(i), leftSilces.get(i), checksSilces.get(i), meenaSilces.get(i), goldSilces.get(i)));
                 } else if (isSilverValid) {
-                    System.out.println("all the way - 12");
                     brocades.add(kadiyalu12Play(rightSilces.get(i), leftBackSilces.get(i), leftSilces.get(i), checksSilces.get(i), meenaSilces.get(i), silverSilces.get(i)));
                 } else {
-                    System.out.println("all the way - 1");
                     brocades.add(kadiyalu1Play(rightSilces.get(i), leftBackSilces.get(i), leftSilces.get(i), checksSilces.get(i), meenaSilces.get(i)));
                 }
             }
         }
-
-        int repeatWidth = 0;
-        int repeatHeight = 0;
-
-        for (BufferedImage bi : brocades) {
-            displayPixels(bi);
-            repeatWidth = bi.getWidth();
-            repeatHeight += bi.getHeight();
-        }
-        BufferedImage brocade = AddLayoutGenerator.get(repeatWidth, repeatHeight, brocades);
+        BufferedImage brocade = LeftLayoutGenerator.get(SlicerGenerator.attachX(brocades));
         saveBMP(brocade, format("d/3/out/2024/design1/3kbroc-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
-
     }
 
     private static void displayPixels(BufferedImage fileOne) {
@@ -136,22 +121,6 @@ public class KadiyaluConversion {
 
     public static BufferedImage getBorder(BufferedImage border) {
         return EmptyGenerator.get(border.getWidth(), border.getHeight());
-    }
-
-    private static List<BufferedImage> getSlices(BufferedImage actual) {
-        int SIZE = 2;
-        List<BufferedImage> images = new LinkedList<>();
-        for (int i = 0; i < actual.getWidth() / SIZE; i++) {
-            BufferedImage silice = new BufferedImage(SIZE, actual.getHeight(), BufferedImage.TYPE_BYTE_BINARY);
-            for (int m = 0; m < SIZE; m++) {
-                for (int j = 0; j < actual.getHeight(); j++) {
-                    int actualRGB = actual.getRGB((i * SIZE) + m, j);
-                    silice.setRGB(m, j, actualRGB);
-                }
-            }
-            images.add(silice);
-        }
-        return images;
     }
 
     public static BufferedImage getBrocade(List<BufferedImage> inputs) {

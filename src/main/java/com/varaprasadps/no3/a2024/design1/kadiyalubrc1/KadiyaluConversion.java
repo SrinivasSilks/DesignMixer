@@ -1,4 +1,4 @@
-package com.varaprasadps.no3.a2024.design1.kadiyalubrc2;
+package com.varaprasadps.no3.a2024.design1.kadiyalubrc1;
 
 import com.varaprasadps.image.*;
 import com.varaprasadps.no3.a2024.Kadiyalu123Play;
@@ -10,7 +10,6 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -74,12 +73,12 @@ public class KadiyaluConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        BufferedImage right = HorizontalRepeatGenerator.get(8, ImageIO.read(new File("d/3/in/2024/design1/border/right.bmp")));
-        BufferedImage leftBack = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(8, ImageIO.read(new File("d/3/in/2024/design1/border/left-first.bmp"))));
-        BufferedImage left = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(8, ImageIO.read(new File("d/3/in/2024/design1/border/left.bmp"))));
-        BufferedImage checks = HorizontalRepeatGenerator.get(8, ImageIO.read(new File("d/3/in/2024/design1/border/checks.bmp")));
-        final BufferedImage meena = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("d/3/in/2024/design1/brocade2/meena.bmp")));
-        final BufferedImage gold = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("d/3/in/2024/design1/brocade2/jari.bmp")));
+        BufferedImage right = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/3/in/2024/design1/border/right.bmp")));
+        BufferedImage leftBack = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/3/in/2024/design1/border/left-first.bmp"))));
+        BufferedImage left = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/3/in/2024/design1/border/left.bmp"))));
+        BufferedImage checks = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/3/in/2024/design1/border/checks.bmp")));
+        final BufferedImage meena = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/3/in/2024/design1/brocade1/meena.bmp")));
+        final BufferedImage gold = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/3/in/2024/design1/brocade1/jari.bmp")));
 
         List<BufferedImage> rightSilces = SlicerGenerator.get(right, 2);
         List<BufferedImage> leftBackSilces = SlicerGenerator.get(leftBack, 2);
@@ -102,7 +101,7 @@ public class KadiyaluConversion {
             }
         }
         BufferedImage brocade = LeftLayoutGenerator.get(SlicerGenerator.attachX(brocades));
-        saveBMP(brocade, format("d/3/out/2024/design1/2-test-kbroc-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
+        saveBMP(brocade, format("d/3/out/2024/design1/1-test-kbroc-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
     }
 
     private static void displayPixels(BufferedImage fileOne) {
