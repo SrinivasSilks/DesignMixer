@@ -1,4 +1,4 @@
-package com.varaprasadps.no13.a2024;
+package com.varaprasadps.no13.a2024.design1;
 
 import com.varaprasadps.bala.b1.Plain;
 import com.varaprasadps.image.*;
@@ -16,12 +16,14 @@ public class AnniConversion {
 
         String out = "d/13/out/2024/design1/anni-%s-%s.bmp";
 
-        BufferedImage rightJari = StepLayoutGenerator.get(20, 148);
-        BufferedImage rightMeena = PlainGenerator.get(20, 592);
-        BufferedImage leftFigureJari = StepLayoutGenerator.get(20, 16);
-        BufferedImage leftFigureMeena = PlainGenerator.get(20, 64);
-        BufferedImage leftTeegaJari = StepLayoutGenerator.get(20, 12);
-        BufferedImage leftTeegaMeena = PlainGenerator.get(20, 48);
+        BufferedImage rightJari = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/13/in/2024/design1/border/right.bmp")));
+        BufferedImage teega = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/13/in/2024/design1/border/teega.bmp")));
+        BufferedImage figure = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/13/in/2024/design1/border/banaras.bmp")));
+
+        BufferedImage rightMeena = HorizontalRepeatGenerator.get(1, PlainGenerator.get(rightJari.getWidth(), rightJari.getHeight()));
+        BufferedImage teegaMeena = HorizontalRepeatGenerator.get(1, PlainGenerator.get(teega.getWidth(), teega.getHeight()));
+        BufferedImage figureMeena = HorizontalRepeatGenerator.get(1, PlainGenerator.get(figure.getWidth(), figure.getHeight()));
+
 
         int width = rightJari.getWidth();
 
@@ -41,11 +43,11 @@ public class AnniConversion {
         inputBIs.add(EmptyGenerator.get(width, 4));
 
         //left Figure
-        inputBIs.add(VerticalFlipGenerator.get(leftFigureJari));
-        inputBIs.add(VerticalFlipGenerator.get(leftFigureMeena));
+        inputBIs.add(VerticalFlipGenerator.get(figure));
+        inputBIs.add(VerticalFlipGenerator.get(figureMeena));
         //left Teega
-        inputBIs.add(VerticalFlipGenerator.get(leftTeegaJari));
-        inputBIs.add(VerticalFlipGenerator.get(leftTeegaMeena));
+        inputBIs.add(VerticalFlipGenerator.get(teega));
+        inputBIs.add(VerticalFlipGenerator.get(teegaMeena));
 
         //allover
         inputBIs.add(PlainGenerator.get(width, 480));
@@ -59,8 +61,8 @@ public class AnniConversion {
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));
         //box
-        inputBIs.add(EmptyGenerator.get(width, 2));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //kadiyalu

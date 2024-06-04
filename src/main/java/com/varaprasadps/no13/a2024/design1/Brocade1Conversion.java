@@ -1,8 +1,7 @@
-package com.varaprasadps.no13.a2024;
+package com.varaprasadps.no13.a2024.design1;
 
 import com.varaprasadps.image.HorizontalRepeatGenerator;
 import com.varaprasadps.image.LeftLayoutGenerator;
-import com.varaprasadps.image.StepLayoutGenerator;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -15,7 +14,7 @@ import static com.varaprasadps.no13.a2024.ThreePlay.*;
 import static java.lang.String.format;
 
 
-public class BrocadeConversion {
+public class Brocade1Conversion {
 
     public static BufferedImage get(BufferedImage rightJari, BufferedImage leftFigureJari, BufferedImage leftTeegaJari, BufferedImage anni, BufferedImage jari, BufferedImage nimbu) throws IOException {
         List<BufferedImage> brocades = new LinkedList<>();
@@ -23,14 +22,13 @@ public class BrocadeConversion {
         brocades.add(jari(nimbu));
         brocades.add(nimbu(jari));
 
-        for (int i = 0; i < brocades.size(); i++) {
-            BufferedImage bufferedImage = brocades.get(i);
+        for (BufferedImage bufferedImage : brocades) {
             System.out.printf("file data - %s - %s%n", bufferedImage.getWidth(), bufferedImage.getHeight());
         }
         BufferedImage brocade = LeftLayoutGenerator.get(getBrocade(brocades));
         displayPixels(brocade);
 
-        saveBMP(brocade, format("d/13/out/2024/design1/1-brocade-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
+        saveBMP(brocade, format("d/13/out/2024/design1/1brocade-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
         return brocade;
     }
 
