@@ -54,12 +54,12 @@ public class ReshamUpConversion {
         inputBIs.add(BlackGenerator.get(width, 24));
         //kali
         inputBIs.add(EmptyGenerator.get(width, 40));
-        //achu
-        inputBIs.add(BlackGenerator.get(width, 12));
         //mispick
         inputBIs.add(BlackGenerator.get(width, 2));
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 2));
+        //achu
+        inputBIs.add(BlackGenerator.get(width, 12));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
