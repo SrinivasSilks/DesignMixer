@@ -15,10 +15,11 @@ import static java.lang.String.format;
 
 public class Brocade1Conversion {
 
-    public static BufferedImage get(BufferedImage right, BufferedImage left,
-                                    BufferedImage bodyReshamR, BufferedImage bodyJariR,
-                                    BufferedImage bodyReshamJ, BufferedImage bodyJariJ,
-                                    BufferedImage bodyReshamN, BufferedImage bodyJariN
+    public static BufferedImage get(
+            BufferedImage right, BufferedImage left,
+            BufferedImage bodyReshamR, BufferedImage bodyJariR,
+            BufferedImage bodyReshamJ, BufferedImage bodyJariJ,
+            BufferedImage bodyReshamN, BufferedImage bodyJariN
     ) throws IOException {
 
         BufferedImage emptyRight = EmptyGenerator.get(right.getWidth(), right.getHeight());
@@ -41,18 +42,19 @@ public class Brocade1Conversion {
 
     public static void main(final String[] args) throws IOException {
 
-        BufferedImage left = StepLayoutGenerator.get(20, 76, 4);
-        BufferedImage right = StepLayoutGenerator.get(20, 130, 4);
-        int width = left.getWidth();
+        BufferedImage bodyReshamN = ImageIO.read(new File("d/14/in/2024/design1/brocade1/resham-meena.bmp"));
+        BufferedImage bodyJariN = ImageIO.read(new File("d/14/in/2024/design1/brocade1/resham-jari.bmp"));
 
-        BufferedImage bodyReshamR = EmptyGenerator.get(width, 480);
-        BufferedImage bodyJariR = EmptyGenerator.get(width, 480);
+        BufferedImage bodyReshamJ = ImageIO.read(new File("d/14/in/2024/design1/brocade1/silver-meena.bmp"));
+        BufferedImage bodyJariJ = ImageIO.read(new File("d/14/in/2024/design1/brocade1/silver-jari.bmp"));
 
-        BufferedImage bodyReshamJ = PlainGenerator.get(width, 480);
-        BufferedImage bodyJariJ = StepLayoutGenerator.get(width, 120, 4);
+        BufferedImage bodyReshamR = EmptyGenerator.get(bodyReshamN.getWidth(), 480);
+        BufferedImage bodyJariR = EmptyGenerator.get(bodyReshamN.getWidth(), 480);
 
-        BufferedImage bodyReshamN = BlackGenerator.get(width, 480);
-        BufferedImage bodyJariN = StepLayoutGenerator.get(width, 120, 4);
+        int width = bodyReshamN.getWidth();
+
+        BufferedImage left = StepLayoutGenerator.get(width, 76, 4);
+        BufferedImage right = StepLayoutGenerator.get(width, 130, 4);
 
         get(right, left, bodyReshamR, bodyJariR, bodyReshamJ, bodyJariJ, bodyReshamN, bodyJariN);
     }
