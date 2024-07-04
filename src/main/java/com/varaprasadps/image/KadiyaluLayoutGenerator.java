@@ -45,7 +45,7 @@ public class KadiyaluLayoutGenerator {
     }
 
     private static void displayPixels(BufferedImage fileOne) {
-        System.out.println(String.format("Width : %s, Height : %s", fileOne.getWidth(), fileOne.getHeight()));
+        System.out.printf("Width : %s, Height : %s%n", fileOne.getWidth(), fileOne.getHeight());
     }
 
     public static BufferedImage get(int sizeX, int sizeY, List<BufferedImage> inputBIs) {

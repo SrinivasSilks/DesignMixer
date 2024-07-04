@@ -16,11 +16,11 @@ public class Bondu {
     public static void main(final String[] args) throws IOException {
         String out = "d/2/out/design1/pset.bmp";
 
-        BufferedImage anni = VerticalFlipGenerator.get(ImageIO.read(new File("d/2/out/design1/anni-200-2688.bmp")));
+        BufferedImage anni = VerticalFlipGenerator.get(ImageIO.read(new File("d/2/out/design1/anni-280-2688.bmp")));
         BufferedImage kongu = VerticalFlipGenerator.get(ImageIO.read(new File("d/2/out/design1/kongu-2-2688.bmp")));
-        BufferedImage kanni = VerticalFlipGenerator.get(ImageIO.read(new File("d/2/out/design1/kanni-2688-400.bmp")));
+        BufferedImage kanni = VerticalFlipGenerator.get(ImageIO.read(new File("d/2/out/design1/kanni-2688-560.bmp")));
         BufferedImage pallu = VerticalFlipGenerator.get(ImageIO.read(new File("d/2/out/design1/pallu-2688-3240.bmp")));
-        BufferedImage brocade = VerticalFlipGenerator.get(ImageIO.read(new File("d/2/out/design1/1kadiyalu-brocade-2688-3600.bmp")));
+//        BufferedImage brocade = VerticalFlipGenerator.get(ImageIO.read(new File("d/2/out/design1/1kadiyalu-brocade-2688-3600.bmp")));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 //
@@ -37,8 +37,7 @@ public class Bondu {
         inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(kanni, 200).get(1), 10).get(0));
         inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(anni, 105).get(1), 75).get(0));
         inputBIs.add(pallu);
-//        inputBIs.add(CutLayoutGenerator.get(anni, anni.getHeight() - 40).get(1));
-        inputBIs.add(CutLayoutGenerator.get(anni,  80).get(0));
+        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(anni, 120).get(1), 80).get(0));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

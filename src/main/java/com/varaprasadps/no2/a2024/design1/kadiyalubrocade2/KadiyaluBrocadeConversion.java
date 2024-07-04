@@ -22,9 +22,9 @@ public class KadiyaluBrocadeConversion {
         String out = "d/2/out/design1/2kadiyalu-brocade-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("d/2/out/design1/2kbrc1-rani-1800-2688.bmp");
-        inputs.add("d/2/out/design1/2kbrc1-jari-1800-2688.bmp");
-        inputs.add("d/2/out/design1/2kbrc1-nimbu-1800-2688.bmp");
+        inputs.add("d/2/out/design1/2kbrc1-rani-1260-2688.bmp");
+        inputs.add("d/2/out/design1/2kbrc1-jari-1260-2688.bmp");
+        inputs.add("d/2/out/design1/2kbrc1-nimbu-1260-2688.bmp");
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {
             inputBIs.add(ImageIO.read(new File(input)));

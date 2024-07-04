@@ -19,8 +19,8 @@ public class KanniConversion {
         String out = "d/2/out/design1/kanni-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("d/2/out/design1/k-rani-200-2688.bmp");
-        inputs.add("d/2/out/design1/k-jari-200-2688.bmp");
+        inputs.add("d/2/out/design1/k-rani-280-2688.bmp");
+        inputs.add("d/2/out/design1/k-jari-280-2688.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {

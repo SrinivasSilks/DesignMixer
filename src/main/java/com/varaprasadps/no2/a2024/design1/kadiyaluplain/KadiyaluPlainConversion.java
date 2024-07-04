@@ -23,8 +23,8 @@ public class KadiyaluPlainConversion {
         String out = "d/2/out/design1/1kadiyalu-plain-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("d/2/out/design1/1kpln-rani-200-2688.bmp");
-        inputs.add("d/2/out/design1/1kpln-jari-200-2688.bmp");
+        inputs.add("d/2/out/design1/1kpln-rani-140-2688.bmp");
+        inputs.add("d/2/out/design1/1kpln-jari-140-2688.bmp");
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {
             inputBIs.add(ImageIO.read(new File(input)));
