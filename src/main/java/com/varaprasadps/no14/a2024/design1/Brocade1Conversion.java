@@ -42,10 +42,10 @@ public class Brocade1Conversion {
 
     public static void main(final String[] args) throws IOException {
 
-        BufferedImage bodyReshamN = ImageIO.read(new File("d/14/in/2024/design1/brocade1/resham-meena.bmp"));
-        BufferedImage bodyJariN = ImageIO.read(new File("d/14/in/2024/design1/brocade1/resham-jari.bmp"));
+        BufferedImage bodyReshamN = ImageIO.read(new File("d/14/in/2024/design1/brocade1/nimbu-silk.bmp"));
+        BufferedImage bodyJariN = ImageIO.read(new File("d/14/in/2024/design1/brocade1/nimbu-jari.bmp"));
 
-        BufferedImage bodyReshamJ = ImageIO.read(new File("d/14/in/2024/design1/brocade1/silver-meena.bmp"));
+        BufferedImage bodyReshamJ = ImageIO.read(new File("d/14/in/2024/design1/brocade1/silver-silk.bmp"));
         BufferedImage bodyJariJ = ImageIO.read(new File("d/14/in/2024/design1/brocade1/silver-jari.bmp"));
 
         BufferedImage bodyReshamR = EmptyGenerator.get(bodyReshamN.getWidth(), 480);
