@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-import static com.varaprasadps.no14.a2024.ThreePlay.*;
+import static com.varaprasadps.no14.a2024.ThreePlayLocking.*;
 import static java.lang.String.format;
 
 
