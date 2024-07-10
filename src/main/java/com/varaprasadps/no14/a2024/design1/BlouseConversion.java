@@ -1,8 +1,6 @@
 package com.varaprasadps.no14.a2024.design1;
 
-import com.varaprasadps.image.EmptyGenerator;
-import com.varaprasadps.image.LeftLayoutGenerator;
-import com.varaprasadps.image.StepLayoutGenerator;
+import com.varaprasadps.image.*;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -44,19 +42,17 @@ public class BlouseConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        BufferedImage bodyReshamN = ImageIO.read(new File("d/14/in/2024/design1/blouse/nimbu-silk.bmp"));
-        BufferedImage bodyJariN = ImageIO.read(new File("d/14/in/2024/design1/blouse/nimbu-jari.bmp"));
+        BufferedImage bodyReshamN = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("d/14/in/2024/design1/blouse/nimbu-silk.bmp")));
+        BufferedImage bodyJariN = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("d/14/in/2024/design1/blouse/nimbu-jari.bmp")));
 
-        BufferedImage bodyReshamJ = ImageIO.read(new File("d/14/in/2024/design1/blouse/silver-silk.bmp"));
-        BufferedImage bodyJariJ = ImageIO.read(new File("d/14/in/2024/design1/blouse/silver-jari.bmp"));
+        BufferedImage bodyReshamJ = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("d/14/in/2024/design1/blouse/silver-silk.bmp")));
+        BufferedImage bodyJariJ = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("d/14/in/2024/design1/blouse/silver-jari.bmp")));
 
-        BufferedImage bodyReshamR = ImageIO.read(new File("d/14/in/2024/design1/blouse/rani-silk.bmp"));
-        BufferedImage bodyJariR = ImageIO.read(new File("d/14/in/2024/design1/blouse/rani-jari.bmp"));
+        BufferedImage bodyReshamR = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("d/14/in/2024/design1/blouse/rani-silk.bmp")));
+        BufferedImage bodyJariR = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("d/14/in/2024/design1/blouse/rani-jari.bmp")));
 
-        int width = bodyReshamN.getWidth();
-
-        BufferedImage left = StepLayoutGenerator.get(width, 76, 4);
-        BufferedImage right = StepLayoutGenerator.get(width, 130, 4);
+        BufferedImage left = VerticalFlipGenerator.get(ImageIO.read(new File("d/14/in/2024/design1/border/left.bmp")));
+        BufferedImage right = ImageIO.read(new File("d/14/in/2024/design1/border/right.bmp"));
 
         get(right, left, bodyReshamR, bodyJariR, bodyReshamJ, bodyJariJ, bodyReshamN, bodyJariN);
     }

@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-import static com.varaprasadps.no14.a2024.ThreePlayLocking.*;
+import static com.varaprasadps.no14.a2024.ThreePlay.*;
 import static java.lang.String.format;
 
 
@@ -42,19 +42,17 @@ public class Brocade1Conversion {
 
     public static void main(final String[] args) throws IOException {
 
-        BufferedImage bodyReshamN = ImageIO.read(new File("d/14/in/2024/design1/brocade1/nimbu-silk.bmp"));
-        BufferedImage bodyJariN = ImageIO.read(new File("d/14/in/2024/design1/brocade1/nimbu-jari.bmp"));
+        BufferedImage bodyReshamN = ReverseGenerator.get(ImageIO.read(new File("d/14/in/2024/design1/brocade1/nimbu-silk.bmp")));
+        BufferedImage bodyJariN = ReverseGenerator.get(ImageIO.read(new File("d/14/in/2024/design1/brocade1/nimbu-jari.bmp")));
 
-        BufferedImage bodyReshamJ = ImageIO.read(new File("d/14/in/2024/design1/brocade1/silver-silk.bmp"));
-        BufferedImage bodyJariJ = ImageIO.read(new File("d/14/in/2024/design1/brocade1/silver-jari.bmp"));
+        BufferedImage bodyReshamJ = ReverseGenerator.get(ImageIO.read(new File("d/14/in/2024/design1/brocade1/silver-silk.bmp")));
+        BufferedImage bodyJariJ = ReverseGenerator.get(ImageIO.read(new File("d/14/in/2024/design1/brocade1/silver-jari.bmp")));
 
-        BufferedImage bodyReshamR = EmptyGenerator.get(bodyReshamN.getWidth(), 480);
-        BufferedImage bodyJariR = EmptyGenerator.get(bodyReshamN.getWidth(), 480);
+        BufferedImage bodyReshamR = ReverseGenerator.get(ImageIO.read(new File("d/14/in/2024/design1/brocade1/rani-silk.bmp")));
+        BufferedImage bodyJariR = ReverseGenerator.get(ImageIO.read(new File("d/14/in/2024/design1/brocade1/rani-jari.bmp")));
 
-        int width = bodyReshamN.getWidth();
-
-        BufferedImage left = StepLayoutGenerator.get(width, 76, 4);
-        BufferedImage right = StepLayoutGenerator.get(width, 130, 4);
+        BufferedImage left = VerticalFlipGenerator.get(ImageIO.read(new File("d/14/in/2024/design1/border/left.bmp")));
+        BufferedImage right = ImageIO.read(new File("d/14/in/2024/design1/border/right.bmp"));
 
         get(right, left, bodyReshamR, bodyJariR, bodyReshamJ, bodyJariJ, bodyReshamN, bodyJariN);
     }
