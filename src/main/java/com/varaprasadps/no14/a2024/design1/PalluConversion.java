@@ -47,8 +47,8 @@ public class PalluConversion {
         BufferedImage bodyJariR = ReverseGenerator.get(ImageIO.read(new File("d/14/in/2024/design1/pallu/rani-jari.bmp")));
 
         int width = bodyJariJ.getWidth();
-        BufferedImage leftt = HorizontalRepeatGenerator.get(5, VerticalFlipGenerator.get(ImageIO.read(new File("d/14/in/2024/design1/border/left.bmp"))));
-        BufferedImage rightt = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("d/14/in/2024/design1/border/right.bmp")));
+        BufferedImage leftt = HorizontalRepeatGenerator.get(6, VerticalFlipGenerator.get(ImageIO.read(new File("d/14/in/2024/design1/border/left.bmp"))));
+        BufferedImage rightt = HorizontalRepeatGenerator.get(6, ImageIO.read(new File("d/14/in/2024/design1/border/right.bmp")));
 
         BufferedImage left = CutLayoutGenerator.get(CutLayoutGenerator.get(leftt, 180, 1), width, 0);
         BufferedImage right = CutLayoutGenerator.get(CutLayoutGenerator.get(rightt, 180, 1), width, 0);

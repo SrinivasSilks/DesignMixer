@@ -15,10 +15,10 @@ public class RaniConversion {
 
         String out = "z-vasu/out/6/a2024/design2/2brc-rani-%s-%s.bmp";
 
-        BufferedImage left = HorizontalRepeatGenerator.get(6, ImageIO.read(new File("z-vasu/in/6/a2024/design2/border/left.bmp")));
-        BufferedImage right = HorizontalRepeatGenerator.get(6, ImageIO.read(new File("z-vasu/in/6/a2024/design2/border/right.bmp")));
+        BufferedImage left = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("z-vasu/in/6/a2024/design2/border/left.bmp")));
+        BufferedImage right = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("z-vasu/in/6/a2024/design2/border/right.bmp")));
 
-        final BufferedImage pallu = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("z-vasu/in/6/a2024/design2/brocade2/meena.bmp")));
+        final BufferedImage pallu = HorizontalRepeatGenerator.get(2, ImageIO.read(new File("z-vasu/in/6/a2024/design2/brocade2/meena.bmp")));
         int width = right.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();

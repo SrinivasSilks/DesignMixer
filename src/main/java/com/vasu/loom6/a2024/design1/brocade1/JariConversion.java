@@ -15,10 +15,10 @@ public class JariConversion {
 
         String out = "z-vasu/out/6/a2024/design1/1brc-jari-%s-%s.bmp";
 
-        BufferedImage left = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-vasu/in/6/a2024/design1/border/left.bmp")));
-        BufferedImage right = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-vasu/in/6/a2024/design1/border/right.bmp")));
+        BufferedImage left = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("z-vasu/in/6/a2024/design1/border/left.bmp")));
+        BufferedImage right = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("z-vasu/in/6/a2024/design1/border/right.bmp")));
 
-        final BufferedImage pallu = HorizontalRepeatGenerator.get(right.getWidth() / 200, ImageIO.read(new File("z-vasu/in/6/a2024/design1/brocade1/jari.bmp")));
+        final BufferedImage body = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("z-vasu/in/6/a2024/design1/brocade1/jari.bmp")));
         int width = right.getWidth();
 
 
@@ -30,15 +30,13 @@ public class JariConversion {
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
-        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(pallu.getWidth(), 4), 2).get(0));
+        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(body.getWidth(), 4), 2).get(0));
         //achu
         inputBIs.add(EmptyGenerator.get(width, 10));
 
         //all over
-        inputBIs.add(pallu);
-        inputBIs.add(pallu);
-        inputBIs.add(pallu);
-        inputBIs.add(pallu);
+        inputBIs.add(body);
+        inputBIs.add(body);
         //locking
         inputBIs.add(StepLayoutGenerator.get(width, 1));
 
@@ -48,7 +46,7 @@ public class JariConversion {
         inputBIs.add(EmptyGenerator.get(right.getWidth(), right.getHeight()));
 
         //mispick
-        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(pallu.getWidth(), 4), 2).get(0)));
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(body.getWidth(), 4), 2).get(0)));
         //achu
         inputBIs.add(EmptyGenerator.get(width, 14));
 
