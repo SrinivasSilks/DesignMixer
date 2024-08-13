@@ -1,4 +1,4 @@
-package com.varaprasadps.no1.a2024.design1.pallu;
+package com.varaprasadps.no1.a2024.design1.kanni;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
 import com.varaprasadps.image.HorizontalFlipGenerator;
@@ -11,16 +11,16 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class PalluConversion {
+public class KanniConversion {
 
     public static void main(final String[] args) throws IOException {
         JariConversion.main(null);
         RaniConversion.main(null);
-        String out = "d/1/out/2024/design1/pallu-%s-%s.bmp";
+        String out = "d/1/out/2024/design1/kanni-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("d/1/out/2024/design1/p-rani-1630-2688.bmp");
-        inputs.add("d/1/out/2024/design1/p-jari-1630-2688.bmp");
+        inputs.add("d/1/out/2024/design1/k-rani-240-2688.bmp");
+        inputs.add("d/1/out/2024/design1/k-jari-240-2688.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {

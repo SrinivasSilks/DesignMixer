@@ -1,4 +1,4 @@
-package com.varaprasadps.no1.a2024.design1.pallu;
+package com.varaprasadps.no1.a2024.design1.kadiyalubrocade2;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
 import com.varaprasadps.image.HorizontalFlipGenerator;
@@ -11,16 +11,20 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class PalluConversion {
+public class KadiyaluBrocadeConversion {
 
     public static void main(final String[] args) throws IOException {
+
         JariConversion.main(null);
+        NimbuConversion.main(null);
         RaniConversion.main(null);
-        String out = "d/1/out/2024/design1/pallu-%s-%s.bmp";
+
+        String out = "d/1/out/2024/design1/kadiyalu/2kadiyalu-brc-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("d/1/out/2024/design1/p-rani-1630-2688.bmp");
-        inputs.add("d/1/out/2024/design1/p-jari-1630-2688.bmp");
+        inputs.add("d/1/out/2024/design1/kadiyalu/2rani-240-2688.bmp");
+        inputs.add("d/1/out/2024/design1/kadiyalu/2jari-240-2688.bmp");
+        inputs.add("d/1/out/2024/design1/kadiyalu/2nimbu-240-2688.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {
@@ -34,7 +38,7 @@ public class PalluConversion {
 
 
     private static void displayPixels(BufferedImage fileOne) {
-        System.out.println(String.format("Width : %s, Height : %s", fileOne.getWidth(), fileOne.getHeight()));
+        System.out.printf("Width : %s, Height : %s%n", fileOne.getWidth(), fileOne.getHeight());
     }
 
     private static void saveBMP(final BufferedImage bi, final String path) throws IOException {

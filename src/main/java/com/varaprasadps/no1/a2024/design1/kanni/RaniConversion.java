@@ -1,4 +1,4 @@
-package com.varaprasadps.no1.a2024.design1.pallu;
+package com.varaprasadps.no1.a2024.design1.kanni;
 
 import com.varaprasadps.image.*;
 
@@ -13,12 +13,10 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "d/1/out/2024/design1/p-rani-%s-%s.bmp";
+        String out = "d/1/out/2024/design1/k-rani-%s-%s.bmp";
 
-        int width = 1630;
-
-        BufferedImage borderrr = HorizontalRepeatGenerator.get(10, ImageIO.read(new File("d/1/in/2024/design1/border/border.bmp")));
-        BufferedImage border = CutLayoutGenerator.get(CutLayoutGenerator.get(borderrr, 180, 1), width, 0);
+        BufferedImage border = ImageIO.read(new File("d/1/in/2024/design1/border/border.bmp"));
+        int width = border.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
