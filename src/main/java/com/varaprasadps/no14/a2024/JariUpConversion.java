@@ -9,19 +9,19 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ReshamUpConversion {
+public class JariUpConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "d/14/out/2024/resham-up-%s-%s.bmp";
+        String out = "d/14/out/2024/jari-up-%s-%s.bmp";
 
         int width = 20;
 
-        BufferedImage left = EmptyGenerator.get(width, 304);
-        BufferedImage right = EmptyGenerator.get(width, 520);
+        BufferedImage left = BlackGenerator.get(width, 304);
+        BufferedImage right = BlackGenerator.get(width, 520);
 
-        BufferedImage jariBody = EmptyGenerator.get(width, 480);
-        BufferedImage reshamBody = BlackGenerator.get(width, 480);
+        BufferedImage jariBody = BlackGenerator.get(width, 480);
+        BufferedImage reshamBody = EmptyGenerator.get(width, 480);
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -36,7 +36,7 @@ public class ReshamUpConversion {
         inputBIs.add(EmptyGenerator.get(width, 1));
         inputBIs.add(EmptyGenerator.get(width, 1));
         //achu
-        inputBIs.add(BlackGenerator.get(width, 8));
+        inputBIs.add(EmptyGenerator.get(width, 8));
 
         //jamudu
         inputBIs.add(BlackGenerator.get(width, 24));
@@ -60,7 +60,7 @@ public class ReshamUpConversion {
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
-        inputBIs.add(BlackGenerator.get(width, 12));
+        inputBIs.add(EmptyGenerator.get(width, 12));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
