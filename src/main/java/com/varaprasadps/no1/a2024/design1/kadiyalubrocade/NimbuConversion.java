@@ -42,11 +42,9 @@ public class NimbuConversion {
         inputBIs.add(PlainGenerator.get(width, 4));
 
         //temple
-        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(body, 80).get(1), 152).get(0));
+        inputBIs.add(CutLayoutGenerator.get(body, body.getHeight() - 632).get(1));
         //body
         inputBIs.add(body);
-        //skirt
-        inputBIs.add(CutLayoutGenerator.get(body, 480).get(0));
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));
         inputBIs.add(EmptyGenerator.get(width, 16));
