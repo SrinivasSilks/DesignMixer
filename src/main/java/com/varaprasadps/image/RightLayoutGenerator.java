@@ -21,7 +21,7 @@ public class RightLayoutGenerator {
     }
 
     public static BufferedImage get(BufferedImage input) {
-        final BufferedImage res = new BufferedImage(input.getHeight(), input.getWidth(), BufferedImage.TYPE_BYTE_BINARY);
+        final BufferedImage res = new BufferedImage(input.getHeight(), input.getWidth(), input.getType());
         for (int x = 0; x < input.getWidth(); x++) {
             for (int y = 0; y < input.getHeight(); y++) {
                 int rgb = input.getRGB(x, y);
