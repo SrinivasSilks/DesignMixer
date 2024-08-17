@@ -32,18 +32,22 @@ public class Kadiyalu3Play {
         //jamudu
         inputBIs.add(EmptyGenerator.get(width, 24));
         inputBIs.add(left);
-        inputBIs.add(StepLayoutGenerator.get(width, 2));
+        //locking
+        inputBIs.add(EmptyGenerator.get(width, 4));
+        inputBIs.add(StepLayoutGenerator.get(width, 1));
         //body
         inputBIs.add(bodyJari);
         inputBIs.add(bodyResham);
-        inputBIs.add(StepLayoutGenerator.get(width, 2));
+        //locking
+        inputBIs.add(StepLayoutGenerator.get(width, 1));
+        inputBIs.add(EmptyGenerator.get(width, 4));
         inputBIs.add(right);
+
+
         //jamudu
         inputBIs.add(EmptyGenerator.get(width, 24));
-
         //kali
         inputBIs.add(EmptyGenerator.get(width, 40));
-
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //kadiyalu
@@ -70,38 +74,41 @@ public class Kadiyalu3Play {
         inputBIs.add(EmptyGenerator.get(width, 32));
 
         //box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //mispick
-        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 1));
         //wheel
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
         //achu
-        inputBIs.add(EmptyGenerator.get(width, 8));
-
+        inputBIs.add(AchuLayoutGenerator.get(width, 8));
         //jamudu
-        inputBIs.add(EmptyGenerator.get(width, 24));
+        inputBIs.add(PlainGenerator.get(width, 24));
+
         inputBIs.add(left);
-        inputBIs.add(PlainGenerator.get(width, 8));
+        //locking
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 4)));
+        inputBIs.add(PlainGenerator.get(width, 4));
         //body
         inputBIs.add(bodyJari);
         inputBIs.add(bodyResham);
-        inputBIs.add(PlainGenerator.get(width, 8));
+        //locking
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 4)));
+        inputBIs.add(PlainGenerator.get(width, 4));
         inputBIs.add(right);
-        //jamudu
-        inputBIs.add(EmptyGenerator.get(width, 24));
 
+        //jamudu
+        inputBIs.add(PlainGenerator.get(width, 24));
         //kali
         inputBIs.add(EmptyGenerator.get(width, 40));
-
         //mispick
-        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
-        //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 2));
+        //kadiyalu
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //achu
-        inputBIs.add(EmptyGenerator.get(width, 12));
+        inputBIs.add(AchuLayoutGenerator.get(width, 12));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -124,34 +131,37 @@ public class Kadiyalu3Play {
         inputBIs.add(EmptyGenerator.get(width, 32));
 
         //box
-        inputBIs.add(EmptyGenerator.get(width, 2));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
-        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //kadiyalu
-        inputBIs.add(EmptyGenerator.get(width, 1));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
         //wheel
         inputBIs.add(EmptyGenerator.get(width, 1));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 8));
-
+        inputBIs.add(ReverseGenerator.get(AchuLayoutGenerator.get(width, 8)));
         //jamudu
-        inputBIs.add(PlainGenerator.get(width, 24));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 24)));
+
         inputBIs.add(left);
-        inputBIs.add(PlainGenerator.get(width, 8));
+        inputBIs.add(PlainGenerator.get(width, 4));
+        //locking
+        inputBIs.add(PlainGenerator.get(width, 4));
         //body
         inputBIs.add(bodyJari);
         inputBIs.add(bodyResham);
-        inputBIs.add(PlainGenerator.get(width, 8));
+        //locking
+        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(PlainGenerator.get(width, 4));
         inputBIs.add(right);
+
         //jamudu
         inputBIs.add(PlainGenerator.get(width, 24));
-
         //kali
         inputBIs.add(EmptyGenerator.get(width, 40));
-
         //mispick
-        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
