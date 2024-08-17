@@ -1,4 +1,4 @@
-package com.varaprasadps.no14.a2024;
+package com.varaprasadps.no14.a2024.aug15;
 
 import com.varaprasadps.image.*;
 
@@ -6,7 +6,6 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.math.BigInteger;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -14,10 +13,10 @@ public class AnniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "d/14/out/2024/design1/anni-%s-%s.bmp";
+        String out = "d/14/out/2024/aug15/anni-%s-%s.bmp";
 
-        BufferedImage left = StepLayoutGenerator.get(20, 76, 4);
-        BufferedImage right = StepLayoutGenerator.get(20, 130, 4);
+        BufferedImage left = VerticalFlipGenerator.get(ImageIO.read(new File("d/14/in/2024/aug15/border/left.bmp")));
+        BufferedImage right = ImageIO.read(new File("d/14/in/2024/aug15/border/right.bmp"));
 
         int width = left.getWidth();
         BufferedImage jariBody = StepLayoutGenerator.get(width, 120, 4);

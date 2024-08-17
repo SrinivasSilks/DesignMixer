@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ThreePlay {
+public class Kadiyalu3Play {
 
     public static BufferedImage nimbu(BufferedImage right, BufferedImage left, BufferedImage bodyResham, BufferedImage bodyJari) {
 

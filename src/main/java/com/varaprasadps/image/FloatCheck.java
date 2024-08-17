@@ -10,8 +10,8 @@ import java.io.IOException;
 public class FloatCheck {
 
     public static void main(final String[] args) throws IOException {
-        String out = "z-data/test/checks/final-color-cl.bmp";
-        String path = "z-data/test/checks/final-color.bmp";
+        String out = "sp/test-check.bmp";
+        String path = "sp/test.bmp";
         BufferedImage image = ImageIO.read(new File(path));
 
         BufferedImage img = get(image, 8);
