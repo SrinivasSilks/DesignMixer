@@ -23,12 +23,15 @@ public class Bondu {
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        inputBIs.add(brocade);
+//        inputBIs.add(brocade);
+        inputBIs.add(CutLayoutGenerator.get(kanni, 116).get(0));
         inputBIs.add(kongu);
-        inputBIs.add(kanni);
+        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(kanni, 116).get(1), 120).get(0));
         inputBIs.add(kongu);
+        inputBIs.add(CutLayoutGenerator.get(kanni, 236).get(1));
+
         inputBIs.add(pallu);
-        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(blouse, 158).get(1), 80).get(0));
+        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(blouse, 158).get(1), 160).get(0));
 
 
         int repeatWidth = 0;
@@ -46,7 +49,7 @@ public class Bondu {
     }
 
     private static void displayPixels(BufferedImage fileOne) {
-        System.out.println(String.format("Width : %s, Height : %s", fileOne.getWidth(), fileOne.getHeight()));
+        System.out.printf("Width : %s, Height : %s%n", fileOne.getWidth(), fileOne.getHeight());
     }
 
     static void saveBMP(final BufferedImage bi, final String path) throws IOException {
