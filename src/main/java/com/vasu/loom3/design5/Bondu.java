@@ -15,15 +15,15 @@ public class Bondu {
     public static void main(final String[] args) throws IOException {
 
         String out = "z-vasu/out/3/design5/pset.bmp";
-        BufferedImage kongu = ImageIO.read(new File("z-vasu/out/3/design1/kongu-2-1824.bmp"));
-        BufferedImage kanni = ImageIO.read(new File("z-vasu/out/3/design5/kanni-1824-480.bmp"));
-        BufferedImage anni = ImageIO.read(new File("z-vasu/out/3/design5/anni-240-1824.bmp"));
+        BufferedImage kongu = ImageIO.read(new File("z-vasu/out/3/design5/kongu-2-1824.bmp"));
+        BufferedImage kanni = ImageIO.read(new File("z-vasu/out/3/design5/kanni-1824-720.bmp"));
+        BufferedImage anni = ImageIO.read(new File("z-vasu/out/3/design5/anni-360-1824.bmp"));
         BufferedImage pallu = ImageIO.read(new File("z-vasu/out/3/design5/pallu-1824-3840.bmp"));
-//        BufferedImage brocade = ImageIO.read(new File("z-vasu/out/3/design5/1brocade-1824-3600.bmp"));
+        BufferedImage brocade = ImageIO.read(new File("z-vasu/out/3/design5/2brocade-1824-11880.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-//        inputBIs.add(brocade);
+        inputBIs.add(brocade);
         inputBIs.add(CutLayoutGenerator.get(kanni, 20).get(0));
         inputBIs.add(kongu);
         inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(kanni, 20).get(1), 10).get(0));

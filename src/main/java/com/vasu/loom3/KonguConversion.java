@@ -13,7 +13,7 @@ public class KonguConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-vasu/out/3/design1/kongu-%s-%s.bmp";
+        String out = "z-vasu/out/3/design5/kongu-%s-%s.bmp";
 
         BufferedImage border = EmptyGenerator.get(2, 376);
 

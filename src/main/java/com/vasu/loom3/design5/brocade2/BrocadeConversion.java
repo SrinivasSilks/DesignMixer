@@ -30,7 +30,7 @@ public class BrocadeConversion {
     public static void main(String[] args) throws IOException {
         BufferedImage borderdf = ImageIO.read(new File("z-vasu/in/3/design5/border/border.bmp"));
         BufferedImage border = HorizontalRepeatGenerator.get(11, borderdf);
-        BufferedImage jari = HorizontalRepeatGenerator.get(6, ImageIO.read(new File("z-vasu/in/3/design5/brocade2/jari.bmp")));
+        BufferedImage jari = HorizontalRepeatGenerator.get(9, ImageIO.read(new File("z-vasu/in/3/design5/brocade2/jari.bmp")));
         BufferedImage nimbu = PlainGenerator.get(jari.getWidth(), jari.getHeight());
         get(border, nimbu, jari);
     }
