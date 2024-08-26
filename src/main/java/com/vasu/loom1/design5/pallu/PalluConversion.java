@@ -30,10 +30,10 @@ public class PalluConversion {
         BufferedImage rightd = ImageIO.read(new File("z-vasu/in/1/design5/border/border.bmp"));
         BufferedImage leftd = VerticalFlipGenerator.get(ImageIO.read(new File("z-vasu/in/1/design5/border/border.bmp")));
 
-        BufferedImage rightf = HorizontalRepeatGenerator.get(9, rightd);
+        BufferedImage rightf = HorizontalRepeatGenerator.get(18, rightd);
         BufferedImage right = CutLayoutGenerator.get(CutLayoutGenerator.get(rightf, 180, 1), 1920, 0);
 
-        BufferedImage leftf = HorizontalRepeatGenerator.get(9, leftd);
+        BufferedImage leftf = HorizontalRepeatGenerator.get(18, leftd);
         BufferedImage left = CutLayoutGenerator.get(CutLayoutGenerator.get(leftf, 180, 1), 1920, 0);
 
         BufferedImage jari = ImageIO.read(new File("z-vasu/in/1/design5/pallu/pallu_jari.bmp"));

@@ -1,4 +1,4 @@
-package com.vasu.loom1.design5.brocade7;
+package com.vasu.loom1.design5.brocade1;
 
 import com.varaprasadps.image.*;
 
@@ -20,19 +20,19 @@ public class BrocadeConversion {
         brocades.add(jari(border, nimbu));
         brocades.add(nimbu(border, jari));
         BufferedImage brocade = LeftLayoutGenerator.get(getBrocade(brocades));
-        saveBMP(brocade, String.format("z-vasu/out/1/design5/7brocade-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
+        saveBMP(brocade, String.format("z-vasu/out/1/design5/1brocade-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
         return brocade;
     }
 
     public static void main(String[] args) throws IOException {
         BufferedImage borderdf = ImageIO.read(new File("z-vasu/in/1/design5/border/border.bmp"));
-        BufferedImage border = HorizontalRepeatGenerator.get(1, borderdf);
+        BufferedImage border = HorizontalRepeatGenerator.get(3, borderdf);
 
-        BufferedImage read = ImageIO.read(new File("z-vasu/in/1/design5/brocade7/jari4-22.bmp"));
-        BufferedImage readnimbu = PlainGenerator.get(read.getWidth(), read.getHeight());
+        BufferedImage jarib = VerticalRepeatGenerator.get(2, ImageIO.read(new File("z-vasu/in/1/design5/brocade1/jari.bmp")));
+        BufferedImage readnimbu = PlainGenerator.get(jarib.getWidth(), jarib.getHeight());
 
-        BufferedImage jari = HorizontalRepeatGenerator.get(2, RightLayoutGenerator.get(HorizontalRepeatGenerator.get(2, LeftLayoutGenerator.get(read))));
-        BufferedImage nimbu = HorizontalRepeatGenerator.get(2, RightLayoutGenerator.get(HorizontalRepeatGenerator.get(2, LeftLayoutGenerator.get(readnimbu))));
+        BufferedImage jari = HorizontalRepeatGenerator.get(1, jarib);
+        BufferedImage nimbu = HorizontalRepeatGenerator.get(1, readnimbu);
         get(border, nimbu, jari);
     }
 

@@ -15,7 +15,7 @@ public class AnniConversion {
 
         String out = "z-vasu/out/1/design5/anni-%s-%s.bmp";
 
-        BufferedImage border = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-vasu/in/1/design5/border/border.bmp")));
+        BufferedImage border = HorizontalRepeatGenerator.get(2, ImageIO.read(new File("z-vasu/in/1/design5/border/border.bmp")));
 
         int width = border.getWidth();
 
