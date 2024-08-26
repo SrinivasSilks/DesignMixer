@@ -9,9 +9,9 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Kadiyalu3Play {
+public class SKadiyalu3Play {
 
-    public static BufferedImage nimbu(BufferedImage rightMeena, BufferedImage rightJari, BufferedImage leftFigureMeena, BufferedImage leftFigureJari, BufferedImage leftTeegaMeena, BufferedImage leftTeegaJari, BufferedImage body) {
+    public static BufferedImage greenTwo(BufferedImage rightMeena, BufferedImage rightJari, BufferedImage leftFigureMeena, BufferedImage leftFigureJari, BufferedImage leftTeegaMeena, BufferedImage leftTeegaJari, BufferedImage body) {
 
         int width = body.getWidth();
 
@@ -22,8 +22,128 @@ public class Kadiyalu3Play {
         //jamudu
         inputBIs.add(EmptyGenerator.get(width, 4));
         //locking
+        inputBIs.add(EmptyGenerator.get(width, 2));
         inputBIs.add(PlainGenerator.get(width, 2));
-        inputBIs.add(CutLayoutGenerator.get(StepLayoutGenerator.get(width, 1), 2).get(1));
+        //mispick
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        //kadiyalu
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        //kali
+        inputBIs.add(EmptyGenerator.get(width, 4));
+
+        //left Figure
+        inputBIs.add(VerticalFlipGenerator.get(leftFigureJari));
+        inputBIs.add(VerticalFlipGenerator.get(leftFigureMeena));
+        //left Teega
+        inputBIs.add(VerticalFlipGenerator.get(leftTeegaJari));
+        inputBIs.add(VerticalFlipGenerator.get(leftTeegaMeena));
+
+        //allover
+        inputBIs.add(body);
+
+        //Right Border
+        inputBIs.add(rightJari);
+        inputBIs.add(rightMeena);
+
+        //jamudu
+        inputBIs.add(EmptyGenerator.get(width, 4));
+        //locking
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        //box
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        //mispick
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        //kadiyalu
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
+        //wheel
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
+
+        int repeatWidth = 0;
+        int repeatHeight = 0;
+
+        for (BufferedImage bi : inputBIs) {
+            displayPixels(bi);
+            repeatWidth = bi.getWidth();
+            repeatHeight += bi.getHeight();
+        }
+        return ReverseGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
+    }
+
+    public static BufferedImage greenOne(BufferedImage rightMeena, BufferedImage rightJari, BufferedImage leftFigureMeena, BufferedImage leftFigureJari, BufferedImage leftTeegaMeena, BufferedImage leftTeegaJari, BufferedImage body) {
+
+        int width = leftFigureJari.getWidth();
+
+        List<BufferedImage> inputBIs = new LinkedList<>();
+
+        inputBIs.add(EmptyGenerator.get(width, 32));
+
+        //jamudu
+        inputBIs.add(EmptyGenerator.get(width, 4));
+        //locking
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(PlainGenerator.get(width, 2));
+        //mispick
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        //kadiyalu
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        //kali
+        inputBIs.add(EmptyGenerator.get(width, 4));
+
+        //left Figure
+        inputBIs.add(VerticalFlipGenerator.get(leftFigureJari));
+        inputBIs.add(VerticalFlipGenerator.get(leftFigureMeena));
+        //left Teega
+        inputBIs.add(VerticalFlipGenerator.get(leftTeegaJari));
+        inputBIs.add(VerticalFlipGenerator.get(leftTeegaMeena));
+
+        //allover
+        inputBIs.add(body);
+
+        //Right Border
+        inputBIs.add(rightJari);
+        inputBIs.add(rightMeena);
+
+        //jamudu
+        inputBIs.add(EmptyGenerator.get(width, 4));
+        //locking
+        inputBIs.add(PlainGenerator.get(width, 2));
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        //box
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        //mispick
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        //kadiyalu
+        inputBIs.add(EmptyGenerator.get(width, 1));
+        //wheel
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
+
+        int repeatWidth = 0;
+        int repeatHeight = 0;
+
+        for (BufferedImage bi : inputBIs) {
+            displayPixels(bi);
+            repeatWidth = bi.getWidth();
+            repeatHeight += bi.getHeight();
+        }
+        return ReverseGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
+    }
+
+
+    public static BufferedImage silver(BufferedImage rightMeena, BufferedImage rightJari, BufferedImage leftFigureMeena, BufferedImage leftFigureJari, BufferedImage leftTeegaMeena, BufferedImage leftTeegaJari, BufferedImage body) {
+        int width = body.getWidth();
+
+        List<BufferedImage> inputBIs = new LinkedList<>();
+
+        inputBIs.add(EmptyGenerator.get(width, 32));
+
+        //jamudu
+        inputBIs.add(EmptyGenerator.get(width, 4));
+        //locking
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(PlainGenerator.get(width, 2));
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //kadiyalu
@@ -48,14 +168,15 @@ public class Kadiyalu3Play {
         //jamudu
         inputBIs.add(EmptyGenerator.get(width, 4));
         //locking
-        inputBIs.add(CutLayoutGenerator.get(StepLayoutGenerator.get(width, 1), 2).get(0));        //box
         inputBIs.add(PlainGenerator.get(width, 2));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         inputBIs.add(EmptyGenerator.get(width, 2));
+        //box
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //kadiyalu
-        inputBIs.add(EmptyGenerator.get(width, 1));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
         //wheel
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
 
@@ -70,7 +191,7 @@ public class Kadiyalu3Play {
         return ReverseGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
     }
 
-    public static BufferedImage jari(BufferedImage rightMeena, BufferedImage rightJari, BufferedImage leftFigureMeena, BufferedImage leftFigureJari, BufferedImage leftTeegaMeena, BufferedImage leftTeegaJari, BufferedImage body) {
+    public static BufferedImage red(BufferedImage rightMeena, BufferedImage rightJari, BufferedImage leftFigureMeena, BufferedImage leftFigureJari, BufferedImage leftTeegaMeena, BufferedImage leftTeegaJari, BufferedImage body) {
 
         int width = body.getWidth();
 
@@ -81,72 +202,12 @@ public class Kadiyalu3Play {
         //jamudu
         inputBIs.add(PlainGenerator.get(width, 4));
         //locking
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 2)));
-        inputBIs.add(PlainGenerator.get(width, 2));
-        //mispick
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
-        //kadiyalu
-        inputBIs.add(EmptyGenerator.get(width, 2));
-        //kali
-        inputBIs.add(EmptyGenerator.get(width, 4));
-
-        //left Figure
-        inputBIs.add(VerticalFlipGenerator.get(leftFigureJari));
-        inputBIs.add(VerticalFlipGenerator.get(leftFigureMeena));
-        //left Teega
-        inputBIs.add(VerticalFlipGenerator.get(leftTeegaJari));
-        inputBIs.add(VerticalFlipGenerator.get(leftTeegaMeena));
-
-        //allover
-        inputBIs.add(body);
-
-        //Right Border
-        inputBIs.add(rightJari);
-        inputBIs.add(rightMeena);
-
-        //jamudu
-        inputBIs.add(PlainGenerator.get(width, 4));
-        //locking
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 2)));
-        inputBIs.add(PlainGenerator.get(width, 2));
-        //box
-        inputBIs.add(EmptyGenerator.get(width, 2));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
-        //mispick
-        inputBIs.add(EmptyGenerator.get(width, 2));
-        //kadiyalu
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
-        //wheel
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
-
-        int repeatWidth = 0;
-        int repeatHeight = 0;
-
-        for (BufferedImage bi : inputBIs) {
-            displayPixels(bi);
-            repeatWidth = bi.getWidth();
-            repeatHeight += bi.getHeight();
-        }
-        return ReverseGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
-    }
-
-    public static BufferedImage rani(BufferedImage rightMeena, BufferedImage rightJari, BufferedImage leftFigureMeena, BufferedImage leftFigureJari, BufferedImage leftTeegaMeena, BufferedImage leftTeegaJari, BufferedImage body) {
-
-        int width = leftFigureJari.getWidth();
-
-        List<BufferedImage> inputBIs = new LinkedList<>();
-
-        inputBIs.add(EmptyGenerator.get(width, 32));
-
-        //jamudu
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 4)));
-        //locking
         inputBIs.add(PlainGenerator.get(width, 2));
         inputBIs.add(PlainGenerator.get(width, 2));
         //mispick
-        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //kadiyalu
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //kali
         inputBIs.add(EmptyGenerator.get(width, 4));
 
@@ -170,12 +231,12 @@ public class Kadiyalu3Play {
         inputBIs.add(PlainGenerator.get(width, 2));
         inputBIs.add(PlainGenerator.get(width, 2));
         //box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         inputBIs.add(EmptyGenerator.get(width, 2));
-        //mispick
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        //mispick
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //kadiyalu
-        inputBIs.add(EmptyGenerator.get(width, 1));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
         //wheel
         inputBIs.add(EmptyGenerator.get(width, 1));
 

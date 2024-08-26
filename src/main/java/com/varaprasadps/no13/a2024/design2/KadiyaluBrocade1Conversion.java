@@ -52,8 +52,8 @@ public class KadiyaluBrocade1Conversion {
         BufferedImage figureJari = border(ImageIO.read(new File("d/13/in/2024/design2/border/repeat.bmp")));
         BufferedImage figureMeena = PlainGenerator.get(figureJari.getWidth(), figureJari.getHeight());
 
-        BufferedImage jari = repeat(ReverseGenerator.get(ImageIO.read(new File("d/13/in/2024/design2/brocade1/silver.bmp"))));
-        BufferedImage meena = repeat(ReverseGenerator.get(ImageIO.read(new File("d/13/in/2024/design2/brocade1/meena.bmp"))));
+        BufferedImage jari = repeat(ImageIO.read(new File("d/13/in/2024/design2/brocade1/silver.bmp")));
+        BufferedImage meena = repeat(ImageIO.read(new File("d/13/in/2024/design2/brocade1/meena.bmp")));
 
         get(rightMeena, rightJari, teegaMeena, teegaJari, figureMeena, figureJari, meena, jari);
     }
