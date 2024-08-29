@@ -22,8 +22,8 @@ public class Kadiyalu3Play {
         //jamudu
         inputBIs.add(EmptyGenerator.get(width, 4));
         //locking
+        inputBIs.add(EmptyGenerator.get(width, 2));
         inputBIs.add(PlainGenerator.get(width, 2));
-        inputBIs.add(CutLayoutGenerator.get(StepLayoutGenerator.get(width, 1), 2).get(1));
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //kadiyalu
@@ -48,8 +48,8 @@ public class Kadiyalu3Play {
         //jamudu
         inputBIs.add(EmptyGenerator.get(width, 4));
         //locking
-        inputBIs.add(CutLayoutGenerator.get(StepLayoutGenerator.get(width, 1), 2).get(0));        //box
         inputBIs.add(PlainGenerator.get(width, 2));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
