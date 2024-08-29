@@ -25,9 +25,9 @@ public class KadiyaluBrocade1Conversion {
         BufferedImage emptyLeft = EmptyGenerator.get(left.getWidth(), left.getHeight());
 
         List<BufferedImage> brocades = new LinkedList<>();
-        brocades.add(rani(right, leftBack, bodyReshamR, bodyJariR));
-        brocades.add(jari(right, left, bodyReshamR, bodyJariR));
-        brocades.add(nimbu(emptyRight, emptyLeft, bodyReshamJ, bodyJariJ));
+        brocades.add(rani(right, leftBack, bodyReshamJ, bodyJariJ));
+        brocades.add(jari(right, left, bodyReshamJ, bodyJariJ));
+        brocades.add(nimbu(emptyRight, emptyLeft, bodyReshamR, bodyJariR));
 
         for (BufferedImage bufferedImage : brocades) {
             System.out.printf("file data - %s - %s%n", bufferedImage.getWidth(), bufferedImage.getHeight());
@@ -35,7 +35,7 @@ public class KadiyaluBrocade1Conversion {
         BufferedImage brocade = LeftLayoutGenerator.get(getBrocade(brocades));
         displayPixels(brocade);
 
-        saveBMP(brocade, format("d/14/out/2024/aug17/1kadiyalu-broc-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
+        saveBMP(brocade, format("d/14/out/2024/aug17/1kadiyalu-broc-jari-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
         return brocade;
     }
 
