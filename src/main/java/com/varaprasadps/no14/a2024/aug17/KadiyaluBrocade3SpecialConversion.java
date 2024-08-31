@@ -36,11 +36,34 @@ public class KadiyaluBrocade3SpecialConversion {
         return brocade;
     }
 
+    public static BufferedImage kadiyalu12BPlay(
+            BufferedImage right, BufferedImage leftBack, BufferedImage left,
+            BufferedImage silverSilk, BufferedImage silverJari,
+            BufferedImage greenSilk, BufferedImage greenJari,
+            BufferedImage buttaSilk, BufferedImage buttaJari
+    ) {
+        BufferedImage emptyRight = EmptyGenerator.get(right.getWidth(), right.getHeight());
+        BufferedImage emptyLeft = EmptyGenerator.get(left.getWidth(), left.getHeight());
+
+        List<BufferedImage> brocades = new LinkedList<>();
+        brocades.add(Kadiyalu12BPlay.silverOne(right, leftBack, silverSilk, silverJari));
+        brocades.add(Kadiyalu12BPlay.silverTwo(right, left, silverSilk, silverJari));
+        brocades.add(Kadiyalu12BPlay.green(emptyRight, emptyLeft, greenSilk, greenJari));
+        brocades.add(Kadiyalu12BPlay.butta(emptyRight, emptyLeft, buttaSilk, buttaJari));
+
+        for (BufferedImage bufferedImage : brocades) {
+            System.out.printf("file data - %s - %s%n", bufferedImage.getWidth(), bufferedImage.getHeight());
+        }
+        BufferedImage brocade = getBrocade(brocades);
+        displayPixels(brocade);
+        return brocade;
+    }
+
     public static BufferedImage kadiyalu123Play(
             BufferedImage right, BufferedImage leftBack, BufferedImage left,
             BufferedImage silverSilk, BufferedImage silverJari,
             BufferedImage greenSilk, BufferedImage greenJari,
-            BufferedImage orangeSilk, BufferedImage orangeJari
+            BufferedImage magentaSilk, BufferedImage magentaJari
     ) {
         BufferedImage emptyRight = EmptyGenerator.get(right.getWidth(), right.getHeight());
         BufferedImage emptyLeft = EmptyGenerator.get(left.getWidth(), left.getHeight());
@@ -49,7 +72,33 @@ public class KadiyaluBrocade3SpecialConversion {
         brocades.add(Kadiyalu123Play.silverOne(right, leftBack, silverSilk, silverJari));
         brocades.add(Kadiyalu123Play.silverTwo(right, left, silverSilk, silverJari));
         brocades.add(Kadiyalu123Play.green(emptyRight, emptyLeft, greenSilk, greenJari));
-        brocades.add(Kadiyalu123Play.orange(emptyRight, emptyLeft, orangeSilk, orangeJari));
+        brocades.add(Kadiyalu123Play.magenta(emptyRight, emptyLeft, magentaSilk, magentaJari));
+
+        for (BufferedImage bufferedImage : brocades) {
+            System.out.printf("file data - %s - %s%n", bufferedImage.getWidth(), bufferedImage.getHeight());
+        }
+        BufferedImage brocade = getBrocade(brocades);
+        displayPixels(brocade);
+        return brocade;
+    }
+
+    public static BufferedImage kadiyalu123BPlay(
+            BufferedImage right, BufferedImage leftBack, BufferedImage left,
+            BufferedImage silverSilk, BufferedImage silverJari,
+            BufferedImage greenSilk, BufferedImage greenJari,
+            BufferedImage magentaSilk, BufferedImage magentaJari,
+            BufferedImage buttaSilk, BufferedImage buttaJari
+
+    ) {
+        BufferedImage emptyRight = EmptyGenerator.get(right.getWidth(), right.getHeight());
+        BufferedImage emptyLeft = EmptyGenerator.get(left.getWidth(), left.getHeight());
+
+        List<BufferedImage> brocades = new LinkedList<>();
+        brocades.add(Kadiyalu123BPlay.silverOne(right, leftBack, silverSilk, silverJari));
+        brocades.add(Kadiyalu123BPlay.silverTwo(right, left, silverSilk, silverJari));
+        brocades.add(Kadiyalu123BPlay.green(emptyRight, emptyLeft, greenSilk, greenJari));
+        brocades.add(Kadiyalu123BPlay.magenta(emptyRight, emptyLeft, magentaSilk, magentaJari));
+        brocades.add(Kadiyalu123BPlay.butta(emptyRight, emptyLeft, buttaSilk, buttaJari));
 
         for (BufferedImage bufferedImage : brocades) {
             System.out.printf("file data - %s - %s%n", bufferedImage.getWidth(), bufferedImage.getHeight());
@@ -61,12 +110,14 @@ public class KadiyaluBrocade3SpecialConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        BufferedImage silverSilkR = body(ReverseGenerator.get(ImageIO.read(new File("d/14/in/2024/aug17/brocade3/silver-silk.bmp"))));
-        BufferedImage silverJariR = body(ReverseGenerator.get(ImageIO.read(new File("d/14/in/2024/aug17/brocade3/silver-jari.bmp"))));
-        BufferedImage greenSilkR = body(ReverseGenerator.get(ImageIO.read(new File("d/14/in/2024/aug17/brocade3/green-silk.bmp"))));
-        BufferedImage greenJariR = body(ReverseGenerator.get(ImageIO.read(new File("d/14/in/2024/aug17/brocade3/green-jari.bmp"))));
-        BufferedImage orangeSilkR = body(ReverseGenerator.get(ImageIO.read(new File("d/14/in/2024/aug17/brocade3/orange-silk.bmp"))));
-        BufferedImage orangeJariR = body(ReverseGenerator.get(ImageIO.read(new File("d/14/in/2024/aug17/brocade3/orange-jari.bmp"))));
+        BufferedImage silverSilkR = body(ReverseGenerator.get(ImageIO.read(new File("d/14/in/2024/aug17/brocade-aug31/silver-silk.bmp"))));
+        BufferedImage silverJariR = body(ReverseGenerator.get(ImageIO.read(new File("d/14/in/2024/aug17/brocade-aug31/silver-jari.bmp"))));
+        BufferedImage greenSilkR = body(ReverseGenerator.get(ImageIO.read(new File("d/14/in/2024/aug17/brocade-aug31/green-silk.bmp"))));
+        BufferedImage greenJariR = body(ReverseGenerator.get(ImageIO.read(new File("d/14/in/2024/aug17/brocade-aug31/green-jari.bmp"))));
+        BufferedImage magentaSilkR = body(ReverseGenerator.get(ImageIO.read(new File("d/14/in/2024/aug17/brocade-aug31/magenta-silk.bmp"))));
+        BufferedImage magentaJariR = body(ReverseGenerator.get(ImageIO.read(new File("d/14/in/2024/aug17/brocade-aug31/magenta-jari.bmp"))));
+        BufferedImage orangeSilkR = body(ReverseGenerator.get(ImageIO.read(new File("d/14/in/2024/aug17/brocade-aug31/orange-silk.bmp"))));
+        BufferedImage orangeJariR = body(ReverseGenerator.get(ImageIO.read(new File("d/14/in/2024/aug17/brocade-aug31/orange-jari.bmp"))));
         BufferedImage leftBack = border(VerticalFlipGenerator.get(ImageIO.read(new File("d/14/in/2024/aug17/border/left-first.bmp"))));
         BufferedImage left = border(VerticalFlipGenerator.get(ImageIO.read(new File("d/14/in/2024/aug17/border/left.bmp"))));
         BufferedImage right = border(ImageIO.read(new File("d/14/in/2024/aug17/border/right.bmp")));
@@ -79,6 +130,8 @@ public class KadiyaluBrocade3SpecialConversion {
         List<BufferedImage> silverJariSilces = SlicerGenerator.get(silverJariR, 2);
         List<BufferedImage> greenSilkSilces = SlicerGenerator.get(greenSilkR, 2);
         List<BufferedImage> greenJariSilces = SlicerGenerator.get(greenJariR, 2);
+        List<BufferedImage> magentaSilkSilces = SlicerGenerator.get(magentaSilkR, 2);
+        List<BufferedImage> magentaJariSilces = SlicerGenerator.get(magentaJariR, 2);
         List<BufferedImage> orangeSilkSilces = SlicerGenerator.get(orangeSilkR, 2);
         List<BufferedImage> orangeJariSilces = SlicerGenerator.get(orangeJariR, 2);
 
@@ -86,9 +139,27 @@ public class KadiyaluBrocade3SpecialConversion {
 
         if (rightSilces.size() == silverSilkSilces.size()) {
             for (int i = 0; i < rightSilces.size(); i++) {
+                boolean isMagentaSilkValid = BlackCheck.valid(magentaSilkSilces.get(i));
                 boolean isOrangeSilkValid = BlackCheck.valid(orangeSilkSilces.get(i));
-                if (isOrangeSilkValid) {
+                if (isMagentaSilkValid && isOrangeSilkValid) {
+                    brocades.add(kadiyalu123BPlay(
+                                    rightSilces.get(i), leftBackSilces.get(i), leftSilces.get(i),
+                                    silverSilkSilces.get(i), silverJariSilces.get(i),
+                                    greenSilkSilces.get(i), greenJariSilces.get(i),
+                                    magentaSilkSilces.get(i), magentaJariSilces.get(i),
+                                    orangeSilkSilces.get(i), orangeJariSilces.get(i)
+                            )
+                    );
+                } else if (isMagentaSilkValid) {
                     brocades.add(kadiyalu123Play(
+                                    rightSilces.get(i), leftBackSilces.get(i), leftSilces.get(i),
+                                    silverSilkSilces.get(i), silverJariSilces.get(i),
+                                    greenSilkSilces.get(i), greenJariSilces.get(i),
+                                    magentaSilkSilces.get(i), magentaSilkSilces.get(i)
+                            )
+                    );
+                } else if (isOrangeSilkValid) {
+                    brocades.add(kadiyalu12BPlay(
                                     rightSilces.get(i), leftBackSilces.get(i), leftSilces.get(i),
                                     silverSilkSilces.get(i), silverJariSilces.get(i),
                                     greenSilkSilces.get(i), greenJariSilces.get(i),
@@ -106,7 +177,7 @@ public class KadiyaluBrocade3SpecialConversion {
             }
         }
         BufferedImage brocade = LeftLayoutGenerator.get(SlicerGenerator.attachX(brocades));
-        saveBMP(brocade, format("d/14/out/2024/aug17/3kadiyalu-broc-special-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
+        saveBMP(brocade, format("d/14/out/2024/aug17/G-4kadiyalu-broc-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
     }
 
     public static BufferedImage body(BufferedImage image) {
@@ -114,7 +185,7 @@ public class KadiyaluBrocade3SpecialConversion {
     }
 
     public static BufferedImage border(BufferedImage image) {
-        return VerticalRepeatGenerator.get(1, HorizontalRepeatGenerator.get(12, image));
+        return VerticalRepeatGenerator.get(1, HorizontalRepeatGenerator.get(10, image));
     }
 
 

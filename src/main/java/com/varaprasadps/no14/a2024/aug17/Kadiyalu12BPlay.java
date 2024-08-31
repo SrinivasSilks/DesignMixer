@@ -9,9 +9,10 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Kadiyalu123Play {
+public class Kadiyalu12BPlay {
 
-    public static BufferedImage magenta(BufferedImage right, BufferedImage left, BufferedImage bodyResham, BufferedImage bodyJari) {
+
+    public static BufferedImage butta(BufferedImage right, BufferedImage left, BufferedImage bodyResham, BufferedImage bodyJari) {
 
         int width = bodyResham.getWidth();
         List<BufferedImage> inputBIs = new LinkedList<>();
@@ -21,7 +22,7 @@ public class Kadiyalu123Play {
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
-        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 1));
         //wheel
@@ -34,12 +35,12 @@ public class Kadiyalu123Play {
         inputBIs.add(left);
         //locking
         inputBIs.add(EmptyGenerator.get(width, 4));
-        inputBIs.add(StepLayoutGenerator.get(width, 1));
+        inputBIs.add(EmptyGenerator.get(width, 4));
         //body
         inputBIs.add(bodyJari);
         inputBIs.add(bodyResham);
         //locking
-        inputBIs.add(StepLayoutGenerator.get(width, 1));
+        inputBIs.add(EmptyGenerator.get(width, 4));
         inputBIs.add(EmptyGenerator.get(width, 4));
         inputBIs.add(right);
 
@@ -49,7 +50,7 @@ public class Kadiyalu123Play {
         //kali
         inputBIs.add(EmptyGenerator.get(width, 40));
         //mispick
-        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
@@ -75,7 +76,7 @@ public class Kadiyalu123Play {
 
         //box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //kadiyalu
