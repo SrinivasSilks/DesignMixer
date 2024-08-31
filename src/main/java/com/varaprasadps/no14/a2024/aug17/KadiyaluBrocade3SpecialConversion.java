@@ -155,7 +155,7 @@ public class KadiyaluBrocade3SpecialConversion {
                                     rightSilces.get(i), leftBackSilces.get(i), leftSilces.get(i),
                                     silverSilkSilces.get(i), silverJariSilces.get(i),
                                     greenSilkSilces.get(i), greenJariSilces.get(i),
-                                    magentaSilkSilces.get(i), magentaSilkSilces.get(i)
+                                    magentaSilkSilces.get(i), magentaJariSilces.get(i)
                             )
                     );
                 } else if (isOrangeSilkValid) {
