@@ -17,7 +17,8 @@ public class NimbuConversion {
 
         String out = "d/6/out/design1/2kbroc-nimbu-%s-%s.bmp";
 
-        final BufferedImage body = HorizontalRepeatGenerator.get(2, ImageIO.read(new File("d/6/in/design1/brocade2/jari.bmp")));
+        BufferedImage ab = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("d/6/in/design1/brocade2/jari.bmp")));
+        final BufferedImage body = VerticalRepeatGenerator.get(960 / ab.getHeight(), ab);
         int width = body.getWidth();
 
         BufferedImage right = EmptyGenerator.get(width, 400);
@@ -73,7 +74,7 @@ public class NimbuConversion {
     }
 
     private static void displayPixels(BufferedImage fileOne) {
-        System.out.println(String.format("Width : %s, Height : %s", fileOne.getWidth(), fileOne.getHeight()));
+        System.out.printf("Width : %s, Height : %s%n", fileOne.getWidth(), fileOne.getHeight());
     }
 
     private static void saveBMP(final BufferedImage bi, final String path) throws IOException {

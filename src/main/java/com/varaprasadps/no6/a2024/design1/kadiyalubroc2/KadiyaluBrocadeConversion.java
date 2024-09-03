@@ -13,6 +13,7 @@ import java.util.List;
 public class KadiyaluBrocadeConversion {
 
     public static void main(final String[] args) throws IOException {
+        NimbuConversion.main(null);
         JariConversion.main(null);
         RaniConversion.main(null);
         String out = "d/6/out/design1/2kadiyalu-brocade-%s-%s.bmp";

@@ -13,14 +13,15 @@ import java.util.List;
 public class KadiyaluBrocadeConversion {
 
     public static void main(final String[] args) throws IOException {
+        NimbuConversion.main(null);
         JariConversion.main(null);
         RaniConversion.main(null);
         String out = "d/6/out/design1/kadiyalu-brocade-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("d/6/out/design1/kbroc-rani-600-1824.bmp");
-        inputs.add("d/6/out/design1/kbroc-jari-600-1824.bmp");
-        inputs.add("d/6/out/design1/kbroc-nimbu-600-1824.bmp");
+        inputs.add("d/6/out/design1/kbroc-rani-240-1824.bmp");
+        inputs.add("d/6/out/design1/kbroc-jari-240-1824.bmp");
+        inputs.add("d/6/out/design1/kbroc-nimbu-240-1824.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {
