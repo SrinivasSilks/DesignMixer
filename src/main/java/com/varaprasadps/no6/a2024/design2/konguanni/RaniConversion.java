@@ -1,4 +1,4 @@
-package com.varaprasadps.no6.a2024.design2.selfbrocade1;
+package com.varaprasadps.no6.a2024.design2.konguanni;
 
 import com.varaprasadps.image.*;
 
@@ -13,13 +13,14 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "d/6/out/design2/1b-rani-%s-%s.bmp";
-        BufferedImage border = HorizontalRepeatGenerator.get(10, ImageIO.read(new File("d/6/in/design2/border/border.bmp")));
+        String out = "d/6/out/design2/kanni-rani-%s-%s.bmp";
 
-        final BufferedImage pallu = PlainGenerator.get(border.getWidth(), 480);
+        BufferedImage right = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/6/in/design2/border/right.bmp")));
+        BufferedImage left = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/6/in/design2/border/left.bmp")));
+        int width = right.getWidth();
+        final BufferedImage pallu = PlainGenerator.get(right.getWidth(), 240);
+
         List<BufferedImage> inputBIs = new LinkedList<>();
-
-        int width = pallu.getWidth();
 
         inputBIs.add(EmptyGenerator.get(width, 32));
 
@@ -32,10 +33,12 @@ public class RaniConversion {
         //achu
         inputBIs.add(AchuLayoutGenerator.get(width, 8));
 
-        inputBIs.add(border);
+        inputBIs.add(left);
         inputBIs.add(pallu);
         inputBIs.add(pallu);
-        inputBIs.add(border);
+        inputBIs.add(pallu);
+        inputBIs.add(pallu);
+        inputBIs.add(right);
 
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));
@@ -66,7 +69,7 @@ public class RaniConversion {
     }
 
     private static void displayPixels(BufferedImage fileOne) {
-        System.out.printf("Width : %s, Height : %s%n", fileOne.getWidth(), fileOne.getHeight());
+        System.out.println(String.format("Width : %s, Height : %s", fileOne.getWidth(), fileOne.getHeight()));
     }
 
     private static void saveBMP(final BufferedImage bi, final String path) throws IOException {
