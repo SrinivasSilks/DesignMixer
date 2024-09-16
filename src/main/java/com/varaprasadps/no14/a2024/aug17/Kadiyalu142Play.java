@@ -123,6 +123,62 @@ public class Kadiyalu142Play {
 
     }
 
+    public static BufferedImage red(BufferedImage right, BufferedImage left, BufferedImage bodyResham, BufferedImage bodyJari) {
+
+        int width = bodyResham.getWidth();
+        List<BufferedImage> inputBIs = new LinkedList<>();
+        inputBIs.add(EmptyGenerator.get(width, 32));
+
+        //box
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        //mispick
+        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
+        //kadiyalu
+        inputBIs.add(EmptyGenerator.get(width, 1));
+        //wheel
+        inputBIs.add(EmptyGenerator.get(width, 1));
+        //achu
+        inputBIs.add(AchuLayoutGenerator.get(width, 8));
+
+        //jamudu
+        inputBIs.add(PlainGenerator.get(width, 24));
+        inputBIs.add(left);
+        //locking
+        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(PlainGenerator.get(width, 4));
+        //body
+        inputBIs.add(bodyJari);
+        inputBIs.add(bodyResham);
+        //locking
+        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(right);
+
+
+        //jamudu
+        inputBIs.add(PlainGenerator.get(width, 24));
+        //kali
+        inputBIs.add(EmptyGenerator.get(width, 40));
+        //mispick
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
+        //kadiyalu
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        //achu
+        inputBIs.add(AchuLayoutGenerator.get(width, 12));
+
+        int repeatWidth = 0;
+        int repeatHeight = 0;
+
+        for (BufferedImage bi : inputBIs) {
+            displayPixels(bi);
+            repeatWidth = bi.getWidth();
+            repeatHeight += bi.getHeight();
+        }
+        return ReverseGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
+
+    }
+
     public static BufferedImage silverTwo(BufferedImage right, BufferedImage left, BufferedImage bodyResham, BufferedImage bodyJari) {
 
         int width = bodyResham.getWidth();
