@@ -29,7 +29,7 @@ public class Kadiyalu123Play {
         //achu
         inputBIs.add(EmptyGenerator.get(width, 8));
         //wheel
-        inputBIs.add(EmptyGenerator.get(width, 1));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
 
         //left
         inputBIs.add(left);
@@ -91,7 +91,7 @@ public class Kadiyalu123Play {
         //achu
         inputBIs.add(EmptyGenerator.get(width, 8));
         //wheel
-        inputBIs.add(EmptyGenerator.get(width, 1));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
 
         //left
         inputBIs.add(left);

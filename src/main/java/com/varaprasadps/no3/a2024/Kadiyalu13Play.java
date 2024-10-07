@@ -29,7 +29,7 @@ public class Kadiyalu13Play {
         //achu
         inputBIs.add(EmptyGenerator.get(width, 8));
         //wheel
-        inputBIs.add(EmptyGenerator.get(width, 1));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
 
         //left
         inputBIs.add(left);
@@ -198,7 +198,7 @@ public class Kadiyalu13Play {
     }
 
     public static void displayPixels(BufferedImage fileOne) {
-        System.out.println(String.format("Width : %s, Height : %s", fileOne.getWidth(), fileOne.getHeight()));
+        System.out.printf("Width : %s, Height : %s%n", fileOne.getWidth(), fileOne.getHeight());
     }
 
 
@@ -212,10 +212,10 @@ public class Kadiyalu13Play {
 
     public static BufferedImage getBrocade(List<BufferedImage> inputs) {
         for (int i = 0; i < inputs.size(); i++) {
-            System.out.println(String.format("Brocade => Width : %s, Height : %s", inputs.get(0).getWidth(), inputs.get(0).getHeight()));
+            System.out.printf("Brocade => Width : %s, Height : %s%n", inputs.get(0).getWidth(), inputs.get(0).getHeight());
         }
         BufferedImage bufferedImage = ColumnRepeatGenerator.get(inputs);
-        System.out.println(String.format("final Brocade => Width : %s, Height : %s", bufferedImage.getWidth(), bufferedImage.getHeight()));
+        System.out.printf("final Brocade => Width : %s, Height : %s%n", bufferedImage.getWidth(), bufferedImage.getHeight());
 
         return bufferedImage;
     }
