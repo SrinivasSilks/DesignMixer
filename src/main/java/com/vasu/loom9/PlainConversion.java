@@ -20,8 +20,6 @@ public class PlainConversion {
         int width = plain.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
-
-
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //kaduiyalu
@@ -42,7 +40,7 @@ public class PlainConversion {
         inputBIs.add(plain);
         //locking
         inputBIs.add(PlainGenerator.get(width, 8));
-        //left
+        //right
         inputBIs.add(EmptyGenerator.get(width, 520));
         //jamudu
         inputBIs.add(PlainGenerator.get(width, 24));
