@@ -1,4 +1,4 @@
-package com.varaprasadps.no15;
+package com.varaprasadps.no16;
 
 import com.varaprasadps.image.*;
 
@@ -27,12 +27,14 @@ public class TwoPlay {
         inputBIs.add(PlainGenerator.get(width, 4));
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));
+        //box
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 2));
-        //kali
-        inputBIs.add(EmptyGenerator.get(width, 4));
+
 
         //left
         inputBIs.add(banarasJari);
@@ -49,15 +51,14 @@ public class TwoPlay {
         inputBIs.add(PlainGenerator.get(width, 4));
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));
-        //box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
-        inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 1));
         //wheel
         inputBIs.add(EmptyGenerator.get(width, 1));
+        //kali
+        inputBIs.add(EmptyGenerator.get(width, 4));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -86,12 +87,13 @@ public class TwoPlay {
         inputBIs.add(PlainGenerator.get(width, 4));
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));
+        //box
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 2));
-        //kali
-        inputBIs.add(EmptyGenerator.get(width, 4));
 
         //left
         inputBIs.add(banarasJari);
@@ -108,15 +110,15 @@ public class TwoPlay {
         inputBIs.add(PlainGenerator.get(width, 4));
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));
-        //box
-        inputBIs.add(EmptyGenerator.get(width, 2));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 1));
         //wheel
         inputBIs.add(EmptyGenerator.get(width, 1));
+        //kali
+        inputBIs.add(EmptyGenerator.get(width, 4));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
