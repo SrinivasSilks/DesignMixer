@@ -15,8 +15,8 @@ public class JariConversion {
 
         String out = "d/6/out/design1/kbroc-jari-%s-%s.bmp";
 
-        BufferedImage right = HorizontalRepeatGenerator.get(2, ImageIO.read(new File("d/6/in/design1/border/right.bmp")));
-        BufferedImage left = HorizontalRepeatGenerator.get(2, ImageIO.read(new File("d/6/in/design1/border/left.bmp")));
+        BufferedImage right = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/6/in/design1/border/right.bmp")));
+        BufferedImage left = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/6/in/design1/border/left.bmp")));
 
         int width = left.getWidth();
         final BufferedImage body = PlainGenerator.get(width, 960);

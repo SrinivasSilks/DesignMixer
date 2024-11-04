@@ -17,7 +17,7 @@ public class NimbuConversion {
 
         String out = "d/6/out/design1/2kbroc-nimbu-%s-%s.bmp";
 
-        BufferedImage ab = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("d/6/in/design1/brocade2/jari.bmp")));
+        BufferedImage ab = HorizontalRepeatGenerator.get(6, ImageIO.read(new File("d/6/in/design1/brocade2/jari.bmp")));
         final BufferedImage body = VerticalRepeatGenerator.get(960 / ab.getHeight(), ab);
         int width = body.getWidth();
 
