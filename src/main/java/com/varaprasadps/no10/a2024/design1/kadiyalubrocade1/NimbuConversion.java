@@ -15,11 +15,11 @@ public class NimbuConversion {
 
         String out = "d/10/out/2024/design1/1kbroc-nimbu-%s-%s.bmp";
 
-        BufferedImage right = HorizontalRepeatGenerator.get(8, EmptyGenerator.get(380, 400));
-        BufferedImage left = HorizontalRepeatGenerator.get(8, EmptyGenerator.get(380, 400));
+        BufferedImage right = HorizontalRepeatGenerator.get(2, EmptyGenerator.get(240, 400));
+        BufferedImage left = HorizontalRepeatGenerator.get(2, EmptyGenerator.get(240, 400));
 
         int width = left.getWidth();
-        BufferedImage body = HorizontalRepeatGenerator.get(19, ImageIO.read(new File("d/10/in/2024/design1/brocade1/jari.bmp")));
+        BufferedImage body = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("d/10/in/2024/design1/brocade1/jari.bmp")));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 

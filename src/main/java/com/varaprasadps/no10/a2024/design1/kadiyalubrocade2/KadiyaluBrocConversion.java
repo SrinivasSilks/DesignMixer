@@ -19,9 +19,9 @@ public class KadiyaluBrocConversion {
         String out = "d/10/out/2024/design1/2kbroc-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("d/10/out/2024/design1/2kbroc-rani-5700-1824.bmp");
-        inputs.add("d/10/out/2024/design1/2kbroc-jari-5700-1824.bmp");
-        inputs.add("d/10/out/2024/design1/2kbroc-nimbu-5700-1824.bmp");
+        inputs.add("d/10/out/2024/design1/2kbroc-rani-1200-1824.bmp");
+        inputs.add("d/10/out/2024/design1/2kbroc-jari-1200-1824.bmp");
+        inputs.add("d/10/out/2024/design1/2kbroc-nimbu-1200-1824.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {

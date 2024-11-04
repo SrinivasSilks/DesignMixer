@@ -15,11 +15,11 @@ public class JariConversion {
 
         String out = "d/10/out/2024/design1/2kbroc-jari-%s-%s.bmp";
 
-        BufferedImage right = HorizontalRepeatGenerator.get(15, ImageIO.read(new File("d/10/in/2024/design1/border/right.bmp")));
-        BufferedImage left = HorizontalRepeatGenerator.get(15, ImageIO.read(new File("d/10/in/2024/design1/border/left.bmp")));
+        BufferedImage right = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("d/10/in/2024/design1/border/right.bmp")));
+        BufferedImage left = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("d/10/in/2024/design1/border/left.bmp")));
 
         int width = left.getWidth();
-        final BufferedImage body = HorizontalRepeatGenerator.get(19, PlainGenerator.get(300, 960));
+        final BufferedImage body = HorizontalRepeatGenerator.get(4, PlainGenerator.get(300, 960));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
