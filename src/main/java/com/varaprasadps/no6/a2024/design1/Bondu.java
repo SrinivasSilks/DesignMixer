@@ -16,27 +16,24 @@ public class Bondu {
         String out = "d/6/out/design1/pset.bmp";
 
         BufferedImage kongu = ImageIO.read(new File("d/6/out/design1/kongu-2-1824.bmp"));
-        BufferedImage kanni = ImageIO.read(new File("d/6/out/design1/kongu-anni-1824-240.bmp"));
-        BufferedImage anni = ImageIO.read(new File("d/6/out/design1/anni-120-1824.bmp"));
+        BufferedImage kanni = ImageIO.read(new File("d/6/out/design1/kongu-anni-1824-480.bmp"));
+        BufferedImage anni = ImageIO.read(new File("d/6/out/design1/anni-240-1824.bmp"));
         BufferedImage pallu = ImageIO.read(new File("d/6/out/design1/pallu-1824-3240.bmp"));
-        BufferedImage brocade = ImageIO.read(new File("d/6/out/design1/kadiyalu-brocade-1824-1800.bmp"));
+        BufferedImage brocade = ImageIO.read(new File("d/6/out/design1/kadiyalu-plain-1824-480.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
 //        inputBIs.add(brocade);
-        inputBIs.add(CutLayoutGenerator.get(kanni, 20).get(0));
+        inputBIs.add(CutLayoutGenerator.get(kanni, 10).get(0));
         inputBIs.add(kongu);
-        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(kanni, 20).get(1), 20).get(0));
+        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(kanni, 10).get(1), 10).get(0));
         inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(anni, 10).get(1), 80).get(0));
-
         inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(kanni, 180).get(1), 10).get(0));
         inputBIs.add(kongu);
         inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(kanni, 190).get(1), 10).get(0));
-        inputBIs.add(CutLayoutGenerator.get(anni, 100).get(1));
-        inputBIs.add(CutLayoutGenerator.get(anni, 60).get(0));
-
+        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(anni, 100).get(1), 80).get(0));
         inputBIs.add(pallu);
-        inputBIs.add(CutLayoutGenerator.get(anni, 60).get(0));
+        inputBIs.add(CutLayoutGenerator.get(CutLayoutGenerator.get(anni, 120).get(1), 60).get(0));
 
 
         int repeatWidth = 0;

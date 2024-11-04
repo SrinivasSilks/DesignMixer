@@ -15,7 +15,7 @@ public class JariConversion {
 
         String out = "d/6/out/design1/kanni-jari-%s-%s.bmp";
 
-        final BufferedImage pallu = PlainGenerator.get(120, 240);
+        final BufferedImage pallu = PlainGenerator.get(240, 240);
         int width = pallu.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();

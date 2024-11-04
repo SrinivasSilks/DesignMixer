@@ -18,8 +18,8 @@ public class KonguAnniConversion {
         String out = "d/6/out/design1/kongu-anni-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("d/6/out/design1/kanni-rani-120-1824.bmp");
-        inputs.add("d/6/out/design1/kanni-jari-120-1824.bmp");
+        inputs.add("d/6/out/design1/kanni-rani-240-1824.bmp");
+        inputs.add("d/6/out/design1/kanni-jari-240-1824.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {
