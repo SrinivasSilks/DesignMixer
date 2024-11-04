@@ -9,35 +9,35 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class AnniConversion {
+public class JariDownConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "d/16/out/design1/anni-%s-%s.bmp";
+        String out = "d/16/out/design1/jari-down-%s-%s.bmp";
 
         int width = 30;
         
-        BufferedImage rightSilk = PlainGenerator.get(width, 528);
-        BufferedImage rightJari = PlainGenerator.get(width, 528);
-        BufferedImage teegaSilk = PlainGenerator.get(width, 48);
-        BufferedImage teegaJari = PlainGenerator.get(width, 48);
-        BufferedImage banarasSilk = PlainGenerator.get(width, 64);
-        BufferedImage banarasJari = PlainGenerator.get(width, 64);
-        BufferedImage body = PlainGenerator.get(width, 480);
+        BufferedImage rightSilk = BlackGenerator.get(width, 528);
+        BufferedImage rightJari = EmptyGenerator.get(width, 528);
+        BufferedImage teegaSilk = BlackGenerator.get(width, 48);
+        BufferedImage teegaJari = EmptyGenerator.get(width, 48);
+        BufferedImage banarasSilk = BlackGenerator.get(width, 64);
+        BufferedImage banarasJari = EmptyGenerator.get(width, 64);
+        BufferedImage body = EmptyGenerator.get(width, 480);
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         inputBIs.add(EmptyGenerator.get(width, 32));
 
         //jamudu
-        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(BlackGenerator.get(width, 4));
         //locking
-        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(BlackGenerator.get(width, 4));
         //box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
-        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
+        inputBIs.add(BlackGenerator.get(width, 2));
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 1));
         //wheel
@@ -55,11 +55,11 @@ public class AnniConversion {
         inputBIs.add(rightSilk);
 
         //jamudu
-        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(BlackGenerator.get(width, 4));
         //locking
-        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(BlackGenerator.get(width, 4));
         //mispick
-        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
+        inputBIs.add(BlackGenerator.get(width, 2));
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 2));
         //kali

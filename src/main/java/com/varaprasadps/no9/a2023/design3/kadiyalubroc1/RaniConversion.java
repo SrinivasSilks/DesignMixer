@@ -13,7 +13,7 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "d/9/out/design3/kbrc/kbroc-rani-%s-%s.bmp";
+        String out = "d/9/out/design3/kbrc/1kbroc-rani-%s-%s.bmp";
 
         BufferedImage right = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("d/9/in/design3/border/right.bmp")));
         BufferedImage left = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("d/9/in/design3/border/left-first.bmp")));
@@ -39,14 +39,14 @@ public class RaniConversion {
         //left
         inputBIs.add(VerticalFlipGenerator.get(left));
         //locking
-        inputBIs.add(PlainGenerator.get(width, 14));
-        inputBIs.add(PlainGenerator.get(width, 2));
+        inputBIs.add(PlainGenerator.get(width, 12));
+        inputBIs.add(PlainGenerator.get(width, 4));
         //body
         inputBIs.add(body);
         inputBIs.add(body);
         //locking
-        inputBIs.add(PlainGenerator.get(width, 2));
-        inputBIs.add(PlainGenerator.get(width, 14));
+        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(PlainGenerator.get(width, 12));
         //right
         inputBIs.add(right);
 
