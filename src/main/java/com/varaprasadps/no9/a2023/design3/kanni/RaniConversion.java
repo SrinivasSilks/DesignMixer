@@ -13,7 +13,7 @@ public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "d/9/out/design3/kanni-rani-%s-%s.bmp";
+        String out = "d/9/out/design3/kplain-rani-%s-%s.bmp";
 
         BufferedImage right = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/9/in/design3/border/right.bmp")));
         BufferedImage left = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/9/in/design3/border/left-first.bmp")));

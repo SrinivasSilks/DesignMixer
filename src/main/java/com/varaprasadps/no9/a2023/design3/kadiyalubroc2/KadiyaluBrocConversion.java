@@ -1,4 +1,4 @@
-package com.varaprasadps.no9.a2023.design3.kadiyalubroc1;
+package com.varaprasadps.no9.a2023.design3.kadiyalubroc2;
 
 import com.varaprasadps.image.ColumnRepeatGenerator;
 import com.varaprasadps.image.LeftLayoutGenerator;
@@ -16,12 +16,12 @@ public class KadiyaluBrocConversion {
         NimbuConversion.main(null);
         JariConversion.main(null);
         RaniConversion.main(null);
-        String out = "d/9/out/design3/kbrc/kbroc-%s-%s.bmp";
+        String out = "d/9/out/design3/kbrc/2kbroc-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("d/9/out/design3/kbrc/kbroc-rani-1800-1824.bmp");
-        inputs.add("d/9/out/design3/kbrc/kbroc-jari-1800-1824.bmp");
-        inputs.add("d/9/out/design3/kbrc/kbroc-nimbu-1800-1824.bmp");
+        inputs.add("d/9/out/design3/kbrc/2kbroc-rani-720-1824.bmp");
+        inputs.add("d/9/out/design3/kbrc/2kbroc-jari-720-1824.bmp");
+        inputs.add("d/9/out/design3/kbrc/2kbroc-nimbu-720-1824.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {

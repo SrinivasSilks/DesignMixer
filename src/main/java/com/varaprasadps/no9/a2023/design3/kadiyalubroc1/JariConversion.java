@@ -13,13 +13,13 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "d/9/out/design2/kbrc/kbroc-jari-%s-%s.bmp";
+        String out = "d/9/out/design3/kbrc/kbroc-jari-%s-%s.bmp";
 
-        BufferedImage right = HorizontalRepeatGenerator.get(15, ImageIO.read(new File("d/9/in/design2/border/right.bmp")));
-        BufferedImage left = HorizontalRepeatGenerator.get(15, ImageIO.read(new File("d/9/in/design2/border/left.bmp")));
+        BufferedImage right = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("d/9/in/design3/border/right.bmp")));
+        BufferedImage left = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("d/9/in/design3/border/left.bmp")));
 
         int width = left.getWidth();
-        final BufferedImage body = HorizontalRepeatGenerator.get(17, ImageIO.read(new File("d/9/in/design2/brocade1/silver.bmp")));
+        final BufferedImage body = HorizontalRepeatGenerator.get(6, ImageIO.read(new File("d/9/in/design3/brocade1/silver.bmp")));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 

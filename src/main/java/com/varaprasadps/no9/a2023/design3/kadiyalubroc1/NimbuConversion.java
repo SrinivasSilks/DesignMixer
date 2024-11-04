@@ -13,13 +13,13 @@ public class NimbuConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "d/9/out/design2/kbrc/kbroc-nimbu-%s-%s.bmp";
+        String out = "d/9/out/design3/kbrc/kbroc-nimbu-%s-%s.bmp";
 
-        BufferedImage right = HorizontalRepeatGenerator.get(15, EmptyGenerator.get(340, 480));
-        BufferedImage left = HorizontalRepeatGenerator.get(15, EmptyGenerator.get(340, 288));
+        BufferedImage right = HorizontalRepeatGenerator.get(5, EmptyGenerator.get(360, 480));
+        BufferedImage left = HorizontalRepeatGenerator.get(5, EmptyGenerator.get(360, 288));
 
         int width = left.getWidth();
-        final BufferedImage body = HorizontalRepeatGenerator.get(17, ImageIO.read(new File("d/9/in/design2/brocade1/meena.bmp")));
+        final BufferedImage body = HorizontalRepeatGenerator.get(6, ImageIO.read(new File("d/9/in/design3/brocade1/meena.bmp")));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
