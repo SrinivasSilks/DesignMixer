@@ -13,9 +13,9 @@ public class SilverConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "d/8/out/2024/design1/2kadiyalu-nimbu-%s-%s.bmp";
+        String out = "d/8/out/2024/design1/2kadiyalu-silver-%s-%s.bmp";
 
-        final BufferedImage body = HorizontalRepeatGenerator.get(15, ImageIO.read(new File("d/8/in/2024/design1/brocade2/silver.bmp")));
+        final BufferedImage body = HorizontalRepeatGenerator.get(4, ImageIO.read(new File("d/8/in/2024/design1/brocade2/silver.bmp")));
 
         int width = body.getWidth();
 

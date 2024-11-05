@@ -15,7 +15,7 @@ public class NimbuConversion {
 
         String out = "d/8/out/2024/design1/2kadiyalu-nimbu-%s-%s.bmp";
 
-        final BufferedImage body = HorizontalRepeatGenerator.get(15, ImageIO.read(new File("d/8/in/2024/design1/brocade2/gold.bmp")));
+        final BufferedImage body = HorizontalRepeatGenerator.get(4, ImageIO.read(new File("d/8/in/2024/design1/brocade2/gold.bmp")));
 
         int width = body.getWidth();
 
@@ -46,8 +46,8 @@ public class NimbuConversion {
         inputBIs.add(right);
 
         //box
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //kadiyalu

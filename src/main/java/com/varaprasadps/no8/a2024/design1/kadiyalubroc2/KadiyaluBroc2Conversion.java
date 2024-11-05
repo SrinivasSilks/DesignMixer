@@ -10,18 +10,20 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class KadiyaluBrocConversion {
+public class KadiyaluBroc2Conversion {
 
     public static void main(final String[] args) throws IOException {
+        SilverConversion.main(null);
         NimbuConversion.main(null);
         JariConversion.main(null);
         RaniConversion.main(null);
         String out = "d/8/out/2024/design1/2kadiyalu-broc-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("d/8/out/2024/design1/2kadiyalu-rani-300-1824.bmp");
-        inputs.add("d/8/out/2024/design1/2kadiyalu-jari-300-1824.bmp");
-        inputs.add("d/8/out/2024/design1/2kadiyalu-nimbu-300-1824.bmp");
+        inputs.add("d/8/out/2024/design1/2kadiyalu-rani-900-1824.bmp");
+        inputs.add("d/8/out/2024/design1/2kadiyalu-jari-900-1824.bmp");
+        inputs.add("d/8/out/2024/design1/2kadiyalu-nimbu-900-1824.bmp");
+        inputs.add("d/8/out/2024/design1/2kadiyalu-silver-900-1824.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {
