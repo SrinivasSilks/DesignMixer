@@ -15,7 +15,7 @@ public class NimbuConversion {
 
         String out = "d/8/out/2024/design1/1kadiyalu-nimbu-%s-%s.bmp";
 
-        final BufferedImage body = HorizontalRepeatGenerator.get(15, ImageIO.read(new File("d/8/in/2024/design1/brocade1/jari.bmp")));
+        final BufferedImage body = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("d/8/in/2024/design1/brocade1/jari.bmp")));
 
         int width = body.getWidth();
 
@@ -38,6 +38,7 @@ public class NimbuConversion {
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));
         //body
+        inputBIs.add(body);
         inputBIs.add(body);
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));
