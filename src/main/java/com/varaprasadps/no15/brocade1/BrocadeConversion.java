@@ -27,7 +27,7 @@ public class BrocadeConversion {
         for (BufferedImage bufferedImage : brocades) {
             System.out.printf("file data - %s - %s%n", bufferedImage.getWidth(), bufferedImage.getHeight());
         }
-        BufferedImage brocade = LeftLayoutGenerator.get(getBrocade(brocades));
+        BufferedImage brocade = ReverseGenerator.get(LeftLayoutGenerator.get(getBrocade(brocades)));
         displayPixels(brocade);
 
         saveBMP(brocade, format("d/15/out/design1/brocade-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));

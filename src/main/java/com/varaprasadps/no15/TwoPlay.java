@@ -57,7 +57,7 @@ public class TwoPlay {
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 1));
         //wheel
-        inputBIs.add(EmptyGenerator.get(width, 1));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

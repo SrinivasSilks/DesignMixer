@@ -17,9 +17,9 @@ public class JariConversion {
 
         BufferedImage right = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("d/5/in/2024/design3/border/right.bmp")));
         BufferedImage left = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("d/5/in/2024/design3/border/left.bmp")));
-        BufferedImage body = HorizontalRepeatGenerator.get(25, ImageIO.read(new File("d/5/in/2024/design3/brocade2/jari.bmp")));
 
         int width = left.getWidth();
+        BufferedImage body = PlainGenerator.get(width, 720);
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 

@@ -2,6 +2,7 @@ package com.varaprasadps.no15.pallu;
 
 import com.varaprasadps.image.LeftLayoutGenerator;
 import com.varaprasadps.image.PlainGenerator;
+import com.varaprasadps.image.ReverseGenerator;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -27,7 +28,7 @@ public class PalluConversion {
         for (BufferedImage bufferedImage : brocades) {
             System.out.printf("file data - %s - %s%n", bufferedImage.getWidth(), bufferedImage.getHeight());
         }
-        BufferedImage brocade = LeftLayoutGenerator.get(getBrocade(brocades));
+        BufferedImage brocade = ReverseGenerator.get(LeftLayoutGenerator.get(getBrocade(brocades)));
         displayPixels(brocade);
 
         saveBMP(brocade, format("d/15/out/design1/pallu-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
