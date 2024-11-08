@@ -1,4 +1,4 @@
-package com.varaprasadps.no15;
+package com.varaprasadps.no15.design1;
 
 import com.varaprasadps.image.*;
 
@@ -15,14 +15,16 @@ public class AnniConversion {
 
         String out = "d/15/out/design1/anni-%s-%s.bmp";
 
-        int width = 30;
 
+        BufferedImage rightJari = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/15/in/design1/border/right.bmp")));
+        BufferedImage teegaJari = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/15/in/design1/border/teega.bmp")));
+        BufferedImage banarasJari = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/15/in/design1/border/repeat.bmp")));
+
+        int width = rightJari.getWidth();
         BufferedImage rightSilk = PlainGenerator.get(width, 528);
-        BufferedImage rightJari = PlainGenerator.get(width, 528);
         BufferedImage teegaSilk = PlainGenerator.get(width, 48);
-        BufferedImage teegaJari = PlainGenerator.get(width, 48);
         BufferedImage banarasSilk = PlainGenerator.get(width, 64);
-        BufferedImage banarasJari = PlainGenerator.get(width, 64);
+
         BufferedImage body = PlainGenerator.get(width, 480);
 
         List<BufferedImage> inputBIs = new LinkedList<>();

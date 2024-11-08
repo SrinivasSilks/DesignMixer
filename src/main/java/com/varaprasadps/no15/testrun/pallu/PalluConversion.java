@@ -1,4 +1,4 @@
-package com.varaprasadps.no15.pallu;
+package com.varaprasadps.no15.testrun.pallu;
 
 import com.varaprasadps.image.LeftLayoutGenerator;
 import com.varaprasadps.image.PlainGenerator;
@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-import static com.varaprasadps.no15.TwoPlay.*;
+import static com.varaprasadps.no15.Kadiyalu2Play.*;
 import static java.lang.String.format;
 
 public class PalluConversion {
