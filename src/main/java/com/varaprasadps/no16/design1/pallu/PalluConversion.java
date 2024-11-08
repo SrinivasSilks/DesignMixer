@@ -1,5 +1,7 @@
-package com.varaprasadps.no16.pallu;
+package com.varaprasadps.no16.design1.pallu;
 
+import com.varaprasadps.image.CutLayoutGenerator;
+import com.varaprasadps.image.HorizontalRepeatGenerator;
 import com.varaprasadps.image.LeftLayoutGenerator;
 import com.varaprasadps.image.PlainGenerator;
 
@@ -19,11 +21,11 @@ public class PalluConversion {
             BufferedImage rightSilk, BufferedImage rightJari,
             BufferedImage banarasSilk, BufferedImage banarasJari,
             BufferedImage teegaSilk, BufferedImage teegaJari,
-            BufferedImage body
+            BufferedImage rani, BufferedImage jari
     ) throws IOException {
         List<BufferedImage> brocades = new LinkedList<>();
-        brocades.add(rani(rightSilk, rightJari, banarasSilk, banarasJari, teegaSilk, teegaJari, body));
-        brocades.add(jari(rightSilk, rightJari, banarasSilk, banarasJari, teegaSilk, teegaJari, body));
+        brocades.add(rani(rightSilk, rightJari, banarasSilk, banarasJari, teegaSilk, teegaJari, rani));
+        brocades.add(jari(rightSilk, rightJari, banarasSilk, banarasJari, teegaSilk, teegaJari, jari));
         for (BufferedImage bufferedImage : brocades) {
             System.out.printf("file data - %s - %s%n", bufferedImage.getWidth(), bufferedImage.getHeight());
         }
@@ -35,18 +37,24 @@ public class PalluConversion {
     }
 
     public static void main(final String[] args) throws IOException {
+        BufferedImage rani = ImageIO.read(new File("d/16/in/design1/pallu/pallu-rani.bmp"));
+        BufferedImage jari = ImageIO.read(new File("d/16/in/design1/pallu/pallu-jari.bmp"));
+        int width = rani.getWidth();
 
-        int width = 60;
+        BufferedImage rightJari = cut(width, HorizontalRepeatGenerator.get(10, ImageIO.read(new File("d/15/in/design1/border/right.bmp"))));
+        BufferedImage teegaJari = cut(width, HorizontalRepeatGenerator.get(10, ImageIO.read(new File("d/15/in/design1/border/teega.bmp"))));
+        BufferedImage banarasJari = cut(width, HorizontalRepeatGenerator.get(10, ImageIO.read(new File("d/15/in/design1/border/repeat.bmp"))));
 
         BufferedImage rightSilk = PlainGenerator.get(width, 528);
-        BufferedImage rightJari = PlainGenerator.get(width, 528);
         BufferedImage teegaSilk = PlainGenerator.get(width, 48);
-        BufferedImage teegaJari = PlainGenerator.get(width, 48);
         BufferedImage banarasSilk = PlainGenerator.get(width, 64);
-        BufferedImage banarasJari = PlainGenerator.get(width, 64);
-        BufferedImage body = PlainGenerator.get(width, 480);
 
-        get(rightSilk, rightJari, banarasSilk, banarasJari, teegaSilk, teegaJari, body);
+
+        get(rightSilk, rightJari, banarasSilk, banarasJari, teegaSilk, teegaJari, rani, jari);
+    }
+
+    private static BufferedImage cut(int width, BufferedImage image) {
+        return CutLayoutGenerator.get(image, width, 0);
     }
 
 
