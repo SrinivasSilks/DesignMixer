@@ -1,4 +1,4 @@
-package com.vasu.loom3.a2024.kbrocade2;
+package com.vasu.loom3.a2024.kbrocade6;
 
 import com.varaprasadps.image.HorizontalRepeatGenerator;
 import com.varaprasadps.image.LeftLayoutGenerator;
@@ -30,16 +30,16 @@ public class KadiyaluConversion {
         BufferedImage brocade = LeftLayoutGenerator.get(getBrocade(brocades));
         displayPixels(brocade);
 
-        saveBMP(brocade, format("z-vasu/out/3/a2024/design1/2kbroc-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
+        saveBMP(brocade, format("z-vasu/out/3/a2024/design1/6kbroc-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
         return brocade;
     }
 
     public static void main(final String[] args) throws IOException {
-        BufferedImage right = HorizontalRepeatGenerator.get(18, ImageIO.read(new File("z-vasu/in/3/a2024/design1/border/right.bmp")));
-        BufferedImage leftBack = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(18, ImageIO.read(new File("z-vasu/in/3/a2024/design1/border/left-first.bmp"))));
-        BufferedImage left = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(18, ImageIO.read(new File("z-vasu/in/3/a2024/design1/border/left.bmp"))));
+        BufferedImage right = HorizontalRepeatGenerator.get(11, ImageIO.read(new File("z-vasu/in/3/a2024/design1/border/border.bmp")));
+        BufferedImage leftBack = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(11, ImageIO.read(new File("z-vasu/in/3/a2024/design1/border/border-first.bmp"))));
+        BufferedImage left = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(11, ImageIO.read(new File("z-vasu/in/3/a2024/design1/border/border.bmp"))));
 
-        BufferedImage jari = HorizontalRepeatGenerator.get(19, ImageIO.read(new File("z-vasu/in/3/a2024/design1/brocade2/jari.bmp")));
+        BufferedImage jari = HorizontalRepeatGenerator.get(9, ImageIO.read(new File("z-vasu/in/3/a2024/design1/brocade6/jari.bmp")));
         BufferedImage meena = PlainGenerator.get(jari.getWidth(), jari.getHeight());
 
         get(right, leftBack, left, meena, jari);

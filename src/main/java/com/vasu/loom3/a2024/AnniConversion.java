@@ -15,8 +15,8 @@ public class AnniConversion {
 
         String out = "z-vasu/out/3/a2024/design1/anni-%s-%s.bmp";
 
-        BufferedImage right = ImageIO.read(new File("z-vasu/in/3/a2024/design1/border/left.bmp"));
-        BufferedImage left = ImageIO.read(new File("z-vasu/in/3/a2024/design1/border/left.bmp"));
+        BufferedImage right = ImageIO.read(new File("z-vasu/in/3/a2024/design1/border/border.bmp"));
+        BufferedImage left = ImageIO.read(new File("z-vasu/in/3/a2024/design1/border/border.bmp"));
 
         int width = right.getWidth();
 
