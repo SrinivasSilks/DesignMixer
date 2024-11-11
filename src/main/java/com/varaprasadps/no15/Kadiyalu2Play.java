@@ -28,7 +28,8 @@ public class Kadiyalu2Play {
         //jamudu
         inputBIs.add(EmptyGenerator.get(width, 4));
         //locking
-        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(PlainGenerator.get(width, 2));
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //kadiyalu
@@ -50,7 +51,8 @@ public class Kadiyalu2Play {
         //jamudu
         inputBIs.add(EmptyGenerator.get(width, 4));
         //locking
-        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(PlainGenerator.get(width, 2));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         inputBIs.add(EmptyGenerator.get(width, 2));
@@ -87,7 +89,8 @@ public class Kadiyalu2Play {
         //jamudu
         inputBIs.add(PlainGenerator.get(width, 4));
         //locking
-        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 2)));
+        inputBIs.add(PlainGenerator.get(width, 2));
         //mispick
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //kadiyalu
@@ -109,7 +112,8 @@ public class Kadiyalu2Play {
         //jamudu
         inputBIs.add(PlainGenerator.get(width, 4));
         //locking
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 4)));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 2)));
+        inputBIs.add(PlainGenerator.get(width, 2));
         //box
         inputBIs.add(EmptyGenerator.get(width, 2));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
@@ -147,7 +151,8 @@ public class Kadiyalu2Play {
         //jamudu
         inputBIs.add(kadiyalu(PlainGenerator.get(width, 4)));
         //locking
-        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(PlainGenerator.get(width, 2));
+        inputBIs.add(PlainGenerator.get(width, 2));
         //mispick
         inputBIs.add(EmptyGenerator.get(width, 2));
         //kadiyalu
@@ -169,7 +174,8 @@ public class Kadiyalu2Play {
         //jamudu
         inputBIs.add(PlainGenerator.get(width, 4));
         //locking
-        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(PlainGenerator.get(width, 2));
+        inputBIs.add(PlainGenerator.get(width, 2));
         //box
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         inputBIs.add(EmptyGenerator.get(width, 2));
