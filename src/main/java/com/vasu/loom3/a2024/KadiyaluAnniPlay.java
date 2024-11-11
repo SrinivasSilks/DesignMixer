@@ -33,10 +33,10 @@ public class KadiyaluAnniPlay {
         //left
         inputBIs.add(left);
         //locking
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 8)));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 4)));
         inputBIs.add(PlainGenerator.get(width, 4));
         //body
-        inputBIs.add(PlainGenerator.get(width, 728));
+        inputBIs.add(PlainGenerator.get(width, 732));
         //locking
         inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 4)));
         inputBIs.add(PlainGenerator.get(width, 8));
@@ -87,11 +87,11 @@ public class KadiyaluAnniPlay {
 
         //left
         inputBIs.add(left);
-        inputBIs.add(PlainGenerator.get(width, 8));
+        inputBIs.add(PlainGenerator.get(width, 4));
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));
         //body
-        inputBIs.add(PlainGenerator.get(width, 728));
+        inputBIs.add(PlainGenerator.get(width, 732));
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));
         inputBIs.add(PlainGenerator.get(width, 8));

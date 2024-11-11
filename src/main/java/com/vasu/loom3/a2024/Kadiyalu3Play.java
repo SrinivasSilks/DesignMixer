@@ -34,11 +34,11 @@ public class Kadiyalu3Play {
         //left
         inputBIs.add(VerticalFlipGenerator.get(left));
 
-        inputBIs.add(EmptyGenerator.get(width, 8));
+        inputBIs.add(EmptyGenerator.get(width, 4));
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));
         //body
-        inputBIs.add(CutLayoutGenerator.get(body, body.getHeight() - 4).get(1));
+        inputBIs.add(CutLayoutGenerator.get(body, body.getHeight() - 8).get(1));
         inputBIs.add(body);
         inputBIs.add(CutLayoutGenerator.get(body, 4).get(0));
         //locking
@@ -89,10 +89,10 @@ public class Kadiyalu3Play {
         //left
         inputBIs.add(left);
         //locking
-        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 8)));
+        inputBIs.add(ReverseGenerator.get(PlainGenerator.get(width, 4)));
         inputBIs.add(PlainGenerator.get(width, 4));
         //body
-        inputBIs.add(CutLayoutGenerator.get(body, body.getHeight() - 4).get(1));
+        inputBIs.add(CutLayoutGenerator.get(body, body.getHeight() - 8).get(1));
         inputBIs.add(body);
         inputBIs.add(CutLayoutGenerator.get(body, 4).get(0));
         //locking
@@ -145,11 +145,11 @@ public class Kadiyalu3Play {
 
         //left
         inputBIs.add(left);
-        inputBIs.add(PlainGenerator.get(width, 8));
+        inputBIs.add(PlainGenerator.get(width, 4));
         //locking
         inputBIs.add(PlainGenerator.get(width, 4));
         //body
-        inputBIs.add(CutLayoutGenerator.get(body, body.getHeight() - 4).get(1));
+        inputBIs.add(CutLayoutGenerator.get(body, body.getHeight() - 8).get(1));
         inputBIs.add(body);
         inputBIs.add(CutLayoutGenerator.get(body, 4).get(0));
         //locking
