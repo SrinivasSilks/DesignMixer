@@ -9,9 +9,9 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class TwoPlay {
+public class ThreePlay {
 
-    public static BufferedImage jari(
+    public static BufferedImage nimbu(
             BufferedImage rightSilk, BufferedImage rightJari,
             BufferedImage banarasSilk, BufferedImage banarasJari,
             BufferedImage teegaSilk, BufferedImage teegaJari,
@@ -37,6 +37,68 @@ public class TwoPlay {
         inputBIs.add(EmptyGenerator.get(width, 1));
         //wheel
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
+
+        //left
+        inputBIs.add(banarasJari);
+        inputBIs.add(banarasSilk);
+        inputBIs.add(teegaJari);
+        inputBIs.add(teegaSilk);
+        //allover
+        inputBIs.add(body);
+        //right
+        inputBIs.add(rightJari);
+        inputBIs.add(rightSilk);
+
+        //jamudu
+        inputBIs.add(EmptyGenerator.get(width, 4));
+        //locking
+        inputBIs.add(PlainGenerator.get(width, 2));
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        //mispick
+        inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
+        //kadiyalu
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        //kali
+        inputBIs.add(EmptyGenerator.get(width, 4));
+
+        int repeatWidth = 0;
+        int repeatHeight = 0;
+
+        for (BufferedImage bi : inputBIs) {
+            displayPixels(bi);
+            repeatWidth = bi.getWidth();
+            repeatHeight += bi.getHeight();
+        }
+        return AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs);
+    }
+
+    public static BufferedImage jari(
+            BufferedImage rightSilk, BufferedImage rightJari,
+            BufferedImage banarasSilk, BufferedImage banarasJari,
+            BufferedImage teegaSilk, BufferedImage teegaJari,
+            BufferedImage body
+    ) {
+
+        int width = rightJari.getWidth();
+        List<BufferedImage> inputBIs = new LinkedList<>();
+
+        inputBIs.add(EmptyGenerator.get(width, 32));
+
+        //jamudu
+        inputBIs.add(EmptyGenerator.get(width, 4));
+        //locking
+        inputBIs.add(EmptyGenerator.get(width, 2));
+        inputBIs.add(PlainGenerator.get(width, 2));
+        //box
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        //mispick
+        inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
+        //kadiyalu
+        inputBIs.add(EmptyGenerator.get(width, 1));
+        //wheel
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
+
 
         //left
         inputBIs.add(banarasJari);

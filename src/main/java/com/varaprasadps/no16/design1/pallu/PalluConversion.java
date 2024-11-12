@@ -1,9 +1,6 @@
 package com.varaprasadps.no16.design1.pallu;
 
-import com.varaprasadps.image.CutLayoutGenerator;
-import com.varaprasadps.image.HorizontalRepeatGenerator;
-import com.varaprasadps.image.LeftLayoutGenerator;
-import com.varaprasadps.image.PlainGenerator;
+import com.varaprasadps.image.*;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -29,7 +26,7 @@ public class PalluConversion {
         for (BufferedImage bufferedImage : brocades) {
             System.out.printf("file data - %s - %s%n", bufferedImage.getWidth(), bufferedImage.getHeight());
         }
-        BufferedImage brocade = LeftLayoutGenerator.get(getBrocade(brocades));
+        BufferedImage brocade = ReverseGenerator.get(LeftLayoutGenerator.get(getBrocade(brocades)));
         displayPixels(brocade);
 
         saveBMP(brocade, format("d/16/out/design1/pallu-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
@@ -37,8 +34,8 @@ public class PalluConversion {
     }
 
     public static void main(final String[] args) throws IOException {
-        BufferedImage rani = ImageIO.read(new File("d/16/in/design1/pallu/pallu-rani.bmp"));
-        BufferedImage jari = ImageIO.read(new File("d/16/in/design1/pallu/pallu-jari.bmp"));
+        BufferedImage rani = cuts(ImageIO.read(new File("d/16/in/design1/pallu/pallu-rani.bmp")));
+        BufferedImage jari = cuts(ImageIO.read(new File("d/16/in/design1/pallu/pallu-jari.bmp")));
         int width = rani.getWidth();
 
         BufferedImage rightJari = cut(width, HorizontalRepeatGenerator.get(10, ImageIO.read(new File("d/15/in/design1/border/right.bmp"))));
@@ -49,12 +46,15 @@ public class PalluConversion {
         BufferedImage teegaSilk = PlainGenerator.get(width, 48);
         BufferedImage banarasSilk = PlainGenerator.get(width, 64);
 
-
         get(rightSilk, rightJari, banarasSilk, banarasJari, teegaSilk, teegaJari, rani, jari);
     }
 
     private static BufferedImage cut(int width, BufferedImage image) {
         return CutLayoutGenerator.get(image, width, 0);
+    }
+
+    private static BufferedImage cuts(BufferedImage image) {
+        return CutLayoutGenerator.get(image, 480).get(0);
     }
 
 
