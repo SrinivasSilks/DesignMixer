@@ -9,9 +9,9 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-import static com.varaprasadps.no15.ThreePlay.jari;
-import static com.varaprasadps.no15.ThreePlay.nimbu;
-import static com.varaprasadps.no15.ThreePlay.rani;
+import static com.varaprasadps.no16.ThreePlay.jari;
+import static com.varaprasadps.no16.ThreePlay.nimbu;
+import static com.varaprasadps.no16.ThreePlay.rani;
 import static com.varaprasadps.no16.ThreePlay.*;
 import static java.lang.String.format;
 
@@ -43,9 +43,9 @@ public class BrocadeConversion {
         BufferedImage rani = StepLayoutGenerator.get(jari.getWidth(), 480 / 6, 6);
         int width = rani.getWidth();
 
-        BufferedImage rightJari = border(2, ImageIO.read(new File("d/15/in/design1/border/right.bmp")));
-        BufferedImage teegaJari = border(2, ImageIO.read(new File("d/15/in/design1/border/teega.bmp")));
-        BufferedImage banarasJari = border(2, ImageIO.read(new File("d/15/in/design1/border/repeat.bmp")));
+        BufferedImage rightJari = border(2, ImageIO.read(new File("d/16/in/design1/border/right.bmp")));
+        BufferedImage teegaJari = border(2, ImageIO.read(new File("d/16/in/design1/border/teega.bmp")));
+        BufferedImage banarasJari = border(2, ImageIO.read(new File("d/16/in/design1/border/repeat.bmp")));
 
         BufferedImage rightSilk = PlainGenerator.get(width, 528);
         BufferedImage teegaSilk = PlainGenerator.get(width, 48);

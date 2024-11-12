@@ -22,7 +22,7 @@ public class PalluConversion {
     ) throws IOException {
         List<BufferedImage> brocades = new LinkedList<>();
         brocades.add(rani(rightSilk, rightJari, banarasSilk, banarasJari, teegaSilk, teegaJari, rani));
-        brocades.add(jari(rightSilk, rightJari, banarasSilk, banarasJari, teegaSilk, teegaJari, jari));
+        brocades.add(jari(dis(rightSilk), dis(rightJari), dis(banarasSilk), dis(banarasJari), dis(teegaSilk), dis(teegaJari), jari));
         for (BufferedImage bufferedImage : brocades) {
             System.out.printf("file data - %s - %s%n", bufferedImage.getWidth(), bufferedImage.getHeight());
         }
@@ -38,15 +38,19 @@ public class PalluConversion {
         BufferedImage jari = cuts(ImageIO.read(new File("d/16/in/design1/pallu/pallu-jari.bmp")));
         int width = rani.getWidth();
 
-        BufferedImage rightJari = cut(width, HorizontalRepeatGenerator.get(10, ImageIO.read(new File("d/15/in/design1/border/right.bmp"))));
-        BufferedImage teegaJari = cut(width, HorizontalRepeatGenerator.get(10, ImageIO.read(new File("d/15/in/design1/border/teega.bmp"))));
-        BufferedImage banarasJari = cut(width, HorizontalRepeatGenerator.get(10, ImageIO.read(new File("d/15/in/design1/border/repeat.bmp"))));
+        BufferedImage rightJari = cut(width, HorizontalRepeatGenerator.get(10, ImageIO.read(new File("d/16/in/design1/border/right.bmp"))));
+        BufferedImage teegaJari = cut(width, HorizontalRepeatGenerator.get(10, ImageIO.read(new File("d/16/in/design1/border/teega.bmp"))));
+        BufferedImage banarasJari = cut(width, HorizontalRepeatGenerator.get(10, ImageIO.read(new File("d/16/in/design1/border/repeat.bmp"))));
 
         BufferedImage rightSilk = PlainGenerator.get(width, 528);
         BufferedImage teegaSilk = PlainGenerator.get(width, 48);
         BufferedImage banarasSilk = PlainGenerator.get(width, 64);
 
         get(rightSilk, rightJari, banarasSilk, banarasJari, teegaSilk, teegaJari, rani, jari);
+    }
+
+    private static BufferedImage dis(BufferedImage image) {
+        return EmptyGenerator.get(image.getWidth(), image.getHeight());
     }
 
     private static BufferedImage cut(int width, BufferedImage image) {
