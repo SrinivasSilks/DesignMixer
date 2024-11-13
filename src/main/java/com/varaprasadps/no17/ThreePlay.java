@@ -11,7 +11,6 @@ import java.util.List;
 
 public class ThreePlay {
 
-
     public static BufferedImage nimbu(
             BufferedImage right, BufferedImage left,
             BufferedImage body
@@ -19,7 +18,6 @@ public class ThreePlay {
 
         int width = right.getWidth();
         List<BufferedImage> inputBIs = new LinkedList<>();
-
 
         inputBIs.add(EmptyGenerator.get(width, 32));
 
@@ -55,7 +53,6 @@ public class ThreePlay {
         //kali
         inputBIs.add(EmptyGenerator.get(width, 8));
 
-
         int repeatWidth = 0;
         int repeatHeight = 0;
 
@@ -74,7 +71,6 @@ public class ThreePlay {
 
         int width = right.getWidth();
         List<BufferedImage> inputBIs = new LinkedList<>();
-
 
         inputBIs.add(EmptyGenerator.get(width, 32));
 
