@@ -29,7 +29,7 @@ public class ThreePlay {
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 1));
         //wheel
-        inputBIs.add(EmptyGenerator.get(width, 1));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
         //locking
         inputBIs.add(EmptyGenerator.get(width, 8));
 
@@ -47,9 +47,7 @@ public class ThreePlay {
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //kadiyalu
-        inputBIs.add(EmptyGenerator.get(width, 1));
-        //wheel
-        inputBIs.add(EmptyGenerator.get(width, 1));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //kali
         inputBIs.add(EmptyGenerator.get(width, 12));
 
@@ -82,7 +80,7 @@ public class ThreePlay {
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 1));
         //wheel
-        inputBIs.add(EmptyGenerator.get(width, 1));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
         //locking
         inputBIs.add(EmptyGenerator.get(width, 8));
 
@@ -100,9 +98,7 @@ public class ThreePlay {
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //kadiyalu
-        inputBIs.add(EmptyGenerator.get(width, 1));
-        //wheel
-        inputBIs.add(EmptyGenerator.get(width, 1));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //kali
         inputBIs.add(EmptyGenerator.get(width, 12));
 
@@ -153,9 +149,7 @@ public class ThreePlay {
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //kadiyalu
-        inputBIs.add(EmptyGenerator.get(width, 1));
-        //wheel
-        inputBIs.add(EmptyGenerator.get(width, 1));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //kali
         inputBIs.add(AchuLayoutGenerator.get(width, 12));
 
