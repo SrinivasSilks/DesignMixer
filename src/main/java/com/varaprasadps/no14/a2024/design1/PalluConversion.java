@@ -9,8 +9,8 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-import static com.varaprasadps.no14.a2024.TwoPlay.*;
-import static com.varaprasadps.no14.a2024.TwoPlay.getBrocade;
+import static com.varaprasadps.no14.TwoPlay.*;
+import static com.varaprasadps.no14.TwoPlay.getBrocade;
 import static java.lang.String.format;
 
 public class PalluConversion {

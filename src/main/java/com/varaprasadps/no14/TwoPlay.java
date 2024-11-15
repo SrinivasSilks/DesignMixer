@@ -1,4 +1,4 @@
-package com.varaprasadps.no14.a2024;
+package com.varaprasadps.no14;
 
 import com.varaprasadps.image.*;
 

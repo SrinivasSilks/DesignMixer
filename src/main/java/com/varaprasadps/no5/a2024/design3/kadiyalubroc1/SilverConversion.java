@@ -17,7 +17,7 @@ public class SilverConversion {
 
         String out = "d/5/out/2024/design3/1kbroc-silver-%s-%s.bmp";
 
-        BufferedImage body = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("d/5/in/2024/design3/brocade1/silver.bmp")));
+        BufferedImage body = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("d/5/in/2024/design3/brocade1/nimbu.bmp")));
         int width = body.getWidth();
 
         BufferedImage right = HorizontalRepeatGenerator.get(1, EmptyGenerator.get(width, 720));
