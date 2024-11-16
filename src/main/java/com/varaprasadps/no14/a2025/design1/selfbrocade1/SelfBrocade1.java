@@ -1,4 +1,4 @@
-package com.varaprasadps.no14.a2025;
+package com.varaprasadps.no14.a2025.design1.selfbrocade1;
 
 import com.varaprasadps.image.*;
 
@@ -12,7 +12,7 @@ import java.util.List;
 import static com.varaprasadps.no14.ThreePlay.*;
 import static java.lang.String.format;
 
-public class BrocadeTestingConversion {
+public class SelfBrocade1 {
 
     public static BufferedImage get(
             BufferedImage right, BufferedImage left,
@@ -35,7 +35,7 @@ public class BrocadeTestingConversion {
         BufferedImage brocade = LeftLayoutGenerator.get(getBrocade(brocades));
         displayPixels(brocade);
 
-        saveBMP(brocade, format("d/14/out/2025/design1/1k-brocade-reverse-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
+        saveBMP(brocade, format("d/14/out/2025/design1/1self-brocade-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
         return brocade;
     }
 
@@ -54,11 +54,11 @@ public class BrocadeTestingConversion {
     }
 
     private static BufferedImage bodyRepeat(int times, BufferedImage input) {
-        return HorizontalRepeatGenerator.get(times, input);
+        return HorizontalRepeatGenerator.get(times, ReverseGenerator.get(input));
     }
 
     private static BufferedImage border(int times, BufferedImage input) {
-        return HorizontalRepeatGenerator.get(times, ReverseGenerator.get(input));
+        return HorizontalRepeatGenerator.get(times, input);
     }
 
     private static void displayPixels(BufferedImage fileOne) {
