@@ -42,22 +42,26 @@ public class BrocadeTestingConversion {
     public static void main(final String[] args) throws IOException {
         BufferedImage raniSilk = bodyRepeat(1, ImageIO.read(new File("d/14/in/2025/design1/brocade1/rani-silk.bmp")));
         BufferedImage raniJari = bodyRepeat(1, ImageIO.read(new File("d/14/in/2025/design1/brocade1/rani-jari.bmp")));
-        BufferedImage greenSilk = bodyRepeat(1, ImageIO.read(new File("d/14/in/2025/design1/brocade1/rani-silk.bmp")));
-        BufferedImage greenJari = bodyRepeat(1, ImageIO.read(new File("d/14/in/2025/design1/brocade1/rani-jari.bmp")));
+        BufferedImage greenSilk = bodyRepeat(1, ImageIO.read(new File("d/14/in/2025/design1/brocade1/green-silk.bmp")));
+        BufferedImage greenJari = bodyRepeat(1, ImageIO.read(new File("d/14/in/2025/design1/brocade1/green-jari.bmp")));
         BufferedImage silverSilk = bodyRepeat(1, ImageIO.read(new File("d/14/in/2025/design1/brocade1/silver-silk.bmp")));
         BufferedImage silverJari = bodyRepeat(1, ImageIO.read(new File("d/14/in/2025/design1/brocade1/silver-jari.bmp")));
 
-        BufferedImage left = border(1, ImageIO.read(new File("d/14/in/2025/design1/border/left.bmp")));
+        BufferedImage left = border(1, VerticalFlipGenerator.get(ImageIO.read(new File("d/14/in/2025/design1/border/left.bmp"))));
         BufferedImage right = border(1, ImageIO.read(new File("d/14/in/2025/design1/border/right.bmp")));
 
         get(right, left, raniSilk, raniJari, greenSilk, greenJari, silverSilk, silverJari);
     }
 
+//    private static BufferedImage bodyRepeat(int times, BufferedImage input) {
+//        List<BufferedImage> images = new LinkedList<>();
+//        images.add(CutLayoutGenerator.get(input, 240).get(0));
+//        images.add(ReverseGenerator.get(CutLayoutGenerator.get(input, 240).get(1)));
+//        return HorizontalRepeatGenerator.get(times, AddLayoutGenerator.get(images));
+//    }
+
     private static BufferedImage bodyRepeat(int times, BufferedImage input) {
-        List<BufferedImage> images = new LinkedList<>();
-        images.add(CutLayoutGenerator.get(input, 240).get(0));
-        images.add(ReverseGenerator.get(CutLayoutGenerator.get(input, 240).get(1)));
-        return HorizontalRepeatGenerator.get(times, AddLayoutGenerator.get(images));
+        return HorizontalRepeatGenerator.get(times, input);
     }
 
     private static BufferedImage border(int times, BufferedImage input) {
@@ -65,11 +69,11 @@ public class BrocadeTestingConversion {
     }
 
 //    private static BufferedImage bodyRepeat(int times, BufferedImage input) {
-//        return HorizontalRepeatGenerator.get(times, input);
+//        return HorizontalRepeatGenerator.get(times, ReverseGenerator.get(input));
 //    }
 
 //    private static BufferedImage border(int times, BufferedImage input) {
-//        return HorizontalRepeatGenerator.get(times, ReverseGenerator.get(input));
+//        return HorizontalRepeatGenerator.get(times,input);
 //    }
 
 
