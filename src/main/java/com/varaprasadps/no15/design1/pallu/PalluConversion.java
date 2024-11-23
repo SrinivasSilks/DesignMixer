@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-import static com.varaprasadps.no15.Kadiyalu2Play.*;
+import static com.varaprasadps.no15.TwoPlay.*;
 import static java.lang.String.format;
 
 public class PalluConversion {
@@ -22,7 +22,7 @@ public class PalluConversion {
     ) throws IOException {
         List<BufferedImage> brocades = new LinkedList<>();
         brocades.add(rani(rightSilk, rightJari, banarasSilk, banarasJari, teegaSilk, teegaJari, anni));
-        brocades.add(jari(rightSilk, rightJari, banarasSilk, banarasJari, teegaSilk, teegaJari, jari));
+        brocades.add(jari(dis(rightSilk), dis(rightJari), dis(banarasSilk), dis(banarasJari), dis(teegaSilk), dis(teegaJari), jari));
         for (BufferedImage bufferedImage : brocades) {
             System.out.printf("file data - %s - %s%n", bufferedImage.getWidth(), bufferedImage.getHeight());
         }
@@ -62,4 +62,9 @@ public class PalluConversion {
     private static void saveBMP(final BufferedImage bi, final String path) throws IOException {
         ImageIO.write(bi, "bmp", new File(path));
     }
+
+    private static BufferedImage dis(BufferedImage image) {
+        return EmptyGenerator.get(image.getWidth(), image.getHeight());
+    }
+
 }

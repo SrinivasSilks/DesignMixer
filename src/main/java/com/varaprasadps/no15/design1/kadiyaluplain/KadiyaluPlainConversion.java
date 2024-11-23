@@ -1,4 +1,4 @@
-package com.varaprasadps.no15.design1.kadiyalubrocade1;
+package com.varaprasadps.no15.design1.kadiyaluplain;
 
 import com.varaprasadps.image.*;
 
@@ -9,35 +9,33 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-import static com.varaprasadps.no15.Kadiyalu2Play.*;
+import static com.varaprasadps.no15.Kadiyalu1Play.*;
 import static java.lang.String.format;
 
-public class KadiyaluBrocadeConversion {
+public class KadiyaluPlainConversion {
 
     public static BufferedImage get(
             BufferedImage rightSilk, BufferedImage rightJari,
             BufferedImage banarasSilk, BufferedImage banarasJari,
             BufferedImage teegaSilk, BufferedImage teegaJari,
-            BufferedImage jari, BufferedImage nimbu
+            BufferedImage jari
     ) throws IOException {
         List<BufferedImage> brocades = new LinkedList<>();
         brocades.add(rani(rightSilk, rightJari, banarasSilk, banarasJari, teegaSilk, teegaJari, jari));
         brocades.add(jari(rightSilk, rightJari, banarasSilk, banarasJari, teegaSilk, teegaJari, jari));
-        brocades.add(nimbu(dis(rightSilk), dis(rightJari), dis(banarasSilk), dis(banarasJari), dis(teegaSilk), dis(teegaJari), nimbu));
         for (BufferedImage bufferedImage : brocades) {
             System.out.printf("file data - %s - %s%n", bufferedImage.getWidth(), bufferedImage.getHeight());
         }
         BufferedImage brocade = ReverseGenerator.get(LeftLayoutGenerator.get(getBrocade(brocades)));
         displayPixels(brocade);
 
-        saveBMP(brocade, format("d/15/out/design1/1kadiyalu-brocade-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
+        saveBMP(brocade, format("d/15/out/design1/1kadiyalu-plain-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
         return brocade;
     }
 
     public static void main(final String[] args) throws IOException {
         BufferedImage rightJari = HorizontalRepeatGenerator.get(2, ImageIO.read(new File("d/15/in/design1/border/right.bmp")));
-        BufferedImage teegaJari = HorizontalRepeatGenerator.get(2, ImageIO
-                .read(new File("d/15/in/design1/border/teega.bmp")));
+        BufferedImage teegaJari = HorizontalRepeatGenerator.get(2, ImageIO.read(new File("d/15/in/design1/border/teega.bmp")));
         BufferedImage banarasJari = HorizontalRepeatGenerator.get(2, ImageIO.read(new File("d/15/in/design1/border/repeat.bmp")));
 
         int width = rightJari.getWidth();
@@ -45,10 +43,9 @@ public class KadiyaluBrocadeConversion {
         BufferedImage teegaSilk = PlainGenerator.get(width, 48);
         BufferedImage banarasSilk = PlainGenerator.get(width, 64);
 
-        BufferedImage nimbu = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("d/15/in/design1/brocade1/nimbu.bmp")));
-        BufferedImage jari = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("d/15/in/design1/brocade1/jari.bmp")));
+        BufferedImage jari = PlainGenerator.get(width,480);
 
-        get(rightSilk, rightJari, banarasSilk, banarasJari, teegaSilk, teegaJari, jari, nimbu);
+        get(rightSilk, rightJari, banarasSilk, banarasJari, teegaSilk, teegaJari, jari);
     }
 
 
