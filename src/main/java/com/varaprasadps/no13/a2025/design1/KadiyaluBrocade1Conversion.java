@@ -10,7 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import static com.varaprasadps.image.KadiyaluLayoutGenerator.kadiyalu;
-import static com.varaprasadps.no13.a2025.Kadiyalu3Play.*;
+import static com.varaprasadps.no13.a2025.Kadiyalu2Play.*;
 import static java.lang.String.format;
 
 
