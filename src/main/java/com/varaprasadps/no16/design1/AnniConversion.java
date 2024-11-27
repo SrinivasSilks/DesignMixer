@@ -15,9 +15,9 @@ public class AnniConversion {
 
         String out = "d/16/out/design1/anni-%s-%s.bmp";
 
-        BufferedImage rightJari = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/16/in/design1/border/right.bmp")));
-        BufferedImage teegaJari = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/16/in/design1/border/teega.bmp")));
-        BufferedImage banarasJari = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("d/16/in/design1/border/repeat.bmp")));
+        BufferedImage rightJari = HorizontalRepeatGenerator.get(4, ImageIO.read(new File("d/16/in/design1/border-normal/jari.bmp")));
+        BufferedImage teegaJari = HorizontalRepeatGenerator.get(20, ImageIO.read(new File("d/16/in/design1/border/teega.bmp")));
+        BufferedImage banarasJari = HorizontalRepeatGenerator.get(15, ImageIO.read(new File("d/16/in/design1/border/repeat.bmp")));
 
         int width = rightJari.getWidth();
         BufferedImage rightSilk = PlainGenerator.get(width, 528);

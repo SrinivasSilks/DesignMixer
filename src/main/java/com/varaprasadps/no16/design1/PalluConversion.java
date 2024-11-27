@@ -1,4 +1,4 @@
-package com.varaprasadps.no16.design1.kbrocade1;
+package com.varaprasadps.no16.design1;
 
 import com.varaprasadps.image.*;
 
@@ -9,12 +9,12 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-import static com.varaprasadps.no16.Kadiyalu3Play.*;
+import static com.varaprasadps.no16.ThreePlay.*;
 import static java.lang.String.format;
 
-public class KadiyaluBrocadeConversion {
+public class PalluConversion {
 
-    private static final int SIZE = 600;
+    private static final int SIZE = 1200;
 
     public static BufferedImage get(
             BufferedImage raniSilk, BufferedImage raniJari,
@@ -22,20 +22,19 @@ public class KadiyaluBrocadeConversion {
             BufferedImage silverSilk, BufferedImage silverJari,
             BufferedImage banarasSilk, BufferedImage banarasJari,
             BufferedImage teegaSilk, BufferedImage teegaJari,
-            BufferedImage lavendar, BufferedImage green, BufferedImage silver
+            BufferedImage rani, BufferedImage green, BufferedImage silver
     ) throws IOException {
         List<BufferedImage> brocades = new LinkedList<>();
-        brocades.add(lavOne(raniSilk, raniJari, banarasSilk, banarasJari, teegaSilk, teegaJari, lavendar));
-        brocades.add(lavTwo(raniSilk, raniJari, banarasSilk, banarasJari, teegaSilk, teegaJari, lavendar));
-        brocades.add(green(greenSilk, greenJari, dis(banarasSilk), dis(banarasJari), dis(teegaSilk), dis(teegaJari), green));
-        brocades.add(silver(silverSilk, silverJari, dis(banarasSilk), dis(banarasJari), dis(teegaSilk), dis(teegaJari), silver));
+        brocades.add(rani(raniSilk, raniJari, banarasSilk, banarasJari, teegaSilk, teegaJari, rani));
+        brocades.add(jari(greenSilk, greenJari, dis(banarasSilk), dis(banarasJari), dis(teegaSilk), dis(teegaJari), green));
+        brocades.add(nimbu(silverSilk, silverJari, dis(banarasSilk), dis(banarasJari), dis(teegaSilk), dis(teegaJari), silver));
         for (BufferedImage bufferedImage : brocades) {
             System.out.printf("file data - %s - %s%n", bufferedImage.getWidth(), bufferedImage.getHeight());
         }
         BufferedImage brocade = ReverseGenerator.get(LeftLayoutGenerator.get(getBrocade(brocades)));
         displayPixels(brocade);
 
-        saveBMP(brocade, format("d/16/out/design1/1kadiyalu-brocade-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
+        saveBMP(brocade, format("d/16/out/design1/pallu-testing-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
         return brocade;
     }
 
@@ -52,11 +51,11 @@ public class KadiyaluBrocadeConversion {
         BufferedImage banarasJari = borderL(ImageIO.read(new File("d/16/in/design1/border/repeat.bmp")));
         BufferedImage banarasSilk = PlainGenerator.get(banarasJari.getWidth(), banarasJari.getHeight());
 
-        BufferedImage lavendar = body(ImageIO.read(new File("d/16/in/design1/brocade1/meena.bmp")));
-        BufferedImage green = body(ImageIO.read(new File("d/16/in/design1/brocade1/green.bmp")));
-        BufferedImage silver = body(ImageIO.read(new File("d/16/in/design1/brocade1/silver.bmp")));
+        BufferedImage rani = body(ImageIO.read(new File("d/16/in/design1/testing/border.bmp")));
+        BufferedImage green = body(ImageIO.read(new File("d/16/in/design1/testing/meena.bmp")));
+        BufferedImage silver = body(ImageIO.read(new File("d/16/in/design1/testing/silver.bmp")));
 
-        get(raniSilk, raniJari, greenSilk, greenJari, silverSilk, silverJari, banarasSilk, banarasJari, teegaSilk, teegaJari, lavendar, green, silver);
+        get(raniSilk, raniJari, greenSilk, greenJari, silverSilk, silverJari, banarasSilk, banarasJari, teegaSilk, teegaJari, rani, green, silver);
     }
 
     public static BufferedImage borderR(BufferedImage input) {
@@ -72,11 +71,19 @@ public class KadiyaluBrocadeConversion {
     }
 
     private static BufferedImage body(BufferedImage input) {
-        return HorizontalRepeatGenerator.get(SIZE / input.getWidth(), input);
+        return HorizontalRepeatGenerator.get(SIZE / input.getWidth(), VerticalRepeatGenerator.get(480 / input.getHeight(), input));
     }
 
     private static BufferedImage dis(BufferedImage image) {
         return EmptyGenerator.get(image.getWidth(), image.getHeight());
+    }
+
+    private static BufferedImage body(int repeat, BufferedImage image) {
+        return HorizontalRepeatGenerator.get(repeat, image);
+    }
+
+    private static BufferedImage border(int repeat, BufferedImage image) {
+        return HorizontalRepeatGenerator.get(repeat, image);
     }
 
     private static void displayPixels(BufferedImage fileOne) {
