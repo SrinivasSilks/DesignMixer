@@ -14,7 +14,7 @@ import static java.lang.String.format;
 
 public class PalluConversion {
 
-    private static final int SIZE = 1200;
+    private static final int SIZE = 1640;
 
     public static BufferedImage get(
             BufferedImage raniSilk, BufferedImage raniJari,
@@ -34,7 +34,7 @@ public class PalluConversion {
         BufferedImage brocade = ReverseGenerator.get(LeftLayoutGenerator.get(getBrocade(brocades)));
         displayPixels(brocade);
 
-        saveBMP(brocade, format("d/16/out/design1/pallu-testing-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
+        saveBMP(brocade, format("d/16/out/design1/pallu-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
         return brocade;
     }
 
@@ -51,9 +51,9 @@ public class PalluConversion {
         BufferedImage banarasJari = borderL(ImageIO.read(new File("d/16/in/design1/border/repeat.bmp")));
         BufferedImage banarasSilk = PlainGenerator.get(banarasJari.getWidth(), banarasJari.getHeight());
 
-        BufferedImage rani = body(ImageIO.read(new File("d/16/in/design1/testing/border.bmp")));
-        BufferedImage green = body(ImageIO.read(new File("d/16/in/design1/testing/meena.bmp")));
-        BufferedImage silver = body(ImageIO.read(new File("d/16/in/design1/testing/silver.bmp")));
+        BufferedImage rani = body(ImageIO.read(new File("d/16/in/design1/pallu/pallu-rani.bmp")));
+        BufferedImage green = body(ImageIO.read(new File("d/16/in/design1/pallu/pallu-green.bmp")));
+        BufferedImage silver = body(ImageIO.read(new File("d/16/in/design1/pallu/pallu-silver.bmp")));
 
         get(raniSilk, raniJari, greenSilk, greenJari, silverSilk, silverJari, banarasSilk, banarasJari, teegaSilk, teegaJari, rani, green, silver);
     }
@@ -63,11 +63,15 @@ public class PalluConversion {
         images.add(input);
         images.add(PlainGenerator.get(input.getWidth(), 2));
         BufferedImage result = ReverseGenerator.get(AddLayoutGenerator.get(images));
-        return HorizontalRepeatGenerator.get(SIZE / result.getWidth(), result);
+        return abc(HorizontalRepeatGenerator.get((SIZE / result.getWidth()) + 1, result));
     }
 
     private static BufferedImage borderL(BufferedImage input) {
-        return HorizontalRepeatGenerator.get(SIZE / input.getWidth(), input);
+        return abc(HorizontalRepeatGenerator.get((SIZE / input.getWidth()) + 1, input));
+    }
+
+    private static BufferedImage abc(BufferedImage input) {
+        return CutLayoutGenerator.get(input, SIZE, 0);
     }
 
     private static BufferedImage body(BufferedImage input) {
