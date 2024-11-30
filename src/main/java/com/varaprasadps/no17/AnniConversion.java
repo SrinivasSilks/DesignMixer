@@ -15,10 +15,9 @@ public class AnniConversion {
 
         String out = "d/17/out/design1/anni-%s-%s.bmp";
 
-        int width = 30;
-
-        BufferedImage right = PlainGenerator.get(width, 300);
-        BufferedImage left = PlainGenerator.get(width, 580);
+        BufferedImage right = ImageIO.read(new File("d/17/in/design1/border/right.bmp"));
+        BufferedImage left = ImageIO.read(new File("d/17/in/design1/border/left.bmp"));
+        int width = right.getWidth();
         BufferedImage body = PlainGenerator.get(width, 480);
 
         List<BufferedImage> inputBIs = new LinkedList<>();

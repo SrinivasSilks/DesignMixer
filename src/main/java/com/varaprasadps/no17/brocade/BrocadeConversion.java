@@ -33,13 +33,12 @@ public class BrocadeConversion {
     }
 
     public static void main(final String[] args) throws IOException {
-        int width = 60;
-        BufferedImage right = PlainGenerator.get(width, 580);
-        BufferedImage left = PlainGenerator.get(width, 300);
-        BufferedImage rani = PlainGenerator.get(width, 480);
-        BufferedImage jari = PlainGenerator.get(width, 480);
-        BufferedImage nimbu = PlainGenerator.get(width, 480);
-        get(right, left, rani, jari, nimbu);
+        BufferedImage right = border(7, ImageIO.read(new File("d/17/in/design1/border/right.bmp")));
+        BufferedImage left = border(7, ImageIO.read(new File("d/17/in/design1/border/left.bmp")));
+        BufferedImage lavender = body(4, ImageIO.read(new File("d/17/in/design1/brocade2/lavendar.bmp")));
+        BufferedImage silver = body(4, ImageIO.read(new File("d/17/in/design1/brocade2/silver.bmp")));
+        BufferedImage meena = body(4, ImageIO.read(new File("d/17/in/design1/brocade2/meena.bmp")));
+        get(right, left, lavender, silver, meena);
     }
 
     private static BufferedImage body(int repeat, BufferedImage image) {

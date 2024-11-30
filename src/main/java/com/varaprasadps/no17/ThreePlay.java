@@ -25,17 +25,19 @@ public class ThreePlay {
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 2));
-        //locking
+        //achu
         inputBIs.add(EmptyGenerator.get(width, 8));
 
         //left
         inputBIs.add(left);
         //locking
-        inputBIs.add(EmptyGenerator.get(width, 8));
+        inputBIs.add(EmptyGenerator.get(width, 4));
+        inputBIs.add(PlainGenerator.get(width, 4));
         //allover
         inputBIs.add(body);
         //locking
-        inputBIs.add(EmptyGenerator.get(width, 8));
+        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(EmptyGenerator.get(width, 4));
         //right
         inputBIs.add(right);
 
@@ -50,7 +52,7 @@ public class ThreePlay {
         inputBIs.add(EmptyGenerator.get(width, 1));
         //wheel
         inputBIs.add(EmptyGenerator.get(width, 1));
-        //kali
+        //achu
         inputBIs.add(EmptyGenerator.get(width, 8));
 
         int repeatWidth = 0;
@@ -78,17 +80,19 @@ public class ThreePlay {
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 2));
-        //locking
+        //achu
         inputBIs.add(EmptyGenerator.get(width, 8));
 
         //left
         inputBIs.add(left);
         //locking
-        inputBIs.add(PlainGenerator.get(width, 8));
+        inputBIs.add(EmptyGenerator.get(width, 4));
+        inputBIs.add(PlainGenerator.get(width, 4));
         //allover
         inputBIs.add(body);
         //locking
-        inputBIs.add(PlainGenerator.get(width, 8));
+        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(EmptyGenerator.get(width, 4));
         //right
         inputBIs.add(right);
 
@@ -103,7 +107,7 @@ public class ThreePlay {
         inputBIs.add(EmptyGenerator.get(width, 1));
         //wheel
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
-        //kali
+        //achu
         inputBIs.add(EmptyGenerator.get(width, 8));
 
 
@@ -132,7 +136,7 @@ public class ThreePlay {
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 2));
-        //locking
+        //achu
         inputBIs.add(AchuLayoutGenerator.get(width, 8));
 
         //left
@@ -157,7 +161,7 @@ public class ThreePlay {
         inputBIs.add(EmptyGenerator.get(width, 1));
         //wheel
         inputBIs.add(EmptyGenerator.get(width, 1));
-        //kali
+        //achu
         inputBIs.add(AchuLayoutGenerator.get(width, 8));
 
         int repeatWidth = 0;

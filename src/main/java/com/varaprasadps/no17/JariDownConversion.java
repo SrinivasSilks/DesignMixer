@@ -29,7 +29,7 @@ public class JariDownConversion {
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 2));
-        //locking
+        //achu
         inputBIs.add(BlackGenerator.get(width, 8));
 
         //left
@@ -54,7 +54,7 @@ public class JariDownConversion {
         inputBIs.add(EmptyGenerator.get(width, 1));
         //wheel
         inputBIs.add(EmptyGenerator.get(width, 1));
-        //kali
+        //achu
         inputBIs.add(BlackGenerator.get(width, 8));
 
         int repeatWidth = 0;
