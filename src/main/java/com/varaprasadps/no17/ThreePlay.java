@@ -51,7 +51,7 @@ public class ThreePlay {
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 1));
         //wheel
-        inputBIs.add(EmptyGenerator.get(width, 1));
+        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
         //achu
         inputBIs.add(EmptyGenerator.get(width, 8));
 
