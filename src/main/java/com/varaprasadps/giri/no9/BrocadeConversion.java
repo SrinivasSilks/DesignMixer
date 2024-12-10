@@ -11,9 +11,7 @@ import java.util.List;
 
 public class BrocadeConversion {
 
-
     public static void main(final String[] args) throws IOException {
-
         JariConversion.main(null);
         NimbuConversion.main(null);
         RaniConversion.main(null);
@@ -35,7 +33,6 @@ public class BrocadeConversion {
         saveBMP(bi, String.format(out, bi.getWidth(), bi.getHeight()));
     }
 
-
     private static void displayPixels(BufferedImage fileOne) {
         System.out.println(String.format("Width : %s, Height : %s", fileOne.getWidth(), fileOne.getHeight()));
     }
@@ -43,6 +40,5 @@ public class BrocadeConversion {
     private static void saveBMP(final BufferedImage bi, final String path) throws IOException {
         ImageIO.write(bi, "bmp", new File(path));
     }
-
 
 }

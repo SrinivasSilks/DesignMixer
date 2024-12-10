@@ -28,7 +28,7 @@ public class AnniConversion {
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //kadiyalu
         inputBIs.add(EmptyGenerator.get(width, 2));
-        //locking
+        //achu
         inputBIs.add(AchuLayoutGenerator.get(width, 8));
 
         //left
