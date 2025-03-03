@@ -10,18 +10,14 @@ import java.util.List;
 public class AddLayoutGenerator {
 
     public static void main(final String[] args) throws IOException {
-        String out = "d/2/in/design1/pallu/pallu-jari.bmp";
+        String out = "d/3/in/2024/design1/brocade4/goldjari.bmp";
+        String input = "d/3/in/2024/design2/brocade3/goldjari.bmp";
 
-        BufferedImage image = LeftLayoutGenerator.get(ImageIO.read(new File("d/2/in/design1/pallu/pallu-jari1.bmp")));
+        BufferedImage image = LeftLayoutGenerator.get(ImageIO.read(new File(input)));
         List<BufferedImage> inputBIs = new LinkedList<>();
 
-        List<BufferedImage> cc = CutLayoutGenerator.get(image, 306);
-        BufferedImage figure = cc.get(0);
-
-        List<BufferedImage> images = CutLayoutGenerator.get(cc.get(1), 80);
-
-        inputBIs.add(figure);
-        inputBIs.add(images.get(1));
+        inputBIs.add(CutLayoutGenerator.get(image, 16, 1));
+        inputBIs.add(CutLayoutGenerator.get(image, 16, 0));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
