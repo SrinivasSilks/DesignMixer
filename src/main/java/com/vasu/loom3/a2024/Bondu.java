@@ -2,6 +2,7 @@ package com.vasu.loom3.a2024;
 
 import com.varaprasadps.image.AddLayoutGenerator;
 import com.varaprasadps.image.CutLayoutGenerator;
+import com.varaprasadps.image.VerticalRepeatGenerator;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -16,10 +17,10 @@ public class Bondu {
         String out = "z-vasu/out/3/a2024/design1/pset.bmp";
 
         BufferedImage kongu = ImageIO.read(new File("z-vasu/out/3/a2024/design1/kongu-2-1824.bmp"));
-        BufferedImage kanni = ImageIO.read(new File("z-vasu/out/3/a2024/design1/kanni-1824-720.bmp"));
-        BufferedImage anni = ImageIO.read(new File("z-vasu/out/3/a2024/design1/anni-360-1824.bmp"));
+        BufferedImage kanni = VerticalRepeatGenerator.get(10, ImageIO.read(new File("z-vasu/out/3/a2024/design1/kanni-1824-80.bmp")));
+        BufferedImage anni =  VerticalRepeatGenerator.get(10,ImageIO.read(new File("z-vasu/out/3/a2024/design1/anni-40-1824.bmp")));
         BufferedImage pallu = ImageIO.read(new File("z-vasu/out/3/a2024/design1/pallu-1824-3224.bmp"));
-        BufferedImage brocade = ImageIO.read(new File("z-vasu/out/3/a2024/design1/1kadiyalu-anni-1824-720.bmp"));
+        BufferedImage brocade = ImageIO.read(new File("z-vasu/out/3/a2024/design1/5kbroc-1824-2040.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 

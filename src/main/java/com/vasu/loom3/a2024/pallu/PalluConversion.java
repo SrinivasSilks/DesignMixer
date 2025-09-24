@@ -33,10 +33,10 @@ public class PalluConversion {
         BufferedImage jari = ImageIO.read(new File("z-vasu/in/3/a2024/design1/pallu/pallu_jari.bmp"));
         BufferedImage rani = PlainGenerator.get(jari.getWidth(), jari.getHeight());
 
-        BufferedImage rightf = HorizontalRepeatGenerator.get(6, rightd);
+        BufferedImage rightf = HorizontalRepeatGenerator.get(60, rightd);
         BufferedImage right = CutLayoutGenerator.get(CutLayoutGenerator.get(rightf, 180, 1), jari.getWidth(), 0);
 
-        BufferedImage leftf = HorizontalRepeatGenerator.get(6, leftd);
+        BufferedImage leftf = HorizontalRepeatGenerator.get(60, leftd);
         BufferedImage left = CutLayoutGenerator.get(CutLayoutGenerator.get(leftf, 180, 1), jari.getWidth(), 0);
 
 

@@ -1,9 +1,6 @@
 package com.vasu.loom1.a2024.design1.kbrocade2;
 
-import com.varaprasadps.image.HorizontalRepeatGenerator;
-import com.varaprasadps.image.LeftLayoutGenerator;
-import com.varaprasadps.image.PlainGenerator;
-import com.varaprasadps.image.VerticalFlipGenerator;
+import com.varaprasadps.image.*;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -35,12 +32,12 @@ public class KadiyaluConversion {
     }
 
     public static void main(final String[] args) throws IOException {
-        BufferedImage right = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("z-vasu/in/1/a2024/design1/border/right.bmp")));
-        BufferedImage leftBack = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(5, ImageIO.read(new File("z-vasu/in/1/a2024/design1/border/left-first.bmp"))));
-        BufferedImage left = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(5, ImageIO.read(new File("z-vasu/in/1/a2024/design1/border/left.bmp"))));
+        BufferedImage right = HorizontalRepeatGenerator.get(6, ImageIO.read(new File("z-vasu/in/1/a2024/design1/border/right.bmp")));
+        BufferedImage leftBack = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(6, ImageIO.read(new File("z-vasu/in/1/a2024/design1/border/left-first.bmp"))));
+        BufferedImage left = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(6, ImageIO.read(new File("z-vasu/in/1/a2024/design1/border/left.bmp"))));
 
-        BufferedImage jari = HorizontalRepeatGenerator.get(3, ImageIO.read(new File("z-vasu/in/1/a2024/design1/brocade2/jari.bmp")));
-        BufferedImage meena = PlainGenerator.get(jari.getWidth(), jari.getHeight());
+        BufferedImage jari = VerticalRepeatGenerator.get(4, HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-vasu/in/1/a2024/design1/brocade2/jari.bmp"))));
+        BufferedImage meena = VerticalRepeatGenerator.get(4, HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-vasu/in/1/a2024/design1/brocade2/meena.bmp"))));
 
         get(right, leftBack, left, meena, jari);
     }

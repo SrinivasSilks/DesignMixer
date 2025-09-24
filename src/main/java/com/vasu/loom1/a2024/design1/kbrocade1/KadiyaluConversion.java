@@ -1,9 +1,6 @@
 package com.vasu.loom1.a2024.design1.kbrocade1;
 
-import com.varaprasadps.image.HorizontalRepeatGenerator;
-import com.varaprasadps.image.LeftLayoutGenerator;
-import com.varaprasadps.image.PlainGenerator;
-import com.varaprasadps.image.VerticalFlipGenerator;
+import com.varaprasadps.image.*;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -25,7 +22,7 @@ public class KadiyaluConversion {
         brocades.add(nimbu(getBorder(right), getBorder(left), jari));
         for (int i = 0; i < brocades.size(); i++) {
             BufferedImage bufferedImage = brocades.get(i);
-            System.out.println(String.format("file data - %s - %s", bufferedImage.getWidth(), bufferedImage.getHeight()));
+            System.out.printf("file data - %s - %s%n", bufferedImage.getWidth(), bufferedImage.getHeight());
         }
         BufferedImage brocade = LeftLayoutGenerator.get(getBrocade(brocades));
         displayPixels(brocade);
@@ -35,11 +32,11 @@ public class KadiyaluConversion {
     }
 
     public static void main(final String[] args) throws IOException {
-        BufferedImage right = HorizontalRepeatGenerator.get(5, ImageIO.read(new File("z-vasu/in/1/a2024/design1/border/right.bmp")));
-        BufferedImage leftBack = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(5, ImageIO.read(new File("z-vasu/in/1/a2024/design1/border/left-first.bmp"))));
-        BufferedImage left = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(5, ImageIO.read(new File("z-vasu/in/1/a2024/design1/border/left.bmp"))));
+        BufferedImage right = HorizontalRepeatGenerator.get(9, ImageIO.read(new File("z-vasu/in/1/a2024/design1/border/right.bmp")));
+        BufferedImage leftBack = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(9, ImageIO.read(new File("z-vasu/in/1/a2024/design1/border/left-first.bmp"))));
+        BufferedImage left = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(9, ImageIO.read(new File("z-vasu/in/1/a2024/design1/border/left.bmp"))));
 
-        BufferedImage jari = HorizontalRepeatGenerator.get(6, ImageIO.read(new File("z-vasu/in/1/a2024/design1/brocade1/jari.bmp")));
+        BufferedImage jari = VerticalRepeatGenerator.get(2, HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-vasu/in/1/a2024/design1/brocade1/jari.bmp"))));
         BufferedImage meena = PlainGenerator.get(jari.getWidth(), jari.getHeight());
 
         get(right, leftBack, left, meena, jari);
@@ -47,7 +44,7 @@ public class KadiyaluConversion {
 
 
     private static void displayPixels(BufferedImage fileOne) {
-        System.out.println(format("Width : %s, Height : %s", fileOne.getWidth(), fileOne.getHeight()));
+        System.out.printf("Width : %s, Height : %s%n", fileOne.getWidth(), fileOne.getHeight());
     }
 
     private static void saveBMP(final BufferedImage bi, final String path) throws IOException {

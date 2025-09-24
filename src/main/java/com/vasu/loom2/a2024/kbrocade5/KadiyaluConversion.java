@@ -32,9 +32,9 @@ public class KadiyaluConversion {
     }
 
     public static void main(final String[] args) throws IOException {
-        BufferedImage right = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-vasu/in/2/a2024/design1/border/right.bmp")));
-        BufferedImage leftBack = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-vasu/in/2/a2024/design1/border/left-first.bmp"))));
-        BufferedImage left = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-vasu/in/2/a2024/design1/border/left.bmp"))));
+        BufferedImage right = HorizontalRepeatGenerator.get(6, ImageIO.read(new File("z-vasu/in/2/a2024/design1/border/right.bmp")));
+        BufferedImage leftBack = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(6, ImageIO.read(new File("z-vasu/in/2/a2024/design1/border/left-first.bmp"))));
+        BufferedImage left = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(6, ImageIO.read(new File("z-vasu/in/2/a2024/design1/border/left.bmp"))));
 
         BufferedImage jariBaseImage = VerticalRepeatGenerator.get(4, ImageIO.read(new File("z-vasu/in/2/a2024/design1/brocade5/jari.bmp")));
         BufferedImage meenaBaseImage = VerticalRepeatGenerator.get(4, ImageIO.read(new File("z-vasu/in/2/a2024/design1/brocade5/meena.bmp")));

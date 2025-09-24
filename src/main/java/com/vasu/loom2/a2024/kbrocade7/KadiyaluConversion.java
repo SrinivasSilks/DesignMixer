@@ -32,11 +32,11 @@ public class KadiyaluConversion {
     }
 
     public static void main(final String[] args) throws IOException {
-        BufferedImage right = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-vasu/in/2/a2024/design1/border/right.bmp")));
-        BufferedImage leftBack = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-vasu/in/2/a2024/design1/border/left-first.bmp"))));
-        BufferedImage left = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-vasu/in/2/a2024/design1/border/left.bmp"))));
+        BufferedImage right = HorizontalRepeatGenerator.get(6, ImageIO.read(new File("z-vasu/in/2/a2024/design1/border/right.bmp")));
+        BufferedImage leftBack = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(6, ImageIO.read(new File("z-vasu/in/2/a2024/design1/border/left-first.bmp"))));
+        BufferedImage left = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(6, ImageIO.read(new File("z-vasu/in/2/a2024/design1/border/left.bmp"))));
 
-        BufferedImage jariBaseImage = VerticalRepeatGenerator.get(2, ImageIO.read(new File("z-vasu/in/2/a2024/design1/brocade7/jari.bmp")));
+        BufferedImage jariBaseImage = VerticalRepeatGenerator.get(1, ImageIO.read(new File("z-vasu/in/2/a2024/design1/brocade7/jari.bmp")));
         BufferedImage meenaBaseImage = PlainGenerator.get(jariBaseImage.getWidth(), jariBaseImage.getHeight());
         BufferedImage jari = HorizontalRepeatGenerator.get(1, jariBaseImage);
         BufferedImage meena = HorizontalRepeatGenerator.get(1, meenaBaseImage);

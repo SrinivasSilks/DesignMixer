@@ -2,6 +2,7 @@ package com.vasu.loom1.a2024.design1;
 
 import com.varaprasadps.image.AddLayoutGenerator;
 import com.varaprasadps.image.CutLayoutGenerator;
+import com.varaprasadps.image.VerticalRepeatGenerator;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -15,11 +16,11 @@ public class Bondu {
     public static void main(final String[] args) throws IOException {
         String out = "z-vasu/out/1/a2024/design1/pset.bmp";
 
-        BufferedImage anni = ImageIO.read(new File("z-vasu/out/1/a2024/design1/anni-240-1824.bmp"));
+        BufferedImage anni = VerticalRepeatGenerator.get(10, ImageIO.read(new File("z-vasu/out/1/a2024/design1/anni-40-1824.bmp")));
         BufferedImage pallu = ImageIO.read(new File("z-vasu/out/1/a2024/design1/pallu-1824-3240.bmp"));
-        BufferedImage kanni = ImageIO.read(new File("z-vasu/out/1/a2024/design1/kanni-1824-480.bmp"));
+        BufferedImage kanni = VerticalRepeatGenerator.get(10, ImageIO.read(new File("z-vasu/out/1/a2024/design1/kanni-1824-80.bmp")));
         BufferedImage kongu = ImageIO.read(new File("z-vasu/out/1/a2024/design1/kongu-2-1824.bmp"));
-        BufferedImage brocade = ImageIO.read(new File("z-vasu/out/1/a2024/design1/1kbroc-1824-3600.bmp"));
+        BufferedImage brocade = ImageIO.read(new File("z-vasu/out/1/a2024/design1/1kbroc-1824-1080.bmp"));
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -50,7 +51,7 @@ public class Bondu {
     }
 
     private static void displayPixels(BufferedImage fileOne) {
-        System.out.println(String.format("Width : %s, Height : %s", fileOne.getWidth(), fileOne.getHeight()));
+        System.out.printf("Width : %s, Height : %s%n", fileOne.getWidth(), fileOne.getHeight());
     }
 
     static void saveBMP(final BufferedImage bi, final String path) throws IOException {

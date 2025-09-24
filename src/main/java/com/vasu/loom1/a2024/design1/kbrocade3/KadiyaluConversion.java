@@ -1,9 +1,9 @@
-package com.vasu.loom3.a2024.kbrocade6;
+package com.vasu.loom1.a2024.design1.kbrocade3;
 
 import com.varaprasadps.image.HorizontalRepeatGenerator;
 import com.varaprasadps.image.LeftLayoutGenerator;
-import com.varaprasadps.image.PlainGenerator;
 import com.varaprasadps.image.VerticalFlipGenerator;
+import com.varaprasadps.image.VerticalRepeatGenerator;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -12,7 +12,11 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-import static com.vasu.loom3.a2024.Kadiyalu3Play.*;
+import static com.vasu.loom1.a2024.Kadiyalu2Play.getBorder;
+import static com.vasu.loom1.a2024.Kadiyalu2Play.getBrocade;
+import static com.vasu.loom1.a2024.Kadiyalu2Play.jari;
+import static com.vasu.loom1.a2024.Kadiyalu2Play.nimbu;
+import static com.vasu.loom1.a2024.Kadiyalu2Play.rani;
 import static java.lang.String.format;
 
 
@@ -30,17 +34,17 @@ public class KadiyaluConversion {
         BufferedImage brocade = LeftLayoutGenerator.get(getBrocade(brocades));
         displayPixels(brocade);
 
-        saveBMP(brocade, format("z-vasu/out/3/a2024/design1/6kbroc-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
+        saveBMP(brocade, format("z-vasu/out/1/a2024/design1/3kbroc-%s-%s.bmp", brocade.getWidth(), brocade.getHeight()));
         return brocade;
     }
 
     public static void main(final String[] args) throws IOException {
-        BufferedImage right = HorizontalRepeatGenerator.get(11, ImageIO.read(new File("z-vasu/in/3/a2024/design1/border/border.bmp")));
-        BufferedImage leftBack = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(11, ImageIO.read(new File("z-vasu/in/3/a2024/design1/border/border-first.bmp"))));
-        BufferedImage left = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(11, ImageIO.read(new File("z-vasu/in/3/a2024/design1/border/border.bmp"))));
+        BufferedImage right = HorizontalRepeatGenerator.get(33, ImageIO.read(new File("z-vasu/in/1/a2024/design1/border/right.bmp")));
+        BufferedImage leftBack = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(33, ImageIO.read(new File("z-vasu/in/1/a2024/design1/border/left-first.bmp"))));
+        BufferedImage left = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(33, ImageIO.read(new File("z-vasu/in/1/a2024/design1/border/left.bmp"))));
 
-        BufferedImage jari = HorizontalRepeatGenerator.get(1, ImageIO.read(new File("z-vasu/in/3/a2024/design1/brocade6/jari.bmp")));
-        BufferedImage meena = PlainGenerator.get(jari.getWidth(), jari.getHeight());
+        BufferedImage jari = VerticalRepeatGenerator.get(4, HorizontalRepeatGenerator.get(4, ImageIO.read(new File("z-vasu/in/1/a2024/design1/brocade3/jari.bmp"))));
+        BufferedImage meena = VerticalRepeatGenerator.get(4, HorizontalRepeatGenerator.get(4, ImageIO.read(new File("z-vasu/in/1/a2024/design1/brocade3/meena.bmp"))));
 
         get(right, leftBack, left, meena, jari);
     }

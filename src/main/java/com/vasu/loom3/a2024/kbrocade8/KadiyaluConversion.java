@@ -36,7 +36,7 @@ public class KadiyaluConversion {
         BufferedImage leftBack = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(5, ImageIO.read(new File("z-vasu/in/3/a2024/design1/border/border-first.bmp"))));
         BufferedImage left = VerticalFlipGenerator.get(HorizontalRepeatGenerator.get(5, ImageIO.read(new File("z-vasu/in/3/a2024/design1/border/border.bmp"))));
 
-        BufferedImage jari = HorizontalRepeatGenerator.get(18, ImageIO.read(new File("z-vasu/in/3/a2024/design1/brocade8/jari.bmp")));
+        BufferedImage jari = HorizontalRepeatGenerator.get(2, ImageIO.read(new File("z-vasu/in/3/a2024/design1/brocade8/jari.bmp")));
         BufferedImage meena = PlainGenerator.get(jari.getWidth(), jari.getHeight());
 
         get(right, leftBack, left, meena, jari);
