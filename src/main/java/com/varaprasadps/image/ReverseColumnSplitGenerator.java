@@ -9,13 +9,13 @@ import java.util.List;
 
 public class ReverseColumnSplitGenerator {
 
-    public static final int FILES = 3;
+    public static final int FILES = 2;
 
     public static void main(final String[] args) throws IOException {
-        String out = "sp/abc-1/";
+        String out = "d/";
 
-        String input = "sp/abc-1/abc1.bmp";
-        BufferedImage inputImage = RightLayoutGenerator.get(ImageIO.read(new File(input)));
+        String input = "d/ttt.bmp";
+        BufferedImage inputImage = ImageIO.read(new File(input));
 
         int repeatWidth = inputImage.getWidth();
         int repeatHeight = inputImage.getHeight() / FILES;
