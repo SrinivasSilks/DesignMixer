@@ -1,4 +1,4 @@
-package com.vasu.loom12.selfbrocade3;
+package com.vasu.loom12.kanni;
 
 import com.varaprasadps.image.*;
 
@@ -9,21 +9,21 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class JariConversion {
+public class RaniConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-vasu/out/12/a2023/design1/4self-jari-%s-%s.bmp";
+        String out = "z-vasu/out/12/a2023/design1/kanni-rani-%s-%s.bmp";
 
-        final BufferedImage body = ImageIO.read(new File("z-vasu/in/12/a2023/design1/brocade3/jari.bmp"));
+        final BufferedImage body = PlainGenerator.get(100, 720);
 
         int width = body.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
         //box
-        inputBIs.add(EmptyGenerator.get(width, 2));
         inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 2)));
+        inputBIs.add(EmptyGenerator.get(width, 2));
         //mispick
         inputBIs.add(ReverseGenerator.get(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0)));
         //achu
@@ -44,7 +44,7 @@ public class JariConversion {
         inputBIs.add(EmptyGenerator.get(width, 6));
 
         //config
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
+        inputBIs.add(EmptyGenerator.get(width, 1));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

@@ -27,8 +27,8 @@ public class PalluConversion {
     }
 
     public static void main(final String[] args) throws IOException {
-        BufferedImage rightd = ImageIO.read(new File("z-vasu/in/4/a2024/design1/border/right.bmp"));
-        BufferedImage leftd = VerticalFlipGenerator.get(ImageIO.read(new File("z-vasu/in/4/a2024/design1/border/left.bmp")));
+        BufferedImage rightd = ImageIO.read(new File("z-vasu/in/4/a2024/design1/border/right1.bmp"));
+        BufferedImage leftd = VerticalFlipGenerator.get(ImageIO.read(new File("z-vasu/in/4/a2024/design1/border/left1.bmp")));
 
         BufferedImage jari = ImageIO.read(new File("z-vasu/in/4/a2024/design1/pallu/pallu_jari.bmp"));
         BufferedImage rani = PlainGenerator.get(jari.getWidth(), jari.getHeight());

@@ -36,10 +36,12 @@ public class BorderConversion {
         //border
         inputBIs.add(border);
 
+        //locking
+        inputBIs.add(EmptyGenerator.get(width, 4));
         //mispick
         inputBIs.add(EmptyGenerator.get(width, 2));
         //achu
-        inputBIs.add(AchuLayoutGenerator.get(width, 10));
+        inputBIs.add(AchuLayoutGenerator.get(width, 6));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

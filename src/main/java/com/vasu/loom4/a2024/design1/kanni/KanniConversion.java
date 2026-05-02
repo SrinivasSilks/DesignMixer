@@ -29,8 +29,8 @@ public class KanniConversion {
     }
 
     public static void main(final String[] args) throws IOException {
-        BufferedImage right = ImageIO.read(new File("z-vasu/in/4/a2024/design1/border/right.bmp"));
-        BufferedImage left = VerticalFlipGenerator.get(ImageIO.read(new File("z-vasu/in/4/a2024/design1/border/left.bmp")));
+        BufferedImage right = ImageIO.read(new File("z-vasu/in/4/a2024/design1/border/right1.bmp"));
+        BufferedImage left = VerticalFlipGenerator.get(ImageIO.read(new File("z-vasu/in/4/a2024/design1/border/left1.bmp")));
 
         BufferedImage rani = PlainGenerator.get(right.getWidth(), 720);
         BufferedImage jari = PlainGenerator.get(right.getWidth(), 720);

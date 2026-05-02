@@ -13,15 +13,16 @@ import java.util.List;
 public class BrocadeConversion {
 
     public static void main(final String[] args) throws IOException {
+        NimbuConversion.main(null);
         JariConversion.main(null);
         RaniConversion.main(null);
 
         String out = "z-vasu/out/12/a2023/design1/2BRC-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("z-vasu/out/12/a2023/design1/2brc-rani-200-1416.bmp");
-        inputs.add("z-vasu/out/12/a2023/design1/2brc-jari-200-1416.bmp");
-        inputs.add("z-vasu/out/12/a2023/design1/2brc-nimbu-200-1416.bmp");
+        inputs.add("z-vasu/out/12/a2023/design1/2brc-rani-200-1409.bmp");
+        inputs.add("z-vasu/out/12/a2023/design1/2brc-jari-200-1409.bmp");
+        inputs.add("z-vasu/out/12/a2023/design1/2brc-nimbu-200-1409.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {

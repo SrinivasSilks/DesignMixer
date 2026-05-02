@@ -36,14 +36,15 @@ public class PlainConversion {
         //left
         inputBIs.add(EmptyGenerator.get(width, 330));
 
+        //locking
+        inputBIs.add(PlainGenerator.get(width, 4));
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //achu
-        inputBIs.add(EmptyGenerator.get(width, 10));
+        inputBIs.add(EmptyGenerator.get(width, 6));
 
         //config
         inputBIs.add(EmptyGenerator.get(width, 1));
-        inputBIs.add(EmptyGenerator.get(width, 7));
 
         int repeatWidth = 0;
         int repeatHeight = 0;

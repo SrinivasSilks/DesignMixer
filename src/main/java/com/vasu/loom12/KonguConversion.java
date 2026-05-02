@@ -1,4 +1,4 @@
-package com.vasu.loom12.selfbrocade3;
+package com.vasu.loom12;
 
 import com.varaprasadps.image.*;
 
@@ -9,15 +9,15 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class JariConversion {
+public class KonguConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-vasu/out/12/a2023/design1/4self-jari-%s-%s.bmp";
+        String out = "z-vasu/out/12/a2023/design1/kongu.bmp";
 
-        final BufferedImage body = ImageIO.read(new File("z-vasu/in/12/a2023/design1/brocade3/jari.bmp"));
+        final BufferedImage plain = KonguLayoutGenerator.get(720 / 4);
 
-        int width = body.getWidth();
+        int width = plain.getWidth();
 
         List<BufferedImage> inputBIs = new LinkedList<>();
 
@@ -32,19 +32,19 @@ public class JariConversion {
         //left
         inputBIs.add(EmptyGenerator.get(width, 330));
         //body
-        inputBIs.add(body);
+        inputBIs.add(plain);
         //left
         inputBIs.add(EmptyGenerator.get(width, 330));
 
         //locking
-        inputBIs.add(PlainGenerator.get(width, 4));
+        inputBIs.add(KonguLayoutGenerator.get(1));
         //mispick
         inputBIs.add(CutLayoutGenerator.get(AchuLayoutGenerator.get(width, 4), 2).get(0));
         //achu
         inputBIs.add(EmptyGenerator.get(width, 6));
 
         //config
-        inputBIs.add(ReverseGenerator.get(EmptyGenerator.get(width, 1)));
+        inputBIs.add(EmptyGenerator.get(width, 1));
 
         int repeatWidth = 0;
         int repeatHeight = 0;
@@ -54,7 +54,7 @@ public class JariConversion {
             repeatWidth = bi.getWidth();
             repeatHeight += bi.getHeight();
         }
-        BufferedImage bi = AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs);
+        BufferedImage bi = LeftLayoutGenerator.get(AddLayoutGenerator.get(repeatWidth, repeatHeight, inputBIs));
         displayPixels(bi);
         saveBMP(bi, String.format(out, repeatWidth, repeatHeight));
     }

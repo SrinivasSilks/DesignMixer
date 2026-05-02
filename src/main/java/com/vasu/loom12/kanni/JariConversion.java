@@ -1,6 +1,7 @@
-package com.vasu.loom12.selfbrocade3;
+package com.vasu.loom12.kanni;
 
 import com.varaprasadps.image.*;
+import com.vasu.loom12.PlainConversion;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -13,9 +14,9 @@ public class JariConversion {
 
     public static void main(final String[] args) throws IOException {
 
-        String out = "z-vasu/out/12/a2023/design1/4self-jari-%s-%s.bmp";
+        String out = "z-vasu/out/12/a2023/design1/kanni-jari-%s-%s.bmp";
 
-        final BufferedImage body = ImageIO.read(new File("z-vasu/in/12/a2023/design1/brocade3/jari.bmp"));
+        final BufferedImage body = PlainGenerator.get(100, 720);
 
         int width = body.getWidth();
 

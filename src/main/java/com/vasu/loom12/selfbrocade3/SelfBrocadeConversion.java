@@ -19,8 +19,8 @@ public class SelfBrocadeConversion {
         String out = "z-vasu/out/12/a2023/design1/4SELFBROC-%s-%s.bmp";
 
         List<String> inputs = new LinkedList<>();
-        inputs.add("z-vasu/out/12/a2023/design1/4self-rani-140-1416.bmp");
-        inputs.add("z-vasu/out/12/a2023/design1/4self-jari-140-1416.bmp");
+        inputs.add("z-vasu/out/12/a2023/design1/4self-rani-140-1409.bmp");
+        inputs.add("z-vasu/out/12/a2023/design1/4self-jari-140-1409.bmp");
 
         List<BufferedImage> inputBIs = new LinkedList<>();
         for (String input : inputs) {
