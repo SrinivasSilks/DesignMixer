@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-import static com.vasu.loom2.a2024.KadiyaluAnniPlay.*;
+import static com.vasu.loom1.a2024.KadiyaluAnniPlay.*;
 import static java.lang.String.format;
 
 

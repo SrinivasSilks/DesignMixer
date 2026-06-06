@@ -9,9 +9,9 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-import static com.vasu.loom2.a2024.KadiyaluAnniPlay.getBrocade;
-import static com.vasu.loom2.a2024.KadiyaluAnniPlay.jari;
-import static com.vasu.loom2.a2024.KadiyaluAnniPlay.rani;
+import static com.vasu.loom1.a2024.KadiyaluAnniPlay.getBrocade;
+import static com.vasu.loom1.a2024.KadiyaluAnniPlay.jari;
+import static com.vasu.loom1.a2024.KadiyaluAnniPlay.rani;
 import static java.lang.String.format;
 
 
